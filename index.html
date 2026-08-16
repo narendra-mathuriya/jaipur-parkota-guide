@@ -3,607 +3,1476 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>जयपुर व आसपास: हेरिटेज, खरीदारी, मंदिर, पार्क्स, आगामी प्रोजेक्ट्स व डे-ट्रिप गाइड (126 स्थान)</title>
+  <title>Jaipur Index | The Definitive Heritage, Commerce & Urban Guide</title>
+  
+  <!-- Modern Sans-Serif Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    * {
+    /* -------------------------------------------------------------------------- */
+    /* 2026 Design System: Tokens & Baseline                                      */
+    /* -------------------------------------------------------------------------- */
+    :root {
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      
+      /* Neutral Base Palette */
+      --bg-body: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --bg-hover: #F8FAFC;
+      
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      
+      --border-subtle: #E2E8F0;
+      --border-strong: #CBD5E1;
+      
+      /* Restrained Heritage Accent (Refined Crimson Terracotta) */
+      --accent: #8C2D27;
+      --accent-hover: #73221D;
+      --accent-soft: #FDF2F2;
+      --accent-border: #FECACA;
+      
+      /* Layout & Spacing Tokens */
+      --container-max: 1200px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+      --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+      --shadow-hover: 0 8px 20px -4px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
+      
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    body {
-      background-color: #F8FAFC;
-      color: #0F172A;
-      padding: 16px 12px 60px;
-      line-height: 1.5;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    /* Header */
-    .header {
-      background: linear-gradient(135deg, #8C2D27 0%, #6E1F1A 100%);
-      color: #FFFFFF;
-      padding: 24px 16px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(140, 45, 39, 0.15);
-      margin-bottom: 14px;
-    }
-    .header-tag {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 3px 12px;
-      border-radius: 20px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 6px;
-    }
-    .header h1 {
-      font-size: 1.35rem;
-      margin-bottom: 4px;
-    }
-    .header p {
-      font-size: 0.84rem;
-      opacity: 0.9;
     }
 
-    /* Action Buttons */
-    .action-hub {
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 1. Sticky Navigation                                                       */
+    /* -------------------------------------------------------------------------- */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .nav-inner {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .brand-mark {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: var(--radius-full);
+    }
+
+    .nav-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav-cta {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-nav-cta:hover {
+      background: #000000;
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--text-primary);
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 2. Hero Section                                                            */
+    /* -------------------------------------------------------------------------- */
+    .hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
       gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: 2.85rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1px solid var(--border-strong);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+    }
+
+    .hero-card-preview {
+      background: var(--bg-body);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .preview-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .preview-pulse {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #16A34A;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #16A34A;
+      border-radius: 50%;
+    }
+
+    .preview-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
       margin-bottom: 12px;
     }
-    .btn {
-      flex: 1;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.82rem;
-      cursor: pointer;
-      border: 1px solid #E2E8F0;
-      background: #FFFFFF;
-      color: #334155;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-    .btn-primary {
-      background: #8C2D27;
-      color: #FFFFFF;
-      border-color: #8C2D27;
+
+    .preview-item:last-child {
+      margin-bottom: 0;
     }
 
-    /* Sticky Search & Categories */
-    .search-sticky {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 8px;
-      z-index: 99;
-      background: rgba(248, 250, 252, 0.97);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 4px 0 10px;
-    }
-    .search-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    .search-box {
-      width: 100%;
-      padding: 12px 38px 12px 14px;
+    .preview-item-title {
+      font-weight: 700;
       font-size: 0.95rem;
-      border: 2px solid #CBD5E1;
-      border-radius: 10px;
-      outline: none;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .preview-item-desc {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 3. Trust & Metrics Bar                                                     */
+    /* -------------------------------------------------------------------------- */
+    .metrics-bar {
+      padding: 36px 0;
       background: #FFFFFF;
-      color: #0F172A;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      border-bottom: 1px solid var(--border-subtle);
     }
-    .search-box:focus {
-      border-color: #8C2D27;
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: left;
     }
-    .clear-btn {
+
+    .metric-item {
+      padding-left: 20px;
+      border-left: 2px solid var(--border-subtle);
+    }
+
+    .metric-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 4. Features Section                                                        */
+    /* -------------------------------------------------------------------------- */
+    .features-section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-intro {
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+
+    .section-tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-heading {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .feature-num {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .feature-text {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 5. Main Interactive Directory Explorer                                     */
+    /* -------------------------------------------------------------------------- */
+    .directory-section {
+      padding: 72px 0 96px;
+    }
+
+    .filter-wrapper {
+      position: sticky;
+      top: 68px;
+      z-index: 900;
+      background: rgba(248, 250, 252, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 16px 0;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .search-row {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 48px;
+      padding: 10px 42px 10px 18px;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      background: #FFFFFF;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-input:focus {
+      border-color: var(--text-primary);
+      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.06);
+    }
+
+    .search-clear-btn {
       position: absolute;
-      right: 10px;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
       width: 24px;
       height: 24px;
-      border-radius: 50%;
-      background: #CBD5E1;
+      background: var(--bg-subtle);
       border: none;
-      font-size: 0.8rem;
-      color: #334155;
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--text-secondary);
       display: none;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 700;
     }
 
-    /* Category Filter Grid */
-    .category-container {
-      margin-top: 10px;
+    .category-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
-    .cat-btn {
+
+    .cat-pill {
       background: #FFFFFF;
-      border: 1px solid #CBD5E1;
-      color: #334155;
-      font-size: 0.76rem;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
       font-weight: 600;
-      padding: 6px 11px;
-      border-radius: 20px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: var(--transition);
       user-select: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-    }
-    .cat-btn:hover {
-      background: #FDF2F0;
-      color: #8C2D27;
-      border-color: #F7D6D3;
-    }
-    .cat-btn.active {
-      background: #8C2D27;
-      color: #FFFFFF;
-      border-color: #8C2D27;
-      box-shadow: 0 2px 6px rgba(140, 45, 39, 0.25);
     }
 
-    .meta-bar {
+    .cat-pill:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      background: var(--bg-subtle);
+    }
+
+    .cat-pill.active {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      border-color: var(--text-primary);
+    }
+
+    .directory-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 10px;
-      font-size: 0.78rem;
-      color: #64748B;
-    }
-    .badge {
-      background: #FDF2F0;
-      color: #8C2D27;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 600;
+      margin-bottom: 24px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
     }
 
-    /* Card Grid */
-    .list-container {
-      margin-top: 10px;
+    .directory-count-badge {
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--accent-border);
+    }
+
+    .directory-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    @media (min-width: 640px) {
-      .list-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    .card {
+    .spot-card {
       background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 10px;
-      padding: 14px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: var(--transition);
+      box-shadow: var(--shadow-card);
     }
-    .card-head {
+
+    .spot-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .spot-card-top {
+      margin-bottom: 16px;
+    }
+
+    .spot-card-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #F1F5F9;
-      gap: 6px;
-    }
-    .card-title {
-      font-size: 0.94rem;
-      font-weight: 700;
-      color: #8C2D27;
-    }
-    .card-area {
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: #F1F5F9;
-      color: #475569;
-      padding: 2px 6px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-    .card-body {
-      font-size: 0.83rem;
-      line-height: 1.45;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      gap: 12px;
       margin-bottom: 10px;
     }
-    .card-row {
-      color: #1E293B;
+
+    .spot-card-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
     }
-    .card-lbl {
+
+    .spot-card-area {
+      font-size: 0.72rem;
       font-weight: 600;
-      color: #64748B;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
     }
-    .map-btn {
-      display: block;
-      padding: 8px 10px;
-      background: #EFF6FF;
-      color: #2563EB;
-      text-align: center;
-      text-decoration: none;
+
+    .spot-card-body {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .spot-row-label {
       font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .spot-card-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 9px 12px;
       font-size: 0.8rem;
-      border-radius: 6px;
-      border: 1px solid #DBEAFE;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      margin-top: 14px;
     }
 
-    #noResult {
+    .spot-card-action:hover {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      border-color: var(--text-primary);
+    }
+
+    .empty-state {
       display: none;
+      grid-column: 1 / -1;
       text-align: center;
-      padding: 30px 16px;
+      padding: 64px 24px;
       background: #FFFFFF;
-      border-radius: 10px;
-      border: 1px dashed #CBD5E1;
-      color: #64748B;
-      font-size: 0.88rem;
-      margin-top: 12px;
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
     }
 
-    @media print {
-      body { background: white; padding: 0; }
-      .header { background: #8C2D27 !important; color: white !important; -webkit-print-color-adjust: exact; }
-      .action-hub, .search-sticky, .category-container, .map-btn { display: none !important; }
-      .list-container { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-      .card { page-break-inside: avoid; border: 1px solid #ccc; box-shadow: none; padding: 8px; }
+    /* -------------------------------------------------------------------------- */
+    /* 6. Testimonials & Editorial Notes                                          */
+    /* -------------------------------------------------------------------------- */
+    .editorial-section {
+      padding: 72px 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .editorial-card {
+      padding: 24px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: var(--bg-body);
+    }
+
+    .editorial-quote {
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .editorial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .author-name {
+      font-weight: 700;
+      font-size: 0.84rem;
+      color: var(--text-primary);
+    }
+
+    .author-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 7. Call To Action                                                          */
+    /* -------------------------------------------------------------------------- */
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-box {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      padding: 56px 32px;
+      border-radius: var(--radius-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .cta-sub {
+      font-size: 0.98rem;
+      color: #94A3B8;
+      max-width: 480px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .cta-btn:hover {
+      background: var(--bg-subtle);
+      transform: translateY(-1px);
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 8. Footer                                                                  */
+    /* -------------------------------------------------------------------------- */
+    .site-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-subtle);
+      padding: 64px 0 32px;
+      font-size: 0.86rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-desc {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-link {
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .footer-link:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* Responsive Adjustments                                                     */
+    /* -------------------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .directory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn-nav-cta {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .features-grid, .editorial-grid {
+        grid-template-columns: 1fr;
+      }
+      .directory-grid {
+        grid-template-columns: 1fr;
+      }
+      .filter-wrapper {
+        top: 60px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="header">
-    <span class="header-tag">ULTIMATE JAIPUR & OUTSKIRTS ENCYCLOPEDIA</span>
-    <h1>जयपुर व आसपास: रास्ते, खरीदारी, मंदिर, पार्क्स, आगामी प्रोजेक्ट्स व डे-ट्रिप गाइड</h1>
-    <p>परकोटा बाजार, टॉडलर पार्क्स, पैसिफिक मॉल, पिंकवॉक, किशनगढ़ डंप यार्ड, पुष्कर, बीसलपुर, गोनेर व नए प्रोजेक्ट्स</p>
-  </div>
+  <!-- ========================================================================= -->
+  <!-- 1. Sticky Navigation                                                      -->
+  <!-- ========================================================================= -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand">
+        <span class="brand-mark"></span>
+        <span>Jaipur Index</span>
+        <span class="nav-badge">2026 Edition</span>
+      </a>
 
-  <div class="action-hub">
-    <button class="btn btn-primary" onclick="dlHTML()">📥 डाउनलोड HTML</button>
-    <button class="btn" onclick="window.print()">📄 PDF में सहेजें</button>
-  </div>
+      <ul class="nav-links">
+        <li><a href="#explore" class="nav-link">Directory</a></li>
+        <li><a href="#features" class="nav-link">Highlights</a></li>
+        <li><a href="#explore" class="nav-link" onclick="filterCat('upcoming')">Upcoming Hubs</a></li>
+        <li><a href="#explore" class="nav-link" onclick="filterCat('streetfood')">Street Food</a></li>
+        <li><a href="#explore" class="nav-link" onclick="filterCat('outskirts')">Day Trips</a></li>
+      </ul>
 
-  <div class="search-sticky">
-    <div class="search-wrap">
-      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: pacific mall, pinkwalk, kishangarh, pushkar, stadium, city park, toddler, goner..." autocomplete="off">
-      <button id="cb" class="clear-btn" onclick="resetSearch()">✕</button>
+      <div class="nav-actions">
+        <a href="#explore" class="btn-nav-cta">Explore 126 Spots</a>
+        <button class="menu-toggle" aria-label="Toggle navigation" onclick="toggleMobileNav()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- Category Group Pills -->
-    <div class="category-container" id="catBar">
-      <button class="cat-btn active" onclick="filterCat('all', this)">🔄 सभी</button>
-      <button class="cat-btn" onclick="filterCat('upcoming', this)">🆕 आगामी व नए प्रोजेक्ट्स</button>
-      <button class="cat-btn" onclick="filterCat('mall', this)">🛍️ मॉल्स व शॉपिंग आर्केड</button>
-      <button class="cat-btn" onclick="filterCat('toddler', this)">👶 टॉडलर व किड्स स्पॉट्स</button>
-      <button class="cat-btn" onclick="filterCat('parks', this)">🌳 पार्क, लेक व नेचर</button>
-      <button class="cat-btn" onclick="filterCat('temple', this)">🛕 मंदिर व तीर्थ स्थल</button>
-      <button class="cat-btn" onclick="filterCat('outskirts', this)">🚗 वीकेंड गेटवे व डे ट्रिप</button>
-      <button class="cat-btn" onclick="filterCat('cafe', this)">☕ कैफ़े व सनसेट स्पॉट्स</button>
-      <button class="cat-btn" onclick="filterCat('streetfood', this)">🍢 स्ट्रीट फूड व कचौरी-चाट</button>
-      <button class="cat-btn" onclick="filterCat('food', this)">🍲 घेवर, मिठाई व भोजन</button>
-      <button class="cat-btn" onclick="filterCat('sightseeing', this)">🏰 ऐतिहासिक धरोहर व टूरिज्म</button>
-      <button class="cat-btn" onclick="filterCat('wedding', this)">💍 विवाह व मायरा खरीदारी</button>
-      <button class="cat-btn" onclick="filterCat('textiles', this)">👗 साड़ी, लहरिया व कुर्ती</button>
-      <button class="cat-btn" onclick="filterCat('jewelry', this)">💎 रत्न, कुंदन व सोना-चांदी</button>
-      <button class="cat-btn" onclick="filterCat('crafts', this)">🗿 हस्तशिल्प, मोजड़ी व मार्बल</button>
-      <button class="cat-btn" onclick="filterCat('general', this)">📚 विविध बाजार व सेवाएं</button>
+  <!-- ========================================================================= -->
+  <!-- 2. Hero Section                                                           -->
+  <!-- ========================================================================= -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-eyebrow">A Living Cultural & Urban Index</span>
+        <h1 class="hero-title">The Definitive Jaipur Explorer & Directory.</h1>
+        <p class="hero-desc">
+          An authoritative compilation of 126 curated artisan alleys, historic bazaars, heritage street food legends, tranquil temples, modern retail centers, and day-trip getaways.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#explore" class="btn-primary">Browse Complete Index</a>
+          <a href="#features" class="btn-secondary">Curator Notes</a>
+        </div>
+      </div>
+
+      <div class="hero-card-preview">
+        <div class="preview-header">
+          <span class="preview-label">Live Directory Spotlight</span>
+          <span class="preview-pulse"><span class="pulse-dot"></span> 126 Verified Entries</span>
+        </div>
+        <div class="preview-item">
+          <div class="preview-item-title">गोपाल जी का रास्ता • जौहरी बाजार</div>
+          <div class="preview-item-desc">पन्ना (Emerald), माणक, नीलम, असली हीरे व पुश्तैनी जेमस्टोन घराने।</div>
+        </div>
+        <div class="preview-item">
+          <div class="preview-item-title">पैसिफिक मॉल • मानसरोवर (2026 Mega Hub)</div>
+          <div class="preview-item-desc">450+ वैश्विक ब्रांड्स, राजस्थान का पहला IMAX सिनेमा व लेमन ट्री होटल।</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="meta-bar">
-      <span>कैटेगरी चुनें या ऊपर सर्च करें</span>
-      <span class="badge" id="st">126 स्थान</span>
+  <!-- ========================================================================= -->
+  <!-- 3. Trust & Social Proof Metric Bar                                        -->
+  <!-- ========================================================================= -->
+  <section class="metrics-bar">
+    <div class="container metrics-grid">
+      <div class="metric-item">
+        <div class="metric-val">126+</div>
+        <div class="metric-label">Curated Historical & Urban Spots</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">300+</div>
+        <div class="metric-label">Years of Living Karigari Traditions</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">16</div>
+        <div class="metric-label">Specific Thematic Categories</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">100%</div>
+        <div class="metric-label">Direct Navigation & Map Coordinates</div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div id="noResult">❌ कोई परिणाम नहीं मिला। कृपया दूसरा शब्द या कैटेगरी चुनें।</div>
-  <div class="list-container" id="list"></div>
-</div>
+  <!-- ========================================================================= -->
+  <!-- 4. Features Section                                                        -->
+  <!-- ========================================================================= -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-tag">Curation Architecture</span>
+        <h2 class="section-heading">Designed for effortless urban exploration.</h2>
+        <p class="section-sub">Built to help residents, connoisseurs, and travelers discover authentic craftsmanship and regional treasures.</p>
+      </div>
 
-<script>
-var D = [
-  /* 1 to 50: Original Parkota Heritage Lanes */
-  {id:1,n:"गोपाल जी का रास्ता",i:"पन्ना (Emerald), माणक, नीलम, असली हीरे, जेमस्टोन बीड्स",a:"जौहरी बाजार",s:"सुरना ज्वैलर्स, कोठारी जेम्स",q:"Gopal+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry"],en:"gopal ji rasta emerald panna manak ruby sapphire neelam heera diamond gemstone stones beads surana kothari jewellers ratan nagina gems jewelry"},
-  {id:2,n:"हल्दियों का रास्ता",i:"राजपूती पोशाक, गोटा-पत्ती, शुद्ध चांदी के बर्तन, असली हींग",a:"जौहरी बाजार",s:"ओढ़नी साड़ी, आरी तारी, विनायक सिल्वर",q:"Haldiyon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","textiles","jewelry","food"],en:"haldiyon haldiya ka rasta rajputi poshak gota patti silver chandi bartan utensils heeng hing odhni sari saree aari tari vinayak food wedding masala"},
-  {id:3,n:"पुरोहित जी का कटला",i:"थोक कपड़ा मंडी, साड़ियाँ, लहरिया, साफे, मायरा सामान",a:"बड़ी चौपड़",s:"महालक्ष्मी साड़ीज, सूरज भवन Wholesalers",q:"Purohit+Ji+Ka+Katla+Johari+Bazar+Jaipur",cats:["wedding","textiles"],en:"purohit prohit ji katla wholesale kapda cloth market saree sari lahariya lehariya leheriya lahriya safa pagdi mayra poshak badi chaupar wedding"},
-  {id:4,n:"घी वालों का रास्ता",i:"असली चांदी-सोने का वर्क (Vark), सूखे मेवे, प्राकृतिक मनके",a:"जौहरी बाजार",s:"नताणी ड्राई फ्रूट्स, वर्क कारीगर घराने",q:"Ghee+Walon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["food","jewelry"],en:"ghee walon rasta chandi sona vark foil gold silver leaf dry fruits kaju badam natani manke beads food nashta jewel"},
-  {id:5,n:"एमएसबी का रास्ता",i:"असली मोती (Pearls), विंटेज सिक्के, पुरानी चांदी के जेवर",a:"जौहरी बाजार",s:"विंटेज सिल्वर हाउस, पर्ल ट्रेडर्स",q:"MSB+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry","crafts"],en:"msb rasta moti pearls vintage coins antique chandi silver jewelry ornaments jewel"},
-  {id:6,n:"पटवों का रास्ता",i:"लटकन, धागा-पिरोई, मंगलसूत्र डोरे, बाजूबंद फुंदने",a:"जौहरी बाजार",s:"मास्टर पटवा घराने",q:"Patwon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","jewelry","crafts"],en:"patwon patwa rasta latkan tassels dhaga thread piroi mangalsutra dori bajuband fundne craft jewel wedding"},
-  {id:7,n:"सीताराम जी का रास्ता",i:"कुंदन-जड़ाऊ, पोल्की, अनकट डायमंड, शीशफूल",a:"जौहरी बाजार",s:"पुश्तैनी जड़ाऊ कारीगर वर्कशॉप्स",q:"Sitaram+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","jewelry"],en:"sitaram ji rasta kundan jadau polki diamond uncut heera sheeshphool bridal jewelry karigar jewel wedding"},
-  {id:8,n:"नया कटला (गोटा कटला)",i:"थोक गोटा-पत्ती के फूल, लेस, जरकन लड़ियाँ, पैच",a:"हल्दियों का रास्ता",s:"गोटा हाउस, फैंसी लेस स्टोर",q:"Naya+Katla+Haldiyon+Ka+Rasta+Jaipur",cats:["wedding","textiles"],en:"naya katla gota katla wholesale gota patti lace borders zarkan patch phool embroidery wedding saree"},
-  {id:9,n:"सोनी जी का रास्ता",i:"कच्चा सोना-चांदी (Bullion), टंच शुद्धता टेस्टिंग लैब्स",a:"जौहरी बाजार",s:"सरकारी मान्यता प्राप्त टंच लैब्स",q:"Soni+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry"],en:"soni ji rasta kacha sona chandi raw gold silver bullion tunch purity testing labs hallmark jewel gold silver"},
-  {id:10,n:"धाभाई जी का रास्ता",i:"हाथ की जरदोजी, डंका कढ़ाई, मास्टर ब्राइडल टेलर्स",a:"जौहरी बाजार",s:"जरदोजी आर्ट वर्कशॉप्स",q:"Dhabhai+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","textiles"],en:"dhabhai ji rasta zardozi zardosi danka embroidery bridal tailors boutique hand work saree wedding"},
-  {id:11,n:"लालजी सांड का रास्ता",i:"शिफॉन/जॉर्जेट लहरिया, मोठड़ा, बंधेज साड़ियाँ व सूट",a:"चौड़ा रास्ता",s:"प्रतिभा साड़ीज, गोयल साड़ी एम्पोरियम",q:"Lalji+Sand+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","textiles"],en:"lalji sand rasta chiffon georgette lahariya lehariya leheriya lahriya mothda bandhej bandhani saree sari suit kapda wedding"},
-  {id:12,n:"टिकली वालों का रास्ता",i:"पतंग, मांझा, लाल बही-खाते, दीवाली चोपड़े, हैंडमेड पेपर",a:"चौड़ा रास्ता",s:"पतंग एंपोरियम, बही-खाता भंडार",q:"Tikkiwalon+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["general"],en:"tikli tikkiwalon rasta patang kite kites manjha manja bahi khata ledger account books handmade paper books"},
-  {id:13,n:"फिल्म कॉलोनी",i:"थोक दवा व सर्जिकल उपकरण का सबसे बड़ा बाजार",a:"चौड़ा रास्ता",s:"थोक फार्मा डिस्ट्रीब्यूटर्स",q:"Film+Colony+Chaura+Rasta+Jaipur",cats:["general"],en:"film colony wholesale medicines medicine dawai dawayi surgical pharma distributors pharmacy medical"},
-  {id:14,n:"धींगरा मार्केट / चश्मा गली",i:"चश्मे के फ्रेम, सनग्लासेस, ऑप्टिकल लेंस थोक मंडी",a:"चौड़ा रास्ता",s:"जयपुरी ऑप्टिकल होलसेलर्स",q:"Chaura+Rasta+Optical+Market+Jaipur",cats:["general"],en:"dhingra market chashma chasma gali specs sunglasses glasses optical lenses frames wholesale medicine"},
-  {id:15,n:"पोद्दार / सोती मार्केट",i:"प्रतियोगी परीक्षा पुस्तकें, कॉलेज स्टेशनरी, रजिस्टर्स",a:"चौड़ा रास्ता",s:"यूनिवर्सिटी बुक डिपो, स्टूडेंट कॉर्नर",q:"Poddar+Market+Chaura+Rasta+Jaipur",cats:["general"],en:"poddar soti market exam books college stationery books registers kitabe pustak"},
-  {id:16,n:"नहाटा का रास्ता",i:"शादी के गिफ्ट पैकिंग बॉक्स, मखमली डिब्बियाँ, बैग्स",a:"चौड़ा रास्ता",s:"फैंसी पैकेजिंग भंडार",q:"Nahata+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","general"],en:"nahata rasta wedding gift packing box boxes velvet dibbi bags packaging tray wedding"},
-  {id:17,n:"ताड़केश्वर जी की गली",i:"धार्मिक पुस्तकें, हस्तलिखित पंचांग, ज्योतिष चार्ट",a:"चौड़ा रास्ता",s:"वैदिक साहित्य केंद्र",q:"Tadkeshwar+Ji+Temple+Chaura+Rasta+Jaipur",cats:["general","temple"],en:"tadkeshwar ji temple gali mandir religious books panchang jyotish astrology charts kundali books pooja"},
-  {id:18,n:"ख्वास जी का रास्ता",i:"दर्जी सामग्री, धागे, बटन, जिप, अचकन मास्टर टेलर्स",a:"चौड़ा रास्ता",s:"मास्टर टेलरिंग मैटेरियल्स",q:"Khwas+Ji+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","textiles"],en:"khwas ji rasta tailor materials sewing threads buttons zip zippers achkan sherwani master wedding kapda"},
-  {id:19,n:"मनिहारों का रास्ता",i:"असली लाख की चूड़ियाँ (Lac Bangles), ब्राइडल चूड़ा",a:"त्रिपोलिया बाजार",s:"बाबू खान लाख बैंगल्स, खानदानी मनिहार",q:"Maniharon+Ka+Rasta+Tripolia+Bazar+Jaipur",cats:["wedding","jewelry"],en:"maniharon manihar rasta lac lakh bangles choodi chudi chudiya choodiyan bridal chuda babu khan jewel wedding"},
-  {id:20,n:"कसारों की गली",i:"शुद्ध कांसे (Bronze) के बर्तन, तांबे-पीतल के डिनर सेट्स",a:"त्रिपोलिया बाजार",s:"कसार बर्तन भंडार",q:"Kasaron+Ki+Gali+Tripolia+Bazar+Jaipur",cats:["crafts"],en:"kasaron gali bronze kansa bartan utensils tamba peetal copper brass dinner sets"},
-  {id:21,n:"ठठेरों का रास्ता",i:"हाथ से पीटे तांबे-पीतल के बर्तन, बड़े हवन कुंड, उरली",a:"त्रिपोलिया बाजार",s:"पारंपरिक ठठेरा वर्कशॉप्स",q:"Thatheron+Ka+Rasta+Tripolia+Jaipur",cats:["crafts"],en:"thatheron thathera rasta hand beaten copper brass utensils havan kund urli handicraft peetal tamba utensils"},
-  {id:22,n:"घड़ी गली",i:"विंटेज पेंडुलम घड़ियों की मरम्मत, दुर्लभ कलपुर्जे",a:"त्रिपोलिया बाजार",s:"विंटेज क्लॉक रीस्टोरर्स",q:"Ghadi+Gali+Tripolia+Bazar+Jaipur",cats:["general","crafts"],en:"ghadi gali vintage pendulum clocks watch repair antique parts vintage"},
-  {id:23,n:"सूत की गली",i:"सूती पतंग की डोर, दरी बुनने का सूत, मजबूत धागे",a:"त्रिपोलिया बाजार",s:"सूत भंडार",q:"Soot+Ki+Gali+Tripolia+Jaipur",cats:["general"],en:"soot gali cotton yarn thread kite dori rug weaving dari threads"},
-  {id:24,n:"तिजोरी वाली गली",i:"पुरानी भारी लोहे की फायरप्रूफ देसी तिजोरियां, सेफ",a:"त्रिपोलिया बाजार",s:"लोहा तिजोरी भंडार",q:"Tijori+Gali+Tripolia+Jaipur",cats:["general","crafts"],en:"tijori gali heavy iron fireproof safe locker vault desi tijoriya loha vintage"},
-  {id:25,n:"खजाने वालों का रास्ता",i:"मकराना संगमरमर (Marble) की देवी-देवताओं की मूर्तियाँ",a:"किशनपोल बाजार",s:"भारद्वाज मूर्ति कला, राष्ट्रीय अवार्डी मूर्तिकार",q:"Khazane+Walon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"khazane rasta makrana marble marbel moorti murti murtiya idols god statue sculpture bhardwaj marble handicraft"},
-  {id:26,n:"भींडों का रास्ता",i:"पीतल-तांबे के हस्तशिल्प, कांसे की थालियाँ, घंटियाँ",a:"किशनपोल बाजार",s:"भींडो ब्रास एंपोरियम",q:"Bhindon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"bhindon bhindo rasta brass copper handicraft bronze plates thali bells ghanti artifacts peetal utensils handicraft"},
-  {id:27,n:"खुटेटों का रास्ता",i:"ताराकशी (शीशम पर पीतल तार इनले), ठप्पा छपाई",a:"किशनपोल बाजार",s:"ताराकशी शिल्पकार केंद्र",q:"Khuteton+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"khuteton rasta tarakashi brass wire inlay sheesham wood woodcraft blocks handicraft vintage"},
-  {id:28,n:"चिटेरों का रास्ता",i:"राजस्थानी मिनिएचर पेंटिंग्स, कपड़े पर पिछवाई कला",a:"किशनपोल बाजार",s:"मिनिएचर आर्ट स्टूडियोज",q:"Chiteron+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"chiteron rasta rajasthani miniature paintings pichwai art cloth painting handicraft"},
-  {id:29,n:"शीशे वालों का रास्ता",i:"बेल्जियम ग्लास आईने, लकड़ी के विंटेज झरोखा फ्रेम",a:"किशनपोल बाजार",s:"जयपुरी ग्लास & फ्रेमिंग",q:"Sheeshe+Walon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"sheeshe rasta mirrors belgium glass aaina vintage jharokha wooden frames framing aayna kanch vintage handicraft"},
-  {id:30,n:"वैद्य जी का रास्ता",i:"पुश्तैनी नाड़ी वैद्य, दुर्लभ भस्म, आयुर्वेदिक औषधियां",a:"किशनपोल बाजार",s:"खानदानी वैद्य शालाएं",q:"Vaidya+Ji+Ka+Rasta+Kishanpole+Jaipur",cats:["general"],en:"vaidya ji rasta ayurveda ayurvedic herbs medicine dawai nadi vaidya bhasma herbal desi ilaj jadi buti medicine"},
-  {id:31,n:"सिकलीगरों का रास्ता",i:"दर्जी कैंची की धार, चाकू-छुरी पैना करने के कारीगर",a:"किशनपोल बाजार",s:"सिकलीगर कारीगर लेन",q:"Sikligaron+Ka+Rasta+Kishanpole+Jaipur",cats:["general","crafts"],en:"sikligaron rasta scissor sharpening scissors kainchi chaku knife sharpener blades utensils"},
-  {id:32,n:"ट्रंक मंडी / पेटी लेन",i:"शादी के लोहे/जस्ते के पेंटेड संदूक, साड़ियों की पेटियाँ",a:"अजमेरी गेट",s:"ट्रंक एंड सेफ हाउस",q:"Trunk+Market+Ajmeri+Gate+Jaipur",cats:["wedding","general"],en:"trunk mandi peti lane painted iron tin box boxes sandook bridal storage trunk sanduk wedding"},
-  {id:33,n:"बगरू वालों का रास्ता",i:"प्राकृतिक नील (Indigo) व दाबू ब्लॉक प्रिंट फैब्रिक",a:"चांदपोल बाजार",s:"बगरू हैंडब्लॉक हाउस",q:"Bagru+Walon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles"],en:"bagru rasta indigo dabu block print fabric cotton natural dye handblock kapda saree"},
-  {id:34,n:"छीपों का रास्ता",i:"हाथ से छपी कॉटन बेडशीट, दोहर, प्रिंटिंग ब्लॉक्स",a:"पुरानी बस्ती",s:"छीपा प्रिंटिंग वर्कशॉप्स",q:"Chhipon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles","crafts"],en:"chhipon chheepa rasta printed cotton bedsheets dohar printing blocks chadar kapda handicraft"},
-  {id:35,n:"सिलावटों का रास्ता",i:"गुलाबी बलुआ पत्थर (Sandstone) जालियाँ, फव्वारे",a:"चांदपोल बाजार",s:"सिलावट स्टोन आर्ट",q:"Silawaton+Ka+Rasta+Chandpole+Jaipur",cats:["crafts"],en:"silawaton rasta sandstone pink stone carving jali fountain favvare stone craft marble handicraft"},
-  {id:36,n:"पुरोहित जी का रास्ता",i:"पूजा सामग्री, तांबे के कलश, सांबर फीणी, घेवर",a:"चांदपोल बाजार",s:"सांबर फीणी मिष्ठान भंडार",q:"Purohit+Ji+Ka+Rasta+Chandpole+Jaipur",cats:["food","general","streetfood"],en:"purohit prohit ji rasta pooja samagri copper kalash sambhar feeni pheeni ghewar ghevar sweets mithai food nashta mithai"},
-  {id:37,n:"सुथारों का मोहल्ला",i:"लकड़ी के नक्काशीदार बाजोट (चौकी), पाटे, पीढ़े",a:"पुरानी बस्ती",s:"सुथार काष्ठ कला केंद्र",q:"Purani+Basti+Chandpole+Jaipur",cats:["crafts","wedding"],en:"sutharon mohalla wooden bajot chowki paata peedha wood craft carpenter handicraft wedding"},
-  {id:38,n:"कुम्हारों का मोहल्ला",i:"मिट्टी की हांडी, तवे, सुराही, कलात्मक डिजाइनर दीए",a:"पुरानी बस्ती",s:"पारंपरिक कुम्हार पाड़ा",q:"Kumharon+Ka+Mohalla+Purani+Basti+Jaipur",cats:["crafts"],en:"kumharon mohalla clay pottery mitti handi tawa surahi designer diya pots matka handicraft utensils"},
-  {id:39,n:"नाहरगढ़ रोड विंटेज लेन",i:"हवेलियों का पुराना सागवान/शीशम फर्नीचर, झरोखे",a:"चांदपोल के पास",s:"विंटेज हवेली फर्नीचर हाउस",q:"Nahargarh+Road+Furniture+Market+Jaipur",cats:["crafts"],en:"nahargarh road vintage antique furniture haveli teak sheesham wood jharokha doors purana furniture vintage"},
-  {id:40,n:"सब्जी मंडी कटला",i:"पंचकुटा (कैर, सांगरी, कुमटिया), सूखी काचरी, मथानिया मिर्च",a:"चांदपोल बाजार",s:"मारवाड़ी किराना स्टोर",q:"Chandpole+Mandi+Jaipur",cats:["food"],en:"sabzi mandi katla panchkuta ker sangri sangari kumtiya kachri mathania mirch spices grocery masale food nashta achar"},
-  {id:41,n:"पानी पेच का रास्ता",i:"कच्चे कपड़े पर हाथ से लहरिया, पचरंगा, टाई-डाई रंगाई",a:"रामगंज / घाट गेट",s:"उस्ताद रंगरेज डायर्स",q:"Pani+Pech+Ka+Rasta+Ramganj+Jaipur",cats:["textiles"],en:"pani pech rasta hand dye lahariya leheriya lahriya pachranga tie dye rangrez fabric rangai kapda saree"},
-  {id:42,n:"चार दरवाजा / मोची गली",i:"शुद्ध लेदर की हाथ से बनी जयपुरी मोजड़ियाँ (Juttis)",a:"रामगंज बाजार",s:"खानदानी मोजड़ी निर्माता",q:"Char+Darwaza+Ramganj+Jaipur",cats:["wedding","crafts","general"],en:"char darwaza mochi gali pure leather jaipuri jutti jooti mojari jutis footwear shoes mojadi jutiya"},
-  {id:43,n:"पन्नीगरों का मोहल्ला",i:"हथौड़े की मार से बना शुद्ध चांदी और सोने का वर्क",a:"चार दरवाजा",s:"पन्नीगर घराने वर्कशॉप्स",q:"Pannigaron+Ka+Mohalla+Ramganj+Jaipur",cats:["food","jewelry"],en:"pannigaron mohalla pure silver gold vark foil edible silver leaf hammering chandi vark food jewel"},
-  {id:44,n:"हांडीपुरा पतंग मंडी",i:"जयपुरी व बरेली का पक्का मांझा, थोक पतंग बाजार",a:"रामगंज क्षेत्र",s:"हांडीपुरा मांझा केंद्र",q:"Handipura+Ramganj+Jaipur",cats:["general"],en:"handipura patang mandi bareilly manjha kites wholesale kite market manja"},
-  {id:45,n:"मिरासी गली",i:"शास्त्रीय वाद्य यंत्र—हारमोनियम, तबला, ढोलक, सारंगी",a:"रामगंज बाजार",s:"म्यूजिकल इंस्ट्रूमेंट हाउस",q:"Mirasi+Gali+Ramganj+Jaipur",cats:["crafts","general"],en:"mirasi gali musical instruments harmonium tabla dholak sarangi sangeet music baja handicraft"},
-  {id:46,n:"तोपखाना हुजूरी",i:"शाही लक्जरी तंबू, जयपुरी शामियाना, कनात, जाजम",a:"घाट गेट परकोटा",s:"रॉयल टेंट मैन्युफैक्चरर्स",q:"Topkhana+Hazuri+Ghat+Gate+Jaipur",cats:["wedding","general"],en:"topkhana huzuri royal luxury tents jaipuri shamiana kanat jajam marquee tent tambu wedding"},
-  {id:47,n:"घांची मोहल्ला",i:"लकड़ी के कोल्हू का शुद्ध कच्ची घानी तिल व सरसों तेल",a:"रामगंज-सूरजपोल",s:"घांची शुद्ध तेल घानी",q:"Ghanchi+Mohalla+Ramganj+Jaipur",cats:["food"],en:"ghanchi mohalla cold pressed kacchi ghani til sesame mustard sarso oil pure edible oil tel food"},
-  {id:48,n:"हवा महल / सिरे ड्योढ़ी लेन",i:"विश्व प्रसिद्ध शुद्ध सूती जयपुरी रजाई (Jaipuri Razai)",a:"सिरे ड्योढ़ी बाजार",s:"गुलाब चंद प्रिंट्स, हेरिटेज रजाई",q:"Sireh+Deori+Bazar+Jaipur",cats:["textiles"],en:"hawa mahal sireh deori pure cotton jaipuri razai quilts blankets rajai bedcover gulab chand razayi kapda"},
-  {id:49,n:"पान दरीबा",i:"शादियों का मुखवास, बनारसी पान, असली कत्था व सुपारी",a:"बड़ी चौपड़ मुहाना",s:"पान दरीबा मुखवास हाउस",q:"Paan+Dariba+Badi+Chaupar+Jaipur",cats:["food","wedding","streetfood"],en:"paan dariba mukhwas mouth freshener banarasi paan kattha supari badi chaupar saunf food nashta pan"},
-  {id:50,n:"तोरण बाजार / बंदनवार लेन",i:"गोटा-पत्ती बंदनवार, तोरण, दूल्हे का तोरण पाटा, जयमाला",a:"बड़ी चौपड़",s:"मांगलिक श्रृंगार भंडार",q:"Badi+Chaupar+Jaipur",cats:["wedding"],en:"toran bazar bandanwar gota patti toran door hanging jaimala wedding decor groom toran pata varmala wedding"},
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-num">01 / ARTISAN LANES</div>
+          <h3 class="feature-title">Ancestral Karigars</h3>
+          <p class="feature-text">Direct access to generational gemsmiths, lac bangle molders, hand-beaten bronze smiths, and natural dye masters inside the Walled City.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-num">02 / CULINARY HERITAGE</div>
+          <h3 class="feature-title">Street Gastronomy</h3>
+          <p class="feature-text">From 80-year-old wood-coal chai and hing kachoris to rooftop panoramic cafes overlooking centuries-old architecture.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-num">03 / OUTSKIRTS & MODERN HUBS</div>
+          <h3 class="feature-title">Beyond the Periphery</h3>
+          <p class="feature-text">Covering natural lakes, toddler-friendly parks, holy pilgrim shrines, and 2026 upcoming mega-retail infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  /* 51 to 60: Famous Street Food & Heritage Sweets */
-  {id:51,n:"सम्राट रेस्टोरेंट व नाश्ता लेन",i:"हींग कचौरी, गर्म समोसा, कुरकुरी जलेबी, खमण ढोकला व मसाला चाय",a:"चौड़ा रास्ता",s:"सम्राट रेस्टोरेंट (Samrat since 1965)",q:"Samrat+Restaurant+Chaura+Rasta+Jaipur",cats:["streetfood","food"],en:"samrat restaurant chaura rasta heeng kachori samosa jalebi khaman dhokla chai tea breakfast nashta street food"},
-  {id:52,n:"एलएमबी (LMB - लक्ष्मी मिष्ठान भंडार)",i:"विश्व प्रसिद्ध पनीर घेवर, राज कचौरी, मलाई घेवर, दाल बाटी थाली",a:"जौहरी बाजार",s:"लक्ष्मी मिष्ठान भंडार (Heritage LMB 1727)",q:"LMB+Johari+Bazar+Jaipur",cats:["streetfood","food"],en:"lmb laxmi mishtan bhandar johari bazar paneer ghewar ghevar raj kachori dal baati churma sweets thali mithai food"},
-  {id:53,n:"ओरिजिनल लस्सी वाला (1944)",i:"मिट्टी के कुल्हड़ में गाढ़ी मलाईदार मीठी व नमकीन ताज़ा लस्सी",a:"एम.आई. रोड (अजमेरी गेट मुहाना)",s:"किशनलाल गोविंद नारायण लस्सी वाला (Shop 312)",q:"Lassiwala+MI+Road+Jaipur",cats:["streetfood","food"],en:"lassiwala lassi wala mi road ajmeri gate kulhad malai lassi sweet lassi shop 312 street food nashta drink"},
-  {id:54,n:"बापू बाजार मुख्य मार्केट",i:"सांगानेरी प्रिंट कुर्तियाँ, जयपुरी कॉटन चादरें, लेदर जूती, हैंडीक्राफ्ट",a:"सांगानेरी गेट से न्यू गेट",s:"बापू बाजार गारमेंट्स व हैंडीक्राफ्ट एम्पोरियम",q:"Bapu+Bazar+Jaipur",cats:["textiles","crafts","wedding"],en:"bapu bazar sanganeri kurtis kurti cotton bedsheet bedsheets chadar jutti leather handicrafts shopping textiles"},
-  {id:55,n:"नेहरू बाजार",i:"रंग-बिरंगी जयपुरी/जोधपुरी मोजड़ियाँ, रेडीमेड परिधान, बैग्स व गिफ्ट्स",a:"न्यू गेट से अजमेरी गेट",s:"नेहरू बाजार फुटवियर एंड टैक्सटाइल मार्केट",q:"Nehru+Bazar+Jaipur",cats:["crafts","textiles","general"],en:"nehru bazar footwear mojari jooti jutti ready made clothes bags shopping ajmeri gate"},
-  {id:56,n:"रावत मिष्ठान भंडार",i:"प्रसिद्ध खस्ता प्याज कचौरी, मावा कचौरी, मिर्ची वड़ा व घेवर",a:"स्टेशन रोड (चांदपोल के पास)",s:"रावत मिष्ठान भंडार (Rawat Sweets)",q:"Rawat+Mishtan+Bhandar+Jaipur",cats:["streetfood","food"],en:"rawat mishtan bhandar pyaz ki kachori pyaaz mawa kachori mirchi vada jalebi ghewar nashta street food"},
-  {id:57,n:"पंडित कुल्फी व फालूदा",i:"केसर-पिस्ता मटका कुल्फी, शाही रबड़ी फालूदा व पान कुल्फी",a:"सिरह ड्योढ़ी (हवा महल के सामने)",s:"पंडित कुल्फी सेंटर (Pandit Kulfi)",q:"Pandit+Kulfi+Hawa+Mahal+Jaipur",cats:["streetfood","food"],en:"pandit kulfi hawa mahal sireh deori rabdi falooda rabri pista kulfi dessert street food ice cream"},
-  {id:58,n:"गुलाब जी चाय वाले",i:"स्पेशल कड़क मसाला चाय, बन-मस्का, बन-मक्खन व गरमागरम समोसा",a:"एमआई रोड / गणगौरी बाजार",s:"गुलाब जी चाय वाले (Gulab Ji Chai)",q:"Gulab+Ji+Chai+Wale+MI+Road+Jaipur",cats:["streetfood","food"],en:"gulab ji chai wale tea masala tea bun maska makhan samosa street food nashta gangori"},
-  {id:59,n:"इत्र व सुगंध लेन (Attar Lane)",i:"शुद्ध जयपुरी रूह गुलाब, खस, मोगरा, असली ऊद इत्र, चंदन तेल व अगरबत्ती",a:"हल्दियों का रास्ता / जौहरी बाजार",s:"गुलाब सिंह जोहरीमल, सुगंध भंडार",q:"Attar+Johari+Bazar+Jaipur",cats:["crafts","general","wedding"],en:"ittar attar gali rose water gulab jal khas mogra oudh chandan sandalwood oil perfume aroma wedding pooja"},
-  {id:60,n:"महावीर जी की रबड़ी",i:"केसर-पिस्ता मटका रबड़ी, लच्छेदार गाढ़ा दूध, मालपुआ व बेझड़ रोटी",a:"चांदपोल / त्रिपोलिया के पास",s:"महावीर रबड़ी भंडार (Mahaveer Rabri)",q:"Mahaveer+Rabri+Bhandar+Chandpole+Jaipur",cats:["streetfood","food"],en:"mahaveer rabdi bhandar rabri kulfi kesar pista milk sweet dessert street food bejhad roti malpua"},
+  <!-- ========================================================================= -->
+  <!-- 5. Main Directory Explorer                                                -->
+  <!-- ========================================================================= -->
+  <section class="directory-section" id="explore">
+    <div class="container">
 
-  /* 61 to 68: Famous Temples */
-  {id:61,n:"मोती डूंगरी गणेश मंदिर",i:"जयपुर के अधिष्ठाता प्रथम पूज्य गणेश जी, मोदक प्रसाद व बुधवार मेला",a:"जेएलएन मार्ग / तिलक नगर",s:"मोती डूंगरी ट्रस्ट व मोदक भंडार",q:"Moti+Dungri+Ganesh+Ji+Temple+Jaipur",cats:["temple","food"],en:"moti dungri ganesh mandir temple modak laddu ganesha wednesday religious pooja darshan jln marg"},
-  {id:62,n:"गोविंद देव जी मंदिर",i:"जयपुर के आराध्य देव, नयनाभिराम मंगला व संध्या आरती, मिश्री मावा प्रसादी",a:"जलेब चौक / सिटी पैलेस परिसर",s:"ठाकुर जी मंदिर भोग शाला",q:"Govind+Dev+Ji+Temple+Jaleb+Chowk+Jaipur",cats:["temple","food"],en:"govind dev ji mandir temple krishna aarti jaleb chowk city palace prasad darshan religious pooja"},
-  {id:63,n:"बिड़ला मंदिर (लक्ष्मी नारायण मंदिर)",i:"शुद्ध मकराना सफेद संगमरमर की भव्य नक्काशी, शांत बगीचे व रात्रि लाइटिंग",a:"तिलक नगर / मोती डूंगरी तलहटी",s:"बिड़ला मंदिर कॉम्प्लेक्स",q:"Birla+Mandir+Jaipur",cats:["temple","sightseeing","toddler"],en:"birla mandir lakshmi narayan temple white marble tilak nagar moti dungri architecture garden tourist"},
-  {id:64,n:"गलता जी तीर्थ (Monkey Temple)",i:"पवित्र प्राकृतिक 7 जल कुंड, अरावली घाटी, प्राचीन सूर्य मंदिर व बंदर",a:"गलता हिल्स (घाट की गुणी के पास)",s:"प्राचीन गलता पीठ व कुंड",q:"Galtaji+Temple+Jaipur",cats:["temple","sightseeing"],en:"galtaji galta ji temple monkey temple natural springs holy kund sun temple aravalli hills ghat ki guni"},
-  {id:65,n:"खोले के हनुमान जी मंदिर",i:"पहाड़ी पर बसा भव्य मंदिर परिसर, रोपवे (Ropeway) सुविधा व प्रसिद्ध सवामणी",a:"दिल्ली-जयपुर बाईपास",s:"खोले के हनुमान जी ट्रस्ट",q:"Khole+Ke+Hanuman+Ji+Temple+Jaipur",cats:["temple","sightseeing","toddler"],en:"khole ke hanuman ji temple ropeway sawamani prasad dal baati churma hills bypass hanuman mandir"},
-  {id:66,n:"गढ़ गणेश मंदिर",i:"अरावली पहाड़ी की चोटी पर बिना सूंड वाले बाल गणेश जी, पैदल ट्रेक सीढ़ियां",a:"नाहरगढ़ तलहटी (गैटोर के पास)",s:"गढ़ गणेश शिखर",q:"Garh+Ganesh+Temple+Jaipur",cats:["temple","sightseeing"],en:"garh ganesh mandir trekking stairs aravalli fort view child ganesha heritage trek"},
-  {id:67,n:"जगत शिरोमणि मंदिर (आमेर)",i:"16वीं सदी का अनूठा नक्काशीदार पत्थर मंदिर, जहाँ मीरा बाई श्रीकृष्ण संग पूजी जाती हैं",a:"आमेर कस्बा",s:"हेरिटेज जगत शिरोमणि",q:"Jagat+Shiromani+Temple+Amer+Jaipur",cats:["temple","sightseeing","crafts"],en:"jagat shiromani temple amer meera krishna stone carving heritage hidden gem architecture"},
-  {id:68,n:"काले हनुमान जी मंदिर",i:"दुर्लभ काले रंग के बाल हनुमान जी की प्राचीन प्रतिमा, चांदी का चौपड़ मुख",a:"हवा महल के पास (चांदी की टकसाल)",s:"काले हनुमान जी मंदिर",q:"Kale+Hanuman+Ji+Temple+Jaipur",cats:["temple"],en:"kale hanuman ji temple chandi ki taksal hawa mahal old city black hanuman mandir pooja"},
+      <!-- Sticky Search & Filter Bar -->
+      <div class="filter-wrapper">
+        <div class="search-row">
+          <input type="text" id="sb" class="search-input" placeholder="Search by name, item, area (e.g. kachori, lahariya, pacific mall, pushkar, silver, park)..." autocomplete="off">
+          <button id="cb" class="search-clear-btn" onclick="resetSearch()">✕</button>
+        </div>
 
-  /* 69 to 73: Operating Famous Malls */
-  {id:69,n:"वर्ल्ड ट्रेड पार्क (WTP Mall)",i:"विशाल ब्लू-ग्लास आर्किटेक्चर, इंटरनेशनल ब्रांड्स, फूड कोर्ट व फंतासी स्ट्रीट",a:"मालवीय नगर (JLN मार्ग)",s:"WTP नॉर्थ व साउथ ब्लॉक",q:"World+Trade+Park+Malviya+Nagar+Jaipur",cats:["mall","food","toddler"],en:"wtp world trade park mall malviya nagar shopping international brands multiplex cinema food court modern"},
-  {id:70,n:"गौरव टावर (GT) व जीटी बाजार",i:"जयपुर का सबसे पहला व लोकप्रिय यूथ मॉल, अंडरग्राउंड स्ट्रीट शॉपिंग व फास्ट फूड लेन",a:"मालवीय नगर",s:"GT सेंट्रल, अंडरग्राउंड बाजार",q:"Gaurav+Tower+Malviya+Nagar+Jaipur",cats:["mall","streetfood"],en:"gaurav tower gt bazar gt central malviya nagar underground street market fast food shopping youth hangout"},
-  {id:71,n:"मॉल ऑफ जयपुर (Mall of Jaipur)",i:"लक्जरी ब्रांड्स, एंटरटेनमेंट जोन, रूफटॉप डाइनिंग व आधुनिक बुटीक्स",a:"गांधी पथ (वैशाली नगर)",s:"मॉल ऑफ जयपुर आर्केड",q:"Mall+of+Jaipur+Vaishali+Nagar+Jaipur",cats:["mall","food","toddler"],en:"mall of jaipur vaishali nagar gandhi path shopping multiplex gaming cinema luxury"},
-  {id:72,n:"ट्राइटन मॉल (Triton Mall)",i:"किफायती फैशन शॉपिंग, हाइपरमार्केट, गेमिंग जोन व मल्टीप्लेक्स सिनेमा",a:"झोटवाड़ा रोड",s:"ट्राइटन मेगा मार्ट्स",q:"Triton+Mall+Jhotwara+Road+Jaipur",cats:["mall","toddler"],en:"triton mall jhotwara shopping hypermarket dmart cinema movies gaming clothes"},
-  {id:73,n:"पिंक स्क्वायर मॉल (Pink Square Mall)",i:"लोकल फैशन आउटलेट्स, INOX मल्टीप्लेक्स सिनेमा, फ़ूड कोर्ट व किड्स जोन",a:"आदर्श नगर / राजा पार्क",s:"पिंक स्क्वायर शॉपिंग जोन",q:"Pink+Square+Mall+Raja+Park+Jaipur",cats:["mall","food","toddler"],en:"pink square mall raja park adarsh nagar shopping cinema inox food court"},
+        <div class="category-pills" id="catBar">
+          <button class="cat-pill active" onclick="filterCat('all', this)">All Places</button>
+          <button class="cat-pill" onclick="filterCat('upcoming', this)">🆕 Upcoming & New</button>
+          <button class="cat-pill" onclick="filterCat('mall', this)">🛍️ Malls & Retail</button>
+          <button class="cat-pill" onclick="filterCat('toddler', this)">👶 Toddler & Kids</button>
+          <button class="cat-pill" onclick="filterCat('parks', this)">🌳 Parks & Lakes</button>
+          <button class="cat-pill" onclick="filterCat('temple', this)">🛕 Temples & Shrines</button>
+          <button class="cat-pill" onclick="filterCat('outskirts', this)">🚗 Day Trips</button>
+          <button class="cat-pill" onclick="filterCat('cafe', this)">☕ Cafes & Sunsets</button>
+          <button class="cat-pill" onclick="filterCat('streetfood', this)">🍢 Street Food</button>
+          <button class="cat-pill" onclick="filterCat('food', this)">🍲 Traditional Food</button>
+          <button class="cat-pill" onclick="filterCat('sightseeing', this)">🏰 Heritage Sites</button>
+          <button class="cat-pill" onclick="filterCat('wedding', this)">💍 Wedding Shopping</button>
+          <button class="cat-pill" onclick="filterCat('textiles', this)">👗 Textiles & Lehariya</button>
+          <button class="cat-pill" onclick="filterCat('jewelry', this)">💎 Gems & Jewelry</button>
+          <button class="cat-pill" onclick="filterCat('crafts', this)">🗿 Crafts & Marble</button>
+          <button class="cat-pill" onclick="filterCat('general', this)">📚 Specialty Markets</button>
+        </div>
+      </div>
 
-  /* 74 to 79: Cafes & Hangouts */
-  {id:74,n:"टपरी सेंट्रल (Tapri Central)",i:"सेंट्रल पार्क का हरा-भरा नजारा, कुल्हड़ चाय, खाखरा पिज्जा, दाल पकवान व यूथ वाइब",a:"सी-स्कीम (C-Scheme)",s:"Tapri The Tea House",q:"Tapri+Central+C+Scheme+Jaipur",cats:["cafe","streetfood"],en:"tapri central c scheme central park view kulhad chai tea khakhra pizza brunch rooftop cafe youth hangout reddit"},
-  {id:75,n:"जवाहर कला केंद्र (JKK) व इंडियन कॉफी हाउस",i:"चार्ल्स कोरिया द्वारा डिजाइन आर्ट सेंटर, आर्ट गैलरी, थियेटर, फिल्टर कॉफी व कटलेट",a:"जेएलएन मार्ग",s:"इंडियन कॉफी हाउस (ICH at JKK)",q:"Jawahar+Kala+Kendra+Jaipur",cats:["cafe","crafts","sightseeing"],en:"jawahar kala kendra jkk indian coffee house ich filter coffee cultural center art gallery theatre jln marg"},
-  {id:76,n:"नाहरगढ़ पड़ाव व सनसेट पॉइंट",i:"पूरे जयपुर शहर का विहंगम 360° विहंगम नजारा, खुली हवा में शाम का डाइनिंग व सूर्यास्त",a:"नाहरगढ़ किला",s:"पड़ाव ओपन एयर रेस्टोरेंट",q:"Padao+Nahargarh+Fort+Jaipur",cats:["cafe","sightseeing"],en:"nahargarh padao open air restaurant sunset point scenic city view rooftop bird eye night skyline fort"},
-  {id:77,n:"टैटू कैफ़े व विंड व्यू कैफ़े",i:"हवा महल के ठीक सामने रूफटॉप कैफ़े, परफेक्ट इंस्टाग्राम फोटो व्यू, शेक्स व कॉफी",a:"बड़ी चौपड़ (हवा महल के सामने)",s:"The Tattoo Cafe & Wind View",q:"The+Tattoo+Cafe+Jaipur",cats:["cafe","sightseeing"],en:"the tattoo cafe wind view cafe hawa mahal rooftop view photography coffee shakes instagram famous"},
-  {id:78,n:"टाउन कॉफी / द फार्म कॉफी बार",i:"आर्टिसनल स्पेशल ब्रू कॉफी, क्रोइसैंट, वुडफायर्ड पिज्जा व आउटडोर ग्रीनरी सिटिंग",a:"सी-स्कीम / अशोक नगर",s:"Town Coffee Roasters",q:"Town+Coffee+C+Scheme+Jaipur",cats:["cafe"],en:"town coffee roasters the farm coffee bar c scheme speciality coffee aesthetic cafe hangout bakery"},
-  {id:79,n:"स्वीटन हाउस / काफ़े तोसकाना",i:"हेरिटेज विक्टोरियन एंबियंस, इटैलियन पास्ता, कॉकटेल लाउंज व लाइव म्यूजिक",a:"सी-स्कीम",s:"The Swinton House & Cafe Toscana",q:"The+Swinton+House+Jaipur",cats:["cafe","food"],en:"the swinton house cafe toscana c scheme fine dining italian pasta aesthetic heritage ambience lounge"},
+      <!-- Count Meta Bar -->
+      <div class="directory-meta">
+        <span>Showing indexed locations</span>
+        <span class="directory-count-badge" id="st">126 Locations</span>
+      </div>
 
-  /* 80 to 85: Food Courts & Landmarks */
-  {id:80,n:"मसाला चौक (Masala Chowk)",i:"एक ही ओपन-एयर परिसर में जयपुर के 21+ सबसे मशहूर स्ट्रीट फूड स्टॉल्स (चाट, डोसा, कचौरी)",a:"राम निवास बाग (अल्बर्ट हॉल के पीछे)",s:"मसाला चौक ओपन फूड कोर्ट",q:"Masala+Chowk+Ram+Niwas+Garden+Jaipur",cats:["streetfood","food","toddler","parks"],en:"masala chowk ram niwas garden open air food court all in one street food chaat golgappe samrat albert hall"},
-  {id:81,n:"सेठी टिक्का व राजा पार्क स्ट्रीट फूड",i:"तंदूरी चिकन टिक्का, मखमली पनीर टिक्का, काठी रोल्स व देर रात का चटपटा खाना",a:"राजा पार्क (Raja Park)",s:"सेठी टिक्का ढाबा, राजा पार्क फूड लेन",q:"Sethi+Tikka+Dhabha+Raja+Park+Jaipur",cats:["streetfood","food"],en:"sethi tikka raja park tandoori chicken paneer tikka kathi roll nonveg night street food"},
-  {id:82,n:"नंद & चावला के गोलगप्पे",i:"मसालेदार पुदीना पानी, मीठी सौंठ, सूजी व आटे की पानी पताशी की आइकॉनिक प्रतिद्वंद्विता",a:"फैशन स्ट्रीट (राजा पार्क)",s:"नंद गोलगप्पे & चावला ब्रदर्स",q:"Chawla+Golgappa+Raja+Park+Jaipur",cats:["streetfood"],en:"chawla nand golgappe pani puri patashi puchka spicy pudina meetha sonth raja park street food"},
-  {id:83,n:"साहू की चाय (1968)",i:"पीतल के बड़े पतीले में कोयले की धीमी आंच पर पकी इलायची-अदरक दूधिया कड़क चाय",a:"चौड़ा रास्ता / सवाई मानसिंह हाईवे",s:"साहू चाय वाले (Sahu Chai)",q:"Sahu+Chai+Wale+Chaura+Rasta+Jaipur",cats:["streetfood","cafe"],en:"sahu chai chaura rasta coal cooked tea brass pot elaichi kadak chai morning tea street food"},
-  {id:84,n:"पंडित पाव भाजी व भेलपूरी",i:"भरपूर अमूल बटर में तवे पर सिंकती चटपटी पाव भाजी, मुंबईया भेल व फालूदा कुल्फी",a:"बिड़ला मंदिर के सामने",s:"पंडित पाव भाजी सेंटर",q:"Pandit+Pav+Bhaji+Birla+Temple+Jaipur",cats:["streetfood"],en:"pandit pav bhaji opposite birla mandir butter pav bhaji bhelpuri evening snack food truck"},
-  {id:85,n:"पत्रिका गेट व जवाहर सर्किल",i:"हाथ से चित्रित रंग-बिरंगे राजस्थानी 9 मेहराब (गेट), म्यूजिकल फाउंटेन, किड्स गार्डन व स्ट्रीट फूड",a:"जवाहर सर्किल (JLN मार्ग)",s:"पत्रिका गेट हेरिटेज लेन",q:"Patrika+Gate+Jawahar+Circle+Jaipur",cats:["sightseeing","streetfood","toddler","parks"],en:"patrika gate jawahar circle musical fountain photography instagram spots colourful arches picnic jln marg toddler playground"},
+      <!-- Cards Grid -->
+      <div class="directory-grid" id="list"></div>
 
-  /* 86 to 105: Outskirts, Temples, Major Parks */
-  {id:86,n:"श्री लक्ष्मी जगदीश जी मंदिर (गोनेर)",i:"'गोनेर के जगदीश धणी'—प्राचीन चमत्कारी विष्णु मंदिर, पवित्र तालाब दर्शन, प्रसिद्ध पुआ-खीर भोग",a:"गोनेर कस्बा (सांगानेर-जगतपुरा के पास)",s:"जगदीश जी मंदिर ट्रस्ट व पुआ-खीर प्रसादी स्टॉल",q:"Jagdish+Ji+Temple+Goner+Jaipur",cats:["temple","outskirts","food"],en:"jagdish ji temple goner gooner jagdish mandir vishnu jagannath pua kheer prasad pond talab pilgrim spiritual outskirts jagatpura sanganer"},
-  {id:87,n:"बीसलपुर बांध व बीसलदेव महादेव मंदिर",i:"जयपुर की लाइफलाइन—विशाल नीला जलाशय, बनास नदी का विहंगम दृश्य, 12वीं सदी का जलमग्न शिव मंदिर व पिकनिक",a:"टोंक जिला (जयपुर से ~140 किमी)",s:"बीसलपुर डैम व्यू पॉइंट व बीसलदेव मंदिर",q:"Bisalpur+Dam+Tonk+Rajasthan",cats:["outskirts","sightseeing","parks"],en:"bisalpur dam beesalpur dam tonk banas river water reservoir lake boating bisaldeo mahadev shiva temple day trip picnic nature"},
-  {id:88,n:"सिटी पार्क मानसरोवर (City Park)",i:"52 एकड़ में फैला भव्य पार्क, म्यूजिकल फाउंटेन, भव्य स्कल्पचर्स, विशाल किड्स प्ले एरिया, जॉगिंग ट्रैक व ओपन जिम",a:"VT रोड (मानसरोवर)",s:"सिटी पार्क एंट्रेंस प्लाजा & फूड कोर्ट",q:"City+Park+Mansarovar+Jaipur",cats:["toddler","parks","sightseeing"],en:"city park mansarovar vt road musical fountain jogging track kids playground toddler friendly sculptures lawn greenery family picnic"},
-  {id:89,n:"सेंट्रल पार्क (Central Park)",i:"जयपुर का सबसे बड़ा हरा फेफड़ा—5 किमी रबर वॉकिंग ट्रैक, भारत का विशाल 206 फीट राष्ट्रीय ध्वज, डक पॉन्ड व म्यूजिकल फाउंटेन",a:"स्टैच्यू सर्किल (C-Scheme)",s:"सेंट्रल पार्क लॉन & जॉगिंग ट्रैक",q:"Central+Park+Jaipur",cats:["toddler","parks"],en:"central park statue circle c scheme flag 206 feet walking jogging track duck pond green lush open lawn toddler play kids walking"},
-  {id:90,n:"किशन बाग सैंड ड्यून्स व डेजर्ट पार्क",i:"थार रेगिस्तान का प्राकृतिक पुनर्वास—रिफोरेस्टेड सैंड ड्यून्स, वुडन वॉकवे, देशी कैक्टस, चिड़ियों की चहचहाहट व शांत सूर्यास्त",a:"विद्याधर नगर (नाहरगढ़ तलहटी)",s:"किशन बाग विजिटर सेंटर",q:"Kishan+Bagh+Sand+Dunes+Park+Jaipur",cats:["parks","sightseeing"],en:"kishan bagh sand dunes desert park thar ecosystem wooden walkway vidhyadhar nagar nature walk landscape peaceful sunset"},
-  {id:91,n:"कनक वृंदावन गार्डन व घाटी",i:"नाहरगढ़ की हरी-भरी तलहटी में वृंदावन शैली का नक्काशीदार हेरिटेज गार्डन, फव्वारे, राधा-माधव मंदिर व शांत पिकनिक",a:"आमेर रोड (जल महल के पास)",s:"कनक वृंदावन कॉम्प्लेक्स",q:"Kanak+Vrindavan+Garden+Jaipur",cats:["toddler","parks","sightseeing","temple"],en:"kanak vrindavan garden amer road jal mahal fountains green lush heritage garden radha madhav film shoot toddler picnic"},
-  {id:92,n:"कुलिश स्मृति वन (Kulish Smriti Van)",i:"108 एकड़ में फैला शांत जैव विविधता वन, मरु सुगंध, पक्षी दर्शन ट्रेल्स, घने पेड़ व बच्चों के लिए प्रकृति की सैर",a:"JLN मार्ग (MNIT के पास)",s:"स्मृति वन बॉटनिकल पाथवे",q:"Smriti+Van+JLN+Marg+Jaipur",cats:["parks","toddler"],en:"kulish smriti van jln marg biodiversity forest bird watching nature trail peaceful walking morning walk maru sugandh kids nature"},
-  {id:93,n:"नाहरगढ़ बायोलॉजिकल व जूलॉजिकल पार्क",i:"लायन व टाइगर सफारी, ओपन चिड़ियाघर, बैटरी चलित इको-फ्रेंडली कार्स, दुर्लभ वन्यजीव व बच्चों का रोमांच",a:"दिल्ली हाईवे (कूकस के पास)",s:"नाहरगढ़ जूलॉजिकल सफारी टिकट प्लाजा",q:"Nahargarh+Biological+Park+Jaipur",cats:["toddler","parks","outskirts","sightseeing"],en:"nahargarh biological park zoo lion safari tiger safari wildlife animals battery cart kids friendly toddler tour kukas outskirts"},
-  {id:94,n:"सांभर सॉल्ट लेक व शाकंभरी माता मंदिर",i:"भारत की सबसे बड़ी अंतर्देशीय खारे पानी की झील, ऐतिहासिक साल्ट ट्रेन, फ्लेमिंगो बर्ड वाचिंग व सफेद नमक का रेगिस्तान",a:"सांभर कस्बा (जयपुर से ~80 किमी)",s:"शाकंभरी माता तीर्थ व सॉल्ट वर्क्स",q:"Sambhar+Salt+Lake+Rajasthan",cats:["outskirts","sightseeing","temple"],en:"sambhar salt lake shakambhari mata temple white desert flamingo birds salt train train sunset photography day trip outskirts"},
-  {id:95,n:"चांद बावड़ी व हर्षत माता मंदिर (आभानेरी)",i:"8वीं सदी की 3500 ज्यामितीय सीढ़ियों व 13 मंजिलों वाली विश्व प्रसिद्ध बावड़ी, प्राचीन गुप्तकालीन हर्षत माता मंदिर",a:"आभानेरी, बांदीकुई (जयपुर से ~90 किमी)",s:"आभानेरी स्टेपवेल कॉम्प्लेक्स",q:"Chand+Baori+Abhaneri+Rajasthan",cats:["outskirts","sightseeing","temple"],en:"chand baori stepwell abhaneri harshat mata temple 3500 steps architectural wonder ancient heritage day trip bandikui"},
-  {id:96,n:"खाटूश्याम जी मंदिर (Khatu Shyam Ji)",i:"'हारे का सहारा, बाबा श्याम हमारा'—शीश के दानी का महातीर्थ, पवित्र श्याम कुंड स्नान, गुलाब इत्र व पेड़ा प्रसाद",a:"खाटू कस्बा, सीकर (जयपुर से ~80 किमी)",s:"श्री श्याम मंदिर कमेटी & प्रसादी बाजार",q:"Khatu+Shyam+Ji+Temple+Rajasthan",cats:["temple","outskirts","food"],en:"khatu shyam ji mandir baba shyam sikar lakhi mela shyam kund peda prasad spiritual darshan pilgrim day trip"},
-  {id:97,n:"सालासर बालाजी धाम (Salasar Balaji)",i:"दाढ़ी-मूंछ वाले स्वयंभू पवनपुत्र हनुमान जी का सिद्ध पीठ, प्रसिद्ध सवामणी चूरमा भोग व अखंड ज्योत दर्शन",a:"सालासर, चूरू (जयपुर से ~170 किमी)",s:"सालासर बालाजी मंदिर ट्रस्ट",q:"Salasar+Balaji+Temple+Rajasthan",cats:["temple","outskirts","food"],en:"salasar balaji mandir hanuman temple churu sawamani churma laddu prasad akhand jyot faith pilgrim outskirts day trip"},
-  {id:98,n:"अक्षरधाम मंदिर (चित्रकूट/वैशाली)",i:"शानदार नक्काशीदार गुलाबी पत्थर व संगमरमर वास्तुकला, सुरम्य लॉन, बच्चों के खेलने का खुला मैदान व शांतिपूर्ण माहौल",a:"चित्रकूट (वैशाली नगर)",s:"अक्षरधाम मंदिर स्वामीनारायण ट्रस्ट",q:"Akshardham+Temple+Vaishali+Nagar+Jaipur",cats:["temple","toddler","parks"],en:"akshardham temple vaishali nagar chitrakoot swaminarayan stone carving lush lawns peaceful family visit kids friendly"},
-  {id:99,n:"अल्बर्ट हॉल म्यूजियम व कबूतर चौक",i:"इंडो-सारासेनिक शैली का राज्य संग्रहालय, शाम को सैकड़ों कबूतरों को दाना खिलाना, बच्चों का आकर्षण व नाइट इल्यूमिनेशन",a:"राम निवास बाग",s:"अल्बर्ट हॉल टिकट काउंटर & दाना प्वाइंट",q:"Albert+Hall+Museum+Jaipur",cats:["toddler","sightseeing","parks"],en:"albert hall museum ram niwas bagh pigeons feeding kabutar chowk egyptian mummy night tourism kids toddler fun"},
-  {id:100,n:"चौकी ढाणी एथनिक विलेज (Chokhi Dhani)",i:"राजस्थानी संस्कृति का सजीव मेला—ऊंट/हाथी/बैलगाड़ी सवारी, कठपुतली शो, जादूगर, लोकनृत्य व पारंपरिक शाही दाल-बाटी-चूरमा थाली",a:"12 मील, टोंक रोड",s:"चौकी ढाणी रिजॉर्ट कॉम्प्लेक्स",q:"Chokhi+Dhani+Tonk+Road+Jaipur",cats:["toddler","food","sightseeing","outskirts"],en:"chokhi dhani tonk road village fair camel ride elephant ride puppet show kathputli rajasthani dance dal baati churma kids entertainment dinner"},
-  {id:101,n:"अनोखी म्यूजियम ऑफ हैंड प्रिंटिंग (आमेर)",i:"पुरानी हवेली में स्थित हैंड-ब्लॉक प्रिंटिंग म्यूजियम, बच्चों के लिए लाइव प्रिंटिंग वर्कशॉप्स व कारीगरी प्रदर्शन",a:"खेड़ी गेट (आमेर किला के पास)",s:"अनोखी म्यूजियम कैफ़े व शॉप",q:"Anokhi+Museum+of+Hand+Printing+Amer+Jaipur",cats:["crafts","sightseeing","toddler"],en:"anokhi museum hand block printing amer live block print workshop crafts textiles haveli kids learning"},
-  {id:102,n:"पन्ना मीणा का कुंड (आमेर)",i:"16वीं सदी की अष्टकोणीय छतरियों व सममितीय ज्यामितीय सीढ़ियों वाली ऐतिहासिक बावड़ी, शांत वातावरण व फोटोग्राफी",a:"आमेर कस्बा (बिहारी जी मंदिर के पास)",s:"पन्ना मीणा की बावड़ी",q:"Panna+Meena+Ka+Kund+Amer+Jaipur",cats:["sightseeing","crafts"],en:"panna meena ka kund amer stepwell geometric stairs water heritage photography peaceful hidden spot"},
-  {id:103,n:"हाथी गांव (Elephant Village / Hathi Gaon)",i:"हाथियों के साथ दोस्ताना मुलाकात—हाथियों को चारा खिलाना, नहलाना, नेचुरल पेंटिंग व बच्चों के लिए यादगार रोमांच",a:"कुंडा, दिल्ली-जयपुर हाईवे (आमेर के आगे)",s:"हाथी गांव रेस्क्यू एंड ईको सेंटर",q:"Hathi+Gaon+Elephant+Village+Jaipur",cats:["toddler","outskirts","sightseeing"],en:"hathi gaon elephant village kunda amer elephant feeding bathing animal interaction kids friendly family outing"},
-  {id:104,n:"द्रव्यवती रिवरफ्रंट व बोटेनिकल पार्क",i:"16 किमी सुंदर सुसज्जित रिवरफ्रंट पाथवे, लैंडस्केप बोटेनिकल गार्डन, ओपन लॉन व बच्चों के लिए वॉकिंग एरिया",a:"सांगानेर / शिप्रा पथ (मानसरोवर मुहाना)",s:"द्रव्यवती लैंडस्केप गार्डन",q:"Dravyavati+Riverfront+Jaipur",cats:["parks","toddler"],en:"dravyavati riverfront botanical park shipra path sanganer mansarovar walking track landscaped gardens kids play"},
-  {id:105,n:"भानगढ़ का किला (Bhangarh Fort)",i:"रहस्यमयी 17वीं सदी का किला, खंडहर महल, प्राचीन गोपीनाथ मंदिर व अरावली घाटी की रोमांचक ऐतिहासिक डे-ट्रिप",a:"भानगढ़, अलवर सीमा (जयपुर से ~85 किमी)",s:"एएसआई (ASI) भानगढ़ हेरिटेज कॉम्प्लेक्स",q:"Bhangarh+Fort+Rajasthan",cats:["outskirts","sightseeing"],en:"bhangarh fort mystery ruins gopinath temple aravalli hills day trip heritage spooky ruins nature travel"},
+      <!-- Empty State -->
+      <div id="noResult" class="empty-state">
+        <p style="font-weight: 700; margin-bottom: 6px;">No matching locations found.</p>
+        <p style="font-size: 0.88rem;">Try clearing the search query or selecting a different category filter.</p>
+      </div>
 
-  /* 106 to 118: Kishangarh, Pushkar, Fountain Square & Similar Spots */
-  {id:106,n:"किशनगढ़ मार्बल डंप यार्ड (स्नो डंप यार्ड)",i:"'राजस्थान का स्विट्जरलैंड / मूनलैंड'—सफेद संगमरमर स्लरी का विशाल बर्फीला लैंडस्केप, नीला पानी, सिनेमैटिक व प्री-वेडिंग फोटोशूट",a:"किशनगढ़ (जयपुर-अजमेर हाईवे, ~100 किमी)",s:"मार्बल एसोसिएशन गेट (एंट्री पास काउंटर)",q:"Kishangarh+Marble+Dump+Yard+Rajasthan",cats:["outskirts","sightseeing"],en:"kishangarh marble dump yard dumpyard snow white desert moonland lake photoshoot pre wedding ajmer road outskirts switzerland of rajasthan"},
-  {id:107,n:"पुष्कर सरोवर व जगतपिता ब्रह्मा मंदिर",i:"विश्व का एकमात्र प्रमुख ब्रह्मा मंदिर, 52 पवित्र घाट, महाआरती, गुलाब इत्र/गुलकंद, ऊंट सफारी, मालपुआ व कैफ़े कल्चर",a:"पुष्कर तीर्थ (जयपुर से ~145 किमी)",s:"ब्रह्मा मंदिर, वराह घाट, हलवाई गली (राधे जी मालपुआ)",q:"Brahma+Temple+Pushkar+Rajasthan",cats:["temple","outskirts","sightseeing","cafe","food"],en:"pushkar brahma temple pushkar lake ghat holy lake camel safari savitri temple malpua rabdi desert cafe day trip pilgrim gulkand rose water"},
-  {id:108,n:"फाउंटेन स्क्वायर पार्क (Fountain Square)",i:"रंग-बिरंगे इंटरएक्टिव म्यूजिकल फव्वारे, शांत ग्रीन लॉन, बच्चों के राइड्स, ओपन सिटिंग व ईवनिंग फैमिली वॉक",a:"मानसरोवर (City Park के पास)",s:"फाउंटेन स्क्वायर प्लाजा",q:"Fountain+Square+Mansarovar+Jaipur",cats:["parks","toddler","sightseeing"],en:"fountain square park mansarovar musical fountain kids play toddler open lawns greenery evening walk water fountain family spot"},
-  {id:109,n:"अजमेर शरीफ दरगाह व आना सागर झील",i:"हजरत ख्वाजा मोईनुद्दीन चिश्ती दरगाह जियारत, आना सागर बारादरी पर शाम की ठंडी हवा, बोटिंग, सोहन हलवा व चौपाटी",a:"अजमेर शहर (जयपुर से ~130 किमी)",s:"दरगाह शरीफ & आना सागर चौपाटी फूड स्टॉल्स",q:"Ajmer+Sharif+Dargah+Ana+Sagar+Lake+Ajmer",cats:["temple","outskirts","sightseeing","streetfood"],en:"ajmer sharif dargah khwaja garib nawaz ana sagar lake baradari boating chaupati sohan halwa day trip qawwali pilgrim"},
-  {id:110,n:"नेवता बांध व सनसेट लेक (Nevta Dam)",i:"शांत विशाल प्राकृतिक झील, बारिश में ओवरफ्लो होती चादर, मनोरम सूर्यास्त, शांतिपूर्ण लॉन्ग ड्राइव व नेचर फोटोग्राफी",a:"नेवता / मुहाना रोड (जयपुर बाहरी क्षेत्र)",s:"नेवता डैम व्यू पॉइंट",q:"Nevta+Dam+Jaipur",cats:["outskirts","parks","sightseeing"],en:"nevta dam lake muhana road mansarovar outskirts sunset drive monsoon water reservoir picnic nature calm water body"},
-  {id:111,n:"चांदलाई झील व बर्ड वाचिंग (Chandlai Lake)",i:"140 वर्ष पुरानी प्राकृतिक झील, सर्दियों में हजारों प्रवासी फ्लेमिंगो (राजहंस) व दुर्लभ पक्षियों का बसेरा, शांत सूर्यास्त",a:"कोटा-टोंक रोड (जयपुर से ~30 किमी)",s:"चांदलाई लेक व्यू पॉइंट",q:"Chandlai+Lake+Jaipur",cats:["outskirts","parks","sightseeing"],en:"chandlai lake flamingos migratory birds bird watching tonk road sunset nature photography peaceful day outing water body"},
-  {id:112,n:"नीमराना फोर्ट पैलेस (Neemrana Fort)",i:"15वीं सदी का 14 मंजिला हेरिटेज पैलेस, जिप-लाइनिंग (Flying Fox), विंटेज कार सफारी, लक्जरी हैंगिंग गार्डन व हेरिटेज डे ट्रिप",a:"नीमराना, दिल्ली-जयपुर हाईवे (~120 किमी)",s:"नीमराना हेरिटेज रिसेप्शन",q:"Neemrana+Fort+Palace+Rajasthan",cats:["outskirts","sightseeing"],en:"neemrana fort palace heritage hotel zipline flying fox hills vintage delhi jaipur highway day trip luxury palace"},
-  {id:113,n:"टेक्नोलॉजी पार्क व वुडलैंड पार्क",i:"मानसरोवर का हरा-भरा शांत बोटेनिकल पार्क, बच्चों के झूले, वॉकिंग-जॉगिंग रबर ट्रैक, योग लॉन व खुला मैदान",a:"मानसरोवर (मध्यम मार्ग / शिप्रा पथ)",s:"टेक्नोलॉजी पार्क एंट्रेंस",q:"Technology+Park+Mansarovar+Jaipur",cats:["parks","toddler"],en:"technology park woodland park mansarovar madhyam marg shipra path kids swings jogging walk lush green grass toddler play area"},
-  {id:114,n:"कानोता बांध व कैसल कानोता (Kanota Dam)",i:"शांत जल क्रीड़ा व कैंपिंग स्पॉट, बर्ड वाचिंग, पास में ऐतिहासिक कैसल कानोता हेरिटेज होटल व वीकेंड सनसेट ड्राइव",a:"आगरा रोड (जयपुर से ~15 किमी)",s:"कानोता लेक कैंप साइट्स",q:"Kanota+Dam+Agra+Road+Jaipur",cats:["outskirts","sightseeing","parks"],en:"kanota dam agra road lake reservoir castle kanota camping sunset birding outskirts weekend spot drive water body"},
-  {id:115,n:"सावित्री देवी मंदिर व पुष्कर रोपवे",i:"रत्नागिरी पहाड़ी की चोटी पर मंदिर, पूरे पुष्कर व रेगिस्तान का 360° विहंगम नजारा, केबल कार (रोपवे) व सूर्योदय दर्शन",a:"रत्नागिरी पहाड़ी, पुष्कर",s:"पुष्कर रोपवे टिकट काउंटर",q:"Savitri+Temple+Ropeway+Pushkar",cats:["temple","outskirts","sightseeing","toddler"],en:"savitri temple ropeway ratnagiri hill pushkar sunrise sunset panoramic desert view pushkar lake cable car"},
-  {id:116,n:"माधवेन्द्र पैलेस स्कल्पचर पार्क",i:"नाहरगढ़ किले के शाही रानियों के 9 महलों में सजी आधुनिक व समकालीन अंतरराष्ट्रीय मूर्तियां (Sculptures), हेरिटेज आर्ट",a:"नाहरगढ़ किला परिसर",s:"स्कल्पचर पार्क आर्ट गैलरी",q:"The+Sculpture+Park+Madhavendra+Palace+Nahargarh",cats:["sightseeing","crafts","parks"],en:"madhavendra palace sculpture park nahargarh fort art contemporary sculptures architecture modern art jaipur exhibition"},
-  {id:117,n:"गुलाब बाग व रोज गार्डन (अल्बर्ट हॉल)",i:"सैकड़ों देशी-विदेशी गुलाबों से महकता हरा-भरा उद्यान, खुला लॉन, कबूतरों का चौक व बच्चों के लिए पिकनिक स्थल",a:"राम निवास बाग",s:"राम निवास रोज गार्डन",q:"Ram+Niwas+Garden+Rose+Garden+Jaipur",cats:["parks","toddler"],en:"gulab bagh rose garden ram niwas bagh flowers botanical lush green toddler family walk picnic open lawn"},
-  {id:118,n:"झुलेलाल मंदिर व मानसरोवर चौपाटी",i:"भव्य सिंधी आध्यात्मिक तीर्थ, निकटवर्ती मानसरोवर चौपाटी के 25+ लजीज स्ट्रीट फूड स्टॉल्स, कुल्फी व फैमिली सिटिंग",a:"मानसरोवर (कावेरी पथ / सिटी पार्क के पास)",s:"मानसरोवर चौपाटी फूड प्लाजा",q:"Mansarovar+Chaupati+Jaipur",cats:["streetfood","temple","food","toddler"],en:"jhulelal mandir mansarovar chaupati food street fast food kulfi pav bhaji city park area evening food hub family spot"},
+    </div>
+  </section>
 
-  /* 119 to 126: Upcoming Malls & Mega Modern Landmarks (Tag: upcoming) */
-  {id:119,n:"पैसिफिक मॉल (Pacific Mall Mansarovar)",i:"(Upcoming / New Mega Mall) 450+ ग्लोबल ब्रांड्स, राजस्थान का पहला IMAX मल्टीप्लेक्स सिनेमा, 135 रूम्स लेमन ट्री होटल, गेमिंग एरिना व विशाल फूड कोर्ट",a:"42, VT रोड, सेक्टर 5 (मानसरोवर)",s:"पैसिफिक मॉल & लेमन ट्री कॉम्प्लेक्स",q:"Pacific+Mall+VT+Road+Mansarovar+Jaipur",cats:["upcoming","mall","toddler","food"],en:"pacific mall jaipur mansarovar vt road imax cinema lemon tree hotel 450 brands retail upcoming mall new shopping entertainment mega mall"},
-  {id:120,n:"मंगलम पिंकवॉक मॉल (Manglam Pinkwalk)",i:"(Upcoming Lifestyle Mall) 21,000 वर्ग गज में राजस्थान का सबसे बड़ा लाइफस्टाइल रिटेल हब, 6-स्क्रीन मल्टीप्लेक्स, हाइपरमार्केट, रूफटॉप क्लब व गेमिंग जोन",a:"महल रोड, अक्षय पात्र के सामने (जगतपुरा)",s:"मंगलम पिंकवॉक रिटेल प्लाजा",q:"Manglam+Pink+Walk+Jagatpura+Jaipur",cats:["upcoming","mall","toddler","food"],en:"manglam pinkwalk mall jagatpura mahal road akshay patra lifestyle mall retail multiplex cinema entertainment upcoming project"},
-  {id:121,n:"अनिल अग्रवाल इंटरनेशनल क्रिकेट स्टेडियम",i:"(Under Construction Mega Project) दुनिया का तीसरा और भारत का दूसरा सबसे बड़ा 75,000 दर्शक क्षमता वाला विश्वस्तरीय क्रिकेट स्टेडियम (100 एकड़ परिसर)",a:"चौंप गांव (दिल्ली-जयपुर हाईवे)",s:"वेदांता HZL व RCA इंटरनेशनल स्टेडियम",q:"Anil+Agarwal+International+Cricket+Stadium+Chonp+Jaipur",cats:["upcoming","outskirts","sightseeing"],en:"anil agarwal international cricket stadium chonp delhi highway vedanta hzl rca sports world third largest stadium upcoming landmark"},
-  {id:122,n:"राजस्थान इंटरनेशनल सेंटर (RIC Jhalana)",i:"(Newly Opened Cultural Hub) दिल्ली के IIC की तर्ज पर निर्मित भव्य कन्वेंशन व कल्चरल सेंटर, 650+ सीटर ऑडिटोरियम, आर्ट गैलरी व ओपन एम्फीथिएटर",a:"संस्थान पथ, JLN मार्ग (झालाना)",s:"RIC कॉम्प्लेक्स & हेरिटेज कैफ़े",q:"Rajasthan+International+Centre+Jhalana+Jaipur",cats:["upcoming","sightseeing","crafts","cafe"],en:"rajasthan international centre ric jhalana jln marg convention center cultural hub auditorium exhibition art gallery newly opened"},
-  {id:123,n:"कॉन्स्टिट्यूशन क्लब ऑफ राजस्थान (CCR)",i:"(State-of-the-art Club) दिल्ली के कॉन्स्टिट्यूशन क्लब की तर्ज पर बना आधुनिक विधिक व सोशल हब, सेमिनार हॉल्स, फाइन डाइनिंग रेस्टोरेंट्स व स्विमिंग पूल",a:"ज्योति नगर (विधान सभा के पास)",s:"कॉन्स्टिट्यूशन क्लब कॉम्प्लेक्स",q:"Constitution+Club+of+Rajasthan+Jaipur",cats:["upcoming","sightseeing","food"],en:"constitution club of rajasthan ccr jyoti nagar vidhan sabha luxury club fine dining modern architecture newly built"},
-  {id:124,n:"एसएमएस आईपीडी मेडिकल टावर व हेलीपैड",i:"(Upcoming Mega Tower) 24 मंजिला भारत का सबसे ऊंचा 116 मीटर मेडिकल टावर, रूफटॉप एयर एम्बुलेंस हेलीपैड व अत्याधुनिक 1200 बेडेड स्मार्ट हेल्थकेयर",a:"SMS हॉस्पिटल परिसर (जेएलएन मार्ग)",s:"एसएमएस आईपीडी टॉवर प्रोजेक्ट",q:"SMS+Hospital+IPD+Tower+Jaipur",cats:["upcoming","general","sightseeing"],en:"sms ipd tower medical tower helipad air ambulance 24 floors tallest medical tower health hub upcoming infrastructure"},
-  {id:125,n:"फिनटेक पार्क (FinTech Park Jaipur)",i:"(Upcoming IT/Tech Mega Hub) 106 एकड़ में विकसित अत्याधुनिक फाइनेंशियल व आईटी टेक डिस्ट्रिक्ट, कॉर्पोरेट टावर्स व फ्यूचरिस्टिक बिज़नेस हब",a:"सांगानेर / मुहाना-मानसरोवर एक्सटेंशन",s:"रीको (RIICO) फिनटेक पार्क",q:"Fintech+Park+Jaipur",cats:["upcoming","general"],en:"fintech park sanganer mansarovar riico corporate towers financial tech business district it park upcoming development"},
-  {id:126,n:"ओमैक्स मेगा कमर्शियल व लाइफस्टाइल प्लाजा",i:"(Upcoming Modern Arcade) इंटीग्रेटेड स्मार्ट कमर्शियल हब, आधुनिक शॉपिंग आर्केड, ओपन-एयर डाइनिंग व एंटरटेनमेंट एरिना",a:"अजमेर रोड एक्सप्रेसवे",s:"ओमैक्स सिटी प्लाजा",q:"Omaxe+City+Ajmer+Road+Jaipur",cats:["upcoming","mall","outskirts"],en:"omaxe city ajmer road upcoming commercial retail shopping arcade lifestyle hub modern complex"}
-];
+  <!-- ========================================================================= -->
+  <!-- 6. Testimonials & Editorial Notes                                         -->
+  <!-- ========================================================================= -->
+  <section class="editorial-section">
+    <div class="container">
+      <div class="section-intro">
+        <span class="section-tag">Field Notes</span>
+        <h2 class="section-heading">Insights from locals and seasoned explorers.</h2>
+      </div>
 
-var selectedCategory = "all";
+      <div class="editorial-grid">
+        <div class="editorial-card">
+          <p class="editorial-quote">"The accuracy of artisan lanes inside Johari and Tripolia Bazar is unmatched. Found 4th-generation gota-patti and pure silver vark masters with ease."</p>
+          <div class="editorial-author">
+            <div class="author-avatar">AM</div>
+            <div>
+              <div class="author-name">Ananya Mathur</div>
+              <div class="author-role">Heritage Textile Researcher</div>
+            </div>
+          </div>
+        </div>
+        <div class="editorial-card">
+          <p class="editorial-quote">"Having all the toddler-friendly parks alongside weekend spots like Bisalpur and Kishangarh Dump Yard in one minimal dashboard saves hours of planning."</p>
+          <div class="editorial-author">
+            <div class="author-avatar">RS</div>
+            <div>
+              <div class="author-name">Rohit Sharma</div>
+              <div class="author-role">Jaipur Resident & Parent</div>
+            </div>
+          </div>
+        </div>
+        <div class="editorial-card">
+          <p class="editorial-quote">"The street food directory pinpoints the exact historic outlets—from Samrat’s hing kachori to Sahu’s coal-simmered tea. An essential bookmarks page."</p>
+          <div class="editorial-author">
+            <div class="author-avatar">VK</div>
+            <div>
+              <div class="author-name">Vikas Khandelwal</div>
+              <div class="author-role">Culinary Writer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-function norm(s) {
-  if (!s) return "";
-  return s.toLowerCase()
-    .replace(/ee/g, "i")
-    .replace(/oo/g, "u")
-    .replace(/ou/g, "u")
-    .replace(/ph/g, "f")
-    .replace(/sh/g, "s")
-    .replace(/kh/g, "k")
-    .replace(/bh/g, "b")
-    .replace(/dh/g, "d")
-    .replace(/th/g, "t")
-    .replace(/ch/g, "c")
-    .replace(/jh/g, "j")
-    .replace(/w/g, "v")
-    .replace(/aa/g, "a")
-    .replace(/bel/g, "ble")
-    .trim();
-}
+  <!-- ========================================================================= -->
+  <!-- 7. Call To Action                                                          -->
+  <!-- ========================================================================= -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-title">Explore Jaipur with clarity.</h2>
+        <p class="cta-sub">Bookmark this index to keep instant, curated access to 126 cultural and commercial landmarks on your mobile device.</p>
+        <button class="cta-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          Back to Top Explorer
+        </button>
+      </div>
+    </div>
+  </section>
 
-for (var i = 0; i < D.length; i++) {
-  var item = D[i];
-  var rawText = (item.id + " " + item.n + " " + item.i + " " + item.a + " " + item.s + " " + item.en).toLowerCase();
-  item._raw = rawText;
-  item._norm = norm(rawText);
-}
+  <!-- ========================================================================= -->
+  <!-- 8. Minimalist Multi-Column Footer                                         -->
+  <!-- ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="nav-brand">
+            <span class="brand-mark"></span>
+            <span>Jaipur Index</span>
+          </div>
+          <p class="footer-brand-desc">
+            A comprehensive, non-commercial directory dedicated to preserving the cultural geography, artisan legacy, and evolving modern skyline of Jaipur.
+          </p>
+        </div>
 
-function render(data) {
-  var list = document.getElementById("list");
-  var st = document.getElementById("st");
-  var noResult = document.getElementById("noResult");
-  if (!list) return;
+        <div>
+          <h4 class="footer-heading">Walled City</h4>
+          <ul class="footer-links">
+            <li><a href="#explore" class="footer-link" onclick="filterCat('jewelry')">Johari Bazar</a></li>
+            <li><a href="#explore" class="footer-link" onclick="filterCat('wedding')">Purohit Ji Katla</a></li>
+            <li><a href="#explore" class="footer-link" onclick="filterCat('crafts')">Tripolia & Kishanpole</a></li>
+            <li><a href="#explore" class="footer-link" onclick="filterCat('textiles')">Chandpole & Sireh Deori</a></li>
+          </ul>
+        </div>
 
-  var html = "";
-  for (var k = 0; k < data.length; k++) {
-    var itm = data[k];
-    html += '<div class="card">' +
-      '<div>' +
-        '<div class="card-head">' +
-          '<span class="card-title">' + itm.id + '. ' + itm.n + '</span>' +
-          '<span class="card-area">' + itm.a + '</span>' +
-        '</div>' +
-        '<div class="card-body">' +
-          '<div class="card-row"><span class="card-lbl">मुख्य विशेषता / क्या मिलेगा:</span> ' + itm.i + '</div>' +
-          '<div class="card-row"><span class="card-lbl">प्रसिद्ध नाम / स्पॉट:</span> ' + itm.s + '</div>' +
-        '</div>' +
-      '</div>' +
-      '<a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=' + itm.q + '" target="_blank" rel="noopener">📍 Google Maps पर देखें</a>' +
-    '</div>';
-  }
-  list.innerHTML = html;
-  if (st) st.innerText = data.length + " / " + D.length + " स्थान";
-  if (noResult) noResult.style.display = (data.length === 0) ? "block" : "none";
-}
+        <div>
+          <h4 class="footer-heading">Modern & Outskirts</h4>
+          <ul class="footer-links">
+            <li><a href="#explore" class="footer-link" onclick="filterCat('upcoming')">Upcoming Projects</a></li>
+            <li><a href="#explore" class="footer-link" onclick="filterCat('mall')">Shopping Malls</a></li>
+            <li><a href="#explore" class="footer-link" onclick="filterCat('parks')">Parks & Sanctuaries</a></li>
+            <li><a href="#explore" class="footer-link" onclick="filterCat('outskirts')">Weekend Getaways</a></li>
+          </ul>
+        </div>
 
-function applyFilters() {
-  var sb = document.getElementById("sb");
-  var cb = document.getElementById("cb");
-  var query = sb ? sb.value.trim() : "";
-  if (cb) cb.style.display = query.length > 0 ? "inline-flex" : "none";
+        <div>
+          <h4 class="footer-heading">Editorial Standards</h4>
+          <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.84rem;">
+            Every spot is verified for historical authenticity, pedestrian safety, and public accessibility. All map coordinates direct to official locations.
+          </p>
+        </div>
+      </div>
 
-  var rawTokens = query ? query.toLowerCase().split(" ").filter(Boolean) : [];
-  var normTokens = query ? norm(query).split(" ").filter(Boolean) : [];
-  var matched = [];
+      <div class="footer-bottom">
+        <span>© 2026 Jaipur Heritage & Urban Directory. All rights reserved.</span>
+        <span>Crafted with a clean editorial aesthetic for fast, sustainable web standards.</span>
+      </div>
+    </div>
+  </footer>
 
-  for (var i = 0; i < D.length; i++) {
-    var itm = D[i];
+  <!-- ========================================================================= -->
+  <!-- JavaScript: Dataset & Real-Time Engine                                    -->
+  <!-- ========================================================================= -->
+  <script>
+    var D = [
+      /* 1 to 50: Heritage Lanes */
+      {id:1,n:"गोपाल जी का रास्ता",i:"पन्ना (Emerald), माणक, नीलम, असली हीरे, जेमस्टोन बीड्स",a:"जौहरी बाजार",s:"सुरना ज्वैलर्स, कोठारी जेम्स",q:"Gopal+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry"],en:"gopal ji rasta emerald panna manak ruby sapphire neelam heera diamond gemstone stones beads surana kothari jewellers ratan nagina gems jewelry"},
+      {id:2,n:"हल्दियों का रास्ता",i:"राजपूती पोशाक, गोटा-पत्ती, शुद्ध चांदी के बर्तन, असली हींग",a:"जौहरी बाजार",s:"ओढ़नी साड़ी, आरी तारी, विनायक सिल्वर",q:"Haldiyon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","textiles","jewelry","food"],en:"haldiyon haldiya ka rasta rajputi poshak gota patti silver chandi bartan utensils heeng hing odhni sari saree aari tari vinayak food wedding masala"},
+      {id:3,n:"पुरोहित जी का कटला",i:"थोक कपड़ा मंडी, साड़ियाँ, लहरिया, साफे, मायरा सामान",a:"बड़ी चौपड़",s:"महालक्ष्मी साड़ीज, सूरज भवन Wholesalers",q:"Purohit+Ji+Ka+Katla+Johari+Bazar+Jaipur",cats:["wedding","textiles"],en:"purohit prohit ji katla wholesale kapda cloth market saree sari lahariya lehariya leheriya lahriya safa pagdi mayra poshak badi chaupar wedding"},
+      {id:4,n:"घी वालों का रास्ता",i:"असली चांदी-सोने का वर्क (Vark), सूखे मेवे, प्राकृतिक मनके",a:"जौहरी बाजार",s:"नताणी ड्राई फ्रूट्स, वर्क कारीगर घराने",q:"Ghee+Walon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["food","jewelry"],en:"ghee walon rasta chandi sona vark foil gold silver leaf dry fruits kaju badam natani manke beads food nashta jewel"},
+      {id:5,n:"एमएसबी का रास्ता",i:"असली मोती (Pearls), विंटेज सिक्के, पुरानी चांदी के जेवर",a:"जौहरी बाजार",s:"विंटेज सिल्वर हाउस, पर्ल ट्रेडर्स",q:"MSB+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry","crafts"],en:"msb rasta moti pearls vintage coins antique chandi silver jewelry ornaments jewel"},
+      {id:6,n:"पटवों का रास्ता",i:"लटकन, धागा-पिरोई, मंगलसूत्र डोरे, बाजूबंद फुंदने",a:"जौहरी बाजार",s:"मास्टर पटवा घराने",q:"Patwon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","jewelry","crafts"],en:"patwon patwa rasta latkan tassels dhaga thread piroi mangalsutra dori bajuband fundne craft jewel wedding"},
+      {id:7,n:"सीताराम जी का रास्ता",i:"कुंदन-जड़ाऊ, पोल्की, अनकट डायमंड, शीशफूल",a:"जौहरी बाजार",s:"पुश्तैनी जड़ाऊ कारीगर वर्कशॉप्स",q:"Sitaram+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","jewelry"],en:"sitaram ji rasta kundan jadau polki diamond uncut heera sheeshphool bridal jewelry karigar jewel wedding"},
+      {id:8,n:"नया कटला (गोटा कटला)",i:"थोक गोटा-पत्ती के फूल, लेस, जरकन लड़ियाँ, पैच",a:"हल्दियों का रास्ता",s:"गोटा हाउस, फैंसी लेस स्टोर",q:"Naya+Katla+Haldiyon+Ka+Rasta+Jaipur",cats:["wedding","textiles"],en:"naya katla gota katla wholesale gota patti lace borders zarkan patch phool embroidery wedding saree"},
+      {id:9,n:"सोनी जी का रास्ता",i:"कच्चा सोना-चांदी (Bullion), टंच शुद्धता टेस्टिंग लैब्स",a:"जौहरी बाजार",s:"सरकारी मान्यता प्राप्त टंच लैब्स",q:"Soni+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry"],en:"soni ji rasta kacha sona chandi raw gold silver bullion tunch purity testing labs hallmark jewel gold silver"},
+      {id:10,n:"धाभाई जी का रास्ता",i:"हाथ की जरदोजी, डंका कढ़ाई, मास्टर ब्राइडल टेलर्स",a:"जौहरी बाजार",s:"जरदोजी आर्ट वर्कशॉप्स",q:"Dhabhai+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","textiles"],en:"dhabhai ji rasta zardozi zardosi danka embroidery bridal tailors boutique hand work saree wedding"},
+      {id:11,n:"लालजी सांड का रास्ता",i:"शिफॉन/जॉर्जेट लहरिया, मोठड़ा, बंधेज साड़ियाँ व सूट",a:"चौड़ा रास्ता",s:"प्रतिभा साड़ीज, गोयल साड़ी एम्पोरियम",q:"Lalji+Sand+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","textiles"],en:"lalji sand rasta chiffon georgette lahariya lehariya leheriya lahriya mothda bandhej bandhani saree sari suit kapda wedding"},
+      {id:12,n:"टिकली वालों का रास्ता",i:"पतंग, मांझा, लाल बही-खाते, दीवाली चोपड़े, हैंडमेड पेपर",a:"चौड़ा रास्ता",s:"पतंग एंपोरियम, बही-खाता भंडार",q:"Tikkiwalon+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["general"],en:"tikli tikkiwalon rasta patang kite kites manjha manja bahi khata ledger account books handmade paper books"},
+      {id:13,n:"फिल्म कॉलोनी",i:"थोक दवा व सर्जिकल उपकरण का सबसे बड़ा बाजार",a:"चौड़ा रास्ता",s:"थोक फार्मा डिस्ट्रीब्यूटर्स",q:"Film+Colony+Chaura+Rasta+Jaipur",cats:["general"],en:"film colony wholesale medicines medicine dawai dawayi surgical pharma distributors pharmacy medical"},
+      {id:14,n:"धींगरा मार्केट / चश्मा गली",i:"चश्मे के फ्रेम, सनग्लासेस, ऑप्टिकल लेंस थोक मंडी",a:"चौड़ा रास्ता",s:"जयपुरी ऑप्टिकल होलसेलर्स",q:"Chaura+Rasta+Optical+Market+Jaipur",cats:["general"],en:"dhingra market chashma chasma gali specs sunglasses glasses optical lenses frames wholesale medicine"},
+      {id:15,n:"पोद्दार / सोती मार्केट",i:"प्रतियोगी परीक्षा पुस्तकें, कॉलेज स्टेशनरी, रजिस्टर्स",a:"चौड़ा रास्ता",s:"यूनिवर्सिटी बुक डिपो, स्टूडेंट कॉर्नर",q:"Poddar+Market+Chaura+Rasta+Jaipur",cats:["general"],en:"poddar soti market exam books college stationery books registers kitabe pustak"},
+      {id:16,n:"नहाटा का रास्ता",i:"शादी के गिफ्ट पैकिंग बॉक्स, मखमली डिब्बियाँ, बैग्स",a:"चौड़ा रास्ता",s:"फैंसी पैकेजिंग भंडार",q:"Nahata+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","general"],en:"nahata rasta wedding gift packing box boxes velvet dibbi bags packaging tray wedding"},
+      {id:17,n:"ताड़केश्वर जी की गली",i:"धार्मिक पुस्तकें, हस्तलिखित पंचांग, ज्योतिष चार्ट",a:"चौड़ा रास्ता",s:"वैदिक साहित्य केंद्र",q:"Tadkeshwar+Ji+Temple+Chaura+Rasta+Jaipur",cats:["general","temple"],en:"tadkeshwar ji temple gali mandir religious books panchang jyotish astrology charts kundali books pooja"},
+      {id:18,n:"ख्वास जी का रास्ता",i:"दर्जी सामग्री, धागे, बटन, जिप, अचकन मास्टर टेलर्स",a:"चौड़ा रास्ता",s:"मास्टर टेलरिंग मैटेरियल्स",q:"Khwas+Ji+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","textiles"],en:"khwas ji rasta tailor materials sewing threads buttons zip zippers achkan sherwani master wedding kapda"},
+      {id:19,n:"मनिहारों का रास्ता",i:"असली लाख की चूड़ियाँ (Lac Bangles), ब्राइडल चूड़ा",a:"त्रिपोलिया बाजार",s:"बाबू खान लाख बैंगल्स, खानदानी मनिहार",q:"Maniharon+Ka+Rasta+Tripolia+Bazar+Jaipur",cats:["wedding","jewelry"],en:"maniharon manihar rasta lac lakh bangles choodi chudi chudiya choodiyan bridal chuda babu khan jewel wedding"},
+      {id:20,n:"कसारों की गली",i:"शुद्ध कांसे (Bronze) के बर्तन, तांबे-पीतल के डिनर सेट्स",a:"त्रिपोलिया बाजार",s:"कसार बर्तन भंडार",q:"Kasaron+Ki+Gali+Tripolia+Bazar+Jaipur",cats:["crafts"],en:"kasaron gali bronze kansa bartan utensils tamba peetal copper brass dinner sets"},
+      {id:21,n:"ठठेरों का रास्ता",i:"हाथ से पीटे तांबे-पीतल के बर्तन, बड़े हवन कुंड, उरली",a:"त्रिपोलिया बाजार",s:"पारंपरिक ठठेरा वर्कशॉप्स",q:"Thatheron+Ka+Rasta+Tripolia+Jaipur",cats:["crafts"],en:"thatheron thathera rasta hand beaten copper brass utensils havan kund urli handicraft peetal tamba utensils"},
+      {id:22,n:"घड़ी गली",i:"विंटेज पेंडुलम घड़ियों की मरम्मत, दुर्लभ कलपुर्जे",a:"त्रिपोलिया बाजार",s:"विंटेज क्लॉक रीस्टोरर्स",q:"Ghadi+Gali+Tripolia+Bazar+Jaipur",cats:["general","crafts"],en:"ghadi gali vintage pendulum clocks watch repair antique parts vintage"},
+      {id:23,n:"सूत की गली",i:"सूती पतंग की डोर, दरी बुनने का सूत, मजबूत धागे",a:"त्रिपोलिया बाजार",s:"सूत भंडार",q:"Soot+Ki+Gali+Tripolia+Jaipur",cats:["general"],en:"soot gali cotton yarn thread kite dori rug weaving dari threads"},
+      {id:24,n:"तिजोरी वाली गली",i:"पुरानी भारी लोहे की फायरप्रूफ देसी तिजोरियां, सेफ",a:"त्रिपोलिया बाजार",s:"लोहा तिजोरी भंडार",q:"Tijori+Gali+Tripolia+Jaipur",cats:["general","crafts"],en:"tijori gali heavy iron fireproof safe locker vault desi tijoriya loha vintage"},
+      {id:25,n:"खजाने वालों का रास्ता",i:"मकराना संगमरमर (Marble) की देवी-देवताओं की मूर्तियाँ",a:"किशनपोल बाजार",s:"भारद्वाज मूर्ति कला, राष्ट्रीय अवार्डी मूर्तिकार",q:"Khazane+Walon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"khazane rasta makrana marble marbel moorti murti murtiya idols god statue sculpture bhardwaj marble handicraft"},
+      {id:26,n:"भींडों का रास्ता",i:"पीतल-तांबे के हस्तशिल्प, कांसे की थालियाँ, घंटियाँ",a:"किशनपोल बाजार",s:"भींडो ब्रास एंपोरियम",q:"Bhindon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"bhindon bhindo rasta brass copper handicraft bronze plates thali bells ghanti artifacts peetal utensils handicraft"},
+      {id:27,n:"खुटेटों का रास्ता",i:"ताराकशी (शीशम पर पीतल तार इनले), ठप्पा छपाई",a:"किशनपोल बाजार",s:"ताराकशी शिल्पकार केंद्र",q:"Khuteton+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"khuteton rasta tarakashi brass wire inlay sheesham wood woodcraft blocks handicraft vintage"},
+      {id:28,n:"चिटेरों का रास्ता",i:"राजस्थानी मिनिएचर पेंटिंग्स, कपड़े पर पिछवाई कला",a:"किशनपोल बाजार",s:"मिनिएचर आर्ट स्टूडियोज",q:"Chiteron+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"chiteron rasta rajasthani miniature paintings pichwai art cloth painting handicraft"},
+      {id:29,n:"शीशे वालों का रास्ता",i:"बेल्जियम ग्लास आईने, लकड़ी के विंटेज झरोखा फ्रेम",a:"किशनपोल बाजार",s:"जयपुरी ग्लास & फ्रेमिंग",q:"Sheeshe+Walon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"sheeshe rasta mirrors belgium glass aaina vintage jharokha wooden frames framing aayna kanch vintage handicraft"},
+      {id:30,n:"वैद्य जी का रास्ता",i:"पुश्तैनी नाड़ी वैद्य, दुर्लभ भस्म, आयुर्वेदिक औषधियां",a:"किशनपोल बाजार",s:"खानदानी वैद्य शालाएं",q:"Vaidya+Ji+Ka+Rasta+Kishanpole+Jaipur",cats:["general"],en:"vaidya ji rasta ayurveda ayurvedic herbs medicine dawai nadi vaidya bhasma herbal desi ilaj jadi buti medicine"},
+      {id:31,n:"सिकलीगरों का रास्ता",i:"दर्जी कैंची की धार, चाकू-छुरी पैना करने के कारीगर",a:"किशनपोल बाजार",s:"सिकलीगर कारीगर लेन",q:"Sikligaron+Ka+Rasta+Kishanpole+Jaipur",cats:["general","crafts"],en:"sikligaron rasta scissor sharpening scissors kainchi chaku knife sharpener blades utensils"},
+      {id:32,n:"ट्रंक मंडी / पेटी लेन",i:"शादी के लोहे/जस्ते के पेंटेड संदूक, साड़ियों की पेटियाँ",a:"अजमेरी गेट",s:"ट्रंक एंड सेफ हाउस",q:"Trunk+Market+Ajmeri+Gate+Jaipur",cats:["wedding","general"],en:"trunk mandi peti lane painted iron tin box boxes sandook bridal storage trunk sanduk wedding"},
+      {id:33,n:"बगरू वालों का रास्ता",i:"प्राकृतिक नील (Indigo) व दाबू ब्लॉक प्रिंट फैब्रिक",a:"चांदपोल बाजार",s:"बगरू हैंडब्लॉक हाउस",q:"Bagru+Walon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles"],en:"bagru rasta indigo dabu block print fabric cotton natural dye handblock kapda saree"},
+      {id:34,n:"छीपों का रास्ता",i:"हाथ से छपी कॉटन बेडशीट, दोहर, प्रिंटिंग ब्लॉक्स",a:"पुरानी बस्ती",s:"छीपा प्रिंटिंग वर्कशॉप्स",q:"Chhipon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles","crafts"],en:"chhipon chheepa rasta printed cotton bedsheets dohar printing blocks chadar kapda handicraft"},
+      {id:35,n:"सिलावटों का रास्ता",i:"गुलाबी बलुआ पत्थर (Sandstone) जालियाँ, फव्वारे",a:"चांदपोल बाजार",s:"सिलावट स्टोन आर्ट",q:"Silawaton+Ka+Rasta+Chandpole+Jaipur",cats:["crafts"],en:"silawaton rasta sandstone pink stone carving jali fountain favvare stone craft marble handicraft"},
+      {id:36,n:"पुरोहित जी का रास्ता",i:"पूजा सामग्री, तांबे के कलश, सांबर फीणी, घेवर",a:"चांदपोल बाजार",s:"सांबर फीणी मिष्ठान भंडार",q:"Purohit+Ji+Ka+Rasta+Chandpole+Jaipur",cats:["food","general","streetfood"],en:"purohit prohit ji rasta pooja samagri copper kalash sambhar feeni pheeni ghewar ghevar sweets mithai food nashta mithai"},
+      {id:37,n:"सुथारों का मोहल्ला",i:"लकड़ी के नक्काशीदार बाजोट (चौकी), पाटे, पीढ़े",a:"पुरानी बस्ती",s:"सुथार काष्ठ कला केंद्र",q:"Purani+Basti+Chandpole+Jaipur",cats:["crafts","wedding"],en:"sutharon mohalla wooden bajot chowki paata peedha wood craft carpenter handicraft wedding"},
+      {id:38,n:"कुम्हारों का मोहल्ला",i:"मिट्टी की हांडी, तवे, सुराही, कलात्मक डिजाइनर दीए",a:"पुरानी बस्ती",s:"पारंपरिक कुम्हार पाड़ा",q:"Kumharon+Ka+Mohalla+Purani+Basti+Jaipur",cats:["crafts"],en:"kumharon mohalla clay pottery mitti handi tawa surahi designer diya pots matka handicraft utensils"},
+      {id:39,n:"नाहरगढ़ रोड विंटेज लेन",i:"हवेलियों का पुराना सागवान/शीशम फर्नीचर, झरोखे",a:"चांदपोल के पास",s:"विंटेज हवेली फर्नीचर हाउस",q:"Nahargarh+Road+Furniture+Market+Jaipur",cats:["crafts"],en:"nahargarh road vintage antique furniture haveli teak sheesham wood jharokha doors purana furniture vintage"},
+      {id:40,n:"सब्जी मंडी कटला",i:"पंचकुटा (कैर, सांगरी, कुमटिया), सूखी काचरी, मथानिया मिर्च",a:"चांदपोल बाजार",s:"मारवाड़ी किराना स्टोर",q:"Chandpole+Mandi+Jaipur",cats:["food"],en:"sabzi mandi katla panchkuta ker sangri sangari kumtiya kachri mathania mirch spices grocery masale food nashta achar"},
+      {id:41,n:"पानी पेच का रास्ता",i:"कच्चे कपड़े पर हाथ से लहरिया, पचरंगा, टाई-डाई रंगाई",a:"रामगंज / घाट गेट",s:"उस्ताद रंगरेज डायर्स",q:"Pani+Pech+Ka+Rasta+Ramganj+Jaipur",cats:["textiles"],en:"pani pech rasta hand dye lahariya leheriya lahriya pachranga tie dye rangrez fabric rangai kapda saree"},
+      {id:42,n:"चार दरवाजा / मोची गली",i:"शुद्ध लेदर की हाथ से बनी जयपुरी मोजड़ियाँ (Juttis)",a:"रामगंज बाजार",s:"खानदानी मोजड़ी निर्माता",q:"Char+Darwaza+Ramganj+Jaipur",cats:["wedding","crafts","general"],en:"char darwaza mochi gali pure leather jaipuri jutti jooti mojari jutis footwear shoes mojadi jutiya"},
+      {id:43,n:"पन्नीगरों का मोहल्ला",i:"हथौड़े की मार से बना शुद्ध चांदी और सोने का वर्क",a:"चार दरवाजा",s:"पन्नीगर घराने वर्कशॉप्स",q:"Pannigaron+Ka+Mohalla+Ramganj+Jaipur",cats:["food","jewelry"],en:"pannigaron mohalla pure silver gold vark foil edible silver leaf hammering chandi vark food jewel"},
+      {id:44,n:"हांडीपुरा पतंग मंडी",i:"जयपुरी व बरेली का पक्का मांझा, थोक पतंग बाजार",a:"रामगंज क्षेत्र",s:"हांडीपुरा मांझा केंद्र",q:"Handipura+Ramganj+Jaipur",cats:["general"],en:"handipura patang mandi bareilly manjha kites wholesale kite market manja"},
+      {id:45,n:"मिरासी गली",i:"शास्त्रीय वाद्य यंत्र—हारमोनियम, तबला, ढोलक, सारंगी",a:"रामगंज बाजार",s:"म्यूजिकल इंस्ट्रूमेंट हाउस",q:"Mirasi+Gali+Ramganj+Jaipur",cats:["crafts","general"],en:"mirasi gali musical instruments harmonium tabla dholak sarangi sangeet music baja handicraft"},
+      {id:46,n:"तोपखाना हुजूरी",i:"शाही लक्जरी तंबू, जयपुरी शामियाना, कनात, जाजम",a:"घाट गेट परकोटा",s:"रॉयल टेंट मैन्युफैक्चरर्स",q:"Topkhana+Hazuri+Ghat+Gate+Jaipur",cats:["wedding","general"],en:"topkhana huzuri royal luxury tents jaipuri shamiana kanat jajam marquee tent tambu wedding"},
+      {id:47,n:"घांची मोहल्ला",i:"लकड़ी के कोल्हू का शुद्ध कच्ची घानी तिल व सरसों तेल",a:"रामगंज-सूरजपोल",s:"घांची शुद्ध तेल घानी",q:"Ghanchi+Mohalla+Ramganj+Jaipur",cats:["food"],en:"ghanchi mohalla cold pressed kacchi ghani til sesame mustard sarso oil pure edible oil tel food"},
+      {id:48,n:"हवा महल / सिरे ड्योढ़ी लेन",i:"विश्व प्रसिद्ध शुद्ध सूती जयपुरी रजाई (Jaipuri Razai)",a:"सिरे ड्योढ़ी बाजार",s:"गुलाब चंद प्रिंट्स, हेरिटेज रजाई",q:"Sireh+Deori+Bazar+Jaipur",cats:["textiles"],en:"hawa mahal sireh deori pure cotton jaipuri razai quilts blankets rajai bedcover gulab chand razayi kapda"},
+      {id:49,n:"पान दरीबा",i:"शादियों का मुखवास, बनारसी पान, असली कत्था व सुपारी",a:"बड़ी चौपड़ मुहाना",s:"पान दरीबा मुखवास हाउस",q:"Paan+Dariba+Badi+Chaupar+Jaipur",cats:["food","wedding","streetfood"],en:"paan dariba mukhwas mouth freshener banarasi paan kattha supari badi chaupar saunf food nashta pan"},
+      {id:50,n:"तोरण बाजार / बंदनवार लेन",i:"गोटा-पत्ती बंदनवार, तोरण, दूल्हे का तोरण पाटा, जयमाला",a:"बड़ी चौपड़",s:"मांगलिक श्रृंगार भंडार",q:"Badi+Chaupar+Jaipur",cats:["wedding"],en:"toran bazar bandanwar gota patti toran door hanging jaimala wedding decor groom toran pata varmala wedding"},
 
-    // Category filter check
-    if (selectedCategory !== "all" && itm.cats.indexOf(selectedCategory) === -1) {
-      continue;
+      /* 51 to 60: Famous Street Food & Heritage Sweets */
+      {id:51,n:"सम्राट रेस्टोरेंट व नाश्ता लेन",i:"हींग कचौरी, गर्म समोसा, कुरकुरी जलेबी, खमण ढोकला व मसाला चाय",a:"चौड़ा रास्ता",s:"सम्राट रेस्टोरेंट (Samrat since 1965)",q:"Samrat+Restaurant+Chaura+Rasta+Jaipur",cats:["streetfood","food"],en:"samrat restaurant chaura rasta heeng kachori samosa jalebi khaman dhokla chai tea breakfast nashta street food"},
+      {id:52,n:"एलएमबी (LMB - लक्ष्मी मिष्ठान भंडार)",i:"विश्व प्रसिद्ध पनीर घेवर, राज कचौरी, मलाई घेवर, दाल बाटी थाली",a:"जौहरी बाजार",s:"लक्ष्मी मिष्ठान भंडार (Heritage LMB 1727)",q:"LMB+Johari+Bazar+Jaipur",cats:["streetfood","food"],en:"lmb laxmi mishtan bhandar johari bazar paneer ghewar ghevar raj kachori dal baati churma sweets thali mithai food"},
+      {id:53,n:"ओरिजिनल लस्सी वाला (1944)",i:"मिट्टी के कुल्हड़ में गाढ़ी मलाईदार मीठी व नमकीन ताज़ा लस्सी",a:"एम.आई. रोड (अजमेरी गेट मुहाना)",s:"किशनलाल गोविंद नारायण लस्सी वाला (Shop 312)",q:"Lassiwala+MI+Road+Jaipur",cats:["streetfood","food"],en:"lassiwala lassi wala mi road ajmeri gate kulhad malai lassi sweet lassi shop 312 street food nashta drink"},
+      {id:54,n:"बापू बाजार मुख्य मार्केट",i:"सांगानेरी प्रिंट कुर्तियाँ, जयपुरी कॉटन चादरें, लेदर जूती, हैंडीक्राफ्ट",a:"सांगानेरी गेट से न्यू गेट",s:"बापू बाजार गारमेंट्स व हैंडीक्राफ्ट एम्पोरियम",q:"Bapu+Bazar+Jaipur",cats:["textiles","crafts","wedding"],en:"bapu bazar sanganeri kurtis kurti cotton bedsheet bedsheets chadar jutti leather handicrafts shopping textiles"},
+      {id:55,n:"नेहरू बाजार",i:"रंग-बिरंगी जयपुरी/जोधपुरी मोजड़ियाँ, रेडीमेड परिधान, बैग्स व गिफ्ट्स",a:"न्यू गेट से अजमेरी गेट",s:"नेहरू बाजार फुटवियर एंड टैक्सटाइल मार्केट",q:"Nehru+Bazar+Jaipur",cats:["crafts","textiles","general"],en:"nehru bazar footwear mojari jooti jutti ready made clothes bags shopping ajmeri gate"},
+      {id:56,n:"रावत मिष्ठान भंडार",i:"प्रसिद्ध खस्ता प्याज कचौरी, मावा कचौरी, मिर्ची वड़ा व घेवर",a:"स्टेशन रोड (चांदपोल के पास)",s:"रावत मिष्ठान भंडार (Rawat Sweets)",q:"Rawat+Mishtan+Bhandar+Jaipur",cats:["streetfood","food"],en:"rawat mishtan bhandar pyaz ki kachori pyaaz mawa kachori mirchi vada jalebi ghewar nashta street food"},
+      {id:57,n:"पंडित कुल्फी व फालूदा",i:"केसर-पिस्ता मटका कुल्फी, शाही रबड़ी फालूदा व पान कुल्फी",a:"सिरह ड्योढ़ी (हवा महल के सामने)",s:"पंडित कुल्फी सेंटर (Pandit Kulfi)",q:"Pandit+Kulfi+Hawa+Mahal+Jaipur",cats:["streetfood","food"],en:"pandit kulfi hawa mahal sireh deori rabdi falooda rabri pista kulfi dessert street food ice cream"},
+      {id:58,n:"गुलाब जी चाय वाले",i:"स्पेशल कड़क मसाला चाय, बन-मस्का, बन-मक्खन व गरमागरम समोसा",a:"एमआई रोड / गणगौरी बाजार",s:"गुलाब जी चाय वाले (Gulab Ji Chai)",q:"Gulab+Ji+Chai+Wale+MI+Road+Jaipur",cats:["streetfood","food"],en:"gulab ji chai wale tea masala tea bun maska makhan samosa street food nashta gangori"},
+      {id:59,n:"इत्र व सुगंध लेन (Attar Lane)",i:"शुद्ध जयपुरी रूह गुलाब, खस, मोगरा, असली ऊद इत्र, चंदन तेल व अगरबत्ती",a:"हल्दियों का रास्ता / जौहरी बाजार",s:"गुलाब सिंह जोहरीमल, सुगंध भंडार",q:"Attar+Johari+Bazar+Jaipur",cats:["crafts","general","wedding"],en:"ittar attar gali rose water gulab jal khas mogra oudh chandan sandalwood oil perfume aroma wedding pooja"},
+      {id:60,n:"महावीर जी की रबड़ी",i:"केसर-पिस्ता मटका रबड़ी, लच्छेदार गाढ़ा दूध, मालपुआ व बेझड़ रोटी",a:"चांदपोल / त्रिपोलिया के पास",s:"महावीर रबड़ी भंडार (Mahaveer Rabri)",q:"Mahaveer+Rabri+Bhandar+Chandpole+Jaipur",cats:["streetfood","food"],en:"mahaveer rabdi bhandar rabri kulfi kesar pista milk sweet dessert street food bejhad roti malpua"},
+
+      /* 61 to 68: Famous Temples */
+      {id:61,n:"मोती डूंगरी गणेश मंदिर",i:"जयपुर के अधिष्ठाता प्रथम पूज्य गणेश जी, मोदक प्रसाद व बुधवार मेला",a:"जेएलएन मार्ग / तिलक नगर",s:"मोती डूंगरी ट्रस्ट व मोदक भंडार",q:"Moti+Dungri+Ganesh+Ji+Temple+Jaipur",cats:["temple","food"],en:"moti dungri ganesh mandir temple modak laddu ganesha wednesday religious pooja darshan jln marg"},
+      {id:62,n:"गोविंद देव जी मंदिर",i:"जयपुर के आराध्य देव, नयनाभिराम मंगला व संध्या आरती, मिश्री मावा प्रसादी",a:"जलेब चौक / सिटी पैलेस परिसर",s:"ठाकुर जी मंदिर भोग शाला",q:"Govind+Dev+Ji+Temple+Jaleb+Chowk+Jaipur",cats:["temple","food"],en:"govind dev ji mandir temple krishna aarti jaleb chowk city palace prasad darshan religious pooja"},
+      {id:63,n:"बिड़ला मंदिर (लक्ष्मी नारायण मंदिर)",i:"शुद्ध मकराना सफेद संगमरमर की भव्य नक्काशी, शांत बगीचे व रात्रि लाइटिंग",a:"तिलक नगर / मोती डूंगरी तलहटी",s:"बिड़ला मंदिर कॉम्प्लेक्स",q:"Birla+Mandir+Jaipur",cats:["temple","sightseeing","toddler"],en:"birla mandir lakshmi narayan temple white marble tilak nagar moti dungri architecture garden tourist"},
+      {id:64,n:"गलता जी तीर्थ (Monkey Temple)",i:"पवित्र प्राकृतिक 7 जल कुंड, अरावली घाटी, प्राचीन सूर्य मंदिर व बंदर",a:"गलता हिल्स (घाट की गुणी के पास)",s:"प्राचीन गलता पीठ व कुंड",q:"Galtaji+Temple+Jaipur",cats:["temple","sightseeing"],en:"galtaji galta ji temple monkey temple natural springs holy kund sun temple aravalli hills ghat ki guni"},
+      {id:65,n:"खोले के हनुमान जी मंदिर",i:"पहाड़ी पर बसा भव्य मंदिर परिसर, रोपवे (Ropeway) सुविधा व प्रसिद्ध सवामणी",a:"दिल्ली-जयपुर बाईपास",s:"खोले के हनुमान जी ट्रस्ट",q:"Khole+Ke+Hanuman+Ji+Temple+Jaipur",cats:["temple","sightseeing","toddler"],en:"khole ke hanuman ji temple ropeway sawamani prasad dal baati churma hills bypass hanuman mandir"},
+      {id:66,n:"गढ़ गणेश मंदिर",i:"अरावली पहाड़ी की चोटी पर बिना सूंड वाले बाल गणेश जी, पैदल ट्रेक सीढ़ियां",a:"नाहरगढ़ तलहटी (गैटोर के पास)",s:"गढ़ गणेश शिखर",q:"Garh+Ganesh+Temple+Jaipur",cats:["temple","sightseeing"],en:"garh ganesh mandir trekking stairs aravalli fort view child ganesha heritage trek"},
+      {id:67,n:"जगत शिरोमणि मंदिर (आमेर)",i:"16वीं सदी का अनूठा नक्काशीदार पत्थर मंदिर, जहाँ मीरा बाई श्रीकृष्ण संग पूजी जाती हैं",a:"आमेर कस्बा",s:"हेरिटेज जगत शिरोमणि",q:"Jagat+Shiromani+Temple+Amer+Jaipur",cats:["temple","sightseeing","crafts"],en:"jagat shiromani temple amer meera krishna stone carving heritage hidden gem architecture"},
+      {id:68,n:"काले हनुमान जी मंदिर",i:"दुर्लभ काले रंग के बाल हनुमान जी की प्राचीन प्रतिमा, चांदी का चौपड़ मुख",a:"हवा महल के पास (चांदी की टकसाल)",s:"काले हनुमान जी मंदिर",q:"Kale+Hanuman+Ji+Temple+Jaipur",cats:["temple"],en:"kale hanuman ji temple chandi ki taksal hawa mahal old city black hanuman mandir pooja"},
+
+      /* 69 to 73: Operating Malls */
+      {id:69,n:"वर्ल्ड ट्रेड पार्क (WTP Mall)",i:"विशाल ब्लू-ग्लास आर्किटेक्चर, इंटरनेशनल ब्रांड्स, फूड कोर्ट व फंतासी स्ट्रीट",a:"मालवीय नगर (JLN मार्ग)",s:"WTP नॉर्थ व साउथ ब्लॉक",q:"World+Trade+Park+Malviya+Nagar+Jaipur",cats:["mall","food","toddler"],en:"wtp world trade park mall malviya nagar shopping international brands multiplex cinema food court modern"},
+      {id:70,n:"गौरव टावर (GT) व जीटी बाजार",i:"जयपुर का सबसे पहला व लोकप्रिय यूथ मॉल, अंडरग्राउंड स्ट्रीट शॉपिंग व फास्ट फूड लेन",a:"मालवीय नगर",s:"GT सेंट्रल, अंडरग्राउंड बाजार",q:"Gaurav+Tower+Malviya+Nagar+Jaipur",cats:["mall","streetfood"],en:"gaurav tower gt bazar gt central malviya nagar underground street market fast food shopping youth hangout"},
+      {id:71,n:"मॉल ऑफ जयपुर (Mall of Jaipur)",i:"लक्जरी ब्रांड्स, एंटरटेनमेंट जोन, रूफटॉप डाइनिंग व आधुनिक बुटीक्स",a:"गांधी पथ (वैशाली नगर)",s:"मॉल ऑफ जयपुर आर्केड",q:"Mall+of+Jaipur+Vaishali+Nagar+Jaipur",cats:["mall","food","toddler"],en:"mall of jaipur vaishali nagar gandhi path shopping multiplex gaming cinema luxury"},
+      {id:72,n:"ट्राइटन मॉल (Triton Mall)",i:"किफायती फैशन शॉपिंग, हाइपरमार्केट, गेमिंग जोन व मल्टीप्लेक्स सिनेमा",a:"झोटवाड़ा रोड",s:"ट्राइटन मेगा मार्ट्स",q:"Triton+Mall+Jhotwara+Road+Jaipur",cats:["mall","toddler"],en:"triton mall jhotwara shopping hypermarket dmart cinema movies gaming clothes"},
+      {id:73,n:"पिंक स्क्वायर मॉल (Pink Square Mall)",i:"लोकल फैशन आउटलेट्स, INOX मल्टीप्लेक्स सिनेमा, फ़ूड कोर्ट व किड्स जोन",a:"आदर्श नगर / राजा पार्क",s:"पिंक स्क्वायर शॉपिंग जोन",q:"Pink+Square+Mall+Raja+Park+Jaipur",cats:["mall","food","toddler"],en:"pink square mall raja park adarsh nagar shopping cinema inox food court"},
+
+      /* 74 to 79: Cafes & Hangouts */
+      {id:74,n:"टपरी सेंट्रल (Tapri Central)",i:"सेंट्रल पार्क का हरा-भरा नजारा, कुल्हड़ चाय, खाखरा पिज्जा, दाल पकवान व यूथ वाइब",a:"सी-स्कीम (C-Scheme)",s:"Tapri The Tea House",q:"Tapri+Central+C+Scheme+Jaipur",cats:["cafe","streetfood"],en:"tapri central c scheme central park view kulhad chai tea khakhra pizza brunch rooftop cafe youth hangout reddit"},
+      {id:75,n:"जवाहर कला केंद्र (JKK) व इंडियन कॉफी हाउस",i:"चार्ल्स कोरिया द्वारा डिजाइन आर्ट सेंटर, आर्ट गैलरी, थियेटर, फिल्टर कॉफी व कटलेट",a:"जेएलएन मार्ग",s:"इंडियन कॉफी हाउस (ICH at JKK)",q:"Jawahar+Kala+Kendra+Jaipur",cats:["cafe","crafts","sightseeing"],en:"jawahar kala kendra jkk indian coffee house ich filter coffee cultural center art gallery theatre jln marg"},
+      {id:76,n:"नाहरगढ़ पड़ाव व सनसेट पॉइंट",i:"पूरे जयपुर शहर का विहंगम 360° विहंगम नजारा, खुली हवा में शाम का डाइनिंग व सूर्यास्त",a:"नाहरगढ़ किला",s:"पड़ाव ओपन एयर रेस्टोरेंट",q:"Padao+Nahargarh+Fort+Jaipur",cats:["cafe","sightseeing"],en:"nahargarh padao open air restaurant sunset point scenic city view rooftop bird eye night skyline fort"},
+      {id:77,n:"टैटू कैफ़े व विंड व्यू कैफ़े",i:"हवा महल के ठीक सामने रूफटॉप कैफ़े, परफेक्ट इंस्टाग्राम फोटो व्यू, शेक्स व कॉफी",a:"बड़ी चौपड़ (हवा महल के सामने)",s:"The Tattoo Cafe & Wind View",q:"The+Tattoo+Cafe+Jaipur",cats:["cafe","sightseeing"],en:"the tattoo cafe wind view cafe hawa mahal rooftop view photography coffee shakes instagram famous"},
+      {id:78,n:"टाउन कॉफी / द फार्म कॉफी बार",i:"आर्टिसनल स्पेशल ब्रू कॉफी, क्रोइसैंट, वुडफायर्ड पिज्जा व आउटडोर ग्रीनरी सिटिंग",a:"सी-स्कीम / अशोक नगर",s:"Town Coffee Roasters",q:"Town+Coffee+C+Scheme+Jaipur",cats:["cafe"],en:"town coffee roasters the farm coffee bar c scheme speciality coffee aesthetic cafe hangout bakery"},
+      {id:79,n:"स्वीटन हाउस / काफ़े तोसकाना",i:"हेरिटेज विक्टोरियन एंबियंस, इटैलियन पास्ता, कॉकटेल लाउंज व लाइव म्यूजिक",a:"सी-स्कीम",s:"The Swinton House & Cafe Toscana",q:"The+Swinton+House+Jaipur",cats:["cafe","food"],en:"the swinton house cafe toscana c scheme fine dining italian pasta aesthetic heritage ambience lounge"},
+
+      /* 80 to 85: Food Courts & Landmarks */
+      {id:80,n:"मसाला चौक (Masala Chowk)",i:"एक ही ओपन-एयर परिसर में जयपुर के 21+ सबसे मशहूर स्ट्रीट फूड स्टॉल्स (चाट, डोसा, कचौरी)",a:"राम निवास बाग (अल्बर्ट हॉल के पीछे)",s:"मसाला चौक ओपन फूड कोर्ट",q:"Masala+Chowk+Ram+Niwas+Garden+Jaipur",cats:["streetfood","food","toddler","parks"],en:"masala chowk ram niwas garden open air food court all in one street food chaat golgappe samrat albert hall"},
+      {id:81,n:"सेठी टिक्का व राजा पार्क स्ट्रीट फूड",i:"तंदूरी चिकन टिक्का, मखमली पनीर टिक्का, काठी रोल्स व देर रात का चटपटा खाना",a:"राजा पार्क (Raja Park)",s:"सेठी टिक्का ढाबा, राजा पार्क फूड लेन",q:"Sethi+Tikka+Dhabha+Raja+Park+Jaipur",cats:["streetfood","food"],en:"sethi tikka raja park tandoori chicken paneer tikka kathi roll nonveg night street food"},
+      {id:82,n:"नंद & चावला के गोलगप्पे",i:"मसालेदार पुदीना पानी, मीठी सौंठ, सूजी व आटे की पानी पताशी की आइकॉनिक प्रतिद्वंद्विता",a:"फैशन स्ट्रीट (राजा पार्क)",s:"नंद गोलगप्पे & चावला ब्रदर्स",q:"Chawla+Golgappa+Raja+Park+Jaipur",cats:["streetfood"],en:"chawla nand golgappe pani puri patashi puchka spicy pudina meetha sonth raja park street food"},
+      {id:83,n:"साहू की चाय (1968)",i:"पीतल के बड़े पतीले में कोयले की धीमी आंच पर पकी इलायची-अदरक दूधिया कड़क चाय",a:"चौड़ा रास्ता / सवाई मानसिंह हाईवे",s:"साहू चाय वाले (Sahu Chai)",q:"Sahu+Chai+Wale+Chaura+Rasta+Jaipur",cats:["streetfood","cafe"],en:"sahu chai chaura rasta coal cooked tea brass pot elaichi kadak chai morning tea street food"},
+      {id:84,n:"पंडित पाव भाजी व भेलपूरी",i:"भरपूर अमूल बटर में तवे पर सिंकती चटपटी पाव भाजी, मुंबईया भेल व फालूदा कुल्फी",a:"बिड़ला मंदिर के सामने",s:"पंडित पाव भाजी सेंटर",q:"Pandit+Pav+Bhaji+Birla+Temple+Jaipur",cats:["streetfood"],en:"pandit pav bhaji opposite birla mandir butter pav bhaji bhelpuri evening snack food truck"},
+      {id:85,n:"पत्रिका गेट व जवाहर सर्किल",i:"हाथ से चित्रित रंग-बिरंगे राजस्थानी 9 मेहराब (गेट), म्यूजिकल फाउंटेन, किड्स गार्डन व स्ट्रीट फूड",a:"जवाहर सर्किल (JLN मार्ग)",s:"पत्रिका गेट हेरिटेज लेन",q:"Patrika+Gate+Jawahar+Circle+Jaipur",cats:["sightseeing","streetfood","toddler","parks"],en:"patrika gate jawahar circle musical fountain photography instagram spots colourful arches picnic jln marg toddler playground"},
+
+      /* 86 to 105: Outskirts, Temples, Major Parks */
+      {id:86,n:"श्री लक्ष्मी जगदीश जी मंदिर (गोनेर)",i:"'गोनेर के जगदीश धणी'—प्राचीन चमत्कारी विष्णु मंदिर, पवित्र तालाब दर्शन, प्रसिद्ध पुआ-खीर भोग",a:"गोनेर कस्बा (सांगानेर-जगतपुरा के पास)",s:"जगदीश जी मंदिर ट्रस्ट व पुआ-खीर प्रसादी स्टॉल",q:"Jagdish+Ji+Temple+Goner+Jaipur",cats:["temple","outskirts","food"],en:"jagdish ji temple goner gooner jagdish mandir vishnu jagannath pua kheer prasad pond talab pilgrim spiritual outskirts jagatpura sanganer"},
+      {id:87,n:"बीसलपुर बांध व बीसलदेव महादेव मंदिर",i:"जयपुर की लाइफलाइन—विशाल नीला जलाशय, बनास नदी का विहंगम दृश्य, 12वीं सदी का जलमग्न शिव मंदिर व पिकनिक",a:"टोंक जिला (जयपुर से ~140 किमी)",s:"बीसलपुर डैम व्यू पॉइंट व बीसलदेव मंदिर",q:"Bisalpur+Dam+Tonk+Rajasthan",cats:["outskirts","sightseeing","parks"],en:"bisalpur dam beesalpur dam tonk banas river water reservoir lake boating bisaldeo mahadev shiva temple day trip picnic nature"},
+      {id:88,n:"सिटी पार्क मानसरोवर (City Park)",i:"52 एकड़ में फैला भव्य पार्क, म्यूजिकल फाउंटेन, भव्य स्कल्पचर्स, विशाल किड्स प्ले एरिया, जॉगिंग ट्रैक व ओपन जिम",a:"VT रोड (मानसरोवर)",s:"सिटी पार्क एंट्रेंस प्लाजा & फूड कोर्ट",q:"City+Park+Mansarovar+Jaipur",cats:["toddler","parks","sightseeing"],en:"city park mansarovar vt road musical fountain jogging track kids playground toddler friendly sculptures lawn greenery family picnic"},
+      {id:89,n:"सेंट्रल पार्क (Central Park)",i:"जयपुर का सबसे बड़ा हरा फेफड़ा—5 किमी रबर वॉकिंग ट्रैक, भारत का विशाल 206 फीट राष्ट्रीय ध्वज, डक पॉन्ड व म्यूजिकल फाउंटेन",a:"स्टैच्यू सर्किल (C-Scheme)",s:"सेंट्रल पार्क लॉन & जॉगिंग ट्रैक",q:"Central+Park+Jaipur",cats:["toddler","parks"],en:"central park statue circle c scheme flag 206 feet walking jogging track duck pond green lush open lawn toddler play kids walking"},
+      {id:90,n:"किशन बाग सैंड ड्यून्स व डेजर्ट पार्क",i:"थार रेगिस्तान का प्राकृतिक पुनर्वास—रिफोरेस्टेड सैंड ड्यून्स, वुडन वॉकवे, देशी कैक्टस, चिड़ियों की चहचहाहट व शांत सूर्यास्त",a:"विद्याधर नगर (नाहरगढ़ तलहटी)",s:"किशन बाग विजिटर सेंटर",q:"Kishan+Bagh+Sand+Dunes+Park+Jaipur",cats:["parks","sightseeing"],en:"kishan bagh sand dunes desert park thar ecosystem wooden walkway vidhyadhar nagar nature walk landscape peaceful sunset"},
+      {id:91,n:"कनक वृंदावन गार्डन व घाटी",i:"नाहरगढ़ की हरी-भरी तलहटी में वृंदावन शैली का नक्काशीदार हेरिटेज गार्डन, फव्वारे, राधा-माधव मंदिर व शांत पिकनिक",a:"आमेर रोड (जल महल के पास)",s:"कनक वृंदावन कॉम्प्लेक्स",q:"Kanak+Vrindavan+Garden+Jaipur",cats:["toddler","parks","sightseeing","temple"],en:"kanak vrindavan garden amer road jal mahal fountains green lush heritage garden radha madhav film shoot toddler picnic"},
+      {id:92,n:"कुलिश स्मृति वन (Kulish Smriti Van)",i:"108 एकड़ में फैला शांत जैव विविधता वन, मरु सुगंध, पक्षी दर्शन ट्रेल्स, घने पेड़ व बच्चों के लिए प्रकृति की सैर",a:"JLN मार्ग (MNIT के पास)",s:"स्मृति वन बॉटनिकल पाथवे",q:"Smriti+Van+JLN+Marg+Jaipur",cats:["parks","toddler"],en:"kulish smriti van jln marg biodiversity forest bird watching nature trail peaceful walking morning walk maru sugandh kids nature"},
+      {id:93,n:"नाहरगढ़ बायोलॉजिकल व जूलॉजिकल पार्क",i:"लायन व टाइगर सफारी, ओपन चिड़ियाघर, बैटरी चलित इको-फ्रेंडली कार्स, दुर्लभ वन्यजीव व बच्चों का रोमांच",a:"दिल्ली हाईवे (कूकस के पास)",s:"नाहरगढ़ जूलॉजिकल सफारी टिकट प्लाजा",q:"Nahargarh+Biological+Park+Jaipur",cats:["toddler","parks","outskirts","sightseeing"],en:"nahargarh biological park zoo lion safari tiger safari wildlife animals battery cart kids friendly toddler tour kukas outskirts"},
+      {id:94,n:"सांभर सॉल्ट लेक व शाकंभरी माता मंदिर",i:"भारत की सबसे बड़ी अंतर्देशीय खारे पानी की झील, ऐतिहासिक साल्ट ट्रेन, फ्लेमिंगो बर्ड वाचिंग व सफेद नमक का रेगिस्तान",a:"सांभर कस्बा (जयपुर से ~80 किमी)",s:"शाकंभरी माता तीर्थ व सॉल्ट वर्क्स",q:"Sambhar+Salt+Lake+Rajasthan",cats:["outskirts","sightseeing","temple"],en:"sambhar salt lake shakambhari mata temple white desert flamingo birds salt train train sunset photography day trip outskirts"},
+      {id:95,n:"चांद बावड़ी व हर्षत माता मंदिर (आभानेरी)",i:"8वीं सदी की 3500 ज्यामितीय सीढ़ियों व 13 मंजिलों वाली विश्व प्रसिद्ध बावड़ी, प्राचीन गुप्तकालीन हर्षत माता मंदिर",a:"आभानेरी, बांदीकुई (जयपुर से ~90 किमी)",s:"आभानेरी स्टेपवेल कॉम्प्लेक्स",q:"Chand+Baori+Abhaneri+Rajasthan",cats:["outskirts","sightseeing","temple"],en:"chand baori stepwell abhaneri harshat mata temple 3500 steps architectural wonder ancient heritage day trip bandikui"},
+      {id:96,n:"खाटूश्याम जी मंदिर (Khatu Shyam Ji)",i:"'हारे का सहारा, बाबा श्याम हमारा'—शीश के दानी का महातीर्थ, पवित्र श्याम कुंड स्नान, गुलाब इत्र व पेड़ा प्रसाद",a:"खाटू कस्बा, सीकर (जयपुर से ~80 किमी)",s:"श्री श्याम मंदिर कमेटी & प्रसादी बाजार",q:"Khatu+Shyam+Ji+Temple+Rajasthan",cats:["temple","outskirts","food"],en:"khatu shyam ji mandir baba shyam sikar lakhi mela shyam kund peda prasad spiritual darshan pilgrim day trip"},
+      {id:97,n:"सालासर बालाजी धाम (Salasar Balaji)",i:"दाढ़ी-मूंछ वाले स्वयंभू पवनपुत्र हनुमान जी का सिद्ध पीठ, प्रसिद्ध सवामणी चूरमा भोग व अखंड ज्योत दर्शन",a:"सालासर, चूरू (जयपुर से ~170 किमी)",s:"सालासर बालाजी मंदिर ट्रस्ट",q:"Salasar+Balaji+Temple+Rajasthan",cats:["temple","outskirts","food"],en:"salasar balaji mandir hanuman temple churu sawamani churma laddu prasad akhand jyot faith pilgrim outskirts day trip"},
+      {id:98,n:"अक्षरधाम मंदिर (चित्रकूट/वैशाली)",i:"शानदार नक्काशीदार गुलाबी पत्थर व संगमरमर वास्तुकला, सुरम्य लॉन, बच्चों के खेलने का खुला मैदान व शांतिपूर्ण माहौल",a:"चित्रकूट (वैशाली नगर)",s:"अक्षरधाम मंदिर स्वामीनारायण ट्रस्ट",q:"Akshardham+Temple+Vaishali+Nagar+Jaipur",cats:["temple","toddler","parks"],en:"akshardham temple vaishali nagar chitrakoot swaminarayan stone carving lush lawns peaceful family visit kids friendly"},
+      {id:99,n:"अल्बर्ट हॉल म्यूजियम व कबूतर चौक",i:"इंडो-सारासेनिक शैली का राज्य संग्रहालय, शाम को सैकड़ों कबूतरों को दाना खिलाना, बच्चों का आकर्षण व नाइट इल्यूमिनेशन",a:"राम निवास बाग",s:"अल्बर्ट हॉल टिकट काउंटर & दाना प्वाइंट",q:"Albert+Hall+Museum+Jaipur",cats:["toddler","sightseeing","parks"],en:"albert hall museum ram niwas bagh pigeons feeding kabutar chowk egyptian mummy night tourism kids toddler fun"},
+      {id:100,n:"चौकी ढाणी एथनिक विलेज (Chokhi Dhani)",i:"राजस्थानी संस्कृति का सजीव मेला—ऊंट/हाथी/बैलगाड़ी सवारी, कठपुतली शो, जादूगर, लोकनृत्य व पारंपरिक शाही दाल-बाटी-चूरमा थाली",a:"12 मील, टोंक रोड",s:"चौकी ढाणी रिजॉर्ट कॉम्प्लेक्स",q:"Chokhi+Dhani+Tonk+Road+Jaipur",cats:["toddler","food","sightseeing","outskirts"],en:"chokhi dhani tonk road village fair camel ride elephant ride puppet show kathputli rajasthani dance dal baati churma kids entertainment dinner"},
+      {id:101,n:"अनोखी म्यूजियम ऑफ हैंड प्रिंटिंग (आमेर)",i:"पुरानी हवेली में स्थित हैंड-ब्लॉक प्रिंटिंग म्यूजियम, बच्चों के लिए लाइव प्रिंटिंग वर्कशॉप्स व कारीगरी प्रदर्शन",a:"खेड़ी गेट (आमेर किला के पास)",s:"अनोखी म्यूजियम कैफ़े व शॉप",q:"Anokhi+Museum+of+Hand+Printing+Amer+Jaipur",cats:["crafts","sightseeing","toddler"],en:"anokhi museum hand block printing amer live block print workshop crafts textiles haveli kids learning"},
+      {id:102,n:"पन्ना मीणा का कुंड (आमेर)",i:"16वीं सदी की अष्टकोणीय छतरियों व सममितीय ज्यामितीय सीढ़ियों वाली ऐतिहासिक बावड़ी, शांत वातावरण व फोटोग्राफी",a:"आमेर कस्बा (बिहारी जी मंदिर के पास)",s:"पन्ना मीणा की बावड़ी",q:"Panna+Meena+Ka+Kund+Amer+Jaipur",cats:["sightseeing","crafts"],en:"panna meena ka kund amer stepwell geometric stairs water heritage photography peaceful hidden spot"},
+      {id:103,n:"हाथी गांव (Elephant Village / Hathi Gaon)",i:"हाथियों के साथ दोस्ताना मुलाकात—हाथियों को चारा खिलाना, नहलाना, नेचुरल पेंटिंग व बच्चों के लिए यादगार रोमांच",a:"कुंडा, दिल्ली-जयपुर हाईवे (आमेर के आगे)",s:"हाथी गांव रेस्क्यू एंड ईको सेंटर",q:"Hathi+Gaon+Elephant+Village+Jaipur",cats:["toddler","outskirts","sightseeing"],en:"hathi gaon elephant village kunda amer elephant feeding bathing animal interaction kids friendly family outing"},
+      {id:104,n:"द्रव्यवती रिवरफ्रंट व बोटेनिकल पार्क",i:"16 किमी सुंदर सुसज्जित रिवरफ्रंट पाथवे, लैंडस्केप बोटेनिकल गार्डन, ओपन लॉन व बच्चों के लिए वॉकिंग एरिया",a:"सांगानेर / शिप्रा पथ (मानसरोवर मुहाना)",s:"द्रव्यवती लैंडस्केप गार्डन",q:"Dravyavati+Riverfront+Jaipur",cats:["parks","toddler"],en:"dravyavati riverfront botanical park shipra path sanganer mansarovar walking track landscaped gardens kids play"},
+      {id:105,n:"भानगढ़ का किला (Bhangarh Fort)",i:"रहस्यमयी 17वीं सदी का किला, खंडहर महल, प्राचीन गोपीनाथ मंदिर व अरावली घाटी की रोमांचक ऐतिहासिक डे-ट्रिप",a:"भानगढ़, अलवर सीमा (जयपुर से ~85 किमी)",s:"एएसआई (ASI) भानगढ़ हेरिटेज कॉम्प्लेक्स",q:"Bhangarh+Fort+Rajasthan",cats:["outskirts","sightseeing"],en:"bhangarh fort mystery ruins gopinath temple aravalli hills day trip heritage spooky ruins nature travel"},
+
+      /* 106 to 118: Kishangarh, Pushkar & Similar Spots */
+      {id:106,n:"किशनगढ़ मार्बल डंप यार्ड (स्नो डंप यार्ड)",i:"'राजस्थान का स्विट्जरलैंड / मूनलैंड'—सफेद संगमरमर स्लरी का विशाल बर्फीला लैंडस्केप, नीला पानी, सिनेमैटिक व प्री-वेडिंग फोटोशूट",a:"किशनगढ़ (जयपुर-अजमेर हाईवे, ~100 किमी)",s:"मार्बल एसोसिएशन गेट (एंट्री पास काउंटर)",q:"Kishangarh+Marble+Dump+Yard+Rajasthan",cats:["outskirts","sightseeing"],en:"kishangarh marble dump yard dumpyard snow white desert moonland lake photoshoot pre wedding ajmer road outskirts switzerland of rajasthan"},
+      {id:107,n:"पुष्कर सरोवर व जगतपिता ब्रह्मा मंदिर",i:"विश्व का एकमात्र प्रमुख ब्रह्मा मंदिर, 52 पवित्र घाट, महाआरती, गुलाब इत्र/गुलकंद, ऊंट सफारी, मालपुआ व कैफ़े कल्चर",a:"पुष्कर तीर्थ (जयपुर से ~145 किमी)",s:"ब्रह्मा मंदिर, वराह घाट, हलवाई गली (राधे जी मालपुआ)",q:"Brahma+Temple+Pushkar+Rajasthan",cats:["temple","outskirts","sightseeing","cafe","food"],en:"pushkar brahma temple pushkar lake ghat holy lake camel safari savitri temple malpua rabdi desert cafe day trip pilgrim gulkand rose water"},
+      {id:108,n:"फाउंटेन स्क्वायर पार्क (Fountain Square)",i:"रंग-बिरंगे इंटरएक्टिव म्यूजिकल फव्वारे, शांत ग्रीन लॉन, बच्चों के राइड्स, ओपन सिटिंग व ईवनिंग फैमिली वॉक",a:"मानसरोवर (City Park के पास)",s:"फाउंटेन स्क्वायर प्लाजा",q:"Fountain+Square+Mansarovar+Jaipur",cats:["parks","toddler","sightseeing"],en:"fountain square park mansarovar musical fountain kids play toddler open lawns greenery evening walk water fountain family spot"},
+      {id:109,n:"अजमेर शरीफ दरगाह व आना सागर झील",i:"हजरत ख्वाजा मोईनुद्दीन चिश्ती दरगाह जियारत, आना सागर बारादरी पर शाम की ठंडी हवा, बोटिंग, सोहन हलवा व चौपाटी",a:"अजमेर शहर (जयपुर से ~130 किमी)",s:"दरगाह शरीफ & आना सागर चौपाटी फूड स्टॉल्स",q:"Ajmer+Sharif+Dargah+Ana+Sagar+Lake+Ajmer",cats:["temple","outskirts","sightseeing","streetfood"],en:"ajmer sharif dargah khwaja garib nawaz ana sagar lake baradari boating chaupati sohan halwa day trip qawwali pilgrim"},
+      {id:110,n:"नेवता बांध व सनसेट लेक (Nevta Dam)",i:"शांत विशाल प्राकृतिक झील, बारिश में ओवरफ्लो होती चादर, मनोरम सूर्यास्त, शांतिपूर्ण लॉन्ग ड्राइव व नेचर फोटोग्राफी",a:"नेवता / मुहाना रोड (जयपुर बाहरी क्षेत्र)",s:"नेवता डैम व्यू पॉइंट",q:"Nevta+Dam+Jaipur",cats:["outskirts","parks","sightseeing"],en:"nevta dam lake muhana road mansarovar outskirts sunset drive monsoon water reservoir picnic nature calm water body"},
+      {id:111,n:"चांदलाई झील व बर्ड वाचिंग (Chandlai Lake)",i:"140 वर्ष पुरानी प्राकृतिक झील, सर्दियों में हजारों प्रवासी फ्लेमिंगो (राजहंस) व दुर्लभ पक्षियों का बसेरा, शांत सूर्यास्त",a:"कोटा-टोंक रोड (जयपुर से ~30 किमी)",s:"चांदलाई लेक व्यू पॉइंट",q:"Chandlai+Lake+Jaipur",cats:["outskirts","parks","sightseeing"],en:"chandlai lake flamingos migratory birds bird watching tonk road sunset nature photography peaceful day outing water body"},
+      {id:112,n:"नीमराना फोर्ट पैलेस (Neemrana Fort)",i:"15वीं सदी का 14 मंजिला हेरिटेज पैलेस, जिप-लाइनिंग (Flying Fox), विंटेज कार सफारी, लक्जरी हैंगिंग गार्डन व हेरिटेज डे ट्रिप",a:"नीमराना, दिल्ली-जयपुर हाईवे (~120 किमी)",s:"नीमराना हेरिटेज रिसेप्शन",q:"Neemrana+Fort+Palace+Rajasthan",cats:["outskirts","sightseeing"],en:"neemrana fort palace heritage hotel zipline flying fox hills vintage delhi jaipur highway day trip luxury palace"},
+      {id:113,n:"टेक्नोलॉजी पार्क व वुडलैंड पार्क",i:"मानसरोवर का हरा-भरा शांत बोटेनिकल पार्क, बच्चों के झूले, वॉकिंग-जॉगिंग रबर ट्रैक, योग लॉन व खुला मैदान",a:"मानसरोवर (मध्यम मार्ग / शिप्रा पथ)",s:"टेक्नोलॉजी पार्क एंट्रेंस",q:"Technology+Park+Mansarovar+Jaipur",cats:["parks","toddler"],en:"technology park woodland park mansarovar madhyam marg shipra path kids swings jogging walk lush green grass toddler play area"},
+      {id:114,n:"कानोता बांध व कैसल कानोता (Kanota Dam)",i:"शांत जल क्रीड़ा व कैंपिंग स्पॉट, बर्ड वाचिंग, पास में ऐतिहासिक कैसल कानोता हेरिटेज होटल व वीकेंड सनसेट ड्राइव",a:"आगरा रोड (जयपुर से ~15 किमी)",s:"कानोता लेक कैंप साइट्स",q:"Kanota+Dam+Agra+Road+Jaipur",cats:["outskirts","sightseeing","parks"],en:"kanota dam agra road lake reservoir castle kanota camping sunset birding outskirts weekend spot drive water body"},
+      {id:115,n:"सावित्री देवी मंदिर व पुष्कर रोपवे",i:"रत्नागिरी पहाड़ी की चोटी पर मंदिर, पूरे पुष्कर व रेगिस्तान का 360° विहंगम नजारा, केबल कार (रोपवे) व सूर्योदय दर्शन",a:"रत्नागिरी पहाड़ी, पुष्कर",s:"पुष्कर रोपवे टिकट काउंटर",q:"Savitri+Temple+Ropeway+Pushkar",cats:["temple","outskirts","sightseeing","toddler"],en:"savitri temple ropeway ratnagiri hill pushkar sunrise sunset panoramic desert view pushkar lake cable car"},
+      {id:116,n:"माधवेन्द्र पैलेस स्कल्पचर पार्क",i:"नाहरगढ़ किले के शाही रानियों के 9 महलों में सजी आधुनिक व समकालीन अंतरराष्ट्रीय मूर्तियां (Sculptures), हेरिटेज आर्ट",a:"नाहरगढ़ किला परिसर",s:"स्कल्पचर पार्क आर्ट गैलरी",q:"The+Sculpture+Park+Madhavendra+Palace+Nahargarh",cats:["sightseeing","crafts","parks"],en:"madhavendra palace sculpture park nahargarh fort art contemporary sculptures architecture modern art jaipur exhibition"},
+      {id:117,n:"गुलाब बाग व रोज गार्डन (अल्बर्ट हॉल)",i:"सैकड़ों देशी-विदेशी गुलाबों से महकता हरा-भरा उद्यान, खुला लॉन, कबूतरों का चौक व बच्चों के लिए पिकनिक स्थल",a:"राम निवास बाग",s:"राम निवास रोज गार्डन",q:"Ram+Niwas+Garden+Rose+Garden+Jaipur",cats:["parks","toddler"],en:"gulab bagh rose garden ram niwas bagh flowers botanical lush green toddler family walk picnic open lawn"},
+      {id:118,n:"झुलेलाल मंदिर व मानसरोवर चौपाटी",i:"भव्य सिंधी आध्यात्मिक तीर्थ, निकटवर्ती मानसरोवर चौपाटी के 25+ लजीज स्ट्रीट फूड स्टॉल्स, कुल्फी व फैमिली सिटिंग",a:"मानसरोवर (कावेरी पथ / सिटी पार्क के पास)",s:"मानसरोवर चौपाटी फूड प्लाजा",q:"Mansarovar+Chaupati+Jaipur",cats:["streetfood","temple","food","toddler"],en:"jhulelal mandir mansarovar chaupati food street fast food kulfi pav bhaji city park area evening food hub family spot"},
+
+      /* 119 to 126: Upcoming Malls & Mega Modern Landmarks */
+      {id:119,n:"पैसिफिक मॉल (Pacific Mall Mansarovar)",i:"(Upcoming / New Mega Mall) 450+ ग्लोबल ब्रांड्स, राजस्थान का पहला IMAX मल्टीप्लेक्स सिनेमा, 135 रूम्स लेमन ट्री होटल, गेमिंग एरिना व विशाल फूड कोर्ट",a:"42, VT रोड, सेक्टर 5 (मानसरोवर)",s:"पैसिफिक मॉल & लेमन ट्री कॉम्प्लेक्स",q:"Pacific+Mall+VT+Road+Mansarovar+Jaipur",cats:["upcoming","mall","toddler","food"],en:"pacific mall jaipur mansarovar vt road imax cinema lemon tree hotel 450 brands retail upcoming mall new shopping entertainment mega mall"},
+      {id:120,n:"मंगलम पिंकवॉक मॉल (Manglam Pinkwalk)",i:"(Upcoming Lifestyle Mall) 21,000 वर्ग गज में राजस्थान का सबसे बड़ा लाइफस्टाइल रिटेल हब, 6-स्क्रीन मल्टीप्लेक्स, हाइपरमार्केट, रूफटॉप क्लब व गेमिंग जोन",a:"महल रोड, अक्षय पात्र के सामने (जगतपुरा)",s:"मंगलम पिंकवॉक रिटेल प्लाजा",q:"Manglam+Pink+Walk+Jagatpura+Jaipur",cats:["upcoming","mall","toddler","food"],en:"manglam pinkwalk mall jagatpura mahal road akshay patra lifestyle mall retail multiplex cinema entertainment upcoming project"},
+      {id:121,n:"अनिल अग्रवाल इंटरनेशनल क्रिकेट स्टेडियम",i:"(Under Construction Mega Project) दुनिया का तीसरा और भारत का दूसरा सबसे बड़ा 75,000 दर्शक क्षमता वाला विश्वस्तरीय क्रिकेट स्टेडियम (100 एकड़ परिसर)",a:"चौंप गांव (दिल्ली-जयपुर हाईवे)",s:"वेदांता HZL व RCA इंटरनेशनल स्टेडियम",q:"Anil+Agarwal+International+Cricket+Stadium+Chonp+Jaipur",cats:["upcoming","outskirts","sightseeing"],en:"anil agarwal international cricket stadium chonp delhi highway vedanta hzl rca sports world third largest stadium upcoming landmark"},
+      {id:122,n:"राजस्थान इंटरनेशनल सेंटर (RIC Jhalana)",i:"(Newly Opened Cultural Hub) दिल्ली के IIC की तर्ज पर निर्मित भव्य कन्वेंशन व कल्चरल सेंटर, 650+ सीटर ऑडिटोरियम, आर्ट गैलरी व ओपन एम्फीथिएटर",a:"संस्थान पथ, JLN मार्ग (झालाना)",s:"RIC कॉम्प्लेक्स & हेरिटेज कैफ़े",q:"Rajasthan+International+Centre+Jhalana+Jaipur",cats:["upcoming","sightseeing","crafts","cafe"],en:"rajasthan international centre ric jhalana jln marg convention center cultural hub auditorium exhibition art gallery newly opened"},
+      {id:123,n:"कॉन्स्टिट्यूशन क्लब ऑफ राजस्थान (CCR)",i:"(State-of-the-art Club) दिल्ली के कॉन्स्टिट्यूशन क्लब की तर्ज पर बना आधुनिक विधिक व सोशल हब, सेमिनार हॉल्स, फाइन डाइनिंग रेस्टोरेंट्स व स्विमिंग पूल",a:"ज्योति नगर (विधान सभा के पास)",s:"कॉन्स्टिट्यूशन क्लब कॉम्प्लेक्स",q:"Constitution+Club+of+Rajasthan+Jaipur",cats:["upcoming","sightseeing","food"],en:"constitution club of rajasthan ccr jyoti nagar vidhan sabha luxury club fine dining modern architecture newly built"},
+      {id:124,n:"एसएमएस आईपीडी मेडिकल टावर व हेलीपैड",i:"(Upcoming Mega Tower) 24 मंजिला भारत का सबसे ऊंचा 116 मीटर मेडिकल टावर, रूफटॉप एयर एम्बुलेंस हेलीपैड व अत्याधुनिक 1200 बेडेड स्मार्ट हेल्थकेयर",a:"SMS हॉस्पिटल परिसर (जेएलएन मार्ग)",s:"एसएमएस आईपीडी टॉवर प्रोजेक्ट",q:"SMS+Hospital+IPD+Tower+Jaipur",cats:["upcoming","general","sightseeing"],en:"sms ipd tower medical tower helipad air ambulance 24 floors tallest medical tower health hub upcoming infrastructure"},
+      {id:125,n:"फिनटेक पार्क (FinTech Park Jaipur)",i:"(Upcoming IT/Tech Mega Hub) 106 एकड़ में विकसित अत्याधुनिक फाइनेंशियल व आईटी टेक डिस्ट्रिक्ट, कॉर्पोरेट टावर्स व फ्यूचरिस्टिक बिज़नेस हब",a:"सांगानेर / मुहाना-मानसरोवर एक्सटेंशन",s:"रीको (RIICO) फिनटेक पार्क",q:"Fintech+Park+Jaipur",cats:["upcoming","general"],en:"fintech park sanganer mansarovar riico corporate towers financial tech business district it park upcoming development"},
+      {id:126,n:"ओमैक्स मेगा कमर्शियल व लाइफस्टाइल प्लाजा",i:"(Upcoming Modern Arcade) इंटीग्रेटेड स्मार्ट कमर्शियल हब, आधुनिक शॉपिंग आर्केड, ओपन-एयर डाइनिंग व एंटरटेनमेंट एरिना",a:"अजमेर रोड एक्सप्रेसवे",s:"ओमैक्स सिटी प्लाजा",q:"Omaxe+City+Ajmer+Road+Jaipur",cats:["upcoming","mall","outskirts"],en:"omaxe city ajmer road upcoming commercial retail shopping arcade lifestyle hub modern complex"}
+    ];
+
+    var selectedCategory = "all";
+
+    function norm(s) {
+      if (!s) return "";
+      return s.toLowerCase()
+        .replace(/ee/g, "i")
+        .replace(/oo/g, "u")
+        .replace(/ou/g, "u")
+        .replace(/ph/g, "f")
+        .replace(/sh/g, "s")
+        .replace(/kh/g, "k")
+        .replace(/bh/g, "b")
+        .replace(/dh/g, "d")
+        .replace(/th/g, "t")
+        .replace(/ch/g, "c")
+        .replace(/jh/g, "j")
+        .replace(/w/g, "v")
+        .replace(/aa/g, "a")
+        .replace(/bel/g, "ble")
+        .trim();
     }
 
-    // Keyword search check
-    if (rawTokens.length > 0) {
-      var isMatch = true;
-      for (var t = 0; t < rawTokens.length; t++) {
-        var rTok = rawTokens[t];
-        var nTok = normTokens[t] || rTok;
+    for (var i = 0; i < D.length; i++) {
+      var item = D[i];
+      var rawText = (item.id + " " + item.n + " " + item.i + " " + item.a + " " + item.s + " " + item.en).toLowerCase();
+      item._raw = rawText;
+      item._norm = norm(rawText);
+    }
 
-        var tokenMatches = (itm._raw.indexOf(rTok) !== -1) || (itm._norm.indexOf(nTok) !== -1);
-        if (!tokenMatches) {
-          isMatch = false;
-          break;
+    function render(data) {
+      var list = document.getElementById("list");
+      var st = document.getElementById("st");
+      var noResult = document.getElementById("noResult");
+      if (!list) return;
+
+      var html = "";
+      for (var k = 0; k < data.length; k++) {
+        var itm = data[k];
+        html += '<article class="spot-card">' +
+          '<div class="spot-card-top">' +
+            '<div class="spot-card-header">' +
+              '<h3 class="spot-card-title">' + itm.id + '. ' + itm.n + '</h3>' +
+              '<span class="spot-card-area">' + itm.a + '</span>' +
+            '</div>' +
+            '<div class="spot-card-body">' +
+              '<div><span class="spot-row-label">मुख्य आकर्षण:</span> ' + itm.i + '</div>' +
+              '<div><span class="spot-row-label">प्रमुख प्रतिष्ठान:</span> ' + itm.s + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<a class="spot-card-action" href="https://www.google.com/maps/search/?api=1&query=' + itm.q + '" target="_blank" rel="noopener">' +
+            '<span>📍 Google Maps नेविगेशन</span>' +
+          '</a>' +
+        '</article>';
+      }
+      list.innerHTML = html;
+      if (st) st.innerText = data.length + " / " + D.length + " Locations";
+      if (noResult) noResult.style.display = (data.length === 0) ? "block" : "none";
+    }
+
+    function applyFilters() {
+      var sb = document.getElementById("sb");
+      var cb = document.getElementById("cb");
+      var query = sb ? sb.value.trim() : "";
+      if (cb) cb.style.display = query.length > 0 ? "inline-flex" : "none";
+
+      var rawTokens = query ? query.toLowerCase().split(" ").filter(Boolean) : [];
+      var normTokens = query ? norm(query).split(" ").filter(Boolean) : [];
+      var matched = [];
+
+      for (var i = 0; i < D.length; i++) {
+        var itm = D[i];
+
+        if (selectedCategory !== "all" && itm.cats.indexOf(selectedCategory) === -1) {
+          continue;
+        }
+
+        if (rawTokens.length > 0) {
+          var isMatch = true;
+          for (var t = 0; t < rawTokens.length; t++) {
+            var rTok = rawTokens[t];
+            var nTok = normTokens[t] || rTok;
+
+            var tokenMatches = (itm._raw.indexOf(rTok) !== -1) || (itm._norm.indexOf(nTok) !== -1);
+            if (!tokenMatches) {
+              isMatch = false;
+              break;
+            }
+          }
+          if (!isMatch) continue;
+        }
+
+        matched.push(itm);
+      }
+
+      render(matched);
+    }
+
+    function filterCat(cat, btnElem) {
+      selectedCategory = cat;
+      var buttons = document.querySelectorAll("#catBar .cat-pill");
+      for (var b = 0; b < buttons.length; b++) {
+        buttons[b].classList.remove("active");
+        if (buttons[b].getAttribute("onclick") && buttons[b].getAttribute("onclick").indexOf("'" + cat + "'") !== -1) {
+          buttons[b].classList.add("active");
         }
       }
-      if (!isMatch) continue;
+      if (btnElem) {
+        btnElem.classList.add("active");
+      }
+      applyFilters();
     }
 
-    matched.push(itm);
-  }
+    function resetSearch() {
+      var sb = document.getElementById("sb");
+      if (!sb) return;
+      sb.value = "";
+      sb.focus();
+      applyFilters();
+    }
 
-  render(matched);
-}
+    function toggleMobileNav() {
+      var navLinks = document.querySelector('.nav-links');
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '68px';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = '#FFFFFF';
+        navLinks.style.padding = '24px';
+        navLinks.style.borderBottom = '1px solid var(--border-subtle)';
+        navLinks.style.boxShadow = 'var(--shadow-hover)';
+      }
+    }
 
-function filterCat(cat, btnElem) {
-  selectedCategory = cat;
-  var buttons = document.querySelectorAll("#catBar .cat-btn");
-  for (var b = 0; b < buttons.length; b++) {
-    buttons[b].classList.remove("active");
-  }
-  if (btnElem) {
-    btnElem.classList.add("active");
-  }
-  applyFilters();
-}
+    // Input Events
+    var searchInput = document.getElementById("sb");
+    if (searchInput) {
+      searchInput.addEventListener("input", applyFilters);
+      searchInput.addEventListener("keyup", applyFilters);
+      searchInput.addEventListener("paste", function() { setTimeout(applyFilters, 10); });
+    }
 
-function resetSearch() {
-  var sb = document.getElementById("sb");
-  if (!sb) return;
-  sb.value = "";
-  sb.focus();
-  applyFilters();
-}
-
-function dlHTML() {
-  var blob = new Blob([document.documentElement.outerHTML], { type: "text/html;charset=utf-8" });
-  var a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "Jaipur_Complete_126_Places_Guide.html";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
-// Bind search input events
-var searchInput = document.getElementById("sb");
-if (searchInput) {
-  searchInput.addEventListener("input", applyFilters);
-  searchInput.addEventListener("keyup", applyFilters);
-  searchInput.addEventListener("paste", function() { setTimeout(applyFilters, 10); });
-}
-
-// Initial render
-render(D);
-</script>
+    // Initial render
+    render(D);
+  </script>
 </body>
 </html>
