@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>जयपुर व आसपास: हेरिटेज, खरीदारी, मंदिर, पार्क्स, डे-ट्रिप व स्ट्रीट फूड गाइड (118 स्थान)</title>
+  <title>जयपुर व आसपास: हेरिटेज, खरीदारी, मंदिर, पार्क्स, आगामी प्रोजेक्ट्स व डे-ट्रिप गाइड (126 स्थान)</title>
   <style>
     * {
       box-sizing: border-box;
@@ -275,8 +275,8 @@
 <div class="container">
   <div class="header">
     <span class="header-tag">ULTIMATE JAIPUR & OUTSKIRTS ENCYCLOPEDIA</span>
-    <h1>जयपुर व आसपास: रास्ते, खरीदारी, मंदिर, पार्क्स व वीकेंड स्पॉट्स</h1>
-    <p>परकोटा बाजार, टॉडलर पार्क्स, किशनगढ़ डंप यार्ड, पुष्कर, बीसलपुर, गोनेर, मॉल्स व स्ट्रीट फूड</p>
+    <h1>जयपुर व आसपास: रास्ते, खरीदारी, मंदिर, पार्क्स, आगामी प्रोजेक्ट्स व डे-ट्रिप गाइड</h1>
+    <p>परकोटा बाजार, टॉडलर पार्क्स, पैसिफिक मॉल, पिंकवॉक, किशनगढ़ डंप यार्ड, पुष्कर, बीसलपुर, गोनेर व नए प्रोजेक्ट्स</p>
   </div>
 
   <div class="action-hub">
@@ -286,18 +286,19 @@
 
   <div class="search-sticky">
     <div class="search-wrap">
-      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: kishangarh, pushkar, fountain square, goner, bisalpur, city park, toddler, tapri..." autocomplete="off">
+      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: pacific mall, pinkwalk, kishangarh, pushkar, stadium, city park, toddler, goner..." autocomplete="off">
       <button id="cb" class="clear-btn" onclick="resetSearch()">✕</button>
     </div>
 
     <!-- Category Group Pills -->
     <div class="category-container" id="catBar">
       <button class="cat-btn active" onclick="filterCat('all', this)">🔄 सभी</button>
+      <button class="cat-btn" onclick="filterCat('upcoming', this)">🆕 आगामी व नए प्रोजेक्ट्स</button>
+      <button class="cat-btn" onclick="filterCat('mall', this)">🛍️ मॉल्स व शॉपिंग आर्केड</button>
       <button class="cat-btn" onclick="filterCat('toddler', this)">👶 टॉडलर व किड्स स्पॉट्स</button>
       <button class="cat-btn" onclick="filterCat('parks', this)">🌳 पार्क, लेक व नेचर</button>
       <button class="cat-btn" onclick="filterCat('temple', this)">🛕 मंदिर व तीर्थ स्थल</button>
       <button class="cat-btn" onclick="filterCat('outskirts', this)">🚗 वीकेंड गेटवे व डे ट्रिप</button>
-      <button class="cat-btn" onclick="filterCat('mall', this)">🛍️ मॉल्स व शॉपिंग आर्केड</button>
       <button class="cat-btn" onclick="filterCat('cafe', this)">☕ कैफ़े व सनसेट स्पॉट्स</button>
       <button class="cat-btn" onclick="filterCat('streetfood', this)">🍢 स्ट्रीट फूड व कचौरी-चाट</button>
       <button class="cat-btn" onclick="filterCat('food', this)">🍲 घेवर, मिठाई व भोजन</button>
@@ -311,7 +312,7 @@
 
     <div class="meta-bar">
       <span>कैटेगरी चुनें या ऊपर सर्च करें</span>
-      <span class="badge" id="st">118 स्थान</span>
+      <span class="badge" id="st">126 स्थान</span>
     </div>
   </div>
 
@@ -395,7 +396,7 @@ var D = [
   {id:67,n:"जगत शिरोमणि मंदिर (आमेर)",i:"16वीं सदी का अनूठा नक्काशीदार पत्थर मंदिर, जहाँ मीरा बाई श्रीकृष्ण संग पूजी जाती हैं",a:"आमेर कस्बा",s:"हेरिटेज जगत शिरोमणि",q:"Jagat+Shiromani+Temple+Amer+Jaipur",cats:["temple","sightseeing","crafts"],en:"jagat shiromani temple amer meera krishna stone carving heritage hidden gem architecture"},
   {id:68,n:"काले हनुमान जी मंदिर",i:"दुर्लभ काले रंग के बाल हनुमान जी की प्राचीन प्रतिमा, चांदी का चौपड़ मुख",a:"हवा महल के पास (चांदी की टकसाल)",s:"काले हनुमान जी मंदिर",q:"Kale+Hanuman+Ji+Temple+Jaipur",cats:["temple"],en:"kale hanuman ji temple chandi ki taksal hawa mahal old city black hanuman mandir pooja"},
 
-  /* 69 to 73: Famous Malls */
+  /* 69 to 73: Operating Famous Malls */
   {id:69,n:"वर्ल्ड ट्रेड पार्क (WTP Mall)",i:"विशाल ब्लू-ग्लास आर्किटेक्चर, इंटरनेशनल ब्रांड्स, फूड कोर्ट व फंतासी स्ट्रीट",a:"मालवीय नगर (JLN मार्ग)",s:"WTP नॉर्थ व साउथ ब्लॉक",q:"World+Trade+Park+Malviya+Nagar+Jaipur",cats:["mall","food","toddler"],en:"wtp world trade park mall malviya nagar shopping international brands multiplex cinema food court modern"},
   {id:70,n:"गौरव टावर (GT) व जीटी बाजार",i:"जयपुर का सबसे पहला व लोकप्रिय यूथ मॉल, अंडरग्राउंड स्ट्रीट शॉपिंग व फास्ट फूड लेन",a:"मालवीय नगर",s:"GT सेंट्रल, अंडरग्राउंड बाजार",q:"Gaurav+Tower+Malviya+Nagar+Jaipur",cats:["mall","streetfood"],en:"gaurav tower gt bazar gt central malviya nagar underground street market fast food shopping youth hangout"},
   {id:71,n:"मॉल ऑफ जयपुर (Mall of Jaipur)",i:"लक्जरी ब्रांड्स, एंटरटेनमेंट जोन, रूफटॉप डाइनिंग व आधुनिक बुटीक्स",a:"गांधी पथ (वैशाली नगर)",s:"मॉल ऑफ जयपुर आर्केड",q:"Mall+of+Jaipur+Vaishali+Nagar+Jaipur",cats:["mall","food","toddler"],en:"mall of jaipur vaishali nagar gandhi path shopping multiplex gaming cinema luxury"},
@@ -440,7 +441,7 @@ var D = [
   {id:104,n:"द्रव्यवती रिवरफ्रंट व बोटेनिकल पार्क",i:"16 किमी सुंदर सुसज्जित रिवरफ्रंट पाथवे, लैंडस्केप बोटेनिकल गार्डन, ओपन लॉन व बच्चों के लिए वॉकिंग एरिया",a:"सांगानेर / शिप्रा पथ (मानसरोवर मुहाना)",s:"द्रव्यवती लैंडस्केप गार्डन",q:"Dravyavati+Riverfront+Jaipur",cats:["parks","toddler"],en:"dravyavati riverfront botanical park shipra path sanganer mansarovar walking track landscaped gardens kids play"},
   {id:105,n:"भानगढ़ का किला (Bhangarh Fort)",i:"रहस्यमयी 17वीं सदी का किला, खंडहर महल, प्राचीन गोपीनाथ मंदिर व अरावली घाटी की रोमांचक ऐतिहासिक डे-ट्रिप",a:"भानगढ़, अलवर सीमा (जयपुर से ~85 किमी)",s:"एएसआई (ASI) भानगढ़ हेरिटेज कॉम्प्लेक्स",q:"Bhangarh+Fort+Rajasthan",cats:["outskirts","sightseeing"],en:"bhangarh fort mystery ruins gopinath temple aravalli hills day trip heritage spooky ruins nature travel"},
 
-  /* 106 to 118: Kishangarh, Pushkar, Fountain Square & Similar Famous Spots */
+  /* 106 to 118: Kishangarh, Pushkar, Fountain Square & Similar Spots */
   {id:106,n:"किशनगढ़ मार्बल डंप यार्ड (स्नो डंप यार्ड)",i:"'राजस्थान का स्विट्जरलैंड / मूनलैंड'—सफेद संगमरमर स्लरी का विशाल बर्फीला लैंडस्केप, नीला पानी, सिनेमैटिक व प्री-वेडिंग फोटोशूट",a:"किशनगढ़ (जयपुर-अजमेर हाईवे, ~100 किमी)",s:"मार्बल एसोसिएशन गेट (एंट्री पास काउंटर)",q:"Kishangarh+Marble+Dump+Yard+Rajasthan",cats:["outskirts","sightseeing"],en:"kishangarh marble dump yard dumpyard snow white desert moonland lake photoshoot pre wedding ajmer road outskirts switzerland of rajasthan"},
   {id:107,n:"पुष्कर सरोवर व जगतपिता ब्रह्मा मंदिर",i:"विश्व का एकमात्र प्रमुख ब्रह्मा मंदिर, 52 पवित्र घाट, महाआरती, गुलाब इत्र/गुलकंद, ऊंट सफारी, मालपुआ व कैफ़े कल्चर",a:"पुष्कर तीर्थ (जयपुर से ~145 किमी)",s:"ब्रह्मा मंदिर, वराह घाट, हलवाई गली (राधे जी मालपुआ)",q:"Brahma+Temple+Pushkar+Rajasthan",cats:["temple","outskirts","sightseeing","cafe","food"],en:"pushkar brahma temple pushkar lake ghat holy lake camel safari savitri temple malpua rabdi desert cafe day trip pilgrim gulkand rose water"},
   {id:108,n:"फाउंटेन स्क्वायर पार्क (Fountain Square)",i:"रंग-बिरंगे इंटरएक्टिव म्यूजिकल फव्वारे, शांत ग्रीन लॉन, बच्चों के राइड्स, ओपन सिटिंग व ईवनिंग फैमिली वॉक",a:"मानसरोवर (City Park के पास)",s:"फाउंटेन स्क्वायर प्लाजा",q:"Fountain+Square+Mansarovar+Jaipur",cats:["parks","toddler","sightseeing"],en:"fountain square park mansarovar musical fountain kids play toddler open lawns greenery evening walk water fountain family spot"},
@@ -453,7 +454,17 @@ var D = [
   {id:115,n:"सावित्री देवी मंदिर व पुष्कर रोपवे",i:"रत्नागिरी पहाड़ी की चोटी पर मंदिर, पूरे पुष्कर व रेगिस्तान का 360° विहंगम नजारा, केबल कार (रोपवे) व सूर्योदय दर्शन",a:"रत्नागिरी पहाड़ी, पुष्कर",s:"पुष्कर रोपवे टिकट काउंटर",q:"Savitri+Temple+Ropeway+Pushkar",cats:["temple","outskirts","sightseeing","toddler"],en:"savitri temple ropeway ratnagiri hill pushkar sunrise sunset panoramic desert view pushkar lake cable car"},
   {id:116,n:"माधवेन्द्र पैलेस स्कल्पचर पार्क",i:"नाहरगढ़ किले के शाही रानियों के 9 महलों में सजी आधुनिक व समकालीन अंतरराष्ट्रीय मूर्तियां (Sculptures), हेरिटेज आर्ट",a:"नाहरगढ़ किला परिसर",s:"स्कल्पचर पार्क आर्ट गैलरी",q:"The+Sculpture+Park+Madhavendra+Palace+Nahargarh",cats:["sightseeing","crafts","parks"],en:"madhavendra palace sculpture park nahargarh fort art contemporary sculptures architecture modern art jaipur exhibition"},
   {id:117,n:"गुलाब बाग व रोज गार्डन (अल्बर्ट हॉल)",i:"सैकड़ों देशी-विदेशी गुलाबों से महकता हरा-भरा उद्यान, खुला लॉन, कबूतरों का चौक व बच्चों के लिए पिकनिक स्थल",a:"राम निवास बाग",s:"राम निवास रोज गार्डन",q:"Ram+Niwas+Garden+Rose+Garden+Jaipur",cats:["parks","toddler"],en:"gulab bagh rose garden ram niwas bagh flowers botanical lush green toddler family walk picnic open lawn"},
-  {id:118,n:"झुलेलाल मंदिर व मानसरोवर चौपाटी",i:"भव्य सिंधी आध्यात्मिक तीर्थ, निकटवर्ती मानसरोवर चौपाटी के 25+ लजीज स्ट्रीट फूड स्टॉल्स, कुल्फी व फैमिली सिटिंग",a:"मानसरोवर (कावेरी पथ / सिटी पार्क के पास)",s:"मानसरोवर चौपाटी फूड प्लाजा",q:"Mansarovar+Chaupati+Jaipur",cats:["streetfood","temple","food","toddler"],en:"jhulelal mandir mansarovar chaupati food street fast food kulfi pav bhaji city park area evening food hub family spot"}
+  {id:118,n:"झुलेलाल मंदिर व मानसरोवर चौपाटी",i:"भव्य सिंधी आध्यात्मिक तीर्थ, निकटवर्ती मानसरोवर चौपाटी के 25+ लजीज स्ट्रीट फूड स्टॉल्स, कुल्फी व फैमिली सिटिंग",a:"मानसरोवर (कावेरी पथ / सिटी पार्क के पास)",s:"मानसरोवर चौपाटी फूड प्लाजा",q:"Mansarovar+Chaupati+Jaipur",cats:["streetfood","temple","food","toddler"],en:"jhulelal mandir mansarovar chaupati food street fast food kulfi pav bhaji city park area evening food hub family spot"},
+
+  /* 119 to 126: Upcoming Malls & Mega Modern Landmarks (Tag: upcoming) */
+  {id:119,n:"पैसिफिक मॉल (Pacific Mall Mansarovar)",i:"(Upcoming / New Mega Mall) 450+ ग्लोबल ब्रांड्स, राजस्थान का पहला IMAX मल्टीप्लेक्स सिनेमा, 135 रूम्स लेमन ट्री होटल, गेमिंग एरिना व विशाल फूड कोर्ट",a:"42, VT रोड, सेक्टर 5 (मानसरोवर)",s:"पैसिफिक मॉल & लेमन ट्री कॉम्प्लेक्स",q:"Pacific+Mall+VT+Road+Mansarovar+Jaipur",cats:["upcoming","mall","toddler","food"],en:"pacific mall jaipur mansarovar vt road imax cinema lemon tree hotel 450 brands retail upcoming mall new shopping entertainment mega mall"},
+  {id:120,n:"मंगलम पिंकवॉक मॉल (Manglam Pinkwalk)",i:"(Upcoming Lifestyle Mall) 21,000 वर्ग गज में राजस्थान का सबसे बड़ा लाइफस्टाइल रिटेल हब, 6-स्क्रीन मल्टीप्लेक्स, हाइपरमार्केट, रूफटॉप क्लब व गेमिंग जोन",a:"महल रोड, अक्षय पात्र के सामने (जगतपुरा)",s:"मंगलम पिंकवॉक रिटेल प्लाजा",q:"Manglam+Pink+Walk+Jagatpura+Jaipur",cats:["upcoming","mall","toddler","food"],en:"manglam pinkwalk mall jagatpura mahal road akshay patra lifestyle mall retail multiplex cinema entertainment upcoming project"},
+  {id:121,n:"अनिल अग्रवाल इंटरनेशनल क्रिकेट स्टेडियम",i:"(Under Construction Mega Project) दुनिया का तीसरा और भारत का दूसरा सबसे बड़ा 75,000 दर्शक क्षमता वाला विश्वस्तरीय क्रिकेट स्टेडियम (100 एकड़ परिसर)",a:"चौंप गांव (दिल्ली-जयपुर हाईवे)",s:"वेदांता HZL व RCA इंटरनेशनल स्टेडियम",q:"Anil+Agarwal+International+Cricket+Stadium+Chonp+Jaipur",cats:["upcoming","outskirts","sightseeing"],en:"anil agarwal international cricket stadium chonp delhi highway vedanta hzl rca sports world third largest stadium upcoming landmark"},
+  {id:122,n:"राजस्थान इंटरनेशनल सेंटर (RIC Jhalana)",i:"(Newly Opened Cultural Hub) दिल्ली के IIC की तर्ज पर निर्मित भव्य कन्वेंशन व कल्चरल सेंटर, 650+ सीटर ऑडिटोरियम, आर्ट गैलरी व ओपन एम्फीथिएटर",a:"संस्थान पथ, JLN मार्ग (झालाना)",s:"RIC कॉम्प्लेक्स & हेरिटेज कैफ़े",q:"Rajasthan+International+Centre+Jhalana+Jaipur",cats:["upcoming","sightseeing","crafts","cafe"],en:"rajasthan international centre ric jhalana jln marg convention center cultural hub auditorium exhibition art gallery newly opened"},
+  {id:123,n:"कॉन्स्टिट्यूशन क्लब ऑफ राजस्थान (CCR)",i:"(State-of-the-art Club) दिल्ली के कॉन्स्टिट्यूशन क्लब की तर्ज पर बना आधुनिक विधिक व सोशल हब, सेमिनार हॉल्स, फाइन डाइनिंग रेस्टोरेंट्स व स्विमिंग पूल",a:"ज्योति नगर (विधान सभा के पास)",s:"कॉन्स्टिट्यूशन क्लब कॉम्प्लेक्स",q:"Constitution+Club+of+Rajasthan+Jaipur",cats:["upcoming","sightseeing","food"],en:"constitution club of rajasthan ccr jyoti nagar vidhan sabha luxury club fine dining modern architecture newly built"},
+  {id:124,n:"एसएमएस आईपीडी मेडिकल टावर व हेलीपैड",i:"(Upcoming Mega Tower) 24 मंजिला भारत का सबसे ऊंचा 116 मीटर मेडिकल टावर, रूफटॉप एयर एम्बुलेंस हेलीपैड व अत्याधुनिक 1200 बेडेड स्मार्ट हेल्थकेयर",a:"SMS हॉस्पिटल परिसर (जेएलएन मार्ग)",s:"एसएमएस आईपीडी टॉवर प्रोजेक्ट",q:"SMS+Hospital+IPD+Tower+Jaipur",cats:["upcoming","general","sightseeing"],en:"sms ipd tower medical tower helipad air ambulance 24 floors tallest medical tower health hub upcoming infrastructure"},
+  {id:125,n:"फिनटेक पार्क (FinTech Park Jaipur)",i:"(Upcoming IT/Tech Mega Hub) 106 एकड़ में विकसित अत्याधुनिक फाइनेंशियल व आईटी टेक डिस्ट्रिक्ट, कॉर्पोरेट टावर्स व फ्यूचरिस्टिक बिज़नेस हब",a:"सांगानेर / मुहाना-मानसरोवर एक्सटेंशन",s:"रीको (RIICO) फिनटेक पार्क",q:"Fintech+Park+Jaipur",cats:["upcoming","general"],en:"fintech park sanganer mansarovar riico corporate towers financial tech business district it park upcoming development"},
+  {id:126,n:"ओमैक्स मेगा कमर्शियल व लाइफस्टाइल प्लाजा",i:"(Upcoming Modern Arcade) इंटीग्रेटेड स्मार्ट कमर्शियल हब, आधुनिक शॉपिंग आर्केड, ओपन-एयर डाइनिंग व एंटरटेनमेंट एरिना",a:"अजमेर रोड एक्सप्रेसवे",s:"ओमैक्स सिटी प्लाजा",q:"Omaxe+City+Ajmer+Road+Jaipur",cats:["upcoming","mall","outskirts"],en:"omaxe city ajmer road upcoming commercial retail shopping arcade lifestyle hub modern complex"}
 ];
 
 var selectedCategory = "all";
@@ -577,7 +588,7 @@ function dlHTML() {
   var blob = new Blob([document.documentElement.outerHTML], { type: "text/html;charset=utf-8" });
   var a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "Jaipur_Complete_118_Places_Guide.html";
+  a.download = "Jaipur_Complete_126_Places_Guide.html";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
