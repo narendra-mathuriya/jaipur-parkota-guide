@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>जयपुर परकोटा: 50 रास्ते व खरीदारी गाइड</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      padding: 16px 12px 60px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #8C2D27 0%, #6E1F1A 100%);
+      color: #FFFFFF;
+      padding: 22px 16px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(140, 45, 39, 0.15);
+      margin-bottom: 14px;
+    }
+    .header-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .header h1 {
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+    .header p {
+      font-size: 0.84rem;
+      opacity: 0.9;
+    }
+
+    /* Action Buttons */
+    .action-hub {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: #8C2D27;
+      color: #FFFFFF;
+      border-color: #8C2D27;
+    }
+
+    /* Sticky Search & Categories */
+    .search-sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 8px;
+      z-index: 99;
+      background: rgba(248, 250, 252, 0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 4px 0 10px;
+    }
+    .search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-box {
+      width: 100%;
+      padding: 12px 38px 12px 14px;
+      font-size: 0.95rem;
+      border: 2px solid #CBD5E1;
+      border-radius: 10px;
+      outline: none;
+      background: #FFFFFF;
+      color: #0F172A;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+    .search-box:focus {
+      border-color: #8C2D27;
+    }
+    .clear-btn {
+      position: absolute;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #CBD5E1;
+      border: none;
+      font-size: 0.8rem;
+      color: #334155;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Category Filter Grid */
+    .category-container {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .cat-btn {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      color: #334155;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+    .cat-btn:hover {
+      background: #FDF2F0;
+      color: #8C2D27;
+      border-color: #F7D6D3;
+    }
+    .cat-btn.active {
+      background: #8C2D27;
+      color: #FFFFFF;
+      border-color: #8C2D27;
+      box-shadow: 0 2px 6px rgba(140, 45, 39, 0.25);
+    }
+
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: #64748B;
+    }
+    .badge {
+      background: #FDF2F0;
+      color: #8C2D27;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* Card Grid */
+    .list-container {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 600px) {
+      .list-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #F1F5F9;
+      gap: 6px;
+    }
+    .card-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #8C2D27;
+    }
+    .card-area {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #F1F5F9;
+      color: #475569;
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .card-body {
+      font-size: 0.83rem;
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .card-row {
+      color: #1E293B;
+    }
+    .card-lbl {
+      font-weight: 600;
+      color: #64748B;
+    }
+    .map-btn {
+      display: block;
+      padding: 8px 10px;
+      background: #EFF6FF;
+      color: #2563EB;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #DBEAFE;
+    }
+
+    #noResult {
+      display: none;
+      text-align: center;
+      padding: 30px 16px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      border: 1px dashed #CBD5E1;
+      color: #64748B;
+      font-size: 0.88rem;
+      margin-top: 12px;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .header { background: #8C2D27 !important; color: white !important; -webkit-print-color-adjust: exact; }
+      .action-hub, .search-sticky, .category-container, .map-btn { display: none !important; }
+      .list-container { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+      .card { page-break-inside: avoid; border: 1px solid #ccc; box-shadow: none; padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <span class="header-tag">PARKOTA HERITAGE DIRECTORY</span>
+    <h1>जयपुर परकोटा: 50 रास्ते व खरीदारी गाइड</h1>
+    <p>पारंपरिक हस्तशिल्प, पुश्तैनी कारीगर, प्रसिद्ध दुकानें और लाइव नेविगेशन</p>
+  </div>
+
+  <div class="action-hub">
+    <button class="btn btn-primary" onclick="dlHTML()">📥 डाउनलोड HTML</button>
+    <button class="btn" onclick="window.print()">📄 PDF में सहेजें</button>
+  </div>
+
+  <div class="search-sticky">
+    <div class="search-wrap">
+      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: lehariya, marble, jooti, chandi, lac, feeni, gota..." autocomplete="off">
+      <button id="cb" class="clear-btn" onclick="resetSearch()">✕</button>
+    </div>
+
+    <!-- Category Group Pills -->
+    <div class="category-container" id="catBar">
+      <button class="cat-btn active" onclick="filterCat('all', this)">🔄 सभी (50)</button>
+      <button class="cat-btn" onclick="filterCat('wedding', this)">💍 विवाह व मायरा खरीदारी</button>
+      <button class="cat-btn" onclick="filterCat('food', this)">🍲 खान-पान, घेवर व किराना</button>
+      <button class="cat-btn" onclick="filterCat('textiles', this)">👗 साड़ी, लहरिया व रजाई</button>
+      <button class="cat-btn" onclick="filterCat('jewelry', this)">💎 रत्न, सोना-चांदी व लाख</button>
+      <button class="cat-btn" onclick="filterCat('crafts', this)">🗿 मार्बल, हस्तशिल्प व बर्तन</button>
+      <button class="cat-btn" onclick="filterCat('general', this)">📚 दवा, किताबें, पतंग व विविध</button>
+    </div>
+
+    <div class="meta-bar">
+      <span>कैटेगरी चुनें या ऊपर सर्च करें</span>
+      <span class="badge" id="st">50 / 50 स्थान</span>
+    </div>
+  </div>
+
+  <div id="noResult">❌ कोई परिणाम नहीं मिला। कृपया दूसरा शब्द या कैटेगरी चुनें।</div>
+  <div class="list-container" id="list"></div>
+</div>
+
+<script>
+var D = [
+  {id:1,n:"गोपाल जी का रास्ता",i:"पन्ना (Emerald), माणक, नीलम, असली हीरे, जेमस्टोन बीड्स",a:"जौहरी बाजार",s:"सुरना ज्वैलर्स, कोठारी जेम्स",q:"Gopal+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry"],en:"gopal ji rasta emerald panna manak ruby sapphire neelam heera diamond gemstone stones beads surana kothari jewellers ratan nagina gems jewelry"},
+  {id:2,n:"हल्दियों का रास्ता",i:"राजपूती पोशाक, गोटा-पत्ती, शुद्ध चांदी के बर्तन, असली हींग",a:"जौहरी बाजार",s:"ओढ़नी साड़ी, आरी तारी, विनायक सिल्वर",q:"Haldiyon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","textiles","jewelry","food"],en:"haldiyon haldiya ka rasta rajputi poshak gota patti silver chandi bartan utensils heeng hing odhni sari saree aari tari vinayak food wedding masala"},
+  {id:3,n:"पुरोहित जी का कटला",i:"थोक कपड़ा मंडी, साड़ियाँ, लहरिया, साफे, मायरा सामान",a:"बड़ी चौपड़",s:"महालक्ष्मी साड़ीज, सूरज भवन Wholesalers",q:"Purohit+Ji+Ka+Katla+Johari+Bazar+Jaipur",cats:["wedding","textiles"],en:"purohit prohit ji katla wholesale kapda cloth market saree sari lahariya lehariya leheriya lahriya safa pagdi mayra poshak badi chaupar wedding"},
+  {id:4,n:"घी वालों का रास्ता",i:"असली चांदी-सोने का वर्क (Vark), सूखे मेवे, प्राकृतिक मनके",a:"जौहरी बाजार",s:"नताणी ड्राई फ्रूट्स, वर्क कारीगर घराने",q:"Ghee+Walon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["food","jewelry"],en:"ghee walon rasta chandi sona vark foil gold silver leaf dry fruits kaju badam natani manke beads food nashta jewel"},
+  {id:5,n:"एमएसबी का रास्ता",i:"असली मोती (Pearls), विंटेज सिक्के, पुरानी चांदी के जेवर",a:"जौहरी बाजार",s:"विंटेज सिल्वर हाउस, पर्ल ट्रेडर्स",q:"MSB+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry","crafts"],en:"msb rasta moti pearls vintage coins antique chandi silver jewelry ornaments jewel"},
+  {id:6,n:"पटवों का रास्ता",i:"लटकन, धागा-पिरोई, मंगलसूत्र डोरे, बाजूबंद फुंदने",a:"जौहरी बाजार",s:"मास्टर पटवा घराने",q:"Patwon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","jewelry","crafts"],en:"patwon patwa rasta latkan tassels dhaga thread piroi mangalsutra dori bajuband fundne craft jewel wedding"},
+  {id:7,n:"सीताराम जी का रास्ता",i:"कुंदन-जड़ाऊ, पोल्की, अनकट डायमंड, शीशफूल",a:"जौहरी बाजार",s:"पुश्तैनी जड़ाऊ कारीगर वर्कशॉप्स",q:"Sitaram+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","jewelry"],en:"sitaram ji rasta kundan jadau polki diamond uncut heera sheeshphool bridal jewelry karigar jewel wedding"},
+  {id:8,n:"नया कटला (गोटा कटला)",i:"थोक गोटा-पत्ती के फूल, लेस, जरकन लड़ियाँ, पैच",a:"हल्दियों का रास्ता",s:"गोटा हाउस, फैंसी लेस स्टोर",q:"Naya+Katla+Haldiyon+Ka+Rasta+Jaipur",cats:["wedding","textiles"],en:"naya katla gota katla wholesale gota patti lace borders zarkan patch phool embroidery wedding saree"},
+  {id:9,n:"सोनी जी का रास्ता",i:"कच्चा सोना-चांदी (Bullion), टंच शुद्धता टेस्टिंग लैब्स",a:"जौहरी बाजार",s:"सरकारी मान्यता प्राप्त टंच लैब्स",q:"Soni+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry"],en:"soni ji rasta kacha sona chandi raw gold silver bullion tunch purity testing labs hallmark jewel gold silver"},
+  {id:10,n:"धाभाई जी का रास्ता",i:"हाथ की जरदोजी, डंका कढ़ाई, मास्टर ब्राइडल टेलर्स",a:"जौहरी बाजार",s:"जरदोजी आर्ट वर्कशॉप्स",q:"Dhabhai+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","textiles"],en:"dhabhai ji rasta zardozi zardosi danka embroidery bridal tailors boutique hand work saree wedding"},
+  {id:11,n:"लालजी सांड का रास्ता",i:"शिफॉन/जॉर्जेट लहरिया, मोठड़ा, बंधेज साड़ियाँ व सूट",a:"चौड़ा रास्ता",s:"प्रतिभा साड़ीज, गोयल साड़ी एम्पोरियम",q:"Lalji+Sand+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","textiles"],en:"lalji sand rasta chiffon georgette lahariya lehariya leheriya lahriya mothda bandhej bandhani saree sari suit kapda wedding"},
+  {id:12,n:"टिकली वालों का रास्ता",i:"पतंग, मांझा, लाल बही-खाते, दीवाली चोपड़े, हैंडमेड पेपर",a:"चौड़ा रास्ता",s:"पतंग एंपोरियम, बही-खाता भंडार",q:"Tikkiwalon+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["general"],en:"tikli tikkiwalon rasta patang kite kites manjha manja bahi khata ledger account books handmade paper books"},
+  {id:13,n:"फिल्म कॉलोनी",i:"थोक दवा व सर्जिकल उपकरण का सबसे बड़ा बाजार",a:"चौड़ा रास्ता",s:"थोक फार्मा डिस्ट्रीब्यूटर्स",q:"Film+Colony+Chaura+Rasta+Jaipur",cats:["general"],en:"film colony wholesale medicines medicine dawai dawayi surgical pharma distributors pharmacy medical"},
+  {id:14,n:"धींगरा मार्केट / चश्मा गली",i:"चश्मे के फ्रेम, सनग्लासेस, ऑप्टिकल लेंस थोक मंडी",a:"चौड़ा रास्ता",s:"जयपुरी ऑप्टिकल होलसेलर्स",q:"Chaura+Rasta+Optical+Market+Jaipur",cats:["general"],en:"dhingra market chashma chasma gali specs sunglasses glasses optical lenses frames wholesale medicine"},
+  {id:15,n:"पोद्दार / सोती मार्केट",i:"प्रतियोगी परीक्षा पुस्तकें, कॉलेज स्टेशनरी, रजिस्टर्स",a:"चौड़ा रास्ता",s:"यूनिवर्सिटी बुक डिपो, स्टूडेंट कॉर्नर",q:"Poddar+Market+Chaura+Rasta+Jaipur",cats:["general"],en:"poddar soti market exam books college stationery books registers kitabe pustak"},
+  {id:16,n:"नहाटा का रास्ता",i:"शादी के गिफ्ट पैकिंग बॉक्स, मखमली डिब्बियाँ, बैग्स",a:"चौड़ा रास्ता",s:"फैंसी पैकेजिंग भंडार",q:"Nahata+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","general"],en:"nahata rasta wedding gift packing box boxes velvet dibbi bags packaging tray wedding"},
+  {id:17,n:"ताड़केश्वर जी की गली",i:"धार्मिक पुस्तकें, हस्तलिखित पंचांग, ज्योतिष चार्ट",a:"चौड़ा रास्ता",s:"वैदिक साहित्य केंद्र",q:"Tadkeshwar+Ji+Temple+Chaura+Rasta+Jaipur",cats:["general"],en:"tadkeshwar ji temple gali mandir religious books panchang jyotish astrology charts kundali books pooja"},
+  {id:18,n:"ख्वास जी का रास्ता",i:"दर्जी सामग्री, धागे, बटन, जिप, अचकन मास्टर टेलर्स",a:"चौड़ा रास्ता",s:"मास्टर टेलरिंग मैटेरियल्स",q:"Khwas+Ji+Ka+Rasta+Chaura+Rasta+Jaipur",cats:["wedding","textiles"],en:"khwas ji rasta tailor materials sewing threads buttons zip zippers achkan sherwani master wedding kapda"},
+  {id:19,n:"मनिहारों का रास्ता",i:"असली लाख की चूड़ियाँ (Lac Bangles), ब्राइडल चूड़ा",a:"त्रिपोलिया बाजार",s:"बाबू खान लाख बैंगल्स, खानदानी मनिहार",q:"Maniharon+Ka+Rasta+Tripolia+Bazar+Jaipur",cats:["wedding","jewelry"],en:"maniharon manihar rasta lac lakh bangles choodi chudi chudiya choodiyan bridal chuda babu khan jewel wedding"},
+  {id:20,n:"कसारों की गली",i:"शुद्ध कांसे (Bronze) के बर्तन, तांबे-पीतल के डिनर सेट्स",a:"त्रिपोलिया बाजार",s:"कसार बर्तन भंडार",q:"Kasaron+Ki+Gali+Tripolia+Bazar+Jaipur",cats:["crafts"],en:"kasaron gali bronze kansa bartan utensils tamba peetal copper brass dinner sets"},
+  {id:21,n:"ठठेरों का रास्ता",i:"हाथ से पीटे तांबे-पीतल के बर्तन, बड़े हवन कुंड, उरली",a:"त्रिपोलिया बाजार",s:"पारंपरिक ठठेरा वर्कशॉप्स",q:"Thatheron+Ka+Rasta+Tripolia+Jaipur",cats:["crafts"],en:"thatheron thathera rasta hand beaten copper brass utensils havan kund urli handicraft peetal tamba utensils"},
+  {id:22,n:"घड़ी गली",i:"विंटेज पेंडुलम घड़ियों की मरम्मत, दुर्लभ कलपुर्जे",a:"त्रिपोलिया बाजार",s:"विंटेज क्लॉक रीस्टोरर्स",q:"Ghadi+Gali+Tripolia+Bazar+Jaipur",cats:["general","crafts"],en:"ghadi gali vintage pendulum clocks watch repair antique parts vintage"},
+  {id:23,n:"सूत की गली",i:"सूती पतंग की डोर, दरी बुनने का सूत, मजबूत धागे",a:"त्रिपोलिया बाजार",s:"सूत भंडार",q:"Soot+Ki+Gali+Tripolia+Jaipur",cats:["general"],en:"soot gali cotton yarn thread kite dori rug weaving dari threads"},
+  {id:24,n:"तिजोरी वाली गली",i:"पुरानी भारी लोहे की फायरप्रूफ देसी तिजोरियां, सेफ",a:"त्रिपोलिया बाजार",s:"लोहा तिजोरी भंडार",q:"Tijori+Gali+Tripolia+Jaipur",cats:["general","crafts"],en:"tijori gali heavy iron fireproof safe locker vault desi tijoriya loha vintage"},
+  {id:25,n:"खजाने वालों का रास्ता",i:"मकराना संगमरमर (Marble) की देवी-देवताओं की मूर्तियाँ",a:"किशनपोल बाजार",s:"भारद्वाज मूर्ति कला, राष्ट्रीय अवार्डी मूर्तिकार",q:"Khazane+Walon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"khazane rasta makrana marble marbel moorti murti murtiya idols god statue sculpture bhardwaj marble handicraft"},
+  {id:26,n:"भींडों का रास्ता",i:"पीतल-तांबे के हस्तशिल्प, कांसे की थालियाँ, घंटियाँ",a:"किशनपोल बाजार",s:"भींडो ब्रास एंपोरियम",q:"Bhindon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"bhindon bhindo rasta brass copper handicraft bronze plates thali bells ghanti artifacts peetal utensils handicraft"},
+  {id:27,n:"खुटेटों का रास्ता",i:"ताराकशी (शीशम पर पीतल तार इनले), ठप्पा छपाई",a:"किशनपोल बाजार",s:"ताराकशी शिल्पकार केंद्र",q:"Khuteton+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"khuteton rasta tarakashi brass wire inlay sheesham wood woodcraft blocks handicraft vintage"},
+  {id:28,n:"चिटेरों का रास्ता",i:"राजस्थानी मिनिएचर पेंटिंग्स, कपड़े पर पिछवाई कला",a:"किशनपोल बाजार",s:"मिनिएचर आर्ट स्टूडियोज",q:"Chiteron+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"chiteron rasta rajasthani miniature paintings pichwai art cloth painting handicraft"},
+  {id:29,n:"शीशे वालों का रास्ता",i:"बेल्जियम ग्लास आईने, लकड़ी के विंटेज झरोखा फ्रेम",a:"किशनपोल बाजार",s:"जयपुरी ग्लास & फ्रेमिंग",q:"Sheeshe+Walon+Ka+Rasta+Kishanpole+Jaipur",cats:["crafts"],en:"sheeshe rasta mirrors belgium glass aaina vintage jharokha wooden frames framing aayna kanch vintage handicraft"},
+  {id:30,n:"वैद्य जी का रास्ता",i:"पुश्तैनी नाड़ी वैद्य, दुर्लभ भस्म, आयुर्वेदिक औषधियां",a:"किशनपोल बाजार",s:"खानदानी वैद्य शालाएं",q:"Vaidya+Ji+Ka+Rasta+Kishanpole+Jaipur",cats:["general"],en:"vaidya ji rasta ayurveda ayurvedic herbs medicine dawai nadi vaidya bhasma herbal desi ilaj jadi buti medicine"},
+  {id:31,n:"सिकलीगरों का रास्ता",i:"दर्जी कैंची की धार, चाकू-छुरी पैना करने के कारीगर",a:"किशनपोल बाजार",s:"सिकलीगर कारीगर लेन",q:"Sikligaron+Ka+Rasta+Kishanpole+Jaipur",cats:["general","crafts"],en:"sikligaron rasta scissor sharpening scissors kainchi chaku knife sharpener blades utensils"},
+  {id:32,n:"ट्रंक मंडी / पेटी लेन",i:"शादी के लोहे/जस्ते के पेंटेड संदूक, साड़ियों की पेटियाँ",a:"अजमेरी गेट",s:"ट्रंक एंड सेफ हाउस",q:"Trunk+Market+Ajmeri+Gate+Jaipur",cats:["wedding","general"],en:"trunk mandi peti lane painted iron tin box boxes sandook bridal storage trunk sanduk wedding"},
+  {id:33,n:"बगरू वालों का रास्ता",i:"प्राकृतिक नील (Indigo) व दाबू ब्लॉक प्रिंट फैब्रिक",a:"चांदपोल बाजार",s:"बगरू हैंडब्लॉक हाउस",q:"Bagru+Walon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles"],en:"bagru rasta indigo dabu block print fabric cotton natural dye handblock kapda saree"},
+  {id:34,n:"छीपों का रास्ता",i:"हाथ से छपी कॉटन बेडशीट, दोहर, प्रिंटिंग ब्लॉक्स",a:"पुरानी बस्ती",s:"छीपा प्रिंटिंग वर्कशॉप्स",q:"Chhipon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles","crafts"],en:"chhipon chheepa rasta printed cotton bedsheets dohar printing blocks chadar kapda handicraft"},
+  {id:35,n:"सिलावटों का रास्ता",i:"गुलाबी बलुआ पत्थर (Sandstone) जालियाँ, फव्वारे",a:"चांदपोल बाजार",s:"सिलावट स्टोन आर्ट",q:"Silawaton+Ka+Rasta+Chandpole+Jaipur",cats:["crafts"],en:"silawaton rasta sandstone pink stone carving jali fountain favvare stone craft marble handicraft"},
+  {id:36,n:"पुरोहित जी का रास्ता",i:"पूजा सामग्री, तांबे के कलश, सांबर फीणी, घेवर",a:"चांदपोल बाजार",s:"सांबर फीणी मिष्ठान भंडार",q:"Purohit+Ji+Ka+Rasta+Chandpole+Jaipur",cats:["food","general"],en:"purohit prohit ji rasta pooja samagri copper kalash sambhar feeni pheeni ghewar ghevar sweets mithai food nashta mithai"},
+  {id:37,n:"सुथारों का मोहल्ला",i:"लकड़ी के नक्काशीदार बाजोट (चौकी), पाटे, पीढ़े",a:"पुरानी बस्ती",s:"सुथार काष्ठ कला केंद्र",q:"Purani+Basti+Chandpole+Jaipur",cats:["crafts","wedding"],en:"sutharon mohalla wooden bajot chowki paata peedha wood craft carpenter handicraft wedding"},
+  {id:38,n:"कुम्हारों का मोहल्ला",i:"मिट्टी की हांडी, तवे, सुराही, कलात्मक डिजाइनर दीए",a:"पुरानी बस्ती",s:"पारंपरिक कुम्हार पाड़ा",q:"Kumharon+Ka+Mohalla+Purani+Basti+Jaipur",cats:["crafts"],en:"kumharon mohalla clay pottery mitti handi tawa surahi designer diya pots matka handicraft utensils"},
+  {id:39,n:"नाहरगढ़ रोड विंटेज लेन",i:"हवेलियों का पुराना सागवान/शीशम फर्नीचर, झरोखे",a:"चांदपोल के पास",s:"विंटेज हवेली फर्नीचर हाउस",q:"Nahargarh+Road+Furniture+Market+Jaipur",cats:["crafts"],en:"nahargarh road vintage antique furniture haveli teak sheesham wood jharokha doors purana furniture vintage"},
+  {id:40,n:"सब्जी मंडी कटला",i:"पंचकुटा (कैर, सांगरी, कुमटिया), सूखी काचरी, मथानिया मिर्च",a:"चांदपोल बाजार",s:"मारवाड़ी किराना स्टोर",q:"Chandpole+Mandi+Jaipur",cats:["food"],en:"sabzi mandi katla panchkuta ker sangri sangari kumtiya kachri mathania mirch spices grocery masale food nashta achar"},
+  {id:41,n:"पानी पेच का रास्ता",i:"कच्चे कपड़े पर हाथ से लहरिया, पचरंगा, टाई-डाई रंगाई",a:"रामगंज / घाट गेट",s:"उस्ताद रंगरेज डायर्स",q:"Pani+Pech+Ka+Rasta+Ramganj+Jaipur",cats:["textiles"],en:"pani pech rasta hand dye lahariya leheriya lahriya pachranga tie dye rangrez fabric rangai kapda saree"},
+  {id:42,n:"चार दरवाजा / मोची गली",i:"शुद्ध लेदर की हाथ से बनी जयपुरी मोजड़ियाँ (Juttis)",a:"रामगंज बाजार",s:"खानदानी मोजड़ी निर्माता",q:"Char+Darwaza+Ramganj+Jaipur",cats:["wedding","general"],en:"char darwaza mochi gali pure leather jaipuri jutti jooti mojari jutis footwear shoes mojadi jutiya"},
+  {id:43,n:"पन्नीगरों का मोहल्ला",i:"हथौड़े की मार से बना शुद्ध चांदी और सोने का वर्क",a:"चार दरवाजा",s:"पन्नीगर घराने वर्कशॉप्स",q:"Pannigaron+Ka+Mohalla+Ramganj+Jaipur",cats:["food","jewelry"],en:"pannigaron mohalla pure silver gold vark foil edible silver leaf hammering chandi vark food jewel"},
+  {id:44,n:"हांडीपुरा पतंग मंडी",i:"जयपुरी व बरेली का पक्का मांझा, थोक पतंग बाजार",a:"रामगंज क्षेत्र",s:"हांडीपुरा मांझा केंद्र",q:"Handipura+Ramganj+Jaipur",cats:["general"],en:"handipura patang mandi bareilly manjha kites wholesale kite market manja"},
+  {id:45,n:"मिरासी गली",i:"शास्त्रीय वाद्य यंत्र—हारमोनियम, तबला, ढोलक, सारंगी",a:"रामगंज बाजार",s:"म्यूजिकल इंस्ट्रूमेंट हाउस",q:"Mirasi+Gali+Ramganj+Jaipur",cats:["crafts","general"],en:"mirasi gali musical instruments harmonium tabla dholak sarangi sangeet music baja handicraft"},
+  {id:46,n:"तोपखाना हुजूरी",i:"शाही लक्जरी तंबू, जयपुरी शामियाना, कनात, जाजम",a:"घाट गेट परकोटा",s:"रॉयल टेंट मैन्युफैक्चरर्स",q:"Topkhana+Hazuri+Ghat+Gate+Jaipur",cats:["wedding","general"],en:"topkhana huzuri royal luxury tents jaipuri shamiana kanat jajam marquee tent tambu wedding"},
+  {id:47,n:"घांची मोहल्ला",i:"लकड़ी के कोल्हू का शुद्ध कच्ची घानी तिल व सरसों तेल",a:"रामगंज-सूरजपोल",s:"घांची शुद्ध तेल घानी",q:"Ghanchi+Mohalla+Ramganj+Jaipur",cats:["food"],en:"ghanchi mohalla cold pressed kacchi ghani til sesame mustard sarso oil pure edible oil tel food"},
+  {id:48,n:"हवा महल / सिरे ड्योढ़ी लेन",i:"विश्व प्रसिद्ध शुद्ध सूती जयपुरी रजाई (Jaipuri Razai)",a:"सिरे ड्योढ़ी बाजार",s:"गुलाब चंद प्रिंट्स, हेरिटेज रजाई",q:"Sireh+Deori+Bazar+Jaipur",cats:["textiles"],en:"hawa mahal sireh deori pure cotton jaipuri razai quilts blankets rajai bedcover gulab chand razayi kapda"},
+  {id:49,n:"पान दरीबा",i:"शादियों का मुखवास, बनारसी पान, असली कत्था व सुपारी",a:"बड़ी चौपड़ मुहाना",s:"पान दरीबा मुखवास हाउस",q:"Paan+Dariba+Badi+Chaupar+Jaipur",cats:["food","wedding"],en:"paan dariba mukhwas mouth freshener banarasi paan kattha supari badi chaupar saunf food nashta pan"},
+  {id:50,n:"तोरण बाजार / बंदनवार लेन",i:"गोटा-पत्ती बंदनवार, तोरण, दूल्हे का तोरण पाटा, जयमाला",a:"बड़ी चौपड़",s:"मांगलिक श्रृंगार भंडार",q:"Badi+Chaupar+Jaipur",cats:["wedding"],en:"toran bazar bandanwar gota patti toran door hanging jaimala wedding decor groom toran pata varmala wedding"}
+];
+
+var selectedCategory = "all";
+
+function norm(s) {
+  if (!s) return "";
+  return s.toLowerCase()
+    .replace(/ee/g, "i")
+    .replace(/oo/g, "u")
+    .replace(/ou/g, "u")
+    .replace(/ph/g, "f")
+    .replace(/sh/g, "s")
+    .replace(/kh/g, "k")
+    .replace(/bh/g, "b")
+    .replace(/dh/g, "d")
+    .replace(/th/g, "t")
+    .replace(/ch/g, "c")
+    .replace(/jh/g, "j")
+    .replace(/w/g, "v")
+    .replace(/aa/g, "a")
+    .replace(/bel/g, "ble")
+    .trim();
+}
+
+for (var i = 0; i < D.length; i++) {
+  var item = D[i];
+  var rawText = (item.id + " " + item.n + " " + item.i + " " + item.a + " " + item.s + " " + item.en).toLowerCase();
+  item._raw = rawText;
+  item._norm = norm(rawText);
+}
+
+function render(data) {
+  var list = document.getElementById("list");
+  var st = document.getElementById("st");
+  var noResult = document.getElementById("noResult");
+  if (!list) return;
+
+  var html = "";
+  for (var k = 0; k < data.length; k++) {
+    var itm = data[k];
+    html += '<div class="card">' +
+      '<div>' +
+        '<div class="card-head">' +
+          '<span class="card-title">' + itm.id + '. ' + itm.n + '</span>' +
+          '<span class="card-area">' + itm.a + '</span>' +
+        '</div>' +
+        '<div class="card-body">' +
+          '<div class="card-row"><span class="card-lbl">मुख्य खरीदारी:</span> ' + itm.i + '</div>' +
+          '<div class="card-row"><span class="card-lbl">प्रसिद्ध दुकानें:</span> ' + itm.s + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=' + itm.q + '" target="_blank" rel="noopener">📍 Google Maps पर देखें</a>' +
+    '</div>';
+  }
+  list.innerHTML = html;
+  if (st) st.innerText = data.length + " / 50 स्थान";
+  if (noResult) noResult.style.display = (data.length === 0) ? "block" : "none";
+}
+
+function applyFilters() {
+  var sb = document.getElementById("sb");
+  var cb = document.getElementById("cb");
+  var query = sb ? sb.value.trim() : "";
+  if (cb) cb.style.display = query.length > 0 ? "inline-flex" : "none";
+
+  var rawTokens = query ? query.toLowerCase().split(" ").filter(Boolean) : [];
+  var normTokens = query ? norm(query).split(" ").filter(Boolean) : [];
+  var matched = [];
+
+  for (var i = 0; i < D.length; i++) {
+    var itm = D[i];
+
+    // Category filter check
+    if (selectedCategory !== "all" && itm.cats.indexOf(selectedCategory) === -1) {
+      continue;
+    }
+
+    // Keyword search check
+    if (rawTokens.length > 0) {
+      var isMatch = true;
+      for (var t = 0; t < rawTokens.length; t++) {
+        var rTok = rawTokens[t];
+        var nTok = normTokens[t] || rTok;
+
+        var tokenMatches = (itm._raw.indexOf(rTok) !== -1) || (itm._norm.indexOf(nTok) !== -1);
+        if (!tokenMatches) {
+          isMatch = false;
+          break;
+        }
+      }
+      if (!isMatch) continue;
+    }
+
+    matched.push(itm);
+  }
+
+  render(matched);
+}
+
+function filterCat(cat, btnElem) {
+  selectedCategory = cat;
+  var buttons = document.querySelectorAll("#catBar .cat-btn");
+  for (var b = 0; b < buttons.length; b++) {
+    buttons[b].classList.remove("active");
+  }
+  if (btnElem) {
+    btnElem.classList.add("active");
+  }
+  applyFilters();
+}
+
+function resetSearch() {
+  var sb = document.getElementById("sb");
+  if (!sb) return;
+  sb.value = "";
+  sb.focus();
+  applyFilters();
+}
+
+function dlHTML() {
+  var blob = new Blob([document.documentElement.outerHTML], { type: "text/html;charset=utf-8" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "Jaipur_Parkota_50_Places.html";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// Bind search input events
+var searchInput = document.getElementById("sb");
+if (searchInput) {
+  searchInput.addEventListener("input", applyFilters);
+  searchInput.addEventListener("keyup", applyFilters);
+  searchInput.addEventListener("paste", function() { setTimeout(applyFilters, 10); });
+}
+
+// Initial render
+render(D);
+</script>
+</body>
+</html>
