@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>जयपुर परकोटा: 50 रास्ते व खरीदारी गाइड</title>
+  <title>जयपुर परकोटा: 68 रास्ते, खरीदारी व स्ट्रीट फूड गाइड</title>
   <style>
     * {
       box-sizing: border-box;
@@ -18,7 +18,7 @@
       line-height: 1.5;
     }
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
     }
     
@@ -274,9 +274,9 @@
 
 <div class="container">
   <div class="header">
-    <span class="header-tag">PARKOTA HERITAGE DIRECTORY</span>
-    <h1>जयपुर परकोटा: 50 रास्ते व खरीदारी गाइड</h1>
-    <p>पारंपरिक हस्तशिल्प, पुश्तैनी कारीगर, प्रसिद्ध दुकानें और लाइव नेविगेशन</p>
+    <span class="header-tag">PARKOTA HERITAGE & FOOD DIRECTORY</span>
+    <h1>जयपुर परकोटा: 68 रास्ते, खरीदारी व स्ट्रीट फूड गाइड</h1>
+    <p>पारंपरिक हस्तशिल्प, पुश्तैनी कारीगर, प्रसिद्ध मिष्ठान, स्ट्रीट फूड और लाइव नेविगेशन</p>
   </div>
 
   <div class="action-hub">
@@ -286,24 +286,25 @@
 
   <div class="search-sticky">
     <div class="search-wrap">
-      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: lehariya, marble, jooti, chandi, lac, feeni, gota..." autocomplete="off">
+      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: kachori, lassi, bapu bazar, lehariya, ghewar, jooti, lac, rabdi..." autocomplete="off">
       <button id="cb" class="clear-btn" onclick="resetSearch()">✕</button>
     </div>
 
     <!-- Category Group Pills -->
     <div class="category-container" id="catBar">
-      <button class="cat-btn active" onclick="filterCat('all', this)">🔄 सभी (50)</button>
-      <button class="cat-btn" onclick="filterCat('wedding', this)">💍 विवाह व मायरा खरीदारी</button>
+      <button class="cat-btn active" onclick="filterCat('all', this)">🔄 सभी</button>
+      <button class="cat-btn" onclick="filterCat('streetfood', this)">🍢 स्ट्रीट फूड, कचौरी व चाय</button>
       <button class="cat-btn" onclick="filterCat('food', this)">🍲 खान-पान, घेवर व किराना</button>
-      <button class="cat-btn" onclick="filterCat('textiles', this)">👗 साड़ी, लहरिया व रजाई</button>
-      <button class="cat-btn" onclick="filterCat('jewelry', this)">💎 रत्न, सोना-चांदी व लाख</button>
-      <button class="cat-btn" onclick="filterCat('crafts', this)">🗿 मार्बल, हस्तशिल्प व बर्तन</button>
-      <button class="cat-btn" onclick="filterCat('general', this)">📚 दवा, किताबें, पतंग व विविध</button>
+      <button class="cat-btn" onclick="filterCat('wedding', this)">💍 विवाह व मायरा खरीदारी</button>
+      <button class="cat-btn" onclick="filterCat('textiles', this)">👗 साड़ी, कुर्ती, लहरिया व रजाई</button>
+      <button class="cat-btn" onclick="filterCat('jewelry', this)">💎 रत्न, कुंदन, सोना-चांदी व लाख</button>
+      <button class="cat-btn" onclick="filterCat('crafts', this)">🗿 हस्तशिल्प, मोजड़ी व मार्बल</button>
+      <button class="cat-btn" onclick="filterCat('general', this)">📚 शादी कार्ड, दवा, पुस्तकें व विविध</button>
     </div>
 
     <div class="meta-bar">
       <span>कैटेगरी चुनें या ऊपर सर्च करें</span>
-      <span class="badge" id="st">50 / 50 स्थान</span>
+      <span class="badge" id="st">68 स्थान</span>
     </div>
   </div>
 
@@ -348,21 +349,41 @@ var D = [
   {id:33,n:"बगरू वालों का रास्ता",i:"प्राकृतिक नील (Indigo) व दाबू ब्लॉक प्रिंट फैब्रिक",a:"चांदपोल बाजार",s:"बगरू हैंडब्लॉक हाउस",q:"Bagru+Walon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles"],en:"bagru rasta indigo dabu block print fabric cotton natural dye handblock kapda saree"},
   {id:34,n:"छीपों का रास्ता",i:"हाथ से छपी कॉटन बेडशीट, दोहर, प्रिंटिंग ब्लॉक्स",a:"पुरानी बस्ती",s:"छीपा प्रिंटिंग वर्कशॉप्स",q:"Chhipon+Ka+Rasta+Chandpole+Jaipur",cats:["textiles","crafts"],en:"chhipon chheepa rasta printed cotton bedsheets dohar printing blocks chadar kapda handicraft"},
   {id:35,n:"सिलावटों का रास्ता",i:"गुलाबी बलुआ पत्थर (Sandstone) जालियाँ, फव्वारे",a:"चांदपोल बाजार",s:"सिलावट स्टोन आर्ट",q:"Silawaton+Ka+Rasta+Chandpole+Jaipur",cats:["crafts"],en:"silawaton rasta sandstone pink stone carving jali fountain favvare stone craft marble handicraft"},
-  {id:36,n:"पुरोहित जी का रास्ता",i:"पूजा सामग्री, तांबे के कलश, सांबर फीणी, घेवर",a:"चांदपोल बाजार",s:"सांबर फीणी मिष्ठान भंडार",q:"Purohit+Ji+Ka+Rasta+Chandpole+Jaipur",cats:["food","general"],en:"purohit prohit ji rasta pooja samagri copper kalash sambhar feeni pheeni ghewar ghevar sweets mithai food nashta mithai"},
+  {id:36,n:"पुरोहित जी का रास्ता",i:"पूजा सामग्री, तांबे के कलश, सांबर फीणी, घेवर",a:"चांदपोल बाजार",s:"सांबर फीणी मिष्ठान भंडार",q:"Purohit+Ji+Ka+Rasta+Chandpole+Jaipur",cats:["food","general","streetfood"],en:"purohit prohit ji rasta pooja samagri copper kalash sambhar feeni pheeni ghewar ghevar sweets mithai food nashta mithai"},
   {id:37,n:"सुथारों का मोहल्ला",i:"लकड़ी के नक्काशीदार बाजोट (चौकी), पाटे, पीढ़े",a:"पुरानी बस्ती",s:"सुथार काष्ठ कला केंद्र",q:"Purani+Basti+Chandpole+Jaipur",cats:["crafts","wedding"],en:"sutharon mohalla wooden bajot chowki paata peedha wood craft carpenter handicraft wedding"},
   {id:38,n:"कुम्हारों का मोहल्ला",i:"मिट्टी की हांडी, तवे, सुराही, कलात्मक डिजाइनर दीए",a:"पुरानी बस्ती",s:"पारंपरिक कुम्हार पाड़ा",q:"Kumharon+Ka+Mohalla+Purani+Basti+Jaipur",cats:["crafts"],en:"kumharon mohalla clay pottery mitti handi tawa surahi designer diya pots matka handicraft utensils"},
   {id:39,n:"नाहरगढ़ रोड विंटेज लेन",i:"हवेलियों का पुराना सागवान/शीशम फर्नीचर, झरोखे",a:"चांदपोल के पास",s:"विंटेज हवेली फर्नीचर हाउस",q:"Nahargarh+Road+Furniture+Market+Jaipur",cats:["crafts"],en:"nahargarh road vintage antique furniture haveli teak sheesham wood jharokha doors purana furniture vintage"},
   {id:40,n:"सब्जी मंडी कटला",i:"पंचकुटा (कैर, सांगरी, कुमटिया), सूखी काचरी, मथानिया मिर्च",a:"चांदपोल बाजार",s:"मारवाड़ी किराना स्टोर",q:"Chandpole+Mandi+Jaipur",cats:["food"],en:"sabzi mandi katla panchkuta ker sangri sangari kumtiya kachri mathania mirch spices grocery masale food nashta achar"},
   {id:41,n:"पानी पेच का रास्ता",i:"कच्चे कपड़े पर हाथ से लहरिया, पचरंगा, टाई-डाई रंगाई",a:"रामगंज / घाट गेट",s:"उस्ताद रंगरेज डायर्स",q:"Pani+Pech+Ka+Rasta+Ramganj+Jaipur",cats:["textiles"],en:"pani pech rasta hand dye lahariya leheriya lahriya pachranga tie dye rangrez fabric rangai kapda saree"},
-  {id:42,n:"चार दरवाजा / मोची गली",i:"शुद्ध लेदर की हाथ से बनी जयपुरी मोजड़ियाँ (Juttis)",a:"रामगंज बाजार",s:"खानदानी मोजड़ी निर्माता",q:"Char+Darwaza+Ramganj+Jaipur",cats:["wedding","general"],en:"char darwaza mochi gali pure leather jaipuri jutti jooti mojari jutis footwear shoes mojadi jutiya"},
+  {id:42,n:"चार दरवाजा / मोची गली",i:"शुद्ध लेदर की हाथ से बनी जयपुरी मोजड़ियाँ (Juttis)",a:"रामगंज बाजार",s:"खानदानी मोजड़ी निर्माता",q:"Char+Darwaza+Ramganj+Jaipur",cats:["wedding","crafts","general"],en:"char darwaza mochi gali pure leather jaipuri jutti jooti mojari jutis footwear shoes mojadi jutiya"},
   {id:43,n:"पन्नीगरों का मोहल्ला",i:"हथौड़े की मार से बना शुद्ध चांदी और सोने का वर्क",a:"चार दरवाजा",s:"पन्नीगर घराने वर्कशॉप्स",q:"Pannigaron+Ka+Mohalla+Ramganj+Jaipur",cats:["food","jewelry"],en:"pannigaron mohalla pure silver gold vark foil edible silver leaf hammering chandi vark food jewel"},
   {id:44,n:"हांडीपुरा पतंग मंडी",i:"जयपुरी व बरेली का पक्का मांझा, थोक पतंग बाजार",a:"रामगंज क्षेत्र",s:"हांडीपुरा मांझा केंद्र",q:"Handipura+Ramganj+Jaipur",cats:["general"],en:"handipura patang mandi bareilly manjha kites wholesale kite market manja"},
   {id:45,n:"मिरासी गली",i:"शास्त्रीय वाद्य यंत्र—हारमोनियम, तबला, ढोलक, सारंगी",a:"रामगंज बाजार",s:"म्यूजिकल इंस्ट्रूमेंट हाउस",q:"Mirasi+Gali+Ramganj+Jaipur",cats:["crafts","general"],en:"mirasi gali musical instruments harmonium tabla dholak sarangi sangeet music baja handicraft"},
   {id:46,n:"तोपखाना हुजूरी",i:"शाही लक्जरी तंबू, जयपुरी शामियाना, कनात, जाजम",a:"घाट गेट परकोटा",s:"रॉयल टेंट मैन्युफैक्चरर्स",q:"Topkhana+Hazuri+Ghat+Gate+Jaipur",cats:["wedding","general"],en:"topkhana huzuri royal luxury tents jaipuri shamiana kanat jajam marquee tent tambu wedding"},
   {id:47,n:"घांची मोहल्ला",i:"लकड़ी के कोल्हू का शुद्ध कच्ची घानी तिल व सरसों तेल",a:"रामगंज-सूरजपोल",s:"घांची शुद्ध तेल घानी",q:"Ghanchi+Mohalla+Ramganj+Jaipur",cats:["food"],en:"ghanchi mohalla cold pressed kacchi ghani til sesame mustard sarso oil pure edible oil tel food"},
   {id:48,n:"हवा महल / सिरे ड्योढ़ी लेन",i:"विश्व प्रसिद्ध शुद्ध सूती जयपुरी रजाई (Jaipuri Razai)",a:"सिरे ड्योढ़ी बाजार",s:"गुलाब चंद प्रिंट्स, हेरिटेज रजाई",q:"Sireh+Deori+Bazar+Jaipur",cats:["textiles"],en:"hawa mahal sireh deori pure cotton jaipuri razai quilts blankets rajai bedcover gulab chand razayi kapda"},
-  {id:49,n:"पान दरीबा",i:"शादियों का मुखवास, बनारसी पान, असली कत्था व सुपारी",a:"बड़ी चौपड़ मुहाना",s:"पान दरीबा मुखवास हाउस",q:"Paan+Dariba+Badi+Chaupar+Jaipur",cats:["food","wedding"],en:"paan dariba mukhwas mouth freshener banarasi paan kattha supari badi chaupar saunf food nashta pan"},
-  {id:50,n:"तोरण बाजार / बंदनवार लेन",i:"गोटा-पत्ती बंदनवार, तोरण, दूल्हे का तोरण पाटा, जयमाला",a:"बड़ी चौपड़",s:"मांगलिक श्रृंगार भंडार",q:"Badi+Chaupar+Jaipur",cats:["wedding"],en:"toran bazar bandanwar gota patti toran door hanging jaimala wedding decor groom toran pata varmala wedding"}
+  {id:49,n:"पान दरीबा",i:"शादियों का मुखवास, बनारसी पान, असली कत्था व सुपारी",a:"बड़ी चौपड़ मुहाना",s:"पान दरीबा मुखवास हाउस",q:"Paan+Dariba+Badi+Chaupar+Jaipur",cats:["food","wedding","streetfood"],en:"paan dariba mukhwas mouth freshener banarasi paan kattha supari badi chaupar saunf food nashta pan"},
+  {id:50,n:"तोरण बाजार / बंदनवार लेन",i:"गोटा-पत्ती बंदनवार, तोरण, दूल्हे का तोरण पाटा, जयमाला",a:"बड़ी चौपड़",s:"मांगलिक श्रृंगार भंडार",q:"Badi+Chaupar+Jaipur",cats:["wedding"],en:"toran bazar bandanwar gota patti toran door hanging jaimala wedding decor groom toran pata varmala wedding"},
+  
+  /* New Famous Street Food & Shopping Places */
+  {id:51,n:"सम्राट रेस्टोरेंट व नाश्ता लेन",i:"हींग कचौरी, गर्म समोसा, कुरकुरी जलेबी, खमण ढोकला व मसाला चाय",a:"चौड़ा रास्ता",s:"सम्राट रेस्टोरेंट (Samrat since 1965)",q:"Samrat+Restaurant+Chaura+Rasta+Jaipur",cats:["streetfood","food"],en:"samrat restaurant chaura rasta heeng kachori samosa jalebi khaman dhokla chai tea breakfast nashta street food"},
+  {id:52,n:"एलएमबी (LMB - लक्ष्मी मिष्ठान भंडार)",i:"विश्व प्रसिद्ध पनीर घेवर, राज कचौरी, मलाई घेवर, दाल बाटी थाली",a:"जौहरी बाजार",s:"लक्ष्मी मिष्ठान भंडार (Heritage LMB 1727)",q:"LMB+Johari+Bazar+Jaipur",cats:["streetfood","food"],en:"lmb laxmi mishtan bhandar johari bazar paneer ghewar ghevar raj kachori dal baati churma sweets thali mithai food"},
+  {id:53,n:"ओरिजिनल लस्सी वाला (1944)",i:"मिट्टी के कुल्हड़ में गाढ़ी मलाईदार मीठी व नमकीन ताज़ा लस्सी",a:"एम.आई. रोड (अजमेरी गेट मुहाना)",s:"किशनलाल गोविंद नारायण लस्सी वाला (Shop 312)",q:"Lassiwala+MI+Road+Jaipur",cats:["streetfood","food"],en:"lassiwala lassi wala mi road ajmeri gate kulhad malai lassi sweet lassi shop 312 street food nashta drink"},
+  {id:54,n:"बापू बाजार मुख्य मार्केट",i:"सांगानेरी प्रिंट कुर्तियाँ, जयपुरी कॉटन चादरें, लेदर जूती, हैंडीक्राफ्ट",a:"सांगानेरी गेट से न्यू गेट",s:"बापू बाजार गारमेंट्स व हैंडीक्राफ्ट एम्पोरियम",q:"Bapu+Bazar+Jaipur",cats:["textiles","crafts","wedding"],en:"bapu bazar sanganeri kurtis kurti cotton bedsheet bedsheets chadar jutti leather handicrafts shopping textiles"},
+  {id:55,n:"नेहरू बाजार",i:"रंग-बिरंगी जयपुरी/जोधपुरी मोजड़ियाँ, रेडीमेड परिधान, बैग्स व गिफ्ट्स",a:"न्यू गेट से अजमेरी गेट",s:"नेहरू बाजार फुटवियर एंड टैक्सटाइल मार्केट",q:"Nehru+Bazar+Jaipur",cats:["crafts","textiles","general"],en:"nehru bazar footwear mojari jooti jutti ready made clothes bags shopping ajmeri gate"},
+  {id:56,n:"रावत मिष्ठान भंडार",i:"प्रसिद्ध खस्ता प्याज कचौरी, मावा कचौरी, मिर्ची वड़ा व घेवर",a:"स्टेशन रोड (चांदपोल के पास)",s:"रावत मिष्ठान भंडार (Rawat Sweets)",q:"Rawat+Mishtan+Bhandar+Jaipur",cats:["streetfood","food"],en:"rawat mishtan bhandar pyaz ki kachori pyaaz mawa kachori mirchi vada jalebi ghewar nashta street food"},
+  {id:57,n:"पंडित कुल्फी व फालूदा",i:"केसर-पिस्ता मटका कुल्फी, शाही रबड़ी फालूदा व पान कुल्फी",a:"सिरह ड्योढ़ी (हवा महल के सामने)",s:"पंडित कुल्फी सेंटर (Pandit Kulfi)",q:"Pandit+Kulfi+Hawa+Mahal+Jaipur",cats:["streetfood","food"],en:"pandit kulfi hawa mahal sireh deori rabdi falooda rabri pista kulfi dessert street food ice cream"},
+  {id:58,n:"गुलाब जी चाय वाले",i:"स्पेशल कड़क मसाला चाय, बन-मस्का, बन-मक्खन व गरमागरम समोसा",a:"एमआई रोड / गणगौरी बाजार",s:"गुलाब जी चाय वाले (Gulab Ji Chai)",q:"Gulab+Ji+Chai+Wale+MI+Road+Jaipur",cats:["streetfood","food"],en:"gulab ji chai wale tea masala tea bun maska makhan samosa street food nashta gangori"},
+  {id:59,n:"इत्र व सुगंध लेन (Attar Lane)",i:"शुद्ध जयपुरी रूह गुलाब, खस, मोगरा, असली ऊद इत्र, चंदन तेल व अगरबत्ती",a:"हल्दियों का रास्ता / जौहरी बाजार",s:"गुलाब सिंह जोहरीमल, सुगंध भंडार",q:"Attar+Johari+Bazar+Jaipur",cats:["crafts","general","wedding"],en:"ittar attar gali rose water gulab jal khas mogra oudh chandan sandalwood oil perfume aroma wedding pooja"},
+  {id:60,n:"गोविंद देव जी मंदिर जलेब चौक लेन",i:"मिश्री मावा, शुद्ध देसी घी के पेड़े, रबड़ी, प्रसादी व भोग मिठाई",a:"जलेब चौक / सिटी पैलेस",s:"मंदिर भोग भंडार, गोविंद पेड़ा केंद्र",q:"Govind+Dev+Ji+Temple+Jaleb+Chowk+Jaipur",cats:["food","general"],en:"govind dev ji temple jaleb chowk peda mishri mawa rabdi prasad sweets food mithai city palace"},
+  {id:61,n:"कांजी वड़ा स्ट्रीट कॉर्नर",i:"राई के पाचक हींग पानी में डूबे मूंगदाल वड़े, तीखा कांजी वड़ा",a:"बड़ी चौपड़ / चौड़ा रास्ता",s:"श्री राम कांजी वड़ा, राधेश्याम भाटिया",q:"Kanji+Vada+Badi+Chaupar+Jaipur",cats:["streetfood","food"],en:"kanji vada bada rai heeng street food digest chatpata ram kanji badi chaupar chaura rasta"},
+  {id:62,n:"चांदपोल आचार व मुरब्बा मंडी",i:"मारवाड़ी कैर-सांगरी, गूंजा, मथानिया मिर्च का तीखा अचार व आंवला मुरब्बा",a:"चांदपोल बाजार",s:"विजय अचार भंडार, मारवाड़ पिकल हाउस",q:"Chandpole+Bazar+Jaipur",cats:["food"],en:"chandpole bazar achar murabba pickle ker sangri marwadi masala mathania mirch amla murabba food kitchen"},
+  {id:63,n:"मीनाकारी व कुंदन आर्ट वर्कशॉप लेन",i:"पारंपरिक 24 कैरेट गोल्ड/सिल्वर इनेमल मीनाकारी व ब्राइडल कुंदन",a:"जौहरी बाजार",s:"राष्ट्रीय अवार्डी मीनाकार वर्कशॉप्स",q:"Johari+Bazar+Jaipur",cats:["jewelry","crafts","wedding"],en:"meenakari kundan 24k gold enameling jaipuri bridal ornaments artisan handcrafted jewelry jadau"},
+  {id:64,n:"शादी कार्ड व प्रिंटिंग प्रेस मार्केट",i:"रॉयल राजपूती शादी निमंत्रण पत्रिकाएं, लेजर कट कार्ड व कस्टमाइज्ड बॉक्स",a:"चौड़ा रास्ता",s:"जयपुर कार्ड एंपोरियम, रॉयल इनविटेशन",q:"Chaura+Rasta+Jaipur",cats:["wedding","general"],en:"wedding card shadi card marriage invitation laser cut card printing press chaura rasta patheya"},
+  {id:65,n:"महावीर जी की रबड़ी",i:"केसर-पिस्ता मटका रबड़ी, लच्छेदार गाढ़ा दूध, मालपुआ व बेझड़ रोटी",a:"चांदपोल / त्रिपोलिया के पास",s:"महावीर रबड़ी भंडार (Mahaveer Rabri)",q:"Mahaveer+Rabri+Bhandar+Chandpole+Jaipur",cats:["streetfood","food"],en:"mahaveer rabdi bhandar rabri kulfi kesar pista milk sweet dessert street food bejhad roti malpua"},
+  {id:66,n:"रामगंज बाज़ार - मुगलई स्ट्रीट फूड लेन",i:"जयपुरी मटन टिक्का, सीख कबाब, भुना गोश्त, रुमाली रोटी व मुगलई निहारी",a:"रामगंज बाजार / घाट गेट",s:"मुहम्मदी होटल, अल-करीम कबाब कॉर्नर",q:"Ramganj+Bazar+Jaipur",cats:["streetfood","food"],en:"ramganj bazar non veg mughlai street food kabab seekh kebab mutton tikka nihari biryani nonveg"},
+  {id:67,n:"इंदिरा बाजार",i:"स्कूल/कॉलेज यूनिफॉर्म, रेडीमेड पैंट-शर्ट, इलेक्ट्रॉनिक्स व फैंसी बैग्स",a:"अजमेरी गेट से चांदपोल",s:"इंदिरा बाजार गारमेंट एसोसिएशन",q:"Indira+Bazar+Jaipur",cats:["general","textiles"],en:"indira bazar ready made clothes electronics school uniform bags shopping readymade garments"},
+  {id:68,n:"संजय ऑमलेट व नाइट स्ट्रीट फूड",i:"20+ प्रकार के एग रोल, चीज ऑमलेट, मखाना आमलेट व स्पेशल चाय",a:"बापू बाजार मुहाना",s:"संजय ऑमलेट सेंटर",q:"Bapu+Bazar+Jaipur",cats:["streetfood","food"],en:"sanjay omelette egg street food snacks bapu bazar late night fast food roll"}
 ];
 
 var selectedCategory = "all";
@@ -410,7 +431,7 @@ function render(data) {
           '<span class="card-area">' + itm.a + '</span>' +
         '</div>' +
         '<div class="card-body">' +
-          '<div class="card-row"><span class="card-lbl">मुख्य खरीदारी:</span> ' + itm.i + '</div>' +
+          '<div class="card-row"><span class="card-lbl">मुख्य विशेषता / खरीदारी:</span> ' + itm.i + '</div>' +
           '<div class="card-row"><span class="card-lbl">प्रसिद्ध दुकानें:</span> ' + itm.s + '</div>' +
         '</div>' +
       '</div>' +
@@ -418,7 +439,7 @@ function render(data) {
     '</div>';
   }
   list.innerHTML = html;
-  if (st) st.innerText = data.length + " / 50 स्थान";
+  if (st) st.innerText = data.length + " / " + D.length + " स्थान";
   if (noResult) noResult.style.display = (data.length === 0) ? "block" : "none";
 }
 
@@ -486,7 +507,7 @@ function dlHTML() {
   var blob = new Blob([document.documentElement.outerHTML], { type: "text/html;charset=utf-8" });
   var a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "Jaipur_Parkota_50_Places.html";
+  a.download = "Jaipur_Parkota_68_Places_Guide.html";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
