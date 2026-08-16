@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jaipur Index | The Definitive Heritage, Commerce & Urban Guide</title>
+  <title>Jaipur Index | Curated Heritage, Commerce & Urban Directory</title>
   
-  <!-- Modern Sans-Serif Font -->
+  <!-- Typography: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------------------- */
-    /* 2026 Design System: Tokens & Baseline                                      */
+    /* 1. Design System & CSS Variables                                           */
     /* -------------------------------------------------------------------------- */
     :root {
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -21,7 +21,7 @@
       --bg-body: #F8FAFC;
       --bg-surface: #FFFFFF;
       --bg-subtle: #F1F5F9;
-      --bg-hover: #F8FAFC;
+      --bg-subtle-hover: #E2E8F0;
       
       --text-primary: #0F172A;
       --text-secondary: #475569;
@@ -29,25 +29,29 @@
       
       --border-subtle: #E2E8F0;
       --border-strong: #CBD5E1;
+      --border-focus: #0F172A;
       
-      /* Restrained Heritage Accent (Refined Crimson Terracotta) */
+      /* Restrained Accent (Heritage Crimson) */
       --accent: #8C2D27;
       --accent-hover: #73221D;
       --accent-soft: #FDF2F2;
       --accent-border: #FECACA;
       
-      /* Layout & Spacing Tokens */
+      /* Spacing & Layout Tokens */
       --container-max: 1200px;
+      --radius-xs: 4px;
       --radius-sm: 6px;
       --radius-md: 10px;
       --radius-lg: 16px;
       --radius-full: 9999px;
       
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-      --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
-      --shadow-hover: 0 8px 20px -4px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
+      /* Elevation */
+      --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+      --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+      --shadow-hover: 0 10px 24px -4px rgba(15, 23, 42, 0.06), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
       
-      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     *, *::before, *::after {
@@ -75,7 +79,7 @@
       text-decoration: none;
     }
 
-    button, input {
+    button, input, select {
       font-family: inherit;
     }
 
@@ -87,7 +91,7 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 1. Sticky Navigation & Language Switcher                                    */
+    /* 2. Navigation Bar                                                          */
     /* -------------------------------------------------------------------------- */
     .site-nav {
       position: sticky;
@@ -97,7 +101,7 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-subtle);
-      transition: var(--transition);
+      transition: var(--transition-fast);
     }
 
     .nav-inner {
@@ -113,7 +117,7 @@
       gap: 10px;
       font-weight: 800;
       font-size: 1.15rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       color: var(--text-primary);
     }
 
@@ -146,7 +150,7 @@
       font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-secondary);
-      transition: var(--transition);
+      transition: var(--transition-fast);
     }
 
     .nav-link:hover {
@@ -156,10 +160,10 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    /* Language Switcher Pill */
+    /* Minimalist Language Switcher Pill */
     .lang-switcher {
       display: inline-flex;
       align-items: center;
@@ -179,7 +183,7 @@
       padding: 4px 10px;
       border-radius: var(--radius-full);
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       user-select: none;
     }
 
@@ -197,7 +201,7 @@
       border-radius: var(--radius-sm);
       font-size: 0.84rem;
       font-weight: 600;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       border: 1px solid transparent;
     }
 
@@ -216,10 +220,10 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 2. Hero Section                                                            */
+    /* 3. Hero Section                                                            */
     /* -------------------------------------------------------------------------- */
     .hero {
-      padding: 80px 0 64px;
+      padding: 84px 0 64px;
       border-bottom: 1px solid var(--border-subtle);
       background: #FFFFFF;
     }
@@ -236,7 +240,7 @@
       align-items: center;
       gap: 8px;
       font-size: 0.78rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent);
@@ -252,7 +256,7 @@
     }
 
     .hero-title {
-      font-size: 2.85rem;
+      font-size: 2.9rem;
       font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1.15;
@@ -286,7 +290,7 @@
       font-size: 0.92rem;
       border: 1px solid var(--accent);
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
     }
 
     .btn-primary:hover {
@@ -307,7 +311,7 @@
       font-size: 0.92rem;
       border: 1px solid var(--border-strong);
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
     }
 
     .btn-secondary:hover {
@@ -380,7 +384,7 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 3. Trust & Metrics Bar                                                     */
+    /* 4. Trust & Metrics Bar                                                     */
     /* -------------------------------------------------------------------------- */
     .metrics-bar {
       padding: 36px 0;
@@ -401,7 +405,7 @@
     }
 
     .metric-val {
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       color: var(--text-primary);
@@ -416,15 +420,15 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 4. Features Section                                                        */
+    /* 5. Features Section                                                        */
     /* -------------------------------------------------------------------------- */
     .features-section {
-      padding: 72px 0;
+      padding: 80px 0;
       border-bottom: 1px solid var(--border-subtle);
     }
 
     .section-intro {
-      max-width: 600px;
+      max-width: 620px;
       margin-bottom: 48px;
     }
 
@@ -439,7 +443,7 @@
     }
 
     .section-heading {
-      font-size: 1.85rem;
+      font-size: 1.95rem;
       font-weight: 800;
       letter-spacing: -0.025em;
       color: var(--text-primary);
@@ -463,7 +467,7 @@
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 28px;
-      transition: var(--transition);
+      transition: var(--transition-smooth);
     }
 
     .feature-card:hover {
@@ -494,7 +498,7 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 5. Directory Section: Pinned Search & Natural Scrolling Category Pills    */
+    /* 6. Directory Section: Pinned Search & Natural Scrolling Categories         */
     /* -------------------------------------------------------------------------- */
     .directory-section {
       padding: 48px 0 96px;
@@ -529,7 +533,7 @@
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-sm);
       outline: none;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       box-shadow: var(--shadow-sm);
     }
 
@@ -576,7 +580,7 @@
       padding: 6px 14px;
       border-radius: var(--radius-full);
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       user-select: none;
     }
 
@@ -624,7 +628,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: var(--transition);
+      transition: var(--transition-smooth);
       box-shadow: var(--shadow-card);
     }
 
@@ -690,7 +694,7 @@
       background: var(--bg-subtle);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-sm);
-      transition: var(--transition);
+      transition: var(--transition-fast);
       margin-top: 14px;
     }
 
@@ -712,13 +716,81 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 6. Testimonials & Editorial Notes                                          */
+    /* 7. FAQ Section (Accordion)                                                 */
     /* -------------------------------------------------------------------------- */
-    .editorial-section {
-      padding: 72px 0;
+    .faq-section {
+      padding: 80px 0;
       background: #FFFFFF;
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 56px;
+      align-items: flex-start;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: var(--bg-body);
+      overflow: hidden;
+      transition: var(--transition-fast);
+    }
+
+    .faq-item:hover {
+      border-color: var(--border-strong);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 18px 20px;
+      background: none;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-icon {
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* 8. Editorial Testimonials                                                  */
+    /* -------------------------------------------------------------------------- */
+    .editorial-section {
+      padding: 80px 0;
     }
 
     .editorial-grid {
@@ -728,10 +800,11 @@
     }
 
     .editorial-card {
-      padding: 24px;
+      padding: 26px;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      background: var(--bg-body);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-card);
     }
 
     .editorial-quote {
@@ -744,14 +817,15 @@
     .editorial-author {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .author-avatar {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: var(--border-strong);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -772,24 +846,24 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 7. Call To Action                                                          */
+    /* 9. Final CTA Box                                                           */
     /* -------------------------------------------------------------------------- */
     .cta-section {
-      padding: 80px 0;
+      padding: 40px 0 80px;
       text-align: center;
     }
 
     .cta-box {
       background: var(--text-primary);
       color: #FFFFFF;
-      padding: 56px 32px;
+      padding: 64px 32px;
       border-radius: var(--radius-lg);
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
     .cta-title {
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       margin-bottom: 12px;
@@ -798,7 +872,7 @@
     .cta-sub {
       font-size: 0.98rem;
       color: #94A3B8;
-      max-width: 480px;
+      max-width: 500px;
       margin: 0 auto 28px;
     }
 
@@ -814,7 +888,7 @@
       border-radius: var(--radius-sm);
       border: none;
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
     }
 
     .cta-btn:hover {
@@ -823,7 +897,7 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 8. Footer                                                                  */
+    /* 10. Minimal Multi-Column Footer                                            */
     /* -------------------------------------------------------------------------- */
     .site-footer {
       background: #FFFFFF;
@@ -864,7 +938,7 @@
 
     .footer-link {
       color: var(--text-secondary);
-      transition: var(--transition);
+      transition: var(--transition-fast);
     }
 
     .footer-link:hover {
@@ -893,6 +967,10 @@
       }
       .footer-grid {
         grid-template-columns: 1fr 1fr;
+      }
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
       }
     }
 
@@ -934,7 +1012,7 @@
 <body>
 
   <!-- ========================================================================= -->
-  <!-- 1. Sticky Navigation with Functional Language Switcher                    -->
+  <!-- 1. Sticky Navigation with Language Toggle                                 -->
   <!-- ========================================================================= -->
   <header class="site-nav">
     <div class="container nav-inner">
@@ -947,9 +1025,9 @@
       <ul class="nav-links">
         <li><a href="#explore" class="nav-link" data-i18n="navDirectory">Directory</a></li>
         <li><a href="#features" class="nav-link" data-i18n="navHighlights">Highlights</a></li>
-        <li><a href="#explore" class="nav-link" onclick="filterCat('upcoming')" data-i18n="navUpcoming">Upcoming Hubs</a></li>
+        <li><a href="#faq" class="nav-link" data-i18n="navFaq">FAQ</a></li>
+        <li><a href="#explore" class="nav-link" onclick="filterCat('upcoming')" data-i18n="navUpcoming">Upcoming</a></li>
         <li><a href="#explore" class="nav-link" onclick="filterCat('streetfood')" data-i18n="navStreetFood">Street Food</a></li>
-        <li><a href="#explore" class="nav-link" onclick="filterCat('outskirts')" data-i18n="navDayTrips">Day Trips</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -1096,7 +1174,52 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 6. Testimonials & Editorial Notes                                         -->
+  <!-- 6. Interactive FAQ Accordion Section                                      -->
+  <!-- ========================================================================= -->
+  <section class="faq-section" id="faq">
+    <div class="container faq-grid">
+      <div>
+        <span class="section-tag" data-i18n="faqTag">Explorer Assistance</span>
+        <h2 class="section-heading" data-i18n="faqHeading">Frequently asked questions.</h2>
+        <p class="section-sub" data-i18n="faqSub">Practical tips on timings, navigation etiquette, pedestrian zones, and public accessibility in Jaipur.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span data-i18n="faqQ1">What is the best time to explore the Walled City artisan lanes?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" data-i18n="faqA1">
+            Artisan workshops in Johari Bazar, Tripolia, and Kishanpole open around 11:00 AM and remain vibrant until 8:30 PM. For street breakfast (Samrat kachori, Sahu chai), early morning from 7:30 AM to 9:30 AM is ideal.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span data-i18n="faqQ2">Are the parks and monuments toddler and stroller friendly?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" data-i18n="faqA2">
+            Yes. City Park (Mansarovar), Central Park, and Smriti Van feature dedicated paved circuits suitable for strollers. For wildlife outings, Nahargarh Biological Park offers electric battery carts.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span data-i18n="faqQ3">How do I verify the authenticity of pure gemstone or bullion work?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer" data-i18n="faqA3">
+            Soni Ji Ka Rasta houses authorized hallmark and purity testing laboratories (Tunch labs). For gemstones, choose verified jewelers in Gopal Ji Ka Rasta providing IGI/GTL certifications.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. Testimonials & Editorial Notes                                         -->
   <!-- ========================================================================= -->
   <section class="editorial-section">
     <div class="container">
@@ -1141,7 +1264,7 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 7. Call To Action                                                          -->
+  <!-- 8. Final Impactful Call To Action                                         -->
   <!-- ========================================================================= -->
   <section class="cta-section">
     <div class="container">
@@ -1156,7 +1279,7 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 8. Minimalist Multi-Column Footer                                         -->
+  <!-- 9. Minimalist Multi-Column Footer                                         -->
   <!-- ========================================================================= -->
   <footer class="site-footer">
     <div class="container">
@@ -1216,6 +1339,7 @@
         navBadge: "2026 एडिशन",
         navDirectory: "डायरेक्टरी",
         navHighlights: "खासियतें",
+        navFaq: "सवाल-जवाब",
         navUpcoming: "आगामी हब",
         navStreetFood: "स्ट्रीट फूड",
         navDayTrips: "डे ट्रिप्स",
@@ -1255,6 +1379,15 @@
         cardNavBtn: "📍 Google Maps नेविगेशन",
         noResultTitle: "कोई परिणाम नहीं मिला।",
         noResultSub: "कृपया सर्च शब्द बदलें या दूसरी कैटेगरी चुनकर देखें।",
+        faqTag: "सहायता व सुझाव",
+        faqHeading: "अक्सर पूछे जाने वाले सवाल।",
+        faqSub: "समय, खरीदारी के नियम और परकोटा में घूमने के व्यावहारिक सुझाव।",
+        faqQ1: "परकोटा में खरीदारी का सबसे अच्छा समय क्या है?",
+        faqA1: "जौहरी बाजार, त्रिपोलिया और किशनपोल की दुकानें सुबह 11:00 बजे से रात 8:30 बजे तक खुली रहती हैं। नाश्ते (सम्राट कचौरी, साहू चाय) के लिए सुबह 7:30 से 9:30 का समय सबसे अच्छा है।",
+        faqQ2: "क्या जयपुर के पार्क बच्चों और स्ट्रॉलर के लिए उपयुक्त हैं?",
+        faqA2: "हाँ। सिटी पार्क मानसरोवर, सेंट्रल पार्क और कुलिश स्मृति वन में पक्के रास्ते हैं जहाँ आसानी से स्ट्रॉलर चलाया जा सकता है।",
+        faqQ3: "असली रत्न और आभूषणों की शुद्धता कैसे जांचें?",
+        faqA3: "सोनी जी का रास्ता में सरकारी मान्यता प्राप्त टंच लैब्स हैं। रत्नों के लिए गोपाल जी का रास्ता में IGI/GTL सर्टिफाइड ज्वेलर्स से ही खरीदारी करें।",
         editorialTag: "संपादकीय विचार",
         editorialHeading: "जयपुर के स्थानीय निवासियों व जानकारों की राय।",
         quote1: "“जौहरी बाजार और त्रिपोलिया के रास्तों की इतनी सटीक जानकारी मिलना दुर्लभ है। चौथी पीढ़ी के गोटा-पत्ती और वर्क कारीगर आसानी से मिले।”",
@@ -1281,6 +1414,7 @@
         navBadge: "2026 Edition",
         navDirectory: "Directory",
         navHighlights: "Highlights",
+        navFaq: "FAQ",
         navUpcoming: "Upcoming Hubs",
         navStreetFood: "Street Food",
         navDayTrips: "Day Trips",
@@ -1320,6 +1454,15 @@
         cardNavBtn: "📍 Google Maps Navigation",
         noResultTitle: "No matching locations found.",
         noResultSub: "Try clearing the search query or selecting a different category filter.",
+        faqTag: "Explorer Assistance",
+        faqHeading: "Frequently asked questions.",
+        faqSub: "Practical tips on timings, navigation etiquette, pedestrian zones, and public accessibility in Jaipur.",
+        faqQ1: "What is the best time to explore the Walled City artisan lanes?",
+        faqA1: "Artisan workshops in Johari Bazar, Tripolia, and Kishanpole open around 11:00 AM and remain vibrant until 8:30 PM. For street breakfast (Samrat kachori, Sahu chai), early morning from 7:30 AM to 9:30 AM is ideal.",
+        faqQ2: "Are the parks and monuments toddler and stroller friendly?",
+        faqA2: "Yes. City Park (Mansarovar), Central Park, and Smriti Van feature dedicated paved circuits suitable for strollers. For wildlife outings, Nahargarh Biological Park offers electric battery carts.",
+        faqQ3: "How do I verify the authenticity of pure gemstone or bullion work?",
+        faqA3: "Soni Ji Ka Rasta houses authorized hallmark and purity testing laboratories (Tunch labs). For gemstones, choose verified jewelers in Gopal Ji Ka Rasta providing IGI/GTL certifications.",
         editorialTag: "Field Notes",
         editorialHeading: "Insights from locals and seasoned explorers.",
         quote1: "“The accuracy of artisan lanes inside Johari and Tripolia Bazar is unmatched. Found 4th-generation gota-patti and pure silver vark masters with ease.”",
@@ -1364,7 +1507,7 @@
       { id: "general", hi: "📚 विविध बाजार व सेवाएं", en: "📚 Specialty Markets" }
     ];
 
-    /* 145 Master Entries (Including Gurudwaras) */
+    /* 145 Master Entries */
     var D = [
       {id:1,n:"गोपाल जी का रास्ता",n_en:"Gopal Ji Ka Rasta",i:"पन्ना (Emerald), माणक, नीलम, असली हीरे, जेमस्टोन बीड्स",i_en:"Emeralds, Rubies, Sapphires, Real Diamonds, Gemstone Beads",a:"जौहरी बाजार",a_en:"Johari Bazar",s:"सुरना ज्वैलर्स, कोठारी जेम्स",s_en:"Surana Jewellers, Kothari Gems",q:"Gopal+Ji+Ka+Rasta+Johari+Bazar+Jaipur",cats:["jewelry"],en:"gopal ji rasta emerald panna manak ruby sapphire neelam heera diamond gemstone stones beads surana kothari jewellers ratan nagina gems jewelry"},
       {id:2,n:"हल्दियों का रास्ता",n_en:"Haldiyon Ka Rasta",i:"राजपूती पोशाक, गोटा-पत्ती, शुद्ध चांदी के बर्तन, असली हींग",i_en:"Rajputi Poshak, Gota-Patti, Pure Silver Utensils, Authentic Hing",a:"जौहरी बाजार",a_en:"Johari Bazar",s:"ओढ़नी साड़ी, आरी तारी, विनायक सिल्वर",s_en:"Odhni Sarees, Aari Tari, Vinayak Silver",q:"Haldiyon+Ka+Rasta+Johari+Bazar+Jaipur",cats:["wedding","textiles","jewelry","food"],en:"haldiyon haldiya ka rasta rajputi poshak gota patti silver chandi bartan utensils heeng hing odhni sari saree aari tari vinayak food wedding masala"},
@@ -1525,7 +1668,7 @@
       {id:139,n:"रामगढ़ झील व एडवेंचर ट्रेल",n_en:"Ramgarh Lake & Nature Valley",i:"प्राचीन प्राकृतिक झील घाटी, अरावली ट्रेकिंग, पक्षी दर्शन, शांत पिकनिक व वीकेंड ड्राइव",i_en:"Historic Scenic Lake Basin Surrounded by Aravalli Hills, Birding & Driving Trails",a:"जामवा रामगढ़",a_en:"Jamwa Ramgarh (~35 km)",s:"रामgarh लेक व्यू पॉइंट",s_en:"Ramgarh Lake Promenade",q:"Ramgarh+Lake+Jaipur",cats:["outskirts","parks","sightseeing"],en:"ramgarh lake jamwa ramgarh nature aravalli hills picnic birding drive weekend spot"},
       {id:140,n:"चांदपोल नमकीन व भुजिया गली",n_en:"Chandpole Namkeen & Snack Lane",i:"ताजा तली लौंग सेव, मारवाड़ी भुजिया, रतलामी सेव, खट्टा-मीठा चिवड़ा व हींग दालमोठ",i_en:"Freshly Fried Laung Sev, Spiced Marwari Bhujia, Ratlami Sev, Hing Dalmoth",a:"चांदपोल बाजार",a_en:"Chandpole Bazar",s:"जोधपुर मिष्ठान व नमकीन भंडार",s_en:"Marwari Namkeen Stores",q:"Chandpole+Bazar+Namkeen+Jaipur",cats:["streetfood","food"],en:"chandpole namkeen bhujia sev laung sev dalmoth marwari snacks food kitchen"},
 
-      /* 141 to 145: Famous Gurudwaras (Added per request) */
+      /* 141 to 145: Famous Gurudwaras */
       {id:141,n:"गुरुद्वारा राजा पार्क (श्री गुरु नानक सत्संग सभा)",n_en:"Gurudwara Raja Park",i:"जयपुर का सबसे प्रमुख व विशाल गुरुद्वारा, भव्य दरबार सा हॉल, विशाल लंगर हॉल व सर्वधर्म सेवा",i_en:"Largest Gurudwara in Jaipur, Grand Darbar Hall, Daily Community Langar",a:"राजा पार्क",a_en:"Raja Park",s:"श्री गुरु नानक सत्संग सभा ट्रस्ट",s_en:"Raja Park Gurudwara Management",q:"Gurudwara+Raja+Park+Jaipur",cats:["temple","food"],en:"gurudwara raja park shri guru nanak satsang sabha langar darbar hall sikh shrine jaipur"},
       {id:142,n:"गुरुद्वारा मानसरोवर",n_en:"Gurudwara Mansarovar",i:"मानसरोवर सेक्टर 3 में स्थित शांतिपूर्ण गुरुद्वारा, गुरबानी कीर्तन, बच्चों के लिए संस्कार शिविर व लंगर सेवा",i_en:"Peaceful Community Gurudwara in Mansarovar, Gurbani Kirtan, Weekly Langar",a:"मानसरोवर (सेक्टर 3)",a_en:"Mansarovar (Sector 3)",s:"गुरुद्वारा प्रबंधक कमेटी मानसरोवर",s_en:"Mansarovar Gurudwara Sahib",q:"Gurudwara+Mansarovar+Jaipur",cats:["temple"],en:"gurudwara mansarovar sector 3 sikh temple kirtan langar community prayer"},
       {id:143,n:"गुरुद्वारा सिंधी कैंप (स्टेशन रोड)",n_en:"Gurudwara Sindhi Camp",i:"रेलवे स्टेशन व बस स्टैंड के पास स्थित ऐतिहासिक गुरुद्वारा, यात्रियों व शहरवासियों के लिए निरंतर सेवा व लंगर",i_en:"Historic Railway Station Gurudwara, Convenient Pilgrim Rest & Community Kitchen",a:"स्टेशन रोड (सिंधी कैंप)",a_en:"Station Road (Near Sindhi Camp)",s:"गुरुद्वारा सिंह सभा सिंधी कैंप",s_en:"Sindhi Camp Gurudwara Sabha",q:"Gurudwara+Sindhi+Camp+Jaipur",cats:["temple"],en:"gurudwara sindhi camp railway station jaipur sikh shrine langar rest house"},
@@ -1664,9 +1807,6 @@
       var buttons = document.querySelectorAll("#catBar .cat-pill");
       for (var b = 0; b < buttons.length; b++) {
         buttons[b].classList.remove("active");
-        if (buttons[b].getAttribute("onclick") && buttons[b].getAttribute("onclick").indexOf("'" + cat + "'") !== -1) {
-          buttons[b].classList.add("active");
-        }
       }
       if (btnElem) {
         btnElem.classList.add("active");
@@ -1683,6 +1823,12 @@
       sb.value = "";
       sb.focus();
       applyFilters();
+    }
+
+    /* FAQ Toggle Accordion */
+    function toggleFaq(btn) {
+      var item = btn.parentElement;
+      item.classList.toggle("active");
     }
 
     /* Language Switch Function */
