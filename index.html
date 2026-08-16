@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>जयपुर हेरिटेज, शॉपिंग, मंदिर, कैफ़े व स्ट्रीट फूड गाइड (85+ स्पॉट्स)</title>
+  <title>जयपुर व आसपास: खरीदारी, मंदिर, पार्क्स, टॉडलर स्पॉट्स व डे-ट्रिप गाइड (105+ स्थान)</title>
   <style>
     * {
       box-sizing: border-box;
@@ -18,7 +18,7 @@
       line-height: 1.5;
     }
     .container {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
     }
     
@@ -182,7 +182,7 @@
       grid-template-columns: 1fr;
       gap: 10px;
     }
-    @media (min-width: 600px) {
+    @media (min-width: 640px) {
       .list-container {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -274,9 +274,9 @@
 
 <div class="container">
   <div class="header">
-    <span class="header-tag">COMPLETE JAIPUR EXPLORER & LOCAL GEMS</span>
-    <h1>जयपुर गाइड: रास्ते, खरीदारी, मंदिर, कैफ़े व स्ट्रीट फूड</h1>
-    <p>परकोटा बाजार, सोशल मीडिया/Reddit की गुप्त पसंद, प्रसिद्ध मंदिर, मॉडर्न मॉल्स व स्ट्रीट फूड</p>
+    <span class="header-tag">ULTIMATE JAIPUR & OUTSKIRTS DIRECTORY</span>
+    <h1>जयपुर व आसपास: रास्ते, खरीदारी, मंदिर, पार्क्स व वीकेंड स्पॉट्स</h1>
+    <p>परकोटा बाजार, टॉडलर-फ्रेंडली पार्क्स, गोनेर, बीसलपुर, प्रसिद्ध मंदिर, मॉल्स व स्ट्रीट फूड</p>
   </div>
 
   <div class="action-hub">
@@ -286,29 +286,32 @@
 
   <div class="search-sticky">
     <div class="search-wrap">
-      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: moti dungri, wtp, tapri, kachori, jooti, lehariya, rabdi, birla mandir..." autocomplete="off">
+      <input type="text" id="sb" class="search-box" placeholder="🔍 खोजें: goner, bisalpur, city park, toddler, moti dungri, wtp, tapri, kachori..." autocomplete="off">
       <button id="cb" class="clear-btn" onclick="resetSearch()">✕</button>
     </div>
 
-    <!-- Category Filter Bar with New Tags (temple, mall, cafe, sightseeing) -->
+    <!-- Category Group Pills -->
     <div class="category-container" id="catBar">
       <button class="cat-btn active" onclick="filterCat('all', this)">🔄 सभी</button>
-      <button class="cat-btn" onclick="filterCat('temple', this)">🛕 मंदिर व दर्शन</button>
+      <button class="cat-btn" onclick="filterCat('toddler', this)">👶 टॉडलर व किड्स पार्क्स</button>
+      <button class="cat-btn" onclick="filterCat('parks', this)">🌳 पार्क, नेचर व वॉक</button>
+      <button class="cat-btn" onclick="filterCat('temple', this)">🛕 मंदिर व तीर्थ स्थल</button>
+      <button class="cat-btn" onclick="filterCat('outskirts', this)">🚗 वीकेंड गेटवे व डे ट्रिप</button>
       <button class="cat-btn" onclick="filterCat('mall', this)">🛍️ मॉल्स व शॉपिंग आर्केड</button>
       <button class="cat-btn" onclick="filterCat('cafe', this)">☕ कैफ़े व सनसेट स्पॉट्स</button>
       <button class="cat-btn" onclick="filterCat('streetfood', this)">🍢 स्ट्रीट फूड व कचौरी-चाट</button>
-      <button class="cat-btn" onclick="filterCat('food', this)">🍲 घेवर, मिठाई व पारंपरिक भोजन</button>
-      <button class="cat-btn" onclick="filterCat('sightseeing', this)">🏰 ऐतिहासिक किले व हेरिटेज</button>
+      <button class="cat-btn" onclick="filterCat('food', this)">🍲 घेवर, मिठाई व भोजन</button>
+      <button class="cat-btn" onclick="filterCat('sightseeing', this)">🏰 ऐतिहासिक धरोहर व किले</button>
       <button class="cat-btn" onclick="filterCat('wedding', this)">💍 विवाह व मायरा खरीदारी</button>
       <button class="cat-btn" onclick="filterCat('textiles', this)">👗 साड़ी, लहरिया व कुर्ती</button>
-      <button class="cat-btn" onclick="filterCat('jewelry', this)">💎 रत्न, कुंदन, सोना व लाख</button>
+      <button class="cat-btn" onclick="filterCat('jewelry', this)">💎 रत्न, कुंदन व सोना-चांदी</button>
       <button class="cat-btn" onclick="filterCat('crafts', this)">🗿 हस्तशिल्प, मोजड़ी व मार्बल</button>
       <button class="cat-btn" onclick="filterCat('general', this)">📚 विविध बाजार व सेवाएं</button>
     </div>
 
     <div class="meta-bar">
-      <span>कैटेगरी चुनें या सर्च बार का उपयोग करें</span>
-      <span class="badge" id="st">85 स्थान</span>
+      <span>कैटेगरी चुनें या ऊपर सर्च करें</span>
+      <span class="badge" id="st">105 स्थान</span>
     </div>
   </div>
 
@@ -370,7 +373,7 @@ var D = [
   {id:49,n:"पान दरीबा",i:"शादियों का मुखवास, बनारसी पान, असली कत्था व सुपारी",a:"बड़ी चौपड़ मुहाना",s:"पान दरीबा मुखवास हाउस",q:"Paan+Dariba+Badi+Chaupar+Jaipur",cats:["food","wedding","streetfood"],en:"paan dariba mukhwas mouth freshener banarasi paan kattha supari badi chaupar saunf food nashta pan"},
   {id:50,n:"तोरण बाजार / बंदनवार लेन",i:"गोटा-पत्ती बंदनवार, तोरण, दूल्हे का तोरण पाटा, जयमाला",a:"बड़ी चौपड़",s:"मांगलिक श्रृंगार भंडार",q:"Badi+Chaupar+Jaipur",cats:["wedding"],en:"toran bazar bandanwar gota patti toran door hanging jaimala wedding decor groom toran pata varmala wedding"},
 
-  /* 51 to 58: Famous Street Food & Heritage Sweets */
+  /* 51 to 60: Famous Street Food & Heritage Sweets */
   {id:51,n:"सम्राट रेस्टोरेंट व नाश्ता लेन",i:"हींग कचौरी, गर्म समोसा, कुरकुरी जलेबी, खमण ढोकला व मसाला चाय",a:"चौड़ा रास्ता",s:"सम्राट रेस्टोरेंट (Samrat since 1965)",q:"Samrat+Restaurant+Chaura+Rasta+Jaipur",cats:["streetfood","food"],en:"samrat restaurant chaura rasta heeng kachori samosa jalebi khaman dhokla chai tea breakfast nashta street food"},
   {id:52,n:"एलएमबी (LMB - लक्ष्मी मिष्ठान भंडार)",i:"विश्व प्रसिद्ध पनीर घेवर, राज कचौरी, मलाई घेवर, दाल बाटी थाली",a:"जौहरी बाजार",s:"लक्ष्मी मिष्ठान भंडार (Heritage LMB 1727)",q:"LMB+Johari+Bazar+Jaipur",cats:["streetfood","food"],en:"lmb laxmi mishtan bhandar johari bazar paneer ghewar ghevar raj kachori dal baati churma sweets thali mithai food"},
   {id:53,n:"ओरिजिनल लस्सी वाला (1944)",i:"मिट्टी के कुल्हड़ में गाढ़ी मलाईदार मीठी व नमकीन ताज़ा लस्सी",a:"एम.आई. रोड (अजमेरी गेट मुहाना)",s:"किशनलाल गोविंद नारायण लस्सी वाला (Shop 312)",q:"Lassiwala+MI+Road+Jaipur",cats:["streetfood","food"],en:"lassiwala lassi wala mi road ajmeri gate kulhad malai lassi sweet lassi shop 312 street food nashta drink"},
@@ -382,24 +385,24 @@ var D = [
   {id:59,n:"इत्र व सुगंध लेन (Attar Lane)",i:"शुद्ध जयपुरी रूह गुलाब, खस, मोगरा, असली ऊद इत्र, चंदन तेल व अगरबत्ती",a:"हल्दियों का रास्ता / जौहरी बाजार",s:"गुलाब सिंह जोहरीमल, सुगंध भंडार",q:"Attar+Johari+Bazar+Jaipur",cats:["crafts","general","wedding"],en:"ittar attar gali rose water gulab jal khas mogra oudh chandan sandalwood oil perfume aroma wedding pooja"},
   {id:60,n:"महावीर जी की रबड़ी",i:"केसर-पिस्ता मटका रबड़ी, लच्छेदार गाढ़ा दूध, मालपुआ व बेझड़ रोटी",a:"चांदपोल / त्रिपोलिया के पास",s:"महावीर रबड़ी भंडार (Mahaveer Rabri)",q:"Mahaveer+Rabri+Bhandar+Chandpole+Jaipur",cats:["streetfood","food"],en:"mahaveer rabdi bhandar rabri kulfi kesar pista milk sweet dessert street food bejhad roti malpua"},
 
-  /* 61 to 68: Temples & Sacred Places (Tag: temple) */
+  /* 61 to 68: Famous In-City Temples */
   {id:61,n:"मोती डूंगरी गणेश मंदिर",i:"जयपुर के अधिष्ठाता प्रथम पूज्य गणेश जी, मोदक प्रसाद व बुधवार मेला",a:"जेएलएन मार्ग / तिलक नगर",s:"मोती डूंगरी ट्रस्ट व मोदक भंडार",q:"Moti+Dungri+Ganesh+Ji+Temple+Jaipur",cats:["temple","food"],en:"moti dungri ganesh mandir temple modak laddu ganesha wednesday religious pooja darshan jln marg"},
   {id:62,n:"गोविंद देव जी मंदिर",i:"जयपुर के आराध्य देव, नयनाभिराम मंगला व संध्या आरती, मिश्री मावा प्रसादी",a:"जलेब चौक / सिटी पैलेस परिसर",s:"ठाकुर जी मंदिर भोग शाला",q:"Govind+Dev+Ji+Temple+Jaleb+Chowk+Jaipur",cats:["temple","food"],en:"govind dev ji mandir temple krishna aarti jaleb chowk city palace prasad darshan religious pooja"},
-  {id:63,n:"बिड़ला मंदिर (लक्ष्मी नारायण मंदिर)",i:"शुद्ध मकराना सफेद संगमरमर की भव्य नक्काशी, शांत बगीचे व रात्रि लाइटिंग",a:"तिलक नगर / मोती डूंगरी तलहटी",s:"बिड़ला मंदिर कॉम्प्लेक्स",q:"Birla+Mandir+Jaipur",cats:["temple","sightseeing"],en:"birla mandir lakshmi narayan temple white marble tilak nagar moti dungri architecture garden tourist"},
+  {id:63,n:"बिड़ला मंदिर (लक्ष्मी नारायण मंदिर)",i:"शुद्ध मकराना सफेद संगमरमर की भव्य नक्काशी, शांत बगीचे व रात्रि लाइटिंग",a:"तिलक नगर / मोती डूंगरी तलहटी",s:"बिड़ला मंदिर कॉम्प्लेक्स",q:"Birla+Mandir+Jaipur",cats:["temple","sightseeing","toddler"],en:"birla mandir lakshmi narayan temple white marble tilak nagar moti dungri architecture garden tourist"},
   {id:64,n:"गलता जी तीर्थ (Monkey Temple)",i:"पवित्र प्राकृतिक 7 जल कुंड, अरावली घाटी, प्राचीन सूर्य मंदिर व बंदर",a:"गलता हिल्स (घाट की गुणी के पास)",s:"प्राचीन गलता पीठ व कुंड",q:"Galtaji+Temple+Jaipur",cats:["temple","sightseeing"],en:"galtaji galta ji temple monkey temple natural springs holy kund sun temple aravalli hills ghat ki guni"},
-  {id:65,n:"खोले के हनुमान जी मंदिर",i:"पहाड़ी पर बसा भव्य मंदिर परिसर, रोपवे (Ropeway) सुविधा व प्रसिद्ध सवामणी",a:"दिल्ली-जयपुर बाईपास",s:"खोले के हनुमान जी ट्रस्ट",q:"Khole+Ke+Hanuman+Ji+Temple+Jaipur",cats:["temple","sightseeing"],en:"khole ke hanuman ji temple ropeway sawamani prasad dal baati churma hills bypass hanuman mandir"},
+  {id:65,n:"खोले के हनुमान जी मंदिर",i:"पहाड़ी पर बसा भव्य मंदिर परिसर, रोपवे (Ropeway) सुविधा व प्रसिद्ध सवामणी",a:"दिल्ली-जयपुर बाईपास",s:"खोले के हनुमान जी ट्रस्ट",q:"Khole+Ke+Hanuman+Ji+Temple+Jaipur",cats:["temple","sightseeing","toddler"],en:"khole ke hanuman ji temple ropeway sawamani prasad dal baati churma hills bypass hanuman mandir"},
   {id:66,n:"गढ़ गणेश मंदिर",i:"अरावली पहाड़ी की चोटी पर बिना सूंड वाले बाल गणेश जी, पैदल ट्रेक सीढ़ियां",a:"नाहरगढ़ तलहटी (गैटोर के पास)",s:"गढ़ गणेश शिखर",q:"Garh+Ganesh+Temple+Jaipur",cats:["temple","sightseeing"],en:"garh ganesh mandir trekking stairs aravalli fort view child ganesha heritage trek"},
   {id:67,n:"जगत शिरोमणि मंदिर (आमेर)",i:"16वीं सदी का अनूठा नक्काशीदार पत्थर मंदिर, जहाँ मीरा बाई श्रीकृष्ण संग पूजी जाती हैं",a:"आमेर कस्बा",s:"हेरिटेज जगत शिरोमणि",q:"Jagat+Shiromani+Temple+Amer+Jaipur",cats:["temple","sightseeing","crafts"],en:"jagat shiromani temple amer meera krishna stone carving heritage hidden gem architecture"},
   {id:68,n:"काले हनुमान जी मंदिर",i:"दुर्लभ काले रंग के बाल हनुमान जी की प्राचीन प्रतिमा, चांदी का चौपड़ मुख",a:"हवा महल के पास (चांदी की टकसाल)",s:"काले हनुमान जी मंदिर",q:"Kale+Hanuman+Ji+Temple+Jaipur",cats:["temple"],en:"kale hanuman ji temple chandi ki taksal hawa mahal old city black hanuman mandir pooja"},
 
-  /* 69 to 73: Famous Malls & Modern Shopping (Tag: mall) */
-  {id:69,n:"वर्ल्ड ट्रेड पार्क (WTP Mall)",i:"विशाल ब्लू-ग्लास आर्किटेक्चर, इंटरनेशनल ब्रांड्स, फूड कोर्ट व फंतासी स्ट्रीट",a:"मालवीय नगर (JLN मार्ग)",s:"WTP नॉर्थ व साउथ ब्लॉक",q:"World+Trade+Park+Malviya+Nagar+Jaipur",cats:["mall","food"],en:"wtp world trade park mall malviya nagar shopping international brands multiplex cinema food court modern"},
+  /* 69 to 73: Famous Malls */
+  {id:69,n:"वर्ल्ड ट्रेड पार्क (WTP Mall)",i:"विशाल ब्लू-ग्लास आर्किटेक्चर, इंटरनेशनल ब्रांड्स, फूड कोर्ट व फंतासी स्ट्रीट",a:"मालवीय नगर (JLN मार्ग)",s:"WTP नॉर्थ व साउथ ब्लॉक",q:"World+Trade+Park+Malviya+Nagar+Jaipur",cats:["mall","food","toddler"],en:"wtp world trade park mall malviya nagar shopping international brands multiplex cinema food court modern"},
   {id:70,n:"गौरव टावर (GT) व जीटी बाजार",i:"जयपुर का सबसे पहला व लोकप्रिय यूथ मॉल, अंडरग्राउंड स्ट्रीट शॉपिंग व फास्ट फूड लेन",a:"मालवीय नगर",s:"GT सेंट्रल, अंडरग्राउंड बाजार",q:"Gaurav+Tower+Malviya+Nagar+Jaipur",cats:["mall","streetfood"],en:"gaurav tower gt bazar gt central malviya nagar underground street market fast food shopping youth hangout"},
-  {id:71,n:"मॉल ऑफ जयपुर (Mall of Jaipur)",i:"लक्जरी ब्रांड्स, एंटरटेनमेंट जोन, रूफटॉप डाइनिंग व आधुनिक बुटीक्स",a:"गांधी पथ (वैशाली नगर)",s:"मॉल ऑफ जयपुर आर्केड",q:"Mall+of+Jaipur+Vaishali+Nagar+Jaipur",cats:["mall","food"],en:"mall of jaipur vaishali nagar gandhi path shopping multiplex gaming cinema luxury"},
-  {id:72,n:"ट्राइटन मॉल (Triton Mall)",i:"किफायती फैशन शॉपिंग, हाइपरमार्केट, गेमिंग जोन व मल्टीप्लेक्स सिनेमा",a:"झोटवाड़ा रोड",s:"ट्राइटन मेगा मार्ट्स",q:"Triton+Mall+Jhotwara+Road+Jaipur",cats:["mall"],en:"triton mall jhotwara shopping hypermarket dmart cinema movies gaming clothes"},
-  {id:73,n:"पिंक स्क्वायर मॉल (Pink Square Mall)",i:"लोकल फैशन आउटलेट्स, INOX मल्टीप्लेक्स सिनेमा, फ़ूड कोर्ट व किड्स जोन",a:"आदर्श नगर / राजा पार्क",s:"पिंक स्क्वायर शॉपिंग जोन",q:"Pink+Square+Mall+Raja+Park+Jaipur",cats:["mall","food"],en:"pink square mall raja park adarsh nagar shopping cinema inox food court"},
+  {id:71,n:"मॉल ऑफ जयपुर (Mall of Jaipur)",i:"लक्जरी ब्रांड्स, एंटरटेनमेंट जोन, रूफटॉप डाइनिंग व आधुनिक बुटीक्स",a:"गांधी पथ (वैशाली नगर)",s:"मॉल ऑफ जयपुर आर्केड",q:"Mall+of+Jaipur+Vaishali+Nagar+Jaipur",cats:["mall","food","toddler"],en:"mall of jaipur vaishali nagar gandhi path shopping multiplex gaming cinema luxury"},
+  {id:72,n:"ट्राइटन मॉल (Triton Mall)",i:"किफायती फैशन शॉपिंग, हाइपरमार्केट, गेमिंग जोन व मल्टीप्लेक्स सिनेमा",a:"झोटवाड़ा रोड",s:"ट्राइटन मेगा मार्ट्स",q:"Triton+Mall+Jhotwara+Road+Jaipur",cats:["mall","toddler"],en:"triton mall jhotwara shopping hypermarket dmart cinema movies gaming clothes"},
+  {id:73,n:"पिंक स्क्वायर मॉल (Pink Square Mall)",i:"लोकल फैशन आउटलेट्स, INOX मल्टीप्लेक्स सिनेमा, फ़ूड कोर्ट व किड्स जोन",a:"आदर्श नगर / राजा पार्क",s:"पिंक स्क्वायर शॉपिंग जोन",q:"Pink+Square+Mall+Raja+Park+Jaipur",cats:["mall","food","toddler"],en:"pink square mall raja park adarsh nagar shopping cinema inox food court"},
 
-  /* 74 to 79: Reddit & Social Media Famous Cafes & Sunsets (Tag: cafe) */
+  /* 74 to 79: Cafes & Hangouts */
   {id:74,n:"टपरी सेंट्रल (Tapri Central)",i:"सेंट्रल पार्क का हरा-भरा नजारा, कुल्हड़ चाय, खाखरा पिज्जा, दाल पकवान व यूथ वाइब",a:"सी-स्कीम (C-Scheme)",s:"Tapri The Tea House",q:"Tapri+Central+C+Scheme+Jaipur",cats:["cafe","streetfood"],en:"tapri central c scheme central park view kulhad chai tea khakhra pizza brunch rooftop cafe youth hangout reddit"},
   {id:75,n:"जवाहर कला केंद्र (JKK) व इंडियन कॉफी हाउस",i:"चार्ल्स कोरिया द्वारा डिजाइन आर्ट सेंटर, आर्ट गैलरी, थियेटर, फिल्टर कॉफी व कटलेट",a:"जेएलएन मार्ग",s:"इंडियन कॉफी हाउस (ICH at JKK)",q:"Jawahar+Kala+Kendra+Jaipur",cats:["cafe","crafts","sightseeing"],en:"jawahar kala kendra jkk indian coffee house ich filter coffee cultural center art gallery theatre jln marg"},
   {id:76,n:"नाहरगढ़ पड़ाव व सनसेट पॉइंट",i:"पूरे जयपुर शहर का विहंगम 360° विहंगम नजारा, खुली हवा में शाम का डाइनिंग व सूर्यास्त",a:"नाहरगढ़ किला",s:"पड़ाव ओपन एयर रेस्टोरेंट",q:"Padao+Nahargarh+Fort+Jaipur",cats:["cafe","sightseeing"],en:"nahargarh padao open air restaurant sunset point scenic city view rooftop bird eye night skyline fort"},
@@ -407,13 +410,35 @@ var D = [
   {id:78,n:"टाउन कॉफी / द फार्म कॉफी बार",i:"आर्टिसनल स्पेशल ब्रू कॉफी, क्रोइसैंट, वुडफायर्ड पिज्जा व आउटडोर ग्रीनरी सिटिंग",a:"सी-स्कीम / अशोक नगर",s:"Town Coffee Roasters",q:"Town+Coffee+C+Scheme+Jaipur",cats:["cafe"],en:"town coffee roasters the farm coffee bar c scheme speciality coffee aesthetic cafe hangout bakery"},
   {id:79,n:"स्वीटन हाउस / काफ़े तोसकाना",i:"हेरिटेज विक्टोरियन एंबियंस, इटैलियन पास्ता, कॉकटेल लाउंज व लाइव म्यूजिक",a:"सी-स्कीम",s:"The Swinton House & Cafe Toscana",q:"The+Swinton+House+Jaipur",cats:["cafe","food"],en:"the swinton house cafe toscana c scheme fine dining italian pasta aesthetic heritage ambience lounge"},
 
-  /* 80 to 85: Reddit Top Street Food Gems & Cultural Landmarks */
-  {id:80,n:"मसाला चौक (Masala Chowk)",i:"एक ही ओपन-एयर परिसर में जयपुर के 21+ सबसे मशहूर स्ट्रीट फूड स्टॉल्स (चाट, डोसा, कचौरी)",a:"राम निवास बाग (अल्बर्ट हॉल के पीछे)",s:"मसाला चौक ओपन फूड कोर्ट",q:"Masala+Chowk+Ram+Niwas+Garden+Jaipur",cats:["streetfood","food"],en:"masala chowk ram niwas garden open air food court all in one street food chaat golgappe samrat albert hall"},
+  /* 80 to 85: Food Courts & Landmarks */
+  {id:80,n:"मसाला चौक (Masala Chowk)",i:"एक ही ओपन-एयर परिसर में जयपुर के 21+ सबसे मशहूर स्ट्रीट फूड स्टॉल्स (चाट, डोसा, कचौरी)",a:"राम निवास बाग (अल्बर्ट हॉल के पीछे)",s:"मसाला चौक ओपन फूड कोर्ट",q:"Masala+Chowk+Ram+Niwas+Garden+Jaipur",cats:["streetfood","food","toddler","parks"],en:"masala chowk ram niwas garden open air food court all in one street food chaat golgappe samrat albert hall"},
   {id:81,n:"सेठी टिक्का व राजा पार्क स्ट्रीट फूड",i:"तंदूरी चिकन टिक्का, मखमली पनीर टिक्का, काठी रोल्स व देर रात का चटपटा खाना",a:"राजा पार्क (Raja Park)",s:"सेठी टिक्का ढाबा, राजा पार्क फूड लेन",q:"Sethi+Tikka+Dhabha+Raja+Park+Jaipur",cats:["streetfood","food"],en:"sethi tikka raja park tandoori chicken paneer tikka kathi roll nonveg night street food"},
   {id:82,n:"नंद & चावला के गोलगप्पे",i:"मसालेदार पुदीना पानी, मीठी सौंठ, सूजी व आटे की पानी पताशी की आइकॉनिक प्रतिद्वंद्विता",a:"फैशन स्ट्रीट (राजा पार्क)",s:"नंद गोलगप्पे & चावला ब्रदर्स",q:"Chawla+Golgappa+Raja+Park+Jaipur",cats:["streetfood"],en:"chawla nand golgappe pani puri patashi puchka spicy pudina meetha sonth raja park street food"},
   {id:83,n:"साहू की चाय (1968)",i:"पीतल के बड़े पतीले में कोयले की धीमी आंच पर पकी इलायची-अदरक दूधिया कड़क चाय",a:"चौड़ा रास्ता / सवाई मानसिंह हाईवे",s:"साहू चाय वाले (Sahu Chai)",q:"Sahu+Chai+Wale+Chaura+Rasta+Jaipur",cats:["streetfood","cafe"],en:"sahu chai chaura rasta coal cooked tea brass pot elaichi kadak chai morning tea street food"},
   {id:84,n:"पंडित पाव भाजी व भेलपूरी",i:"भरपूर अमूल बटर में तवे पर सिंकती चटपटी पाव भाजी, मुंबईया भेल व फालूदा कुल्फी",a:"बिड़ला मंदिर के सामने",s:"पंडित पाव भाजी सेंटर",q:"Pandit+Pav+Bhaji+Birla+Temple+Jaipur",cats:["streetfood"],en:"pandit pav bhaji opposite birla mandir butter pav bhaji bhelpuri evening snack food truck"},
-  {id:85,n:"पत्रिका गेट व जवाहर सर्किल",i:"हाथ से चित्रित रंग-बिरंगे राजस्थानी 9 मेहराब (गेट), म्यूजिकल फाउंटेन व स्ट्रीट फूड वॉक",a:"जवाहर सर्किल (JLN मार्ग)",s:"पत्रिका गेट हेरिटेज लेन",q:"Patrika+Gate+Jawahar+Circle+Jaipur",cats:["sightseeing","streetfood"],en:"patrika gate jawahar circle musical fountain photography instagram spots colourful arches picnic jln marg"}
+  {id:85,n:"पत्रिका गेट व जवाहर सर्किल",i:"हाथ से चित्रित रंग-बिरंगे राजस्थानी 9 मेहराब (गेट), म्यूजिकल फाउंटेन, किड्स गार्डन व स्ट्रीट फूड",a:"जवाहर सर्किल (JLN मार्ग)",s:"पत्रिका गेट हेरिटेज लेन",q:"Patrika+Gate+Jawahar+Circle+Jaipur",cats:["sightseeing","streetfood","toddler","parks"],en:"patrika gate jawahar circle musical fountain photography instagram spots colourful arches picnic jln marg toddler playground"},
+
+  /* 86 to 105: Outskirts, Famous Temples, Major Parks & Toddler Friendly Spots */
+  {id:86,n:"श्री लक्ष्मी जगदीश जी मंदिर (गोनेर)",i:"'गोनेर के जगदीश धणी'—प्राचीन चमत्कारी विष्णु मंदिर, पवित्र तालाब दर्शन, प्रसिद्ध पुआ-खीर भोग",a:"गोनेर कस्बा (सांगानेर-जगतपुरा के पास)",s:"जगदीश जी मंदिर ट्रस्ट व पुआ-खीर प्रसादी स्टॉल",q:"Jagdish+Ji+Temple+Goner+Jaipur",cats:["temple","outskirts","food"],en:"jagdish ji temple goner gooner jagdish mandir vishnu jagannath pua kheer prasad pond talab pilgrim spiritual outskirts jagatpura sanganer"},
+  {id:87,n:"बीसलपुर बांध व बीसलदेव महादेव मंदिर",i:"जयपुर की लाइफलाइन—विशाल नीला जलाशय, बनास नदी का विहंगम दृश्य, 12वीं सदी का जलमग्न शिव मंदिर व पिकनिक",a:"टोंक जिला (जयपुर से ~140 किमी)",s:"बीसलपुर डैम व्यू पॉइंट व बीसलदेव मंदिर",q:"Bisalpur+Dam+Tonk+Rajasthan",cats:["outskirts","sightseeing","parks"],en:"bisalpur dam beesalpur dam tonk banas river water reservoir lake boating bisaldeo mahadev shiva temple day trip picnic nature"},
+  {id:88,n:"सिटी पार्क मानसरोवर (City Park)",i:"52 एकड़ में फैला भव्य पार्क, म्यूजिकल फाउंटेन, भव्य स्कल्पचर्स, विशाल किड्स प्ले एरिया, जॉगिंग ट्रैक व ओपन जिम",a:"VT रोड (मानसरोवर)",s:"सिटी पार्क एंट्रेंस प्लाजा & फूड कोर्ट",q:"City+Park+Mansarovar+Jaipur",cats:["toddler","parks","sightseeing"],en:"city park mansarovar vt road musical fountain jogging track kids playground toddler friendly sculptures lawn greenery family picnic"},
+  {id:89,n:"सेंट्रल पार्क (Central Park)",i:"जयपुर का सबसे बड़ा हरा फेफड़ा—5 किमी रबर वॉकिंग ट्रैक, भारत का विशाल 206 फीट राष्ट्रीय ध्वज, डक पॉन्ड व म्यूजिकल फाउंटेन",a:"स्टैच्यू सर्किल (C-Scheme)",s:"सेंट्रल पार्क लॉन & जॉगिंग ट्रैक",q:"Central+Park+Jaipur",cats:["toddler","parks"],en:"central park statue circle c scheme flag 206 feet walking jogging track duck pond green lush open lawn toddler play kids walking"},
+  {id:90,n:"किशन बाग सैंड ड्यून्स व डेजर्ट पार्क",i:"थार रेगिस्तान का प्राकृतिक पुनर्वास—रिफोरेस्टेड सैंड ड्यून्स, वुडन वॉकवे, देशी कैक्टस, चिड़ियों की चहचहाहट व शांत सूर्यास्त",a:"विद्याधर नगर (नाहरगढ़ तलहटी)",s:"किशन बाग विजिटर सेंटर",q:"Kishan+Bagh+Sand+Dunes+Park+Jaipur",cats:["parks","sightseeing"],en:"kishan bagh sand dunes desert park thar ecosystem wooden walkway vidhyadhar nagar nature walk landscape peaceful sunset"},
+  {id:91,n:"कनक वृंदावन गार्डन व घाटी",i:"नाहरगढ़ की हरी-भरी तलहटी में वृंदावन शैली का नक्काशीदार हेरिटेज गार्डन, फव्वारे, राधा-माधव मंदिर व शांत पिकनिक",a:"आमेर रोड (जल महल के पास)",s:"कनक वृंदावन कॉम्प्लेक्स",q:"Kanak+Vrindavan+Garden+Jaipur",cats:["toddler","parks","sightseeing","temple"],en:"kanak vrindavan garden amer road jal mahal fountains green lush heritage garden radha madhav film shoot toddler picnic"},
+  {id:92,n:"कुलिश स्मृति वन (Kulish Smriti Van)",i:"108 एकड़ में फैला शांत जैव विविधता वन, मरु सुगंध, पक्षी दर्शन ट्रेल्स, घने पेड़ व बच्चों के लिए प्रकृति की सैर",a:"JLN मार्ग (MNIT के पास)",s:"स्मृति वन बॉटनिकल पाथवे",q:"Smriti+Van+JLN+Marg+Jaipur",cats:["parks","toddler"],en:"kulish smriti van jln marg biodiversity forest bird watching nature trail peaceful walking morning walk maru sugandh kids nature"},
+  {id:93,n:"नाहरगढ़ बायोलॉजिकल व जूलॉजिकल पार्क",i:"लायन व टाइगर सफारी, ओपन चिड़ियाघर, बैटरी चलित इको-फ्रेंडली कार्स, दुर्लभ वन्यजीव व बच्चों का रोमांच",a:"दिल्ली हाईवे (कूकस के पास)",s:"नाहरगढ़ जूलॉजिकल सफारी टिकट प्लाजा",q:"Nahargarh+Biological+Park+Jaipur",cats:["toddler","parks","outskirts","sightseeing"],en:"nahargarh biological park zoo lion safari tiger safari wildlife animals battery cart kids friendly toddler tour kukas outskirts"},
+  {id:94,n:"सांभर सॉल्ट लेक व शाकंभरी माता मंदिर",i:"भारत की सबसे बड़ी अंतर्देशीय खारे पानी की झील, ऐतिहासिक साल्ट ट्रेन, फ्लेमिंगो बर्ड वाचिंग व सफेद नमक का रेगिस्तान",a:"सांभर कस्बा (जयपुर से ~80 किमी)",s:"शाकंभरी माता तीर्थ व सॉल्ट वर्क्स",q:"Sambhar+Salt+Lake+Rajasthan",cats:["outskirts","sightseeing","temple"],en:"sambhar salt lake shakambhari mata temple white desert flamingo birds salt train train sunset photography day trip outskirts"},
+  {id:95,n:"चांद बावड़ी व हर्षत माता मंदिर (आभानेरी)",i:"8वीं सदी की 3500 ज्यामितीय सीढ़ियों व 13 मंजिलों वाली विश्व प्रसिद्ध बावड़ी, प्राचीन गुप्तकालीन हर्षत माता मंदिर",a:"आभानेरी, बांदीकुई (जयपुर से ~90 किमी)",s:"आभानेरी स्टेपवेल कॉम्प्लेक्स",q:"Chand+Baori+Abhaneri+Rajasthan",cats:["outskirts","sightseeing","temple"],en:"chand baori stepwell abhaneri harshat mata temple 3500 steps architectural wonder ancient heritage day trip bandikui"},
+  {id:96,n:"खाटूश्याम जी मंदिर (Khatu Shyam Ji)",i:"'हारे का सहारा, बाबा श्याम हमारा'—शीश के दानी का महातीर्थ, पवित्र श्याम कुंड स्नान, गुलाब इत्र व पेड़ा प्रसाद",a:"खाटू कस्बा, सीकर (जयपुर से ~80 किमी)",s:"श्री श्याम मंदिर कमेटी & प्रसादी बाजार",q:"Khatu+Shyam+Ji+Temple+Rajasthan",cats:["temple","outskirts","food"],en:"khatu shyam ji mandir baba shyam sikar lakhi mela shyam kund peda prasad spiritual darshan pilgrim day trip"},
+  {id:97,n:"सालासर बालाजी धाम (Salasar Balaji)",i:"दाढ़ी-मूंछ वाले स्वयंभू पवनपुत्र हनुमान जी का सिद्ध पीठ, प्रसिद्ध सवामणी चूरमा भोग व अखंड ज्योत दर्शन",a:"सालासर, चूरू (जयपुर से ~170 किमी)",s:"सालासर बालाजी मंदिर ट्रस्ट",q:"Salasar+Balaji+Temple+Rajasthan",cats:["temple","outskirts","food"],en:"salasar balaji mandir hanuman temple churu sawamani churma laddu prasad akhand jyot faith pilgrim outskirts day trip"},
+  {id:98,n:"अक्षरधाम मंदिर (चित्रकूट/वैशाली)",i:"शानदार नक्काशीदार गुलाबी पत्थर व संगमरमर वास्तुकला, सुरम्य लॉन, बच्चों के खेलने का खुला मैदान व शांतिपूर्ण माहौल",a:"चित्रकूट (वैशाली नगर)",s:"अक्षरधाम मंदिर स्वामीनारायण ट्रस्ट",q:"Akshardham+Temple+Vaishali+Nagar+Jaipur",cats:["temple","toddler","parks"],en:"akshardham temple vaishali nagar chitrakoot swaminarayan stone carving lush lawns peaceful family visit kids friendly"},
+  {id:99,n:"अल्बर्ट हॉल म्यूजियम व कबूतर चौक",i:"इंडो-सारासेनिक शैली का राज्य संग्रहालय, शाम को सैकड़ों कबूतरों को दाना खिलाना, बच्चों का आकर्षण व नाइट इल्यूमिनेशन",a:"राम निवास बाग",s:"अल्बर्ट हॉल टिकट काउंटर & दाना प्वाइंट",q:"Albert+Hall+Museum+Jaipur",cats:["toddler","sightseeing","parks"],en:"albert hall museum ram niwas bagh pigeons feeding kabutar chowk egyptian mummy night tourism kids toddler fun"},
+  {id:100,n:"चौकी ढाणी एथनिक विलेज (Chokhi Dhani)",i:"राजस्थानी संस्कृति का सजीव मेला—ऊंट/हाथी/बैलगाड़ी सवारी, कठपुतली शो, जादूगर, लोकनृत्य व पारंपरिक शाही दाल-बाटी-चूरमा थाली",a:"12 मील, टोंक रोड",s:"चौकी ढाणी रिजॉर्ट कॉम्प्लेक्स",q:"Chokhi+Dhani+Tonk+Road+Jaipur",cats:["toddler","food","sightseeing","outskirts"],en:"chokhi dhani tonk road village fair camel ride elephant ride puppet show kathputli rajasthani dance dal baati churma kids entertainment dinner"},
+  {id:101,n:"अनोखी म्यूजियम ऑफ हैंड प्रिंटिंग (आमेर)",i:"पुरानी हवेली में स्थित हैंड-ब्लॉक प्रिंटिंग म्यूजियम, बच्चों के लिए लाइव प्रिंटिंग वर्कशॉप्स व कारीगरी प्रदर्शन",a:"खेड़ी गेट (आमेर किला के पास)",s:"अनोखी म्यूजियम कैफ़े व शॉप",q:"Anokhi+Museum+of+Hand+Printing+Amer+Jaipur",cats:["crafts","sightseeing","toddler"],en:"anokhi museum hand block printing amer live block print workshop crafts textiles haveli kids learning"},
+  {id:102,n:"पन्ना मीणा का कुंड (आमेर)",i:"16वीं सदी की अष्टकोणीय छतरियों व सममितीय ज्यामितीय सीढ़ियों वाली ऐतिहासिक बावड़ी, शांत वातावरण व फोटोग्राफी",a:"आमेर कस्बा (बिहारी जी मंदिर के पास)",s:"पन्ना मीणा की बावड़ी",q:"Panna+Meena+Ka+Kund+Amer+Jaipur",cats:["sightseeing","crafts"],en:"panna meena ka kund amer stepwell geometric stairs water heritage photography peaceful hidden spot"},
+  {id:103,n:"हाथी गांव (Elephant Village / Hathi Gaon)",i:"हाथियों के साथ दोस्ताना मुलाकात—हाथियों को चारा खिलाना, नहलाना, नेचुरल पेंटिंग व बच्चों के लिए यादगार रोमांच",a:"कुंडा, दिल्ली-जयपुर हाईवे (आमेर के आगे)",s:"हाथी गांव रेस्क्यू एंड ईको सेंटर",q:"Hathi+Gaon+Elephant+Village+Jaipur",cats:["toddler","outskirts","sightseeing"],en:"hathi gaon elephant village kunda amer elephant feeding bathing animal interaction kids friendly family outing"},
+  {id:104,n:"द्रव्यवती रिवरफ्रंट व बोटेनिकल पार्क",i:"16 किमी सुंदर सुसज्जित रिवरफ्रंट पाथवे, लैंडस्केप बोटेनिकल गार्डन, ओपन लॉन व बच्चों के लिए वॉकिंग एरिया",a:"सांगानेर / शिप्रा पथ (मानसरोवर मुहाना)",s:"द्रव्यवती लैंडस्केप गार्डन",q:"Dravyavati+Riverfront+Jaipur",cats:["parks","toddler"],en:"dravyavati riverfront botanical park shipra path sanganer mansarovar walking track landscaped gardens kids play"},
+  {id:105,n:"भानगढ़ का किला (Bhangarh Fort)",i:"रहस्यमयी 17वीं सदी का किला, खंडहर महल, प्राचीन गोपीनाथ मंदिर व अरावली घाटी की रोमांचक ऐतिहासिक डे-ट्रिप",a:"भानगढ़, अलवर सीमा (जयपुर से ~85 किमी)",s:"एएसआई (ASI) भानगढ़ हेरिटेज कॉम्प्लेक्स",q:"Bhangarh+Fort+Rajasthan",cats:["outskirts","sightseeing"],en:"bhangarh fort mystery ruins gopinath temple aravalli hills day trip heritage spooky ruins nature travel"}
 ];
 
 var selectedCategory = "all";
@@ -537,7 +562,7 @@ function dlHTML() {
   var blob = new Blob([document.documentElement.outerHTML], { type: "text/html;charset=utf-8" });
   var a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "Jaipur_Complete_85_Places_Guide.html";
+  a.download = "Jaipur_Complete_105_Places_Guide.html";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
