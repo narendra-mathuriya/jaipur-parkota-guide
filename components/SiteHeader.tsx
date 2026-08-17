@@ -19,7 +19,6 @@ export function SiteHeader() {
         <a
           href="#top"
           className="group flex min-h-11 min-w-0 items-center gap-3"
-          aria-label="Jaipur Explorer home"
         >
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/[0.06] text-sm font-semibold text-white transition group-hover:border-white/20 group-hover:bg-white/[0.1]">
             JE

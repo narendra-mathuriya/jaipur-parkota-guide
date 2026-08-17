@@ -1,5 +1,4 @@
-import { Suspense } from "react";
-import { DirectoryGrid } from "@/components/DirectoryGrid";
+import { LazyDirectoryGrid } from "@/components/LazyDirectoryGrid";
 import { ScrollHero } from "@/components/ScrollHero";
 import {
   getDirectoryCategories,
@@ -10,7 +9,13 @@ import {
 } from "@/lib/directory";
 import { buildStructuredData } from "@/lib/seo";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [featured, listings, directoryCategories] = await Promise.all([
+    getFeaturedListings(),
+    getDirectoryListings(),
+    getDirectoryCategories()
+  ]);
+
   return (
     <>
       <script
@@ -19,71 +24,17 @@ export default function HomePage() {
           __html: JSON.stringify(buildStructuredData()).replace(/</g, "\\u003c")
         }}
       />
-      <main>
-        <Suspense fallback={<HeroFallback />}>
-          <HeroEngine />
-        </Suspense>
-        <Suspense fallback={<DirectoryFallback />}>
-          <DirectoryEngine />
-        </Suspense>
+      <main id="main-content" tabIndex={-1}>
+        <ScrollHero totalCount={listings.length} featured={featured} />
+        <LazyDirectoryGrid
+          categories={directoryCategories}
+          categoryCounts={getCategoryCounts(listings)}
+          totalCount={listings.length}
+          initialPageSize={initialDirectoryLimit}
+        />
         <EditorialSections />
       </main>
     </>
-  );
-}
-
-async function HeroEngine() {
-  const [featured, listings] = await Promise.all([
-    getFeaturedListings(),
-    getDirectoryListings()
-  ]);
-
-  return <ScrollHero totalCount={listings.length} featured={featured} />;
-}
-
-async function DirectoryEngine() {
-  const [listings, directoryCategories] = await Promise.all([
-    getDirectoryListings(),
-    getDirectoryCategories()
-  ]);
-
-  return (
-    <DirectoryGrid
-      initialListings={listings.slice(0, initialDirectoryLimit)}
-      categories={directoryCategories}
-      categoryCounts={getCategoryCounts(listings)}
-      totalCount={listings.length}
-      initialPageSize={initialDirectoryLimit}
-    />
-  );
-}
-
-function HeroFallback() {
-  return (
-    <section className="hero-track relative">
-      <div className="sticky top-0 flex min-h-dvh items-center px-4 py-24 sm:px-6 lg:px-8">
-        <div className="mx-auto w-full max-w-7xl">
-          <div className="h-5 w-48 rounded-full bg-white/10" />
-          <div className="mt-8 h-24 max-w-3xl rounded-3xl bg-white/10 sm:h-36" />
-          <div className="mt-6 h-20 max-w-xl rounded-3xl bg-white/[0.08]" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function DirectoryFallback() {
-  return (
-    <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <div
-            key={index}
-            className="glass-panel min-h-96 rounded-[2rem] p-4"
-          />
-        ))}
-      </div>
-    </section>
   );
 }
 

@@ -16,10 +16,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="hi">
       <body>
         <a
-          href="#explore"
+          href="#main-content"
           className="skip-link fixed left-4 top-4 z-[60] rounded-lg bg-white px-4 py-3 text-sm font-semibold !text-[#050506]"
         >
-          Skip to directory
+          Skip to content
         </a>
         <div className="noise-mask" aria-hidden="true" />
         <SiteHeader />

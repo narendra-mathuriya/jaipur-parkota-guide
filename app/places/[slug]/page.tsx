@@ -90,7 +90,11 @@ export default async function PlacePage({ params }: PlacePageProps) {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c")
         }}
       />
-      <main className="relative px-4 pb-24 pt-28 sm:px-6 lg:px-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="relative px-4 pb-24 pt-28 sm:px-6 lg:px-8"
+      >
         <article className="mx-auto max-w-7xl" itemScope itemType="https://schema.org/Place">
           <nav
             className="flex flex-wrap items-center gap-2 text-sm text-zinc-500"
@@ -126,8 +130,13 @@ export default async function PlacePage({ params }: PlacePageProps) {
               <div className="relative aspect-[4/5] min-h-[24rem] lg:sticky lg:top-28">
                 <picture>
                   <source
+                    media="(max-width: 767px)"
+                    srcSet={`${assetPath(`${imageBase}-portrait-480.avif`)} 480w, ${assetPath(`${imageBase}-portrait.avif`)} 720w`}
+                    sizes="100vw"
+                  />
+                  <source
                     srcSet={`${assetPath(`${imageBase}-480.avif`)} 480w, ${assetPath(`${imageBase}-portrait.avif`)} 720w`}
-                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    sizes="45vw"
                   />
                   <img
                     src={assetPath(`${imageBase}-portrait.avif`)}
