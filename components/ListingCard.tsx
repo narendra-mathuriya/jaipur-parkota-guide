@@ -100,7 +100,7 @@ export function ListingCard({
           <div className="grid gap-2 sm:grid-cols-2">
             <Link
               href={listing.href}
-              className="inline-flex min-h-11 items-center justify-between rounded-full border border-white/10 bg-white px-4 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
+              className="inline-flex min-h-11 items-center justify-between rounded-full border border-white/10 bg-[#f4f4f5] px-4 py-3 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200 [&_svg]:!text-[#050506]"
               aria-label={`Open ${listing.n_en} guide`}
             >
               View guide

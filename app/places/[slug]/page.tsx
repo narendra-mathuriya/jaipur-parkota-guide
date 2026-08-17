@@ -167,7 +167,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
                   href={`https://www.google.com/maps/search/?api=1&query=${listing.q}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-12 items-center justify-between rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
+                  className="inline-flex min-h-12 items-center justify-between rounded-full bg-[#f4f4f5] px-5 py-3 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200 [&_svg]:!text-[#050506]"
                 >
                   Open Google Maps
                   <ArrowUpRight size={17} aria-hidden="true" />

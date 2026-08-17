@@ -127,7 +127,7 @@ export function DirectoryGrid({
                 aria-pressed={language === item}
                 className={`min-h-10 rounded-full px-4 font-mono text-xs tracking-[0.18em] uppercase transition ${
                   language === item
-                    ? "bg-white text-black"
+                    ? "bg-[#f4f4f5] !text-[#050506]"
                     : "text-zinc-500 hover:text-white"
                 }`}
               >
@@ -165,7 +165,7 @@ export function DirectoryGrid({
             aria-pressed={category === item.id}
             className={`min-h-11 shrink-0 rounded-full border px-4 py-3 text-sm transition ${
               category === item.id
-                ? "border-white bg-white text-black"
+                ? "border-white bg-[#f4f4f5] !text-[#050506]"
                 : "border-white/10 bg-white/[0.045] text-zinc-400 hover:border-white/20 hover:text-white"
             }`}
           >

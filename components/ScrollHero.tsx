@@ -84,7 +84,7 @@ export function ScrollHero({
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#explore"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f4f4f5] px-5 py-3 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200 [&_svg]:!text-[#050506]"
               >
                 <ArrowDown size={17} aria-hidden="true" />
                 Browse {totalCount} places
