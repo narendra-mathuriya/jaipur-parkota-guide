@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: pageTitle,
   description: pageDescription,
+  manifest: "/manifest.webmanifest",
   applicationName: siteName,
   authors: [{ name: siteName }],
   creator: siteName,
@@ -81,6 +82,15 @@ export const metadata: Metadata = {
     description:
       "Curated index of 145+ iconic places in Jaipur. Plan cultural, culinary, shopping, temple, and day-trip exploration.",
     images: [socialImage]
+  },
+  icons: {
+    icon: [
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" }
+    ],
+    apple: [
+      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+    ]
   },
   verification: {
     google: "jezElDhf8zfqM_KLDydiOFy6WZ9CWjs9pfaD8DjWLjQ"

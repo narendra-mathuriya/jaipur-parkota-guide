@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
+import { PlaceActions } from "@/components/PlaceActions";
 import {
   getDirectoryListingBySlug,
   getDirectoryListings,
@@ -70,13 +71,16 @@ export async function generateMetadata({
 
 export default async function PlacePage({ params }: PlacePageProps) {
   const { slug } = await params;
-  const listing = await getDirectoryListingBySlug(slug);
+  const listings = await getDirectoryListings();
+  const listing = listings.find((item) => item.slug === slug) ?? null;
 
   if (!listing) {
     notFound();
   }
 
   const structuredData = buildPlaceStructuredData(listing);
+  const relatedListings = getRelatedListings(listing, listings);
+  const absoluteUrl = `${siteUrl}${listing.href}`;
 
   return (
     <>
@@ -88,16 +92,37 @@ export default async function PlacePage({ params }: PlacePageProps) {
       />
       <main className="relative px-4 pb-24 pt-28 sm:px-6 lg:px-8">
         <article className="mx-auto max-w-7xl" itemScope itemType="https://schema.org/Place">
+          <nav
+            className="flex flex-wrap items-center gap-2 text-sm text-zinc-500"
+            aria-label="Breadcrumb"
+          >
+            <Link
+              href="/"
+              className="transition hover:text-white"
+            >
+              Home
+            </Link>
+            <span aria-hidden="true">/</span>
+            <Link
+              href={`/#${listing.slug}`}
+              className="transition hover:text-white"
+            >
+              Directory
+            </Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-zinc-300">{listing.n_en}</span>
+          </nav>
+
           <Link
             href={`/#${listing.slug}`}
-            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-zinc-300 transition hover:bg-white/[0.12] hover:text-white"
+            className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-zinc-300 transition hover:bg-white/[0.12] hover:text-white"
           >
             <ArrowLeft size={16} aria-hidden="true" />
-            Directory
+            Back to directory
           </Link>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-            <section className="glass-panel-strong overflow-hidden rounded-[2rem]">
+            <section className="glass-panel-strong overflow-hidden rounded-lg">
               <div className="relative aspect-[4/5] min-h-[24rem] lg:sticky lg:top-28">
                 <Image
                   src={listing.image}
@@ -127,23 +152,34 @@ export default async function PlacePage({ params }: PlacePageProps) {
             </section>
 
             <div className="grid gap-5">
-              <section className="glass-panel rounded-[2rem] p-7 sm:p-9">
+              <section className="glass-panel rounded-lg p-7 sm:p-9">
                 <p className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase">
                   Highlights
                 </p>
                 <p className="mt-5 text-2xl leading-9 text-white" itemProp="description">
                   {listing.i_en}
                 </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {listing.cats.map((categoryId) => (
+                    <Link
+                      key={categoryId}
+                      href={`/?tag=${categoryId}#explore`}
+                      className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-3 py-2 text-sm text-zinc-300 transition hover:bg-white/[0.1] hover:text-white"
+                    >
+                      {categoryId}
+                    </Link>
+                  ))}
+                </div>
               </section>
 
               <section className="grid gap-5 md:grid-cols-2">
-                <div className="glass-panel rounded-[2rem] p-7">
+                <div className="glass-panel rounded-lg p-7">
                   <h2 className="text-xl font-semibold text-white">Known for</h2>
                   <p className="mt-4 text-sm leading-7 text-zinc-400">
                     {listing.s_en}
                   </p>
                 </div>
-                <div className="glass-panel rounded-[2rem] p-7">
+                <div className="glass-panel rounded-lg p-7">
                   <h2 className="text-xl font-semibold text-white">Category</h2>
                   <p className="mt-4 text-sm leading-7 text-zinc-400">
                     {cleanCategoryLabel(listing.primaryCategory.en)}
@@ -151,7 +187,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
                 </div>
               </section>
 
-              <section className="glass-panel rounded-[2rem] p-7 sm:p-9">
+              <section className="glass-panel rounded-lg p-7 sm:p-9">
                 <h2 className="text-2xl font-semibold text-white">
                   हिन्दी संदर्भ
                 </h2>
@@ -163,19 +199,25 @@ export default async function PlacePage({ params }: PlacePageProps) {
                 </p>
               </section>
 
+              <PlaceActions
+                title={listing.n_en}
+                text={`${listing.n_en}, ${listing.a_en}, Jaipur`}
+                url={absoluteUrl}
+              />
+
               <div className="grid gap-3 sm:grid-cols-2">
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${listing.q}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-12 items-center justify-between rounded-full bg-[#f4f4f5] px-5 py-3 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200 [&_svg]:!text-[#050506]"
+                  className="inline-flex min-h-12 items-center justify-between rounded-lg bg-[#f4f4f5] px-5 py-3 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200 [&_svg]:!text-[#050506]"
                 >
                   Open Google Maps
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>
                 <Link
                   href={`/#${listing.slug}`}
-                  className="inline-flex min-h-12 items-center justify-between rounded-full border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/[0.12] hover:text-white"
+                  className="inline-flex min-h-12 items-center justify-between rounded-lg border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/[0.12] hover:text-white"
                 >
                   Back to directory card
                   <ArrowUpRight size={17} aria-hidden="true" />
@@ -183,6 +225,47 @@ export default async function PlacePage({ params }: PlacePageProps) {
               </div>
             </div>
           </div>
+
+          {relatedListings.length ? (
+            <section className="mt-16" aria-labelledby="related-heading">
+              <div className="mb-6 flex items-end justify-between gap-4">
+                <div>
+                  <p className="font-mono text-xs tracking-[0.28em] text-gold uppercase">
+                    Nearby and related
+                  </p>
+                  <h2
+                    id="related-heading"
+                    className="mt-3 text-3xl font-semibold text-white"
+                  >
+                    Continue from here.
+                  </h2>
+                </div>
+                <Link
+                  href={`/?tag=${listing.primaryCategory.id}#explore`}
+                  className="hidden text-sm text-zinc-400 transition hover:text-white sm:block"
+                >
+                  View tag
+                </Link>
+              </div>
+              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {relatedListings.map((related) => (
+                  <Link
+                    key={related.id}
+                    href={related.href}
+                    className="rounded-lg border border-white/[0.1] bg-white/[0.035] p-4 transition hover:border-white/20 hover:bg-white/[0.06]"
+                  >
+                    <p className="text-base font-semibold text-white">
+                      {related.n_en}
+                    </p>
+                    <p className="mt-2 flex items-center gap-2 text-sm text-zinc-500">
+                      <MapPin size={14} aria-hidden="true" />
+                      {related.a_en}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ) : null}
         </article>
       </main>
     </>
@@ -191,6 +274,28 @@ export default async function PlacePage({ params }: PlacePageProps) {
 
 function cleanCategoryLabel(value: string) {
   return value.replace(/^[^\p{L}\p{N}]+/u, "").trim();
+}
+
+function getRelatedListings(
+  listing: DirectoryListing,
+  listings: DirectoryListing[]
+) {
+  const categoryIds = new Set(listing.cats);
+
+  return listings
+    .filter((item) => item.id !== listing.id)
+    .map((item) => {
+      const areaScore = item.a_en === listing.a_en ? 3 : 0;
+      const categoryScore = item.cats.filter((categoryId) =>
+        categoryIds.has(categoryId)
+      ).length;
+
+      return { item, score: areaScore + categoryScore };
+    })
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score || a.item.id - b.item.id)
+    .slice(0, 6)
+    .map(({ item }) => item);
 }
 
 function buildPlaceStructuredData(listing: DirectoryListing) {

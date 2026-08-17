@@ -11,6 +11,8 @@ import {
   Grid3X3,
   Landmark,
   Languages,
+  List,
+  Map as MapIcon,
   MapPinned,
   Palette,
   Search,
@@ -23,12 +25,13 @@ import {
   X,
   type LucideIcon
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { ListingCard } from "@/components/ListingCard";
 import type { DirectoryCategory } from "@/src/data/directory";
 import type { DirectoryListing } from "@/lib/directory";
 
 type Language = "hi" | "en";
+type DirectoryView = "cards" | "map";
 type CategoryCounts = Record<string, number>;
 
 const categoryIcons: Record<string, LucideIcon> = {
@@ -56,6 +59,10 @@ function cleanCategoryLabel(value: string) {
 
 function categoryLabel(category: DirectoryCategory, language: Language) {
   return cleanCategoryLabel(language === "hi" ? category.hi : category.en);
+}
+
+function buildMapSearchUrl(value: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`;
 }
 
 function normalize(value: string) {
@@ -87,6 +94,9 @@ export function DirectoryGrid({
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [language, setLanguage] = useState<Language>("en");
+  const [view, setView] = useState<DirectoryView>("cards");
+  const [urlStateReady, setUrlStateReady] = useState(false);
+  const deferredQuery = useDeferredValue(query);
 
   const categoryCounts = useMemo<CategoryCounts>(() => {
     return categories.reduce<CategoryCounts>((counts, item) => {
@@ -127,8 +137,12 @@ export function DirectoryGrid({
   );
 
   const visible = useMemo(() => {
-    const rawTokens = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-    const normalizedTokens = normalize(query).split(/\s+/).filter(Boolean);
+    const rawTokens = deferredQuery
+      .toLowerCase()
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+    const normalizedTokens = normalize(deferredQuery).split(/\s+/).filter(Boolean);
 
     return indexed.filter((listing) => {
       if (category !== "all" && !listing.cats.includes(category)) {
@@ -143,13 +157,86 @@ export function DirectoryGrid({
         );
       });
     });
-  }, [category, indexed, query]);
+  }, [category, deferredQuery, indexed]);
 
-  const hasFilters = query.trim().length > 0 || category !== "all";
+  const areaGroups = useMemo(() => {
+    const groups = new Map<string, DirectoryListing[]>();
+
+    visible.forEach((listing) => {
+      const area = language === "hi" ? listing.a : listing.a_en;
+      const group = groups.get(area) ?? [];
+      group.push(listing);
+      groups.set(area, group);
+    });
+
+    return Array.from(groups.entries()).slice(0, 12);
+  }, [language, visible]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const nextQuery = params.get("q") ?? "";
+    const nextCategory = params.get("tag") ?? "all";
+    const nextLanguage = params.get("lang");
+    const nextView = params.get("view");
+    const categoryIds = new Set(categories.map((item) => item.id));
+
+    queueMicrotask(() => {
+      setQuery(nextQuery);
+      setCategory(categoryIds.has(nextCategory) ? nextCategory : "all");
+      setLanguage(nextLanguage === "hi" ? "hi" : "en");
+      setView(nextView === "map" ? "map" : "cards");
+      setUrlStateReady(true);
+    });
+  }, [categories]);
+
+  useEffect(() => {
+    if (!urlStateReady) {
+      return;
+    }
+
+    const params = new URLSearchParams();
+    const trimmedQuery = query.trim();
+
+    if (trimmedQuery) {
+      params.set("q", trimmedQuery);
+    }
+
+    if (category !== "all") {
+      params.set("tag", category);
+    }
+
+    if (language !== "en") {
+      params.set("lang", language);
+    }
+
+    if (view !== "cards") {
+      params.set("view", view);
+    }
+
+    const nextUrl = `${window.location.pathname}${
+      params.size ? `?${params.toString()}` : ""
+    }${window.location.hash}`;
+
+    window.history.replaceState(null, "", nextUrl);
+  }, [category, language, query, urlStateReady, view]);
+
+  const hasFilters =
+    query.trim().length > 0 ||
+    category !== "all" ||
+    language !== "en" ||
+    view !== "cards";
+
+  const visibleMapUrl = buildMapSearchUrl(
+    category === "all"
+      ? `Jaipur ${query || "places to visit"}`
+      : `${categoryLabel(activeCategory, language)} Jaipur ${query}`
+  );
 
   function clearFilters() {
     setQuery("");
     setCategory("all");
+    setLanguage("en");
+    setView("cards");
   }
 
   return (
@@ -189,17 +276,17 @@ export function DirectoryGrid({
           </div>
           <div>
             <p className="font-mono text-[0.65rem] tracking-[0.18em] text-zinc-500 uppercase">
-              Tag
+              View
             </p>
             <p className="mt-2 truncate text-sm font-medium text-zinc-200">
-              {categoryLabel(activeCategory, language)}
+              {view === "cards" ? "Cards" : "Map"}
             </p>
           </div>
         </div>
       </div>
 
       <div className="sticky top-[4.75rem] z-40 -mx-4 mb-6 border-y border-white/[0.08] bg-[#050506]/88 px-4 py-3 shadow-[0_22px_70px_rgba(0,0,0,0.48)] backdrop-blur-2xl sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_18rem_auto] lg:items-center">
+        <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_18rem_auto_auto] lg:items-center">
           <div className="relative">
             <Search
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
@@ -287,6 +374,28 @@ export function DirectoryGrid({
               <span className="hidden sm:inline">Clear</span>
             </button>
           </div>
+
+          <div className="flex min-h-12 items-center rounded-lg border border-white/[0.1] bg-white/[0.045] p-1">
+            {([
+              ["cards", List, "Cards"],
+              ["map", MapIcon, "Map"]
+            ] as const).map(([item, Icon, label]) => (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setView(item)}
+                aria-pressed={view === item}
+                className={`inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-md px-3 text-sm transition lg:flex-none ${
+                  view === item
+                    ? "bg-white !text-[#050506]"
+                    : "text-zinc-500 hover:text-white"
+                }`}
+              >
+                <Icon size={16} aria-hidden="true" />
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -340,7 +449,7 @@ export function DirectoryGrid({
         </div>
       </div>
 
-      {visible.length ? (
+      {visible.length && view === "cards" ? (
         <div className="directory-bento grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
           {visible.map((listing, index) => (
             <ListingCard
@@ -351,7 +460,87 @@ export function DirectoryGrid({
             />
           ))}
         </div>
-      ) : (
+      ) : null}
+
+      {visible.length && view === "map" ? (
+        <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
+          <section className="rounded-lg border border-white/[0.1] bg-white/[0.035] p-5">
+            <p className="font-mono text-xs tracking-[0.24em] text-gold uppercase">
+              Map search
+            </p>
+            <h3 className="mt-4 text-3xl font-semibold text-white">
+              Open this set in maps.
+            </h3>
+            <p className="mt-4 text-sm leading-6 text-zinc-500">
+              Google Maps opens best around one place or theme. Use the full
+              set action for the current search, then refine from there.
+            </p>
+            <a
+              href={visibleMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200"
+            >
+              <MapPinned size={16} aria-hidden="true" />
+              Open current set
+            </a>
+          </section>
+
+          <section className="grid gap-3">
+            {areaGroups.map(([area, group]) => (
+              <article
+                key={area}
+                className="rounded-lg border border-white/[0.1] bg-white/[0.035] p-4"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div className="min-w-0">
+                    <h3 className="truncate text-base font-semibold text-white">
+                      {area}
+                    </h3>
+                    <p className="mt-1 text-sm text-zinc-500">
+                      {group.length} matching places
+                    </p>
+                  </div>
+                  <a
+                    href={buildMapSearchUrl(`${area} Jaipur`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.1] px-3 text-sm text-zinc-300 transition hover:bg-white/[0.08] hover:text-white"
+                  >
+                    Area map
+                  </a>
+                </div>
+                <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {group.slice(0, 6).map((listing) => {
+                    const title = language === "hi" ? listing.n : listing.n_en;
+
+                    return (
+                      <a
+                        key={listing.id}
+                        href={buildMapSearchUrl(
+                          `${listing.n_en} ${listing.a_en} Jaipur`
+                        )}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-11 items-center justify-between gap-3 rounded-lg bg-black/[0.18] px-3 py-2 text-sm text-zinc-300 transition hover:bg-white/[0.08] hover:text-white"
+                      >
+                        <span className="truncate">{title}</span>
+                        <MapPinned
+                          className="shrink-0"
+                          size={15}
+                          aria-hidden="true"
+                        />
+                      </a>
+                    );
+                  })}
+                </div>
+              </article>
+            ))}
+          </section>
+        </div>
+      ) : null}
+
+      {!visible.length ? (
         <div className="rounded-lg border border-white/[0.1] bg-white/[0.035] p-10 text-center">
           <p className="text-lg font-semibold text-white">
             No matching places found.
@@ -367,7 +556,7 @@ export function DirectoryGrid({
             Reset search
           </button>
         </div>
-      )}
+      ) : null}
     </section>
   );
 }

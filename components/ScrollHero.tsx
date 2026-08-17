@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowDown, MapPin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { heroImage } from "@/lib/seo";
@@ -16,7 +16,6 @@ export function ScrollHero({
 }) {
   const trackRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
@@ -48,7 +47,7 @@ export function ScrollHero({
       <div className="sticky top-0 flex min-h-dvh items-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
         <motion.div
           className="hero-image absolute inset-0"
-          style={prefersReducedMotion ? undefined : { scale: imageScale }}
+          style={{ scale: imageScale }}
         >
           <Image
             src={heroImage}
@@ -64,7 +63,7 @@ export function ScrollHero({
 
         <motion.div
           className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end"
-          style={prefersReducedMotion ? undefined : { scale, opacity, y }}
+          style={{ scale, opacity, y }}
         >
           <div>
             <p className="font-mono text-xs tracking-[0.34em] text-gold uppercase">

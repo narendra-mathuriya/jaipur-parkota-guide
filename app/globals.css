@@ -55,6 +55,15 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  transform: translateY(-150%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 button,
 input {
   font: inherit;
