@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { directorySpots, i18n, totalSpotCount } from "@/src/data/directory";
+import { buildSpotSlug, buildSpotUrl } from "@/lib/slugs";
 
 export const siteUrl = "https://jaipur-explorer.netlify.app";
 export const siteName = "Jaipur Explorer";
@@ -144,24 +145,31 @@ export function buildStructuredData() {
         name: `Jaipur Explorer ${totalSpotCount} curated places`,
         numberOfItems: totalSpotCount,
         itemListOrder: "https://schema.org/ItemListOrderAscending",
-        itemListElement: directorySpots.map((spot, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          url: `${siteUrl}/#spot-${spot.id}`,
-          item: {
-            "@type": "Place",
-            name: spot.n_en,
-            alternateName: spot.n,
-            description: spot.i_en,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: spot.a_en,
-              addressLocality: "Jaipur",
-              addressRegion: "Rajasthan",
-              addressCountry: "IN"
+        itemListElement: directorySpots.map((spot, index) => {
+          const slug = buildSpotSlug(spot);
+          const url = `${siteUrl}${buildSpotUrl(slug)}`;
+
+          return {
+            "@type": "ListItem",
+            position: index + 1,
+            url,
+            item: {
+              "@type": "Place",
+              "@id": `${url}#place`,
+              url,
+              name: spot.n_en,
+              alternateName: spot.n,
+              description: spot.i_en,
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: spot.a_en,
+                addressLocality: "Jaipur",
+                addressRegion: "Rajasthan",
+                addressCountry: "IN"
+              }
             }
-          }
-        }))
+          };
+        })
       },
       {
         "@type": "FAQPage",

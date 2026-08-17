@@ -114,7 +114,7 @@ export function ScrollHero({
             <div className="mt-4 grid gap-2">
               {featured.slice(0, 4).map((spot) => (
                 <a
-                  href={`#spot-${spot.id}`}
+                  href={spot.href}
                   key={spot.id}
                   className="group flex min-h-14 items-center justify-between rounded-2xl border border-white/0 px-3 py-3 transition hover:border-white/10 hover:bg-white/[0.07]"
                 >
@@ -128,7 +128,7 @@ export function ScrollHero({
                     </span>
                   </span>
                   <span className="font-mono text-xs text-zinc-600 transition group-hover:text-gold">
-                    {String(spot.id).padStart(3, "0")}
+                    {spot.slug.split("-").slice(0, 2).join(" ")}
                   </span>
                 </a>
               ))}
