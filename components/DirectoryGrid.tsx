@@ -655,7 +655,7 @@ function InlineIcon({
   return (
     <svg
       viewBox="0 0 24 24"
-      className={className}
+      className={`h-4 w-4 shrink-0 ${className}`}
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
