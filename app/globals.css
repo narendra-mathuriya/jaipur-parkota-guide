@@ -114,6 +114,24 @@ input:focus-visible {
   grid-auto-flow: dense;
 }
 
+.directory-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.directory-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.directory-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.directory-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
 @media (min-width: 1024px) {
   .card-tall {
     min-height: 31rem;
