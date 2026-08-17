@@ -34,6 +34,7 @@ import {
   useState
 } from "react";
 import { ListingCard } from "@/components/ListingCard";
+import { assetPath } from "@/lib/paths";
 import type { DirectoryCategory } from "@/src/data/directory";
 import type { DirectoryListing } from "@/lib/directory";
 
@@ -156,7 +157,7 @@ export function DirectoryGrid({
       return fullIndexRequest.current;
     }
 
-    fullIndexRequest.current = fetch("/directory-index.json", {
+    fullIndexRequest.current = fetch(assetPath("/directory-index.json"), {
       headers: {
         Accept: "application/json"
       }

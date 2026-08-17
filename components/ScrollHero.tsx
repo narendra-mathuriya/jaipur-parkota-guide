@@ -1,4 +1,5 @@
 import { ArrowDown, MapPin } from "lucide-react";
+import { assetPath, withBasePath } from "@/lib/paths";
 import { heroImage } from "@/lib/seo";
 import type { DirectoryListing } from "@/lib/directory";
 
@@ -20,14 +21,14 @@ export function ScrollHero({
           <picture>
             <source
               media="(max-width: 767px)"
-              srcSet="/images/jaipur-explorer-hero-mobile.avif"
+              srcSet={assetPath("/images/jaipur-explorer-hero-mobile.avif")}
             />
             <source
-              srcSet="/images/jaipur-explorer-hero-960.avif 960w, /images/jaipur-explorer-hero-1440.avif 1440w"
+              srcSet={`${assetPath("/images/jaipur-explorer-hero-960.avif")} 960w, ${assetPath("/images/jaipur-explorer-hero-1440.avif")} 1440w`}
               sizes="100vw"
             />
             <img
-              src={heroImage}
+              src={assetPath(heroImage)}
               alt="Jaipur walled city heritage bazaar viewed through pink sandstone arches"
               width={1440}
               height={810}
@@ -91,7 +92,7 @@ export function ScrollHero({
             <div className="mt-4 grid gap-2">
               {featured.slice(0, 4).map((spot) => (
                 <a
-                  href={spot.href}
+                  href={withBasePath(spot.href)}
                   key={spot.id}
                   className="group flex min-h-14 items-center justify-between rounded-2xl border border-white/0 px-3 py-3 transition hover:border-white/10 hover:bg-white/[0.07]"
                 >

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { assetPath, withBasePath } from "@/lib/paths";
 import { i18n, totalSpotCount } from "@/src/data/directory";
 
 export const siteUrl = "https://jaipur-explorer.netlify.app";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: pageTitle,
   description: pageDescription,
-  manifest: "/manifest.webmanifest",
+  manifest: withBasePath("/manifest.webmanifest"),
   applicationName: siteName,
   authors: [{ name: siteName }],
   creator: siteName,
@@ -80,12 +81,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" }
+      { url: assetPath("/favicon.ico"), sizes: "any" },
+      { url: assetPath("/icons/icon-192.png"), sizes: "192x192", type: "image/png" },
+      { url: assetPath("/icons/icon-512.png"), sizes: "512x512", type: "image/png" }
     ],
     apple: [
-      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+      { url: assetPath("/icons/apple-touch-icon.png"), sizes: "180x180", type: "image/png" }
     ]
   },
   verification: {

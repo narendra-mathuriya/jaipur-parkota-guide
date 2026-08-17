@@ -1,4 +1,5 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
+import { assetPath, withBasePath } from "@/lib/paths";
 import type { DirectoryListing } from "@/lib/directory";
 
 type Language = "hi" | "en";
@@ -29,6 +30,7 @@ export function ListingCard({
   const category =
     language === "hi" ? listing.primaryCategory.hi : listing.primaryCategory.en;
   const imageBase = responsiveListingBase(listing.image);
+  const guideHref = withBasePath(listing.href);
 
   const heightClass =
     listing.layout === "tall"
@@ -47,11 +49,11 @@ export function ListingCard({
         <div className="relative min-h-full overflow-hidden sm:min-h-48 sm:flex-1">
           <picture>
             <source
-              srcSet={`${imageBase}-480.avif 480w, ${imageBase}-720.avif 720w`}
+              srcSet={`${assetPath(`${imageBase}-480.avif`)} 480w, ${assetPath(`${imageBase}-720.avif`)} 720w`}
               sizes="(min-width: 1280px) 390px, (min-width: 768px) 50vw, 76px"
             />
             <img
-              src={`${imageBase}-480.avif`}
+              src={assetPath(`${imageBase}-480.avif`)}
               alt={listing.imageAlt}
               width={480}
               height={360}
@@ -79,7 +81,7 @@ export function ListingCard({
               <span className="truncate">{area}</span>
             </div>
             <h3 className="truncate text-[0.98rem] font-semibold leading-tight text-white sm:whitespace-normal sm:text-2xl">
-              <a href={listing.href} className="transition hover:text-gold">
+              <a href={guideHref} className="transition hover:text-gold">
                 {title}
               </a>
             </h3>
@@ -97,7 +99,7 @@ export function ListingCard({
 
           <div className="absolute right-2 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-1 sm:static sm:grid sm:translate-y-0 sm:grid-cols-2 sm:gap-2">
             <a
-              href={listing.href}
+              href={guideHref}
               className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/10 bg-[#f4f4f5] text-xs font-semibold !text-[#050506] transition hover:bg-zinc-200 sm:h-auto sm:min-h-11 sm:w-auto sm:justify-between sm:gap-1.5 sm:rounded-full sm:px-4 sm:py-3 sm:text-sm [&_svg]:!text-[#050506]"
               aria-label={`Open ${listing.n_en} guide`}
             >

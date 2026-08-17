@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NEXT_PUBLIC_SITE_BASE_PATH || "";
+
 const nextConfig = {
   output: "export",
   images: {
@@ -6,7 +8,8 @@ const nextConfig = {
   },
   poweredByHeader: false,
   trailingSlash: true,
-  agentRules: false
+  agentRules: false,
+  ...(basePath ? { basePath } : {})
 };
 
 export default nextConfig;

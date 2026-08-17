@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import { PlaceActions } from "@/components/PlaceActions";
@@ -8,6 +7,7 @@ import {
   getDirectoryListings,
   type DirectoryListing
 } from "@/lib/directory";
+import { assetPath, withBasePath } from "@/lib/paths";
 import { siteName, siteUrl } from "@/lib/seo";
 
 type PlacePageProps = {
@@ -96,16 +96,15 @@ export default async function PlacePage({ params }: PlacePageProps) {
             className="flex flex-wrap items-center gap-2 text-sm text-zinc-500"
             aria-label="Breadcrumb"
           >
-            <Link
-              href="/"
-              prefetch={false}
+            <a
+              href={withBasePath("/")}
               className="transition hover:text-white"
             >
               Home
-            </Link>
+            </a>
             <span aria-hidden="true">/</span>
             <a
-              href={`/#${listing.slug}`}
+              href={withBasePath(`/#${listing.slug}`)}
               className="transition hover:text-white"
             >
               Directory
@@ -115,7 +114,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
           </nav>
 
           <a
-            href={`/#${listing.slug}`}
+            href={withBasePath(`/#${listing.slug}`)}
             className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-zinc-300 transition hover:bg-white/[0.12] hover:text-white"
           >
             <ArrowLeft size={16} aria-hidden="true" />
@@ -127,11 +126,11 @@ export default async function PlacePage({ params }: PlacePageProps) {
               <div className="relative aspect-[4/5] min-h-[24rem] lg:sticky lg:top-28">
                 <picture>
                   <source
-                    srcSet={`${imageBase}-480.avif 480w, ${imageBase}-portrait.avif 720w`}
+                    srcSet={`${assetPath(`${imageBase}-480.avif`)} 480w, ${assetPath(`${imageBase}-portrait.avif`)} 720w`}
                     sizes="(min-width: 1024px) 45vw, 100vw"
                   />
                   <img
-                    src={`${imageBase}-portrait.avif`}
+                    src={assetPath(`${imageBase}-portrait.avif`)}
                     alt={listing.imageAlt}
                     width={720}
                     height={900}
@@ -172,7 +171,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
                   {listing.cats.map((categoryId) => (
                     <a
                       key={categoryId}
-                      href={`/?tag=${categoryId}#explore`}
+                      href={withBasePath(`/?tag=${categoryId}#explore`)}
                       className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-3 py-2 text-sm text-zinc-300 transition hover:bg-white/[0.1] hover:text-white"
                     >
                       {categoryId}
@@ -225,7 +224,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>
                 <a
-                  href={`/#${listing.slug}`}
+                  href={withBasePath(`/#${listing.slug}`)}
                   className="inline-flex min-h-12 items-center justify-between rounded-lg border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/[0.12] hover:text-white"
                 >
                   Back to directory card
@@ -250,7 +249,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
                   </h2>
                 </div>
                 <a
-                  href={`/?tag=${listing.primaryCategory.id}#explore`}
+                  href={withBasePath(`/?tag=${listing.primaryCategory.id}#explore`)}
                   className="hidden text-sm text-zinc-400 transition hover:text-white sm:block"
                 >
                   View tag
@@ -260,7 +259,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
                 {relatedListings.map((related) => (
                   <a
                     key={related.id}
-                    href={related.href}
+                    href={withBasePath(related.href)}
                     className="rounded-lg border border-white/[0.1] bg-white/[0.035] p-4 transition hover:border-white/20 hover:bg-white/[0.06]"
                   >
                     <p className="text-base font-semibold text-white">
