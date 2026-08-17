@@ -1,31 +1,6 @@
 "use client";
 
 import {
-  Baby,
-  Car,
-  Castle,
-  ChevronDown,
-  Coffee,
-  Diamond,
-  Gem,
-  Grid3X3,
-  Landmark,
-  Languages,
-  List,
-  Map as MapIcon,
-  MapPinned,
-  Palette,
-  Search,
-  Shirt,
-  ShoppingBag,
-  SlidersHorizontal,
-  Soup,
-  Trees,
-  Utensils,
-  X,
-  type LucideIcon
-} from "lucide-react";
-import {
   useCallback,
   useDeferredValue,
   useEffect,
@@ -43,25 +18,6 @@ type DirectoryView = "cards" | "map";
 type CategoryCounts = Record<string, number>;
 type DirectoryIndexResponse = {
   listings: DirectoryListing[];
-};
-
-const categoryIcons: Record<string, LucideIcon> = {
-  all: Grid3X3,
-  upcoming: MapPinned,
-  mall: ShoppingBag,
-  toddler: Baby,
-  parks: Trees,
-  temple: Landmark,
-  outskirts: Car,
-  cafe: Coffee,
-  streetfood: Utensils,
-  food: Soup,
-  sightseeing: Castle,
-  wedding: Gem,
-  textiles: Shirt,
-  jewelry: Diamond,
-  crafts: Palette,
-  general: SlidersHorizontal
 };
 
 function cleanCategoryLabel(value: string) {
@@ -123,7 +79,6 @@ export function DirectoryGrid({
 
   const activeCategory =
     categories.find((item) => item.id === category) ?? categories[0];
-  const ActiveIcon = categoryIcons[activeCategory?.id ?? "all"] ?? Grid3X3;
 
   const indexed = useMemo(
     () =>
@@ -364,10 +319,9 @@ export function DirectoryGrid({
       <div className="z-40 -mx-3 mb-4 border-y border-white/[0.08] bg-[#050506]/88 px-3 py-2 shadow-[0_22px_70px_rgba(0,0,0,0.48)] backdrop-blur-2xl sm:sticky sm:top-[4.75rem] sm:-mx-6 sm:mb-6 sm:px-6 sm:py-3 lg:-mx-8 lg:px-8">
         <div className="grid gap-2 sm:gap-3 lg:grid-cols-[minmax(0,1fr)_18rem_auto_auto] lg:items-center">
           <div className="relative">
-            <Search
+            <InlineIcon
+              name="search"
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
-              size={18}
-              aria-hidden="true"
             />
             <input
               value={query}
@@ -379,20 +333,20 @@ export function DirectoryGrid({
               }}
               type="search"
               placeholder="Search places, areas, food, temples, malls..."
-              className="min-h-11 w-full rounded-lg border border-white/[0.1] bg-white/[0.045] py-2.5 pl-10 pr-11 text-sm text-white placeholder:text-zinc-600 transition focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none sm:min-h-12 sm:py-3"
+              className="min-h-11 w-full rounded-lg border border-white/[0.1] bg-white/[0.045] py-2.5 pl-10 pr-11 text-sm text-white placeholder:text-zinc-600 focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none sm:min-h-12 sm:py-3"
               aria-label="Search Jaipur directory"
             />
             {query ? (
               <button
                 type="button"
-                className="absolute right-1 top-1/2 grid min-h-10 min-w-10 -translate-y-1/2 place-items-center rounded-md text-zinc-500 transition hover:bg-white/[0.08] hover:text-white"
+                className="absolute right-1 top-1/2 grid min-h-10 min-w-10 -translate-y-1/2 place-items-center rounded-md text-zinc-500 hover:bg-white/[0.08] hover:text-white"
                 onClick={() => {
                   setQuery("");
                   setDisplayLimit(initialPageSize);
                 }}
                 aria-label="Clear search"
               >
-                <X size={16} aria-hidden="true" />
+                <InlineIcon name="x" className="h-4 w-4" />
               </button>
             ) : null}
           </div>
@@ -401,10 +355,9 @@ export function DirectoryGrid({
             <label htmlFor="category-filter" className="sr-only">
               Filter by tag
             </label>
-            <SlidersHorizontal
+            <InlineIcon
+              name="sliders"
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
-              size={17}
-              aria-hidden="true"
             />
             <select
               id="category-filter"
@@ -416,7 +369,7 @@ export function DirectoryGrid({
                 setCategory(event.target.value);
                 setDisplayLimit(initialPageSize);
               }}
-              className="min-h-12 w-full appearance-none rounded-lg border border-white/[0.1] bg-white/[0.045] py-3 pl-10 pr-10 text-sm text-white transition focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none"
+              className="min-h-12 w-full appearance-none rounded-lg border border-white/[0.1] bg-white/[0.045] py-3 pl-10 pr-10 text-sm text-white focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none"
             >
               {categories.map((item) => (
                 <option key={item.id} value={item.id} className="bg-[#050506]">
@@ -424,19 +377,17 @@ export function DirectoryGrid({
                 </option>
               ))}
             </select>
-            <ChevronDown
+            <InlineIcon
+              name="chevron"
               className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500"
-              size={17}
-              aria-hidden="true"
             />
           </div>
 
           <div className="grid grid-cols-[1fr_auto] gap-2 lg:flex lg:items-center">
             <div className="flex min-h-11 items-center rounded-lg border border-white/[0.1] bg-white/[0.045] p-1 sm:min-h-12">
-              <Languages
+              <InlineIcon
+                name="language"
                 className="mx-2 hidden text-zinc-500 sm:block"
-                size={16}
-                aria-hidden="true"
               />
               {(["en", "hi"] as const).map((item) => (
                 <button
@@ -444,7 +395,7 @@ export function DirectoryGrid({
                   type="button"
                   onClick={() => setLanguage(item)}
                   aria-pressed={language === item}
-                  className={`min-h-10 flex-1 rounded-md px-3 font-mono text-xs tracking-[0.16em] uppercase transition lg:flex-none ${
+                  className={`min-h-10 flex-1 rounded-md px-3 font-mono text-xs tracking-[0.16em] uppercase lg:flex-none ${
                     language === item
                       ? "bg-white !text-[#050506]"
                       : "text-zinc-500 hover:text-white"
@@ -458,18 +409,18 @@ export function DirectoryGrid({
               type="button"
               onClick={clearFilters}
               disabled={!hasFilters}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.045] px-3 text-sm font-medium text-zinc-300 transition hover:border-white/20 hover:bg-white/[0.08] hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.045] px-3 text-sm font-medium text-zinc-300 hover:border-white/20 hover:bg-white/[0.08] hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
             >
-              <X size={16} aria-hidden="true" />
+              <InlineIcon name="x" className="h-4 w-4" />
               <span className="hidden sm:inline">Clear</span>
             </button>
           </div>
 
           <div className="flex min-h-11 items-center rounded-lg border border-white/[0.1] bg-white/[0.045] p-1 sm:min-h-12">
             {([
-              ["cards", List, "Cards"],
-              ["map", MapIcon, "Map"]
-            ] as const).map(([item, Icon, label]) => (
+              ["cards", "list", "Cards"],
+              ["map", "map", "Map"]
+            ] as const).map(([item, icon, label]) => (
               <button
                 key={item}
                 type="button"
@@ -479,13 +430,13 @@ export function DirectoryGrid({
                   setDisplayLimit(initialPageSize);
                 }}
                 aria-pressed={view === item}
-                className={`inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-md px-3 text-sm transition lg:flex-none ${
+                className={`inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-md px-3 text-sm lg:flex-none ${
                   view === item
                     ? "bg-white !text-[#050506]"
                     : "text-zinc-500 hover:text-white"
                 }`}
               >
-                <Icon size={16} aria-hidden="true" />
+                <InlineIcon name={icon} className="h-4 w-4" />
                 {label}
               </button>
             ))}
@@ -496,7 +447,7 @@ export function DirectoryGrid({
       <div className="mb-4 sm:mb-8">
         <div className="mb-3 flex items-center justify-between gap-4">
           <div className="inline-flex min-w-0 items-center gap-2 text-sm text-zinc-400">
-            <ActiveIcon size={16} aria-hidden="true" />
+            <CategoryDot categoryId={activeCategory.id} selected={false} />
             <span className="truncate">
               {categoryLabel(activeCategory, language)}
             </span>
@@ -511,7 +462,6 @@ export function DirectoryGrid({
 
         <div className="directory-scrollbar flex gap-1.5 overflow-x-auto pb-2 sm:gap-2">
           {categories.map((item) => {
-            const Icon = categoryIcons[item.id] ?? Grid3X3;
             const selected = category === item.id;
 
             return (
@@ -524,13 +474,13 @@ export function DirectoryGrid({
                   setDisplayLimit(initialPageSize);
                 }}
                 aria-pressed={selected}
-                className={`inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs transition sm:min-h-11 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm ${
+                className={`inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs sm:min-h-11 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm ${
                   selected
                     ? "border-white bg-white !text-[#050506]"
                     : "border-white/[0.1] bg-white/[0.035] text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
-                }`}
+                  }`}
               >
-                <Icon size={15} aria-hidden="true" />
+                <CategoryDot categoryId={item.id} selected={selected} />
                 <span>{categoryLabel(item, language)}</span>
                 <span
                   className={`rounded-md px-1.5 py-0.5 font-mono text-[0.68rem] ${
@@ -567,7 +517,7 @@ export function DirectoryGrid({
                     setDisplayLimit((current) => current + initialPageSize);
                   })
                 }
-                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.12] hover:text-white"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 hover:border-white/20 hover:bg-white/[0.12] hover:text-white"
               >
                 Show more places
               </button>
@@ -593,9 +543,9 @@ export function DirectoryGrid({
               href={visibleMapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200"
+              className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-white px-4 text-sm font-semibold !text-[#050506] hover:bg-zinc-200"
             >
-              <MapPinned size={16} aria-hidden="true" />
+              <InlineIcon name="pin" className="h-4 w-4" />
               Open current set
             </a>
           </section>
@@ -619,7 +569,7 @@ export function DirectoryGrid({
                     href={buildMapSearchUrl(`${area} Jaipur`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.1] px-3 text-sm text-zinc-300 transition hover:bg-white/[0.08] hover:text-white"
+                    className="inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.1] px-3 text-sm text-zinc-300 hover:bg-white/[0.08] hover:text-white"
                   >
                     Area map
                   </a>
@@ -636,13 +586,12 @@ export function DirectoryGrid({
                         )}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex min-h-11 items-center justify-between gap-3 rounded-lg bg-black/[0.18] px-3 py-2 text-sm text-zinc-300 transition hover:bg-white/[0.08] hover:text-white"
+                        className="inline-flex min-h-11 items-center justify-between gap-3 rounded-lg bg-black/[0.18] px-3 py-2 text-sm text-zinc-300 hover:bg-white/[0.08] hover:text-white"
                       >
                         <span className="truncate">{title}</span>
-                        <MapPinned
-                          className="shrink-0"
-                          size={15}
-                          aria-hidden="true"
+                        <InlineIcon
+                          name="pin"
+                          className="h-4 w-4 shrink-0"
                         />
                       </a>
                     );
@@ -665,12 +614,86 @@ export function DirectoryGrid({
           <button
             type="button"
             onClick={clearFilters}
-            className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-4 text-sm font-semibold !text-[#050506] transition hover:bg-zinc-200"
+            className="mt-6 inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-4 text-sm font-semibold !text-[#050506] hover:bg-zinc-200"
           >
             Reset search
           </button>
         </div>
       ) : null}
     </section>
+  );
+}
+
+type InlineIconName =
+  | "chevron"
+  | "language"
+  | "list"
+  | "map"
+  | "pin"
+  | "search"
+  | "sliders"
+  | "x";
+
+function InlineIcon({
+  name,
+  className
+}: {
+  name: InlineIconName;
+  className: string;
+}) {
+  const paths: Record<InlineIconName, string[]> = {
+    chevron: ["M6 9l6 6 6-6"],
+    language: ["M4 5h10", "M7 2h1", "M5 8l6 6", "M4 14l6-6 2-3", "M14 18h6", "M22 22l-5-10-5 10"],
+    list: ["M8 6h12", "M8 12h12", "M8 18h12", "M4 6h.01", "M4 12h.01", "M4 18h.01"],
+    map: ["M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2V6Z", "M9 4v14", "M15 6v14"],
+    pin: ["M18 8c0 3.6-3.9 7.4-5.4 8.8a1 1 0 0 1-1.2 0C9.9 15.4 6 11.6 6 8a6 6 0 1 1 12 0Z", "M12 8h.01"],
+    search: ["M21 21l-4.3-4.3", "M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"],
+    sliders: ["M3 6h8", "M15 6h6", "M3 18h12", "M19 18h2", "M13 4v4", "M17 16v4"],
+    x: ["M18 6 6 18", "M6 6l12 12"]
+  };
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {paths[name].map((path) => (
+        <path d={path} key={path} />
+      ))}
+    </svg>
+  );
+}
+
+function CategoryDot({
+  categoryId,
+  selected
+}: {
+  categoryId: string;
+  selected: boolean;
+}) {
+  const tone =
+    categoryId === "all"
+      ? "bg-zinc-300"
+      : categoryId === "jewelry" || categoryId === "wedding"
+        ? "bg-sky-300"
+        : categoryId === "parks" || categoryId === "outskirts"
+          ? "bg-emerald-300"
+          : categoryId === "food" || categoryId === "streetfood" || categoryId === "cafe"
+            ? "bg-amber-300"
+            : "bg-gold";
+
+  return (
+    <span
+      className={`h-2.5 w-2.5 shrink-0 rounded-full ${tone} ${
+        selected ? "ring-2 ring-black/20" : ""
+      }`}
+      aria-hidden="true"
+    />
   );
 }
