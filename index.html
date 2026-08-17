@@ -3,8 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jaipur Index | Curated Heritage, Commerce & Urban Directory</title>
   
+  <!-- Primary SEO Meta Tags -->
+  <title>Jaipur Explorer | Definitive Jaipur Travel Guide & Heritage Directory</title>
+  <meta name="title" content="Jaipur Explorer | Definitive Jaipur Travel Guide & Heritage Directory">
+  <meta name="description" content="Explore Jaipur with our definitive directory of 145+ curated artisan alleys, historic bazaars, street food legends, temples, gurudwaras, modern malls, and day-trip getaways with direct GPS map navigation.">
+  <meta name="keywords" content="explorer jaipur, jaipur travel, jaipur travel guide, places to visit in jaipur, jaipur heritage directory, johari bazar shopping, walled city jaipur, jaipur street food, khatu shyam ji, kishan bagh, city park jaipur">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="Jaipur Explorer">
+  <link rel="canonical" href="https://jaipur-explorer.netlify.app/">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jaipur-explorer.netlify.app/">
+  <meta property="og:site_name" content="Jaipur Explorer">
+  <meta property="og:title" content="Jaipur Explorer | Curated Heritage, Food & Travel Directory">
+  <meta property="og:description" content="Discover 145+ authentic spots in Jaipur: Walled City karigars, street food gems, ancient temples, and new modern hubs with GPS coordinates.">
+  <meta property="og:locale" content="hi_IN">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://jaipur-explorer.netlify.app/">
+  <meta property="twitter:title" content="Jaipur Explorer | Jaipur Travel & Heritage Directory">
+  <meta property="twitter:description" content="Curated index of 145+ iconic places in Jaipur. Plan your cultural, culinary, and shopping exploration.">
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://jaipur-explorer.netlify.app/#website",
+        "url": "https://jaipur-explorer.netlify.app/",
+        "name": "Jaipur Explorer",
+        "description": "Comprehensive Travel, Shopping, and Heritage Directory of Jaipur",
+        "inLanguage": ["hi", "en"]
+      },
+      {
+        "@type": "TouristDestination",
+        "name": "Jaipur",
+        "description": "The Pink City of Rajasthan, renowned for UNESCO World Heritage architecture, ancestral artisan alleys, gems, textiles, and street gastronomy.",
+        "touristType": ["Cultural Tourism", "Heritage Tourism", "Culinary Tourism", "Shopping"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the best time to explore the Walled City artisan lanes in Jaipur?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Artisan workshops in Johari Bazar, Tripolia, and Kishanpole open around 11:00 AM and remain vibrant until 8:30 PM. For street breakfast (Samrat kachori, Sahu chai), early morning from 7:30 AM to 9:30 AM is ideal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the parks and monuments in Jaipur toddler and stroller friendly?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. City Park (Mansarovar), Central Park, and Smriti Van feature dedicated paved circuits suitable for strollers. For wildlife outings, Nahargarh Biological Park offers electric battery carts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I verify the authenticity of pure gemstone or bullion work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Soni Ji Ka Rasta houses authorized hallmark and purity testing laboratories (Tunch labs). For gemstones, choose verified jewelers in Gopal Ji Ka Rasta providing IGI/GTL certifications."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- Typography: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +92,6 @@
     :root {
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       
-      /* Neutral Base Palette */
       --bg-body: #F8FAFC;
       --bg-surface: #FFFFFF;
       --bg-subtle: #F1F5F9;
@@ -31,13 +105,11 @@
       --border-strong: #CBD5E1;
       --border-focus: #0F172A;
       
-      /* Restrained Accent (Heritage Crimson) */
       --accent: #8C2D27;
       --accent-hover: #73221D;
       --accent-soft: #FDF2F2;
       --accent-border: #FECACA;
       
-      /* Spacing & Layout Tokens */
       --container-max: 1200px;
       --radius-xs: 4px;
       --radius-sm: 6px;
@@ -45,7 +117,6 @@
       --radius-lg: 16px;
       --radius-full: 9999px;
       
-      /* Elevation */
       --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
       --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
       --shadow-hover: 0 10px 24px -4px rgba(15, 23, 42, 0.06), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
@@ -163,7 +234,6 @@
       gap: 12px;
     }
 
-    /* Minimalist Language Switcher Pill */
     .lang-switcher {
       display: inline-flex;
       align-items: center;
@@ -256,10 +326,10 @@
     }
 
     .hero-title {
-      font-size: 2.9rem;
+      font-size: 2.75rem;
       font-weight: 800;
       letter-spacing: -0.035em;
-      line-height: 1.15;
+      line-height: 1.18;
       color: var(--text-primary);
       margin-bottom: 20px;
     }
@@ -498,13 +568,12 @@
     }
 
     /* -------------------------------------------------------------------------- */
-    /* 6. Directory Section: Pinned Search & Natural Scrolling Categories         */
+    /* 6. Directory Section: Sticky Search & Dynamic Grid                        */
     /* -------------------------------------------------------------------------- */
     .directory-section {
       padding: 48px 0 96px;
     }
 
-    /* Pinned Sticky Search Bar */
     .search-sticky-container {
       position: -webkit-sticky;
       position: sticky;
@@ -955,9 +1024,7 @@
       font-size: 0.8rem;
     }
 
-    /* -------------------------------------------------------------------------- */
-    /* Responsive Adjustments                                                     */
-    /* -------------------------------------------------------------------------- */
+    /* Responsive */
     @media (max-width: 1024px) {
       .directory-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -986,7 +1053,7 @@
         gap: 36px;
       }
       .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.15rem;
       }
       .features-grid, .editorial-grid {
         grid-template-columns: 1fr;
@@ -1016,22 +1083,23 @@
   <!-- ========================================================================= -->
   <header class="site-nav">
     <div class="container nav-inner">
-      <a href="#" class="nav-brand">
+      <a href="#" class="nav-brand" aria-label="Jaipur Explorer Home">
         <span class="brand-mark"></span>
-        <span>Jaipur Index</span>
+        <span>Jaipur Explorer</span>
         <span class="nav-badge" data-i18n="navBadge">2026 Edition</span>
       </a>
 
-      <ul class="nav-links">
-        <li><a href="#explore" class="nav-link" data-i18n="navDirectory">Directory</a></li>
-        <li><a href="#features" class="nav-link" data-i18n="navHighlights">Highlights</a></li>
-        <li><a href="#faq" class="nav-link" data-i18n="navFaq">FAQ</a></li>
-        <li><a href="#explore" class="nav-link" onclick="filterCat('upcoming')" data-i18n="navUpcoming">Upcoming</a></li>
-        <li><a href="#explore" class="nav-link" onclick="filterCat('streetfood')" data-i18n="navStreetFood">Street Food</a></li>
-      </ul>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#explore" class="nav-link" data-i18n="navDirectory">Directory</a></li>
+          <li><a href="#features" class="nav-link" data-i18n="navHighlights">Highlights</a></li>
+          <li><a href="#faq" class="nav-link" data-i18n="navFaq">FAQ</a></li>
+          <li><a href="#explore" class="nav-link" onclick="filterCat('upcoming')" data-i18n="navUpcoming">Upcoming</a></li>
+          <li><a href="#explore" class="nav-link" onclick="filterCat('streetfood')" data-i18n="navStreetFood">Street Food</a></li>
+        </ul>
+      </nav>
 
       <div class="nav-actions">
-        <!-- Minimalist Language Toggle -->
         <div class="lang-switcher" role="group" aria-label="Language Switcher">
           <button class="lang-btn active" id="btnLangHi" onclick="setLanguage('hi')">हिन्दी</button>
           <button class="lang-btn" id="btnLangEn" onclick="setLanguage('en')">EN</button>
@@ -1048,235 +1116,339 @@
   <!-- ========================================================================= -->
   <!-- 2. Hero Section                                                           -->
   <!-- ========================================================================= -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <span class="hero-eyebrow" data-i18n="heroEyebrow">A Living Cultural & Urban Index</span>
-        <h1 class="hero-title" data-i18n="heroTitle">The Definitive Jaipur Explorer & Directory.</h1>
-        <p class="hero-desc" data-i18n="heroDesc">
-          An authoritative compilation of 145 curated artisan alleys, historic bazaars, heritage street food legends, tranquil temples, gurudwaras, modern retail centers, and day-trip getaways.
-        </p>
-        <div class="hero-cta-group">
-          <a href="#explore" class="btn-primary" data-i18n="heroPrimaryCta">Browse Complete Index</a>
-          <a href="#features" class="btn-secondary" data-i18n="heroSecondaryCta">Curator Notes</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-eyebrow" data-i18n="heroEyebrow">A Living Cultural & Urban Index</span>
+          <h1 class="hero-title" data-i18n="heroTitle">The Definitive Jaipur Explorer & Directory.</h1>
+          <p class="hero-desc" data-i18n="heroDesc">
+            An authoritative compilation of 145 curated artisan alleys, historic bazaars, heritage street food legends, tranquil temples, gurudwaras, modern retail centers, and day-trip getaways.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#explore" class="btn-primary" data-i18n="heroPrimaryCta">Browse Complete Index</a>
+            <a href="#features" class="btn-secondary" data-i18n="heroSecondaryCta">Curator Notes</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-card-preview">
-        <div class="preview-header">
-          <span class="preview-label" data-i18n="spotlightLabel">Live Directory Spotlight</span>
-          <span class="preview-pulse"><span class="pulse-dot"></span> <span data-i18n="spotlightCount">145 Verified Entries</span></span>
-        </div>
-        <div class="preview-item">
-          <div class="preview-item-title" data-i18n="spotlight1Title">गोपाल जी का रास्ता • जौहरी बाजार</div>
-          <div class="preview-item-desc" data-i18n="spotlight1Desc">पन्ना (Emerald), माणक, नीलम, असली हीरे व पुश्तैनी जेमस्टोन घराने।</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-item-title" data-i18n="spotlight2Title">पैसिफिक मॉल • मानसरोवर (2026 Mega Hub)</div>
-          <div class="preview-item-desc" data-i18n="spotlight2Desc">450+ वैश्विक ब्रांड्स, राजस्थान का पहला IMAX सिनेमा व लेमन ट्री होटल।</div>
+        <div class="hero-card-preview">
+          <div class="preview-header">
+            <span class="preview-label" data-i18n="spotlightLabel">Live Directory Spotlight</span>
+            <span class="preview-pulse"><span class="pulse-dot"></span> <span data-i18n="spotlightCount">145 Verified Entries</span></span>
+          </div>
+          <div class="preview-item">
+            <div class="preview-item-title" data-i18n="spotlight1Title">गोपाल जी का रास्ता • जौहरी बाजार</div>
+            <div class="preview-item-desc" data-i18n="spotlight1Desc">पन्ना (Emerald), माणक, नीलम, असली हीरे व पुश्तैनी जेमस्टोन घराने।</div>
+          </div>
+          <div class="preview-item">
+            <div class="preview-item-title" data-i18n="spotlight2Title">पैसिफिक मॉल • मानसरोवर (2026 Mega Hub)</div>
+            <div class="preview-item-desc" data-i18n="spotlight2Desc">450+ वैश्विक ब्रांड्स, राजस्थान का पहला IMAX सिनेमा व लेमन ट्री होटल।</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================================================================= -->
-  <!-- 3. Trust & Social Proof Metric Bar                                        -->
-  <!-- ========================================================================= -->
-  <section class="metrics-bar">
-    <div class="container metrics-grid">
-      <div class="metric-item">
-        <div class="metric-val">145+</div>
-        <div class="metric-label" data-i18n="metric1Label">Curated Historical & Urban Spots</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val">300+</div>
-        <div class="metric-label" data-i18n="metric2Label">Years of Living Karigari Traditions</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val">16</div>
-        <div class="metric-label" data-i18n="metric3Label">Specific Thematic Categories</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-val">100%</div>
-        <div class="metric-label" data-i18n="metric4Label">Direct Navigation & Map Coordinates</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 4. Features Section                                                        -->
-  <!-- ========================================================================= -->
-  <section class="features-section" id="features">
-    <div class="container">
-      <div class="section-intro">
-        <span class="section-tag" data-i18n="featuresTag">Curation Architecture</span>
-        <h2 class="section-heading" data-i18n="featuresHeading">Designed for effortless urban exploration.</h2>
-        <p class="section-sub" data-i18n="featuresSub">Built to help residents, connoisseurs, and travelers discover authentic craftsmanship and regional treasures.</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-num" data-i18n="feat1Num">01 / ARTISAN LANES</div>
-          <h3 class="feature-title" data-i18n="feat1Title">Ancestral Karigars</h3>
-          <p class="feature-text" data-i18n="feat1Text">Direct access to generational gemsmiths, lac bangle molders, hand-beaten bronze smiths, and natural dye masters inside the Walled City.</p>
+    <!-- ========================================================================= -->
+    <!-- 3. Trust & Social Proof Metric Bar                                        -->
+    <!-- ========================================================================= -->
+    <section class="metrics-bar" aria-label="Key City Index Metrics">
+      <div class="container metrics-grid">
+        <div class="metric-item">
+          <div class="metric-val">145+</div>
+          <div class="metric-label" data-i18n="metric1Label">Curated Historical & Urban Spots</div>
         </div>
-        <div class="feature-card">
-          <div class="feature-num" data-i18n="feat2Num">02 / CULINARY HERITAGE</div>
-          <h3 class="feature-title" data-i18n="feat2Title">Street Gastronomy</h3>
-          <p class="feature-text" data-i18n="feat2Text">From 80-year-old wood-coal chai and hing kachoris to rooftop panoramic cafes overlooking centuries-old architecture.</p>
+        <div class="metric-item">
+          <div class="metric-val">300+</div>
+          <div class="metric-label" data-i18n="metric2Label">Years of Living Karigari Traditions</div>
         </div>
-        <div class="feature-card">
-          <div class="feature-num" data-i18n="feat3Num">03 / OUTSKIRTS & MODERN HUBS</div>
-          <h3 class="feature-title" data-i18n="feat3Title">Beyond the Periphery</h3>
-          <p class="feature-text" data-i18n="feat3Text">Covering natural lakes, toddler-friendly parks, holy pilgrim shrines, gurudwaras, and 2026 upcoming mega-retail infrastructure.</p>
+        <div class="metric-item">
+          <div class="metric-val">16</div>
+          <div class="metric-label" data-i18n="metric3Label">Specific Thematic Categories</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">100%</div>
+          <div class="metric-label" data-i18n="metric4Label">Direct Navigation & Map Coordinates</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================================================================= -->
-  <!-- 5. Main Directory Explorer                                                -->
-  <!-- ========================================================================= -->
-  <section class="directory-section" id="explore">
-    
-    <!-- ONLY SEARCH BOX IS PINNED (STICKY) -->
-    <div class="search-sticky-container">
+    <!-- ========================================================================= -->
+    <!-- 4. Features Section                                                        -->
+    <!-- ========================================================================= -->
+    <section class="features-section" id="features">
       <div class="container">
-        <div class="search-row">
-          <input type="text" id="sb" class="search-input" placeholder="Search by name, item, area (e.g. gurudwara, kachori, pacific mall, raja park)..." autocomplete="off">
-          <button id="cb" class="search-clear-btn" onclick="resetSearch()">✕</button>
+        <div class="section-intro">
+          <span class="section-tag" data-i18n="featuresTag">Curation Architecture</span>
+          <h2 class="section-heading" data-i18n="featuresHeading">Designed for effortless urban exploration.</h2>
+          <p class="section-sub" data-i18n="featuresSub">Built to help residents, connoisseurs, and travelers discover authentic craftsmanship and regional treasures.</p>
         </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <!-- CATEGORY PILLS (SCROLLS NATURALLY WITH CONTENT) -->
-      <div class="category-pills-wrap">
-        <div class="category-pills" id="catBar"></div>
-      </div>
-
-      <!-- Count Meta Bar -->
-      <div class="directory-meta">
-        <span data-i18n="directoryMeta">Showing indexed locations</span>
-        <span class="directory-count-badge" id="st">145 Locations</span>
-      </div>
-
-      <!-- Cards Grid -->
-      <div class="directory-grid" id="list"></div>
-
-      <!-- Empty State -->
-      <div id="noResult" class="empty-state">
-        <p style="font-weight: 700; margin-bottom: 6px;" data-i18n="noResultTitle">No matching locations found.</p>
-        <p style="font-size: 0.88rem;" data-i18n="noResultSub">Try clearing the search query or selecting a different category filter.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 6. Interactive FAQ Accordion Section                                      -->
-  <!-- ========================================================================= -->
-  <section class="faq-section" id="faq">
-    <div class="container faq-grid">
-      <div>
-        <span class="section-tag" data-i18n="faqTag">Explorer Assistance</span>
-        <h2 class="section-heading" data-i18n="faqHeading">Frequently asked questions.</h2>
-        <p class="section-sub" data-i18n="faqSub">Practical tips on timings, navigation etiquette, pedestrian zones, and public accessibility in Jaipur.</p>
-      </div>
-
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faqQ1">What is the best time to explore the Walled City artisan lanes?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" data-i18n="faqA1">
-            Artisan workshops in Johari Bazar, Tripolia, and Kishanpole open around 11:00 AM and remain vibrant until 8:30 PM. For street breakfast (Samrat kachori, Sahu chai), early morning from 7:30 AM to 9:30 AM is ideal.
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-num" data-i18n="feat1Num">01 / ARTISAN LANES</div>
+            <h3 class="feature-title" data-i18n="feat1Title">Ancestral Karigars</h3>
+            <p class="feature-text" data-i18n="feat1Text">Direct access to generational gemsmiths, lac bangle molders, hand-beaten bronze smiths, and natural dye masters inside the Walled City.</p>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faqQ2">Are the parks and monuments toddler and stroller friendly?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" data-i18n="faqA2">
-            Yes. City Park (Mansarovar), Central Park, and Smriti Van feature dedicated paved circuits suitable for strollers. For wildlife outings, Nahargarh Biological Park offers electric battery carts.
+          <div class="feature-card">
+            <div class="feature-num" data-i18n="feat2Num">02 / CULINARY HERITAGE</div>
+            <h3 class="feature-title" data-i18n="feat2Title">Street Gastronomy</h3>
+            <p class="feature-text" data-i18n="feat2Text">From 80-year-old wood-coal chai and hing kachoris to rooftop panoramic cafes overlooking centuries-old architecture.</p>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faqQ3">How do I verify the authenticity of pure gemstone or bullion work?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" data-i18n="faqA3">
-            Soni Ji Ka Rasta houses authorized hallmark and purity testing laboratories (Tunch labs). For gemstones, choose verified jewelers in Gopal Ji Ka Rasta providing IGI/GTL certifications.
+          <div class="feature-card">
+            <div class="feature-num" data-i18n="feat3Num">03 / OUTSKIRTS & MODERN HUBS</div>
+            <h3 class="feature-title" data-i18n="feat3Title">Beyond the Periphery</h3>
+            <p class="feature-text" data-i18n="feat3Text">Covering natural lakes, toddler-friendly parks, holy pilgrim shrines, gurudwaras, and 2026 upcoming mega-retail infrastructure.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================================================================= -->
-  <!-- 7. Testimonials & Editorial Notes                                         -->
-  <!-- ========================================================================= -->
-  <section class="editorial-section">
-    <div class="container">
-      <div class="section-intro">
-        <span class="section-tag" data-i18n="editorialTag">Field Notes</span>
-        <h2 class="section-heading" data-i18n="editorialHeading">Insights from locals and seasoned explorers.</h2>
+    <!-- ========================================================================= -->
+    <!-- 5. Main Directory Explorer                                                -->
+    <!-- ========================================================================= -->
+    <section class="directory-section" id="explore">
+      
+      <!-- Pinned Sticky Search Bar -->
+      <div class="search-sticky-container">
+        <div class="container">
+          <div class="search-row">
+            <input type="text" id="sb" class="search-input" placeholder="Search by name, item, area (e.g. gurudwara, kachori, pacific mall, raja park)..." autocomplete="off" aria-label="Search Jaipur Directory">
+            <button id="cb" class="search-clear-btn" onclick="resetSearch()" aria-label="Clear Search">✕</button>
+          </div>
+        </div>
       </div>
 
-      <div class="editorial-grid">
-        <div class="editorial-card">
-          <p class="editorial-quote" data-i18n="quote1">"The accuracy of artisan lanes inside Johari and Tripolia Bazar is unmatched. Found 4th-generation gota-patti and pure silver vark masters with ease."</p>
-          <div class="editorial-author">
-            <div class="author-avatar">AM</div>
-            <div>
-              <div class="author-name" data-i18n="author1Name">Ananya Mathur</div>
-              <div class="author-role" data-i18n="author1Role">Heritage Textile Researcher</div>
+      <div class="container">
+        <!-- Category Filter Pills -->
+        <div class="category-pills-wrap">
+          <div class="category-pills" id="catBar" role="toolbar" aria-label="Category Filters"></div>
+        </div>
+
+        <!-- Count Meta Bar -->
+        <div class="directory-meta">
+          <span data-i18n="directoryMeta">Showing indexed locations</span>
+          <span class="directory-count-badge" id="st">145 Locations</span>
+        </div>
+
+        <!-- Cards Grid (Pre-populated for instant Googlebot Crawling & SSR Fallback) -->
+        <div class="directory-grid" id="list">
+          <!-- Item 1 -->
+          <article class="spot-card">
+            <div class="spot-card-top">
+              <div class="spot-card-header">
+                <h3 class="spot-card-title">1. गोपाल जी का रास्ता</h3>
+                <span class="spot-card-area">जौहरी बाजार</span>
+              </div>
+              <div class="spot-card-body">
+                <div><span class="spot-row-label">मुख्य आकर्षण:</span> पन्ना (Emerald), माणक, नीलम, असली हीरे, जेमस्टोन बीड्स</div>
+                <div><span class="spot-row-label">प्रमुख प्रतिष्ठान:</span> सुरना ज्वैलर्स, कोठारी जेम्स</div>
+              </div>
+            </div>
+            <a class="spot-card-action" href="https://www.google.com/maps/search/?api=1&query=Gopal+Ji+Ka+Rasta+Johari+Bazar+Jaipur" target="_blank" rel="noopener">
+              <span>📍 Google Maps नेविगेशन</span>
+            </a>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="spot-card">
+            <div class="spot-card-top">
+              <div class="spot-card-header">
+                <h3 class="spot-card-title">2. हल्दियों का रास्ता</h3>
+                <span class="spot-card-area">जौहरी बाजार</span>
+              </div>
+              <div class="spot-card-body">
+                <div><span class="spot-row-label">मुख्य आकर्षण:</span> राजपूती पोशाक, गोटा-पत्ती, शुद्ध चांदी के बर्तन, असली हींग</div>
+                <div><span class="spot-row-label">प्रमुख प्रतिष्ठान:</span> ओढ़नी साड़ी, आरी तारी, विनायक सिल्वर</div>
+              </div>
+            </div>
+            <a class="spot-card-action" href="https://www.google.com/maps/search/?api=1&query=Haldiyon+Ka+Rasta+Johari+Bazar+Jaipur" target="_blank" rel="noopener">
+              <span>📍 Google Maps नेविगेशन</span>
+            </a>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="spot-card">
+            <div class="spot-card-top">
+              <div class="spot-card-header">
+                <h3 class="spot-card-title">3. पुरोहित जी का कटला</h3>
+                <span class="spot-card-area">बड़ी चौपड़</span>
+              </div>
+              <div class="spot-card-body">
+                <div><span class="spot-row-label">मुख्य आकर्षण:</span> थोक कपड़ा मंडी, साड़ियाँ, लहरिया, साफे, मायरा सामान</div>
+                <div><span class="spot-row-label">प्रमुख प्रतिष्ठान:</span> महालक्ष्मी साड़ीज, सूरज भवन Wholesalers</div>
+              </div>
+            </div>
+            <a class="spot-card-action" href="https://www.google.com/maps/search/?api=1&query=Purohit+Ji+Ka+Katla+Johari+Bazar+Jaipur" target="_blank" rel="noopener">
+              <span>📍 Google Maps नेविगेशन</span>
+            </a>
+          </article>
+
+          <!-- Item 51 -->
+          <article class="spot-card">
+            <div class="spot-card-top">
+              <div class="spot-card-header">
+                <h3 class="spot-card-title">51. सम्राट रेस्टोरेंट व नाश्ता लेन</h3>
+                <span class="spot-card-area">चौड़ा रास्ता</span>
+              </div>
+              <div class="spot-card-body">
+                <div><span class="spot-row-label">मुख्य आकर्षण:</span> हींग कचौरी, गर्म समोसा, कुरकुरी जलेबी, खमण ढोकला व मसाला चाय</div>
+                <div><span class="spot-row-label">प्रमुख प्रतिष्ठान:</span> सम्राट रेस्टोरेंट (Samrat since 1965)</div>
+              </div>
+            </div>
+            <a class="spot-card-action" href="https://www.google.com/maps/search/?api=1&query=Samrat+Restaurant+Chaura+Rasta+Jaipur" target="_blank" rel="noopener">
+              <span>📍 Google Maps नेविगेशन</span>
+            </a>
+          </article>
+
+          <!-- Item 52 -->
+          <article class="spot-card">
+            <div class="spot-card-top">
+              <div class="spot-card-header">
+                <h3 class="spot-card-title">52. एलएमबी (LMB - लक्ष्मी मिष्ठान भंडार)</h3>
+                <span class="spot-card-area">जौहरी बाजार</span>
+              </div>
+              <div class="spot-card-body">
+                <div><span class="spot-row-label">मुख्य आकर्षण:</span> विश्व प्रसिद्ध पनीर घेवर, राज कचौरी, मलाई घेवर, दाल बाटी थाली</div>
+                <div><span class="spot-row-label">प्रमुख प्रतिष्ठान:</span> लक्ष्मी मिष्ठान भंडार (Heritage LMB 1727)</div>
+              </div>
+            </div>
+            <a class="spot-card-action" href="https://www.google.com/maps/search/?api=1&query=LMB+Johari+Bazar+Jaipur" target="_blank" rel="noopener">
+              <span>📍 Google Maps नेविगेशन</span>
+            </a>
+          </article>
+
+          <!-- Item 61 -->
+          <article class="spot-card">
+            <div class="spot-card-top">
+              <div class="spot-card-header">
+                <h3 class="spot-card-title">61. मोती डूंगरी गणेश मंदिर</h3>
+                <span class="spot-card-area">जेएलएन मार्ग</span>
+              </div>
+              <div class="spot-card-body">
+                <div><span class="spot-row-label">मुख्य आकर्षण:</span> जयपुर के अधिष्ठाता प्रथम पूज्य गणेश जी, मोदक प्रसाद व बुधवार मेला</div>
+                <div><span class="spot-row-label">प्रमुख प्रतिष्ठान:</span> मोती डूंगरी ट्रस्ट व मोदक भंडार</div>
+              </div>
+            </div>
+            <a class="spot-card-action" href="https://www.google.com/maps/search/?api=1&query=Moti+Dungri+Ganesh+Ji+Temple+Jaipur" target="_blank" rel="noopener">
+              <span>📍 Google Maps नेविगेशन</span>
+            </a>
+          </article>
+        </div>
+
+        <!-- Empty State -->
+        <div id="noResult" class="empty-state">
+          <p style="font-weight: 700; margin-bottom: 6px;" data-i18n="noResultTitle">No matching locations found.</p>
+          <p style="font-size: 0.88rem;" data-i18n="noResultSub">Try clearing the search query or selecting a different category filter.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. Interactive FAQ Accordion Section                                      -->
+    <!-- ========================================================================= -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-grid">
+        <div>
+          <span class="section-tag" data-i18n="faqTag">Explorer Assistance</span>
+          <h2 class="section-heading" data-i18n="faqHeading">Frequently asked questions.</h2>
+          <p class="section-sub" data-i18n="faqSub">Practical tips on timings, navigation etiquette, pedestrian zones, and public accessibility in Jaipur.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span data-i18n="faqQ1">What is the best time to explore the Walled City artisan lanes?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" data-i18n="faqA1">
+              Artisan workshops in Johari Bazar, Tripolia, and Kishanpole open around 11:00 AM and remain vibrant until 8:30 PM. For street breakfast (Samrat kachori, Sahu chai), early morning from 7:30 AM to 9:30 AM is ideal.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span data-i18n="faqQ2">Are the parks and monuments toddler and stroller friendly?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" data-i18n="faqA2">
+              Yes. City Park (Mansarovar), Central Park, and Smriti Van feature dedicated paved circuits suitable for strollers. For wildlife outings, Nahargarh Biological Park offers electric battery carts.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+              <span data-i18n="faqQ3">How do I verify the authenticity of pure gemstone or bullion work?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer" data-i18n="faqA3">
+              Soni Ji Ka Rasta houses authorized hallmark and purity testing laboratories (Tunch labs). For gemstones, choose verified jewelers in Gopal Ji Ka Rasta providing IGI/GTL certifications.
             </div>
           </div>
         </div>
-        <div class="editorial-card">
-          <p class="editorial-quote" data-i18n="quote2">"Having all the toddler-friendly parks alongside weekend spots like Bisalpur and Kishangarh Dump Yard in one minimal dashboard saves hours of planning."</p>
-          <div class="editorial-author">
-            <div class="author-avatar">RS</div>
-            <div>
-              <div class="author-name" data-i18n="author2Name">Rohit Sharma</div>
-              <div class="author-role" data-i18n="author2Role">Jaipur Resident & Parent</div>
-            </div>
-          </div>
-        </div>
-        <div class="editorial-card">
-          <p class="editorial-quote" data-i18n="quote3">"The street food directory pinpoints the exact historic outlets—from Samrat’s hing kachori to Sahu’s coal-simmered tea. An essential bookmarks page."</p>
-          <div class="editorial-author">
-            <div class="author-avatar">VK</div>
-            <div>
-              <div class="author-name" data-i18n="author3Name">Vikas Khandelwal</div>
-              <div class="author-role" data-i18n="author3Role">Culinary Writer</div>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================================================================= -->
-  <!-- 8. Final Impactful Call To Action                                         -->
-  <!-- ========================================================================= -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-box">
-        <h2 class="cta-title" data-i18n="ctaTitle">Explore Jaipur with clarity.</h2>
-        <p class="cta-sub" data-i18n="ctaSub">Bookmark this index to keep instant, curated access to 145 cultural and commercial landmarks on your mobile device.</p>
-        <button class="cta-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-i18n="ctaBtn">
-          Back to Top Explorer
-        </button>
+    <!-- ========================================================================= -->
+    <!-- 7. Testimonials & Editorial Notes                                         -->
+    <!-- ========================================================================= -->
+    <section class="editorial-section">
+      <div class="container">
+        <div class="section-intro">
+          <span class="section-tag" data-i18n="editorialTag">Field Notes</span>
+          <h2 class="section-heading" data-i18n="editorialHeading">Insights from locals and seasoned explorers.</h2>
+        </div>
+
+        <div class="editorial-grid">
+          <div class="editorial-card">
+            <p class="editorial-quote" data-i18n="quote1">"The accuracy of artisan lanes inside Johari and Tripolia Bazar is unmatched. Found 4th-generation gota-patti and pure silver vark masters with ease."</p>
+            <div class="editorial-author">
+              <div class="author-avatar">AM</div>
+              <div>
+                <div class="author-name" data-i18n="author1Name">Ananya Mathur</div>
+                <div class="author-role" data-i18n="author1Role">Heritage Textile Researcher</div>
+              </div>
+            </div>
+          </div>
+          <div class="editorial-card">
+            <p class="editorial-quote" data-i18n="quote2">"Having all the toddler-friendly parks alongside weekend spots like Bisalpur and Kishangarh Dump Yard in one minimal dashboard saves hours of planning."</p>
+            <div class="editorial-author">
+              <div class="author-avatar">RS</div>
+              <div>
+                <div class="author-name" data-i18n="author2Name">Rohit Sharma</div>
+                <div class="author-role" data-i18n="author2Role">Jaipur Resident & Parent</div>
+              </div>
+            </div>
+          </div>
+          <div class="editorial-card">
+            <p class="editorial-quote" data-i18n="quote3">"The street food directory pinpoints the exact historic outlets—from Samrat’s hing kachori to Sahu’s coal-simmered tea. An essential bookmarks page."</p>
+            <div class="editorial-author">
+              <div class="author-avatar">VK</div>
+              <div>
+                <div class="author-name" data-i18n="author3Name">Vikas Khandelwal</div>
+                <div class="author-role" data-i18n="author3Role">Culinary Writer</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 8. Final Call To Action                                                   -->
+    <!-- ========================================================================= -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title" data-i18n="ctaTitle">Explore Jaipur with clarity.</h2>
+          <p class="cta-sub" data-i18n="ctaSub">Bookmark this index to keep instant, curated access to 145 cultural and commercial landmarks on your mobile device.</p>
+          <button class="cta-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" data-i18n="ctaBtn">
+            Back to Top Explorer
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- ========================================================================= -->
   <!-- 9. Minimalist Multi-Column Footer                                         -->
@@ -1287,7 +1459,7 @@
         <div>
           <div class="nav-brand">
             <span class="brand-mark"></span>
-            <span>Jaipur Index</span>
+            <span>Jaipur Explorer</span>
           </div>
           <p class="footer-brand-desc" data-i18n="footerDesc">
             A comprehensive, non-commercial directory dedicated to preserving the cultural geography, artisan legacy, and evolving modern skyline of Jaipur.
@@ -1559,8 +1731,6 @@
       {id:48,n:"हवा महल / सिरे ड्योढ़ी लेन",n_en:"Sireh Deori (Hawa Mahal Lane)",i:"विश्व प्रसिद्ध शुद्ध सूती जयपुरी रजाई (Jaipuri Razai)",i_en:"World-famous Lightweight Pure Cotton Jaipuri Quilts",a:"सिरे ड्योढ़ी बाजार",a_en:"Sireh Deori Bazar",s:"गुलाब चंद प्रिंट्स, हेरिटेज रजाई",s_en:"Gulab Chand Prints, Heritage Razai",q:"Sireh+Deori+Bazar+Jaipur",cats:["textiles"],en:"hawa mahal sireh deori pure cotton jaipuri razai quilts blankets rajai bedcover gulab chand razayi kapda"},
       {id:49,n:"पान दरीबा",n_en:"Paan Dariba",i:"शादियों का मुखवास, बनारसी पान, असली कत्था व सुपारी",i_en:"Wedding Mouth Fresheners, Banarasi Paan, Scented Supari",a:"बड़ी चौपड़ मुहाना",a_en:"Badi Chaupar",s:"पान दरीबा मुखवास हाउस",s_en:"Paan Dariba Confectioneries",q:"Paan+Dariba+Badi+Chaupar+Jaipur",cats:["food","wedding","streetfood"],en:"paan dariba mukhwas mouth freshener banarasi paan kattha supari badi chaupar saunf food nashta pan"},
       {id:50,n:"तोरण बाजार / बंदनवार लेन",n_en:"Toran Bazar",i:"गोटा-पत्ती बंदनवार, तोरण, दूल्हे का तोरण पाटा, जयमाला",i_en:"Gota-Patti Door Torans, Wedding Entrance Pata, Jaimala",a:"बड़ी चौपड़",a_en:"Badi Chaupar",s:"मांगलिक श्रृंगार भंडार",s_en:"Manglik Shringar Bhandar",q:"Badi+Chaupar+Jaipur",cats:["wedding"],en:"toran bazar bandanwar gota patti toran door hanging jaimala wedding decor groom toran pata varmala wedding"},
-
-      /* 51 to 60: Famous Street Food & Heritage Sweets */
       {id:51,n:"सम्राट रेस्टोरेंट व नाश्ता लेन",n_en:"Samrat Restaurant (Since 1965)",i:"हींग कचौरी, गर्म समोसा, कुरकुरी जलेबी, खमण ढोकला व मसाला चाय",i_en:"Hing Kachori, Crispy Samosas, Jalebi, Khaman Dhokla & Chai",a:"चौड़ा रास्ता",a_en:"Chaura Rasta",s:"सम्राट रेस्टोरेंट (Samrat since 1965)",s_en:"Samrat Heritage Eatery",q:"Samrat+Restaurant+Chaura+Rasta+Jaipur",cats:["streetfood","food"],en:"samrat restaurant chaura rasta heeng kachori samosa jalebi khaman dhokla chai tea breakfast nashta street food"},
       {id:52,n:"एलएमबी (LMB - लक्ष्मी मिष्ठान भंडार)",n_en:"LMB (Laxmi Misthan Bhandar 1727)",i:"विश्व प्रसिद्ध पनीर घेवर, राज कचौरी, मलाई घेवर, दाल बाटी थाली",i_en:"World-renowned Paneer Ghewar, Raj Kachori, Dal Baati Thali",a:"जौहरी बाजार",a_en:"Johari Bazar",s:"लक्ष्मी मिष्ठान भंडार (Heritage LMB 1727)",s_en:"LMB Johari Bazar",q:"LMB+Johari+Bazar+Jaipur",cats:["streetfood","food"],en:"lmb laxmi mishtan bhandar johari bazar paneer ghewar ghevar raj kachori dal baati churma sweets thali mithai food"},
       {id:53,n:"ओरिजिनल लस्सी वाला (1944)",n_en:"Original Lassiwala (Since 1944)",i:"मिट्टी के कुल्हड़ में गाढ़ी मलाईदार मीठी व नमकीन ताज़ा लस्सी",i_en:"Rich Clotted-Cream Sweet & Salted Lassi in Clay Kulhads",a:"एम.आई. रोड",a_en:"MI Road",s:"किशनलाल गोविंद नारायण लस्सी वाला (Shop 312)",s_en:"Shop 312 (Kishanlal Govind Narain)",q:"Lassiwala+MI+Road+Jaipur",cats:["streetfood","food"],en:"lassiwala lassi wala mi road ajmeri gate kulhad malai lassi sweet lassi shop 312 street food nashta drink"},
@@ -1571,8 +1741,6 @@
       {id:58,n:"गुलाब जी चाय वाले",n_en:"Gulab Ji Chai Wale",i:"स्पेशल कड़क मसाला चाय, बन-मस्का, बन-मक्खन व गरमागरम समोसा",i_en:"Signature Kadak Masala Chai, Bun Maska & Fresh Samosas",a:"एमआई रोड / गणगौरी बाजार",a_en:"MI Road / Gangori Bazar",s:"गुलाब जी चाय वाले (Gulab Ji Chai)",s_en:"Gulab Ji Chai Wale",q:"Gulab+Ji+Chai+Wale+MI+Road+Jaipur",cats:["streetfood","food"],en:"gulab ji chai wale tea masala tea bun maska makhan samosa street food nashta gangori"},
       {id:59,n:"इत्र व सुगंध लेन (Attar Lane)",n_en:"Attar & Perfume Lane",i:"शुद्ध जयपुरी रूह गुलाब, खस, मोगरा, असली ऊद इत्र, चंदन तेल व अगरबत्ती",i_en:"Pure Rooh Gulab, Khas, Mogra, Oudh Attar & Sandalwood Oils",a:"हल्दियों का रास्ता",a_en:"Haldiyon Ka Rasta",s:"गुलाब सिंह जोहरीमल, सुगंध भंडार",s_en:"Gulab Singh Johrimal, Sugandh Bhandar",q:"Attar+Johari+Bazar+Jaipur",cats:["crafts","general","wedding"],en:"ittar attar gali rose water gulab jal khas mogra oudh chandan sandalwood oil perfume aroma wedding pooja"},
       {id:60,n:"महावीर जी की रबड़ी",n_en:"Mahaveer Ji Ki Rabri",i:"केसर-पिस्ता मटका रबड़ी, लच्छेदार गाढ़ा दूध, मालपुआ व बेझड़ रोटी",i_en:"Kesar-Pista Rabri, Malpua, Bejhad Roti with Titor Dal",a:"चांदपोल के पास",a_en:"Near Chandpole",s:"महावीर रबड़ी भंडार (Mahaveer Rabri)",s_en:"Mahaveer Rabdi Bhandar",q:"Mahaveer+Rabri+Bhandar+Chandpole+Jaipur",cats:["streetfood","food"],en:"mahaveer rabdi bhandar rabri kulfi kesar pista milk sweet dessert street food bejhad roti malpua"},
-
-      /* 61 to 68: Famous Temples */
       {id:61,n:"मोती डूंगरी गणेश मंदिर",n_en:"Moti Dungri Ganesh Temple",i:"जयपुर के अधिष्ठाता प्रथम पूज्य गणेश जी, मोदक प्रसाद व बुधवार मेला",i_en:"Patron Deity of Jaipur, Wednesday Fair, Ladoo-Modak Prasad",a:"जेएलएन मार्ग",a_en:"JLN Marg",s:"मोती डूंगरी ट्रस्ट व मोदक भंडार",s_en:"Moti Dungri Trust",q:"Moti+Dungri+Ganesh+Ji+Temple+Jaipur",cats:["temple","food"],en:"moti dungri ganesh mandir temple modak laddu ganesha wednesday religious pooja darshan jln marg"},
       {id:62,n:"गोविंद देव जी मंदिर",n_en:"Govind Dev Ji Temple",i:"जयपुर के आराध्य देव, नयनाभिराम मंगला व संध्या आरती, मिश्री मावा प्रसादी",i_en:"Presiding Deity of City Palace, Divine Mangla Aarti, Mishri Mawa",a:"जलेब चौक",a_en:"Jaleb Chowk / City Palace",s:"ठाकुर जी मंदिर भोग शाला",s_en:"Temple Bhog Shala",q:"Govind+Dev+Ji+Temple+Jaleb+Chowk+Jaipur",cats:["temple","food"],en:"govind dev ji mandir temple krishna aarti jaleb chowk city palace prasad darshan religious pooja"},
       {id:63,n:"बिड़ला मंदिर (लक्ष्मी नारायण)",n_en:"Birla Mandir (Lakshmi Narayan)",i:"शुद्ध मकराना सफेद संगमरमर की भव्य नक्काशी, शांत बगीचे व रात्रि लाइटिंग",i_en:"Pure White Marble Carvings, Modern Hindu Architecture, Lawns",a:"तिलक नगर",a_en:"Tilak Nagar",s:"बिड़ला मंदिर कॉम्प्लेक्स",s_en:"Birla Temple Complex",q:"Birla+Mandir+Jaipur",cats:["temple","sightseeing","toddler"],en:"birla mandir lakshmi narayan temple white marble tilak nagar moti dungri architecture garden tourist"},
@@ -1581,31 +1749,23 @@
       {id:66,n:"गढ़ गणेश मंदिर",n_en:"Garh Ganesh Temple",i:"अरावली पहाड़ी की चोटी पर बिना सूंड वाले बाल गणेश जी, पैदल ट्रेक सीढ़ियां",i_en:"Hilltop Child Ganesha Shrine, 365 Steps Trek, Fort Views",a:"नाहरगढ़ तलहटी",a_en:"Nahargarh Foothills",s:"गढ़ गणेश शिखर",s_en:"Garh Ganesh Shikhara",q:"Garh+Ganesh+Temple+Jaipur",cats:["temple","sightseeing"],en:"garh ganesh mandir trekking stairs aravalli fort view child ganesha heritage trek"},
       {id:67,n:"जगत शिरोमणि मंदिर (आमेर)",n_en:"Jagat Shiromani Temple (Amer)",i:"16वीं सदी का अनूठा नक्काशीदार पत्थर मंदिर, जहाँ मीरा बाई श्रीकृष्ण संग पूजी जाती हैं",i_en:"16th-century Stone Architecture, Shrine of Meera Bai & Krishna",a:"आमेर कस्बा",a_en:"Amer Town",s:"हेरिटेज जगत शिरोमणि",s_en:"Jagat Shiromani Amer",q:"Jagat+Shiromani+Temple+Amer+Jaipur",cats:["temple","sightseeing","crafts"],en:"jagat shiromani temple amer meera krishna stone carving heritage hidden gem architecture"},
       {id:68,n:"काले हनुमान जी मंदिर",n_en:"Kale Hanuman Ji Temple",i:"दुर्लभ काले रंग के बाल हनुमान जी की प्राचीन प्रतिमा, चांदी का चौपड़ मुख",i_en:"Rare Black Stone Hanuman Deity, Silver Chhatra, 1000-yr Legend",a:"चांदी की टकसाल",a_en:"Chandi Ki Taksal",s:"काले हनुमान जी मंदिर",s_en:"Kale Hanuman Ji Shrine",q:"Kale+Hanuman+Ji+Temple+Jaipur",cats:["temple"],en:"kale hanuman ji temple chandi ki taksal hawa mahal old city black hanuman mandir pooja"},
-
-      /* 69 to 73: Operating Malls */
       {id:69,n:"वर्ल्ड ट्रेड पार्क (WTP Mall)",n_en:"World Trade Park (WTP)",i:"विशाल ब्लू-ग्लास आर्किटेक्चर, इंटरनेशनल ब्रांड्स, फूड कोर्ट व फंतासी स्ट्रीट",i_en:"Iconic Blue Glass Architecture, Global Brands, Dubai Street",a:"मालवीय नगर",a_en:"Malviya Nagar",s:"WTP नॉर्थ व साउथ ब्लॉक",s_en:"WTP North & South Blocks",q:"World+Trade+Park+Malviya+Nagar+Jaipur",cats:["mall","food","toddler"],en:"wtp world trade park mall malviya nagar shopping international brands multiplex cinema food court modern"},
       {id:70,n:"गौरव टावर (GT) व जीटी बाजार",n_en:"Gaurav Tower (GT & GT Central)",i:"जयपुर का सबसे पहला व लोकप्रिय यूथ मॉल, अंडरग्राउंड स्ट्रीट शॉपिंग व फास्ट फूड लेन",i_en:"First Retail Hub of Jaipur, Underground Street Market, Food Court",a:"मालवीय नगर",a_en:"Malviya Nagar",s:"GT सेंट्रल, अंडरग्राउंड बाजार",s_en:"GT Central Mall Complex",q:"Gaurav+Tower+Malviya+Nagar+Jaipur",cats:["mall","streetfood"],en:"gaurav tower gt bazar gt central malviya nagar underground street market fast food shopping youth hangout"},
       {id:71,n:"मॉल ऑफ जयपुर",n_en:"Mall of Jaipur",i:"लक्जरी ब्रांड्स, एंटरटेनमेंट जोन, रूफटॉप डाइनिंग व आधुनिक बुटीक्स",i_en:"Modern Shopping Arcade, Rooftop Dining, Inox Multiplex",a:"गांधी पथ (वैशाली नगर)",a_en:"Gandhi Path (Vaishali Nagar)",s:"मॉल ऑफ जयपुर आर्केड",s_en:"Mall of Jaipur Arcade",q:"Mall+of+Jaipur+Vaishali+Nagar+Jaipur",cats:["mall","food","toddler"],en:"mall of jaipur vaishali nagar gandhi path shopping multiplex gaming cinema luxury"},
       {id:72,n:"ट्राइटन मॉल (Triton Mall)",n_en:"Triton Mall",i:"किफायती फैशन शॉपिंग, हाइपरमार्केट, गेमिंग जोन व मल्टीप्लेक्स सिनेमा",i_en:"Budget-friendly Fashion Outlets, D-Mart, Cinema, Bowling",a:"झोटवाड़ा रोड",a_en:"Jhotwara Road",s:"ट्राइटन मेगा मार्ट्स",s_en:"Triton Retail Zone",q:"Triton+Mall+Jhotwara+Road+Jaipur",cats:["mall","toddler"],en:"triton mall jhotwara shopping hypermarket dmart cinema movies gaming clothes"},
       {id:73,n:"पिंक स्क्वायर मॉल",n_en:"Pink Square Mall",i:"लोकल फैशन आउटलेट्स, INOX मल्टीप्लेक्स सिनेमा, फ़ूड कोर्ट व किड्स जोन",i_en:"Neighborhood Mall, INOX Cinema, Family Entertainment Zone",a:"राजा पार्क",a_en:"Raja Park / Adarsh Nagar",s:"पिंक स्क्वायर शॉपिंग जोन",s_en:"Pink Square Complex",q:"Pink+Square+Mall+Raja+Park+Jaipur",cats:["mall","food","toddler"],en:"pink square mall raja park adarsh nagar shopping cinema inox food court"},
-
-      /* 74 to 79: Cafes & Hangouts */
       {id:74,n:"टपरी सेंट्रल (Tapri Central)",n_en:"Tapri Central (C-Scheme)",i:"सेंट्रल पार्क का हरा-भरा नजारा, कुल्हड़ चाय, खाखरा पिज्जा, दाल पकवान व यूथ वाइब",i_en:"Central Park Rooftop Views, Kulhad Chai, Khakhra Pizza, Brunch",a:"सी-स्कीम",a_en:"C-Scheme",s:"Tapri The Tea House",s_en:"Tapri The Tea House",q:"Tapri+Central+C+Scheme+Jaipur",cats:["cafe","streetfood"],en:"tapri central c scheme central park view kulhad chai tea khakhra pizza brunch rooftop cafe youth hangout reddit"},
       {id:75,n:"जवाहर कला केंद्र (JKK) व ICH",n_en:"Jawahar Kala Kendra (JKK & ICH)",i:"चार्ल्स कोरिया द्वारा डिजाइन आर्ट सेंटर, आर्ट गैलरी, थियेटर, फिल्टर कॉफी व कटलेट",i_en:"Charles Correa Cultural Arts Center, Art Galleries, Indian Coffee House",a:"जेएलएन मार्ग",a_en:"JLN Marg",s:"इंडियन कॉफी हाउस (ICH at JKK)",s_en:"Indian Coffee House (JKK)",q:"Jawahar+Kala+Kendra+Jaipur",cats:["cafe","crafts","sightseeing"],en:"jawahar kala kendra jkk indian coffee house ich filter coffee cultural center art gallery theatre jln marg"},
       {id:76,n:"नाहरगढ़ पड़ाव व सनसेट पॉइंट",n_en:"Padao Sunset Point (Nahargarh)",i:"पूरे जयपुर शहर का विहंगम 360° विहंगम नजारा, खुली हवा में शाम का डाइनिंग व सूर्यास्त",i_en:"Panoramic 360° City Horizon Views, Open-air Heritage Dining",a:"नाहरगढ़ किला",a_en:"Nahargarh Fort",s:"पड़ाव ओपन एयर रेस्टोरेंट",s_en:"Padao Open Air Restaurant",q:"Padao+Nahargarh+Fort+Jaipur",cats:["cafe","sightseeing"],en:"nahargarh padao open air restaurant sunset point scenic city view rooftop bird eye night skyline fort"},
       {id:77,n:"टैटू कैफ़े व विंड व्यू कैफ़े",n_en:"The Tattoo Cafe & Wind View",i:"हवा महल के ठीक सामने रूफटॉप कैफ़े, परफेक्ट इंस्टाग्राम फोटो व्यू, शेक्स व कॉफी",i_en:"Front-facing Hawa Mahal Views, Rooftop Aesthetic, Specialty Drinks",a:"बड़ी चौपड़",a_en:"Badi Chaupar (Opp. Hawa Mahal)",s:"The Tattoo Cafe & Wind View",s_en:"The Tattoo Cafe",q:"The+Tattoo+Cafe+Jaipur",cats:["cafe","sightseeing"],en:"the tattoo cafe wind view cafe hawa mahal rooftop view photography coffee shakes instagram famous"},
       {id:78,n:"टाउन कॉफी / द फार्म कॉफी",n_en:"Town Coffee Roasters",i:"आर्टिसनल स्पेशल ब्रू कॉफी, क्रोइसैंट, वुडफायर्ड पिज्जा व आउटडोर ग्रीनरी सिटिंग",i_en:"Artisanal Single-origin Brews, Croissants, Aesthetic Outdoor Seating",a:"सी-स्कीम",a_en:"C-Scheme",s:"Town Coffee Roasters",s_en:"Town Coffee Roasters",q:"Town+Coffee+C+Scheme+Jaipur",cats:["cafe"],en:"town coffee roasters the farm coffee bar c scheme speciality coffee aesthetic cafe hangout bakery"},
       {id:79,n:"स्वीटन हाउस / काफ़े तोसकाना",n_en:"The Swinton House",i:"हेरिटेज विक्टोरियन एंबियंस, इटैलियन पास्ता, कॉकटेल लाउंज व लाइव म्यूजिक",i_en:"Victorian Heritage Ambience, European Dining, Live Music Evenings",a:"सी-स्कीम",a_en:"C-Scheme",s:"The Swinton House & Cafe Toscana",s_en:"The Swinton House",q:"The+Swinton+House+Jaipur",cats:["cafe","food"],en:"the swinton house cafe toscana c scheme fine dining italian pasta aesthetic heritage ambience lounge"},
-
-      /* 80 to 85: Food Courts & Landmarks */
       {id:80,n:"मसाला चौक (Masala Chowk)",n_en:"Masala Chowk Open Food Court",i:"एक ही ओपन-एयर परिसर में जयपुर के 21+ सबसे मशहूर स्ट्रीट फूड स्टॉल्स (चाट, डोसा, कचौरी)",i_en:"Open-air Food Court Housing 21+ Legendary Jaipur Street Food Outlets",a:"राम निवास बाग",a_en:"Ram Niwas Garden",s:"मसाला चौक ओपन फूड कोर्ट",s_en:"Masala Chowk Complex",q:"Masala+Chowk+Ram+Niwas+Garden+Jaipur",cats:["streetfood","food","toddler","parks"],en:"masala chowk ram niwas garden open air food court all in one street food chaat golgappe samrat albert hall"},
       {id:81,n:"सेठी टिक्का व राजा पार्क स्ट्रीट",n_en:"Sethi Tikka (Raja Park)",i:"तंदूरी चिकन टिक्का, मखमली पनीर टिक्का, काठी रोल्स व देर रात का चटपटा खाना",i_en:"Tandoori Chicken Tikka, Malai Paneer Tikka, Late-night Street Food",a:"राजा पार्क",a_en:"Raja Park",s:"सेठी टिक्का ढाबा, राजा पार्क फूड लेन",s_en:"Sethi Tikka Dhabha",q:"Sethi+Tikka+Dhabha+Raja+Park+Jaipur",cats:["streetfood","food"],en:"sethi tikka raja park tandoori chicken paneer tikka kathi roll nonveg night street food"},
       {id:82,n:"नंद & चावला के गोलगप्पे",n_en:"Nand & Chawla Golgappa",i:"मसालेदार पुदीना पानी, मीठी सौंठ, सूजी व आटे की पानी पताशी की आइकॉनिक प्रतिद्वंद्विता",i_en:"Spicy Mint & Sweet Tamarind Water Pani Puri, Atta/Sooji Patashi",a:"फैशन स्ट्रीट",a_en:"Fashion Street, Raja Park",s:"नंद गोलगप्पे & चावला ब्रदर्स",s_en:"Chawla & Nand Golgappe",q:"Chawla+Golgappa+Raja+Park+Jaipur",cats:["streetfood"],en:"chawla nand golgappe pani puri patashi puchka spicy pudina meetha sonth raja park street food"},
       {id:83,n:"साहू की चाय (1968)",n_en:"Sahu Chai (Since 1968)",i:"पीतल के बड़े पतीले में कोयले की धीमी आंच पर पकी इलायची-अदरक दूधिया कड़क चाय",i_en:"Coal-simmered Elaichi Milk Tea Brewed in Brass Cauldrons",a:"चौड़ा रास्ता",a_en:"Chaura Rasta",s:"साहू चाय वाले (Sahu Chai)",s_en:"Sahu Chai Wale",q:"Sahu+Chai+Wale+Chaura+Rasta+Jaipur",cats:["streetfood","cafe"],en:"sahu chai chaura rasta coal cooked tea brass pot elaichi kadak chai morning tea street food"},
       {id:84,n:"पंडित पाव भाजी व भेलपूरी",n_en:"Pandit Pav Bhaji (Birla Temple)",i:"भरपूर अमूल बटर में तवे पर सिंकती चटपटी पाव भाजी, मुंबईया भेल व फालूदा कुल्फी",i_en:"Buttery Tawa Pav Bhaji, Bhelpuri, Evening Street Snacks",a:"बिड़ला मंदिर के सामने",a_en:"Opposite Birla Mandir",s:"पंडित पाव भाजी सेंटर",s_en:"Pandit Pav Bhaji Centre",q:"Pandit+Pav+Bhaji+Birla+Temple+Jaipur",cats:["streetfood"],en:"pandit pav bhaji opposite birla mandir butter pav bhaji bhelpuri evening snack food truck"},
       {id:85,n:"पत्रिका गेट व जवाहर सर्किल",n_en:"Patrika Gate & Jawahar Circle",i:"हाथ से चित्रित रंग-बिरंगे राजस्थानी 9 मेहराब (गेट), म्यूजिकल फाउंटेन, किड्स गार्डन व स्ट्रीट फूड",i_en:"Hand-painted 9 Architectural Arches, Musical Fountain, Kids Play Lawn",a:"जवाहर सर्किल",a_en:"JLN Marg (Jawahar Circle)",s:"पत्रिका गेट हेरिटेज लेन",s_en:"Patrika Gate Promenade",q:"Patrika+Gate+Jawahar+Circle+Jaipur",cats:["sightseeing","streetfood","toddler","parks"],en:"patrika gate jawahar circle musical fountain photography instagram spots colourful arches picnic jln marg toddler playground"},
-
-      /* 86 to 105: Outskirts, Temples, Major Parks */
       {id:86,n:"श्री लक्ष्मी जगदीश जी मंदिर (गोनेर)",n_en:"Jagdish Ji Temple (Goner)",i:"'गोनेर के जगदीश धणी'—प्राचीन चमत्कारी विष्णु मंदिर, पवित्र तालाब दर्शन, प्रसिद्ध पुआ-खीर भोग",i_en:"Ancient Vishnu Pilgrimage, Holy Sarovar, Famous Pua-Kheer Prasadi",a:"गोनेर कस्बा",a_en:"Goner Town (Jagatpura Extension)",s:"जगदीश जी मंदिर ट्रस्ट व पुआ-खीर प्रसादी स्टॉल",s_en:"Jagdish Ji Temple Trust",q:"Jagdish+Ji+Temple+Goner+Jaipur",cats:["temple","outskirts","food"],en:"jagdish ji temple goner gooner jagdish mandir vishnu jagannath pua kheer prasad pond talab pilgrim spiritual outskirts jagatpura sanganer"},
       {id:87,n:"बीसलपुर बांध व बीसलदेव मंदिर",n_en:"Bisalpur Dam & Bisaldeo Shivalaya",i:"जयपुर की लाइफलाइन—विशाल नीला जलाशय, बनास नदी का विहंगम दृश्य, 12वीं सदी का जलमग्न शिव मंदिर व पिकनिक",i_en:"Banas River Reservoir, 12th-century Submerged Shiva Temple, Scenic Views",a:"टोंक जिला",a_en:"Tonk District (~140 km)",s:"बीसलपुर डैम व्यू पॉइंट व बीसलदेव मंदिर",s_en:"Bisalpur View Point",q:"Bisalpur+Dam+Tonk+Rajasthan",cats:["outskirts","sightseeing","parks"],en:"bisalpur dam beesalpur dam tonk banas river water reservoir lake boating bisaldeo mahadev shiva temple day trip picnic nature"},
       {id:88,n:"सिटी पार्क मानसरोवर (City Park)",n_en:"City Park (Mansarovar)",i:"52 एकड़ में फैला भव्य पार्क, म्यूजिकल फाउंटेन, भव्य स्कल्पचर्स, विशाल किड्स प्ले एरिया, जॉगिंग ट्रैक व ओपन जिम",i_en:"52-acre Urban Park, Musical Fountains, Extensive Toddler Play Area, Tracks",a:"VT रोड (मानसरोवर)",a_en:"VT Road (Mansarovar)",s:"सिटी पार्क एंट्रेंस प्लाजा & फूड कोर्ट",s_en:"City Park Plaza",q:"City+Park+Mansarovar+Jaipur",cats:["toddler","parks","sightseeing"],en:"city park mansarovar vt road musical fountain jogging track kids playground toddler friendly sculptures lawn greenery family picnic"},
@@ -1626,9 +1786,7 @@
       {id:103,n:"हाथी गांव (Elephant Village)",n_en:"Elephant Village (Hathi Gaon)",i:"हाथियों के साथ दोस्ताना मुलाकात—हाथियों को चारा खिलाना, नहलाना, नेचुरल पेंटिंग व बच्चों के लिए यादगार रोमांच",i_en:"Sanctuary to Feed, Bathe, and Learn About Asian Elephants Ethically",a:"कुंडा (आमेर के आगे)",a_en:"Kunda (Delhi Highway)",s:"हाथी गांव रेस्क्यू एंड ईको सेंटर",s_en:"Hathi Gaon Community Center",q:"Hathi+Gaon+Elephant+Village+Jaipur",cats:["toddler","outskirts","sightseeing"],en:"hathi gaon elephant village kunda amer elephant feeding bathing animal interaction kids friendly family outing"},
       {id:104,n:"द्रव्यवती रिवरफ्रंट व बोटेनिकल पार्क",n_en:"Dravyavati Riverfront Parks",i:"16 किमी सुंदर सुसज्जित रिवरफ्रंट पाथवे, लैंडस्केप बोटेनिकल गार्डन, ओपन लॉन व बच्चों के लिए वॉकिंग एरिया",i_en:"16 km Landscaped Riverwalk, Botanical Gardens, Promenade, Stroller Parks",a:"मानसरोवर / सांगानेर",a_en:"Mansarovar / Sanganer",s:"द्रव्यवती लैंडस्केप गार्डन",s_en:"Dravyavati Botanical Garden",q:"Dravyavati+Riverfront+Jaipur",cats:["parks","toddler"],en:"dravyavati riverfront botanical park shipra path sanganer mansarovar walking track landscaped gardens kids play"},
       {id:105,n:"भानगढ़ का किला",n_en:"Bhangarh Fort (Ruins & Heritage)",i:"रहस्यमयी 17वीं सदी का किला, खंडहर महल, प्राचीन गोपीनाथ मंदिर व अरावली घाटी की रोमांचक ऐतिहासिक डे-ट्रिप",i_en:"17th-century ASI Protected Palace Ruins, Gopinath Temple, Aravalli Valleys",a:"भानगढ़",a_en:"Bhangarh (~85 km)",s:"एएसआई (ASI) भानगढ़ हेरिटेज कॉम्प्लेक्स",s_en:"ASI Bhangarh Complex",q:"Bhangarh+Fort+Rajasthan",cats:["outskirts","sightseeing"],en:"bhangarh fort mystery ruins gopinath temple aravalli hills day trip heritage spooky ruins nature travel"},
-
-      /* 106 to 118: Kishangarh, Pushkar & Similar Spots */
-      {id:106,n:"किशनगढ़ मार्बल डंप यार्ड",n_en:"Kishangarh Marble Dump Yard",i:"'राजस्थान का स्विट्जरलैंड / मूनलैंड'—सफेद संगमरमर स्लरी का विशाल बर्फीला लैंडस्केप, नीला पानी, सिनेमैटिक फोटोशूट",i_en:"'Moonland of Rajasthan' - Expansive White Slurry Landscape with Turquoise Waters",a:"किशनगढ़",a_en:"Kishangarh (~100 km)",s:"मार्बल एसोसिएशन गेट (एंट्री पास काउंटर)",s_en:"Marble Association Gate",q:"Kishangarh+Marble+Dump+Yard+Rajasthan",cats:["outskirts","sightseeing"],en:"kishangarh marble dump yard dumpyard snow white desert moonland lake photoshoot pre wedding ajmer road outskirts switzerland of rajasthan"},
+      {id:106,n:"किशनगढ़ मार्बल डंप यार्ड",n_en:"Kishangarh Marble Dump Yard",i:"'राजस्थान का स्विट्जरलैंड / मूनलैंड'—सफेद संगमरमर स्लरी का विशाल बर्फीला लैंडस्केप, नीला पानी, सिनेमैटिक फोटोशूट",i_en:"'Moonland of Rajasthan' - Expansive White Slurry Landscape with Turquoise Waters",a:"किशनगढ़",a_en:"Kishangarh (~100 km)",s:"मार्बल एसोसिएशन गेट (एंट्री पास काउंटर)",s_en:"Marble Association Gate",q:"Kishangarh+Marble+Dump+Yard+Rajasthan",cats:["outskirts","sightseeing"],en:"kishanplate marble dump yard dumpyard snow white desert moonland lake photoshoot pre wedding ajmer road outskirts switzerland of rajasthan"},
       {id:107,n:"पुष्कर सरोवर व ब्रह्मा मंदिर",n_en:"Pushkar Sarovar & Brahma Temple",i:"विश्व का एकमात्र प्रमुख ब्रह्मा मंदिर, 52 पवित्र घाट, महाआरती, गुलाब इत्र/गुलकंद, ऊंट सफारी, मालपुआ व कैफ़े",i_en:"Holy Lake with 52 Ghats, Sole Prominent Brahma Temple, Desert Cafes & Malpua",a:"पुष्कर तीर्थ",a_en:"Pushkar (~145 km)",s:"ब्रह्मा मंदिर, वराह घाट, राधे जी मालपुआ",s_en:"Brahma Temple, Varaha Ghat",q:"Brahma+Temple+Pushkar+Rajasthan",cats:["temple","outskirts","sightseeing","cafe","food"],en:"pushkar brahma temple pushkar lake ghat holy lake camel safari savitri temple malpua rabdi desert cafe day trip pilgrim gulkand rose water"},
       {id:108,n:"फाउंटेन स्क्वायर पार्क",n_en:"Fountain Square Park",i:"रंग-बिरंगे इंटरएक्टिव म्यूजिकल फव्वारे, शांत ग्रीन लॉन, बच्चों के राइड्स, ओपन सिटिंग व ईवनिंग फैमिली वॉक",i_en:"Interactive Color Fountains, Lush Lawns, Toddler Rides, Family Strolls",a:"मानसरोवर",a_en:"Mansarovar (Near City Park)",s:"फाउंटेन स्क्वायर प्लाजा",s_en:"Fountain Square Plaza",q:"Fountain+Square+Mansarovar+Jaipur",cats:["parks","toddler","sightseeing"],en:"fountain square park mansarovar musical fountain kids play toddler open lawns greenery evening walk water fountain family spot"},
       {id:109,n:"अजमेर शरीफ दरगाह व आना सागर",n_en:"Ajmer Sharif Dargah & Ana Sagar Lake",i:"हजरत ख्वाजा मोईनुद्दीन चिश्ती दरगाह जियारत, आना सागर बारादरी पर शाम की ठंडी हवा, बोटिंग, सोहन हलवा",i_en:"Khwaja Moinuddin Chishti Shrine, Marble Baradari Pavilions, Lake Boating",a:"अजमेर शहर",a_en:"Ajmer City (~130 km)",s:"दरगाह शरीफ & आना सागर चौपाटी",s_en:"Dargah Sharif & Ana Sagar Chaupati",q:"Ajmer+Sharif+Dargah+Ana+Sagar+Lake+Ajmer",cats:["temple","outskirts","sightseeing","streetfood"],en:"ajmer sharif dargah khwaja garib nawaz ana sagar lake baradari boating chaupati sohan halwa day trip qawwali pilgrim"},
@@ -1641,34 +1799,28 @@
       {id:116,n:"माधवेन्द्र पैलेस स्कल्पचर पार्क",n_en:"The Sculpture Park at Madhavendra Palace",i:"नाहरगढ़ किले के शाही रानियों के 9 महलों में सजी आधुनिक व समकालीन अंतरराष्ट्रीय मूर्तियां",i_en:"Contemporary International Sculptures Curated Inside Royal Queen Suites",a:"नाहरगढ़ किला",a_en:"Nahargarh Fort",s:"स्कल्पचर पार्क आर्ट गैलरी",s_en:"Sculpture Park Gallery",q:"The+Sculpture+Park+Madhavendra+Palace+Nahargarh",cats:["sightseeing","crafts","parks"],en:"madhavendra palace sculpture park nahargarh fort art contemporary sculptures architecture modern art jaipur exhibition"},
       {id:117,n:"गुलाब बाग व रोज गार्डन",n_en:"Gulab Bagh (Rose Garden)",i:"सैकड़ों देशी-विदेशी गुलाबों से महकता हरा-भरा उद्यान, खुला लॉन, कबूतरों का चौक व बच्चों की पिकनिक",i_en:"Botanical Rose Garden, Sprawling Lawns, Stroller Walks",a:"राम निवास बाग",a_en:"Ram Niwas Garden",s:"राम निवास रोज गार्डन",s_en:"Rose Garden Plaza",q:"Ram+Niwas+Garden+Rose+Garden+Jaipur",cats:["parks","toddler"],en:"gulab bagh rose garden ram niwas bagh flowers botanical lush green toddler family walk picnic open lawn"},
       {id:118,n:"झुलेलाल मंदिर व मानसरोवर चौपाटी",n_en:"Jhulelal Mandir & Mansarovar Chaupati",i:"भव्य सिंधी आध्यात्मिक तीर्थ, निकटवर्ती मानसरोवर चौपाटी के 25+ लजीज स्ट्रीट फूड स्टॉल्स",i_en:"Sacred Sindhi Shrine Adjacent to 25+ Live Food Stalls at Mansarovar Chaupati",a:"मानसरोवर",a_en:"Mansarovar (Kaveri Path)",s:"मानसरोवर चौपाटी फूड प्लाजा",s_en:"Mansarovar Chaupati Plaza",q:"Mansarovar+Chaupati+Jaipur",cats:["streetfood","temple","food","toddler"],en:"jhulelal mandir mansarovar chaupati food street fast food kulfi pav bhaji city park area evening food hub family spot"},
-
-      /* 119 to 126: Upcoming Malls & Mega Modern Landmarks */
       {id:119,n:"पैसिफिक मॉल (Pacific Mall)",n_en:"Pacific Mall (Mansarovar)",i:"(Upcoming / New Mega Mall) 450+ ग्लोबल ब्रांड्स, राजस्थान का पहला IMAX मल्टीप्लेक्स सिनेमा, 135 रूम्स लेमन ट्री होटल, गेमिंग एरिना व विशाल फूड कोर्ट",i_en:"(Upcoming Mega Mall) 450+ Global Brands, Rajasthan's First IMAX Multiplex, 135-key Lemon Tree Hotel, Gaming Arena & Food Court",a:"42, VT रोड (मानसरोवर)",a_en:"42, VT Road (Mansarovar)",s:"पैसिफिक मॉल & लेमन ट्री कॉम्प्लेक्स",s_en:"Pacific Mall Complex",q:"Pacific+Mall+VT+Road+Mansarovar+Jaipur",cats:["upcoming","mall","toddler","food"],en:"pacific mall jaipur mansarovar vt road imax cinema lemon tree hotel 450 brands retail upcoming mall new shopping entertainment mega mall"},
       {id:120,n:"मंगलम पिंकवॉक मॉल",n_en:"Manglam Pinkwalk Mall",i:"(Upcoming Lifestyle Mall) 21,000 वर्ग गज में राजस्थान का सबसे बड़ा लाइफस्टाइल रिटेल हब, 6-स्क्रीन मल्टीप्लेक्स, हाइपरमार्केट, रूफटॉप क्लब व गेमिंग जोन",i_en:"(Upcoming Lifestyle Retail) 21,000 sq. yard Retail Hub, 6-Screen Multiplex, Hypermarket, Rooftop Lounges",a:"महल रोड (जगतपुरा)",a_en:"Mahal Road (Jagatpura)",s:"मंगलम पिंकवॉक रिटेल प्लाजा",s_en:"Manglam Pinkwalk Plaza",q:"Manglam+Pink+Walk+Jagatpura+Jaipur",cats:["upcoming","mall","toddler","food"],en:"manglam pinkwalk mall jagatpura mahal road akshay patra lifestyle mall retail multiplex cinema entertainment upcoming project"},
       {id:121,n:"अनिल अग्रवाल इंटरनेशनल स्टेडियम",n_en:"Anil Agarwal International Cricket Stadium",i:"(Under Construction Mega Project) दुनिया का तीसरा और भारत का दूसरा सबसे बड़ा 75,000 दर्शक क्षमता वाला विश्वस्तरीय क्रिकेट स्टेडियम (100 एकड़ परिसर)",i_en:"(Under Construction) World's 3rd Largest Cricket Stadium with 75,000 Seating Capacity Across 100 Acres",a:"चौंप गांव (दिल्ली हाईवे)",a_en:"Chonp (Delhi Highway)",s:"वेदांता HZL व RCA इंटरनेशनल स्टेडियम",s_en:"Vedanta RCA Stadium Site",q:"Anil+Agarwal+International+Cricket+Stadium+Chonp+Jaipur",cats:["upcoming","outskirts","sightseeing"],en:"anil agarwal international cricket stadium chonp delhi highway vedanta hzl rca sports world third largest stadium upcoming landmark"},
       {id:122,n:"राजस्थान इंटरनेशनल सेंटर (RIC)",n_en:"Rajasthan International Centre (RIC)",i:"(Newly Opened Cultural Hub) दिल्ली के IIC की तर्ज पर निर्मित भव्य कन्वेंशन व कल्चरल सेंटर, 650+ सीटर ऑडिटोरियम, आर्ट गैलरी व ओपन एम्फीथिएटर",i_en:"(Newly Opened Cultural Hub) Convention Center with 650-seater Auditorium, Art Galleries & Outdoor Amphitheatre",a:"संस्थान पथ (झालाना)",a_en:"Jhalana Institutional Area",s:"RIC कॉम्प्लेक्स & हेरिटेज कैफ़े",s_en:"RIC Convention Complex",q:"Rajasthan+International+Centre+Jhalana+Jaipur",cats:["upcoming","sightseeing","crafts","cafe"],en:"rajasthan international centre ric jhalana jln marg convention center cultural hub auditorium exhibition art gallery newly opened"},
       {id:123,n:"कॉन्स्टिट्यूशन क्लब ऑफ राजस्थान",n_en:"Constitution Club of Rajasthan (CCR)",i:"(State-of-the-art Club) दिल्ली के कॉन्स्टिट्यूशन क्लब की तर्ज पर बना आधुनिक विधिक व सोशल हब, सेमिनार हॉल्स, फाइन डाइनिंग रेस्टोरेंट्स व स्विमिंग पूल",i_en:"(Modern Social & Intellectual Club) Seminar Halls, Fine Dining Rooms, Swimming Pools & Recreation Suites",a:"ज्योति नगर (विधान सभा)",a_en:"Jyoti Nagar (Vidhan Sabha)",s:"कॉन्स्टिट्यूशन क्लब कॉम्प्लेक्स",s_en:"CCR Luxury Complex",q:"Constitution+Club+of+Rajasthan+Jaipur",cats:["upcoming","sightseeing","food"],en:"constitution club of rajasthan ccr jyoti nagar vidhan sabha luxury club fine dining modern architecture newly built"},
       {id:124,n:"एसएमएस आईपीडी मेडिकल टावर",n_en:"SMS Hospital IPD Medical Tower",i:"(Upcoming Mega Tower) 24 मंजिला भारत का सबसे ऊंचा 116 मीटर मेडिकल टावर, रूफटॉप एयर एम्बुलेंस हेलीपैड व अत्याधुनिक 1200 बेडेड स्मार्ट हेल्थकेयर",i_en:"(Upcoming Landmark Tower) India's Tallest 116-meter 24-Storey Public Healthcare Tower with Rooftop Air Ambulance Helipad",a:"SMS हॉस्पिटल परिसर",a_en:"SMS Hospital (JLN Marg)",s:"एसएमएस आईपीडी टॉवर प्रोजेक्ट",s_en:"SMS IPD Tower Site",q:"SMS+Hospital+IPD+Tower+Jaipur",cats:["upcoming","general","sightseeing"],en:"sms ipd tower medical tower helipad air ambulance 24 floors tallest medical tower health hub upcoming infrastructure"},
-      {id:125,n:"फिनटेक पार्क (FinTech Park)",n_en:"FinTech Park Jaipur",i:"(Upcoming IT/Tech Mega Hub) 106 एकड़ में विकसित अत्याधुनिक फाइनेंशियल व आईटी टेक डिस्ट्रिक्ट, कॉर्पोरेट टावर्स व फ्यूचरिस्टिक बिज़नेस हब",i_en:"(Upcoming Tech District) 106-acre Dedicated Financial Technology & IT Business District by RIICO",a:"सांगानेर-मानसरोवर",a_en:"Sanganer / Mansarovar Ext.",s:"रीको (RIICO) फिनटेक पार्क",s_en:"RIICO FinTech Zone",q:"Fintech+Park+Jaipur",cats:["upcoming","general"],en:"fintech park sanganer mansarovar riico corporate towers financial tech business district it park upcoming development"},
+      {id:125,n:"फिनटेक पार्क (FinTech Park)",n_en:"FinTech Park Jaipur",i:"(Upcoming IT/Tech Mega Hub) 106 एकड़ में विकसित अत्याधुनिक फाइनेंशियल व आईटी टेक डिस्ट्रिक्ट, कॉर्पोरेट टावर्स व Futureistic बिज़नेस हब",i_en:"(Upcoming Tech District) 106-acre Dedicated Financial Technology & IT Business District by RIICO",a:"सांगानेर-मानसरोवर",a_en:"Sanganer / Mansarovar Ext.",s:"रीको (RIICO) फिनटेक पार्क",s_en:"RIICO FinTech Zone",q:"Fintech+Park+Jaipur",cats:["upcoming","general"],en:"fintech park sanganer mansarovar riico corporate towers financial tech business district it park upcoming development"},
       {id:126,n:"ओमैक्स कमर्शियल व लाइफस्टाइल प्लाजा",n_en:"Omaxe Commercial & Lifestyle Arcade",i:"(Upcoming Modern Arcade) इंटीग्रेटेड स्मार्ट कमर्शियल हब, आधुनिक शॉपिंग आर्केड, ओपन-एयर डाइनिंग व एंटरटेनमेंट एरिना",i_en:"(Upcoming Integrated Retail Hub) Smart Commercial Plaza, Open-air Dining Promenade & Entertainment",a:"अजमेर रोड",a_en:"Ajmer Road Expressway",s:"ओमैक्स सिटी प्लाजा",s_en:"Omaxe Retail Hub",q:"Omaxe+City+Ajmer+Road+Jaipur",cats:["upcoming","mall","outskirts"],en:"omaxe city ajmer road upcoming commercial retail shopping arcade lifestyle hub modern complex"},
-
-      /* 127 to 140: Additional Cultural, Safari, Pilgrim & Artisan Hubs */
       {id:127,n:"झालाना लेपर्ड सफारी पार्क",n_en:"Jhalana Leopard Safari Reserve",i:"भारत का पहला शहरी तेंदुआ अभयारण्य, ओपन 4x4 जिप्सी सफारी, 40+ तेंदुए, मोर व पक्षी दर्शन",i_en:"India's Premier Urban Leopard Sanctuary, Open 4x4 Safari, 40+ Wild Leopards, Birding",a:"झालाना डूंगरी",a_en:"Jhalana Hills",s:"झालाना सफारी गेट व बुकिंग सेंटर",s_en:"Jhalana Safari Gate",q:"Jhalana+Leopard+Safari+Jaipur",cats:["parks","toddler","sightseeing"],en:"jhalana leopard safari reserve wildlife animals open gypsy kids nature bird watching jln marg"},
       {id:128,n:"आमागढ़ लेपर्ड रिजर्व",n_en:"Amagarh Leopard Reserve",i:"अरावली की हरी-भरी वादियों में दूसरा लेपर्ड सफारी ट्रैक, प्राचीन आमागढ़ किला व सुरम्य ट्रेल्स",i_en:"Second Dedicated Leopard Reserve of Jaipur, Panoramic Aravalli Vistas, Amagarh Fort",a:"घाट की गुणी / ट्रांसपोर्ट नगर",a_en:"Ghat Ki Guni (Agra Road)",s:"आमागढ़ सफारी चेकपोस्ट",s_en:"Amagarh Safari Post",q:"Amagarh+Leopard+Reserve+Jaipur",cats:["parks","outskirts","sightseeing"],en:"amagarh leopard safari reserve agra road hills nature wildlife fort aravalli"},
       {id:129,n:"बगरू ब्लॉक प्रिंटिंग विलेज",n_en:"Bagru Handblock Village Hub",i:"विश्व विख्यात दाबू व प्राकृतिक डाई की पुश्तैनी छीपा कारीगरी, लाइव प्रिंटिंग कार्यशालाएं",i_en:"World-renowned Dabu Mud-Resist & Natural Vegetable Dye Artisan Village & Workshops",a:"बगरू कस्बा (अजमेर रोड)",a_en:"Bagru Town (Ajmer Road)",s:"बगरू छीपा हस्तशिल्प समिति",s_en:"Bagru Artisan Guild & Studios",q:"Bagru+Handblock+Printing+Jaipur",cats:["crafts","textiles","outskirts"],en:"bagru handblock printing dabu indigo natural dye artisan village textiles workshop ajmer road"},
       {id:130,n:"सांगानेर पेपर व ब्लॉक प्रिंट हब",n_en:"Sanganer Handmade Paper & Textiles",i:"पारंपरिक सांगानेरी ब्लॉक प्रिंटिंग, शुद्ध सूती मलमल और 500 वर्ष पुरानी हैंडमेड पेपर मिलें",i_en:"500-yr-old Handmade Cotton Rag Paper Mills, Sanganeri Calico Block Printing",a:"सांगानेर टाउन",a_en:"Sanganer Town",s:"सलीम हैंडमेड पेपर, सांगानेर प्रिंट्स",s_en:"Salim's Paper Mill, Sanganer Guild",q:"Sanganer+Handmade+Paper+Jaipur",cats:["crafts","textiles"],en:"sanganer handmade paper block print cotton fabric artisan heritage sanganeri kurti"},
       {id:131,n:"चांदपोल हनुमान मंदिर",n_en:"Chandpole Hanuman Mandir",i:"परकोटा चांदपोल दरवाजे पर स्थित अति प्राचीन स्वयंभू संकटमोचन हनुमान जी, सिंदूरी चोला दर्शन",i_en:"Ancient Protective Gateway Hanuman Shrine at Chandpole Gate, Grand Tuesday Aarti",a:"चांदपोल दरवाजा",a_en:"Chandpole Gate",s:"चांदपोल हनुमान जी मंदिर ट्रस्ट",s_en:"Chandpole Temple Trust",q:"Chandpole+Hanuman+Ji+Temple+Jaipur",cats:["temple"],en:"chandpole hanuman ji temple mandir old city gate pooja darshan tuesday"},
-      {id:132,n:"तारापोरवाला ब्लू पॉटरी लेन",n_en:"Jaipur Blue Pottery Artisan Row",i:"क्वार्ट्ज, कांच व मुल्तानी मिट्टी से बनी प्रामाणिक जयपुरी ब्लू पॉटरी, क्रॉकरी व होम डेकोर",i_en:"Authentic Turqoise Blue Pottery Handcrafted from Quartz & Multani Mitti, Planters, Decor",a:"कोटा-आमेर रोड / सांगानेर",a_en:"Amer Road & Sanganer",s:"नीरज ब्लू पॉटरी, हेरिटेज पॉटर्स",s_en:"Neeraj Blue Pottery, Kripal Kumbh",q:"Blue+Pottery+Jaipur",cats:["crafts"],en:"blue pottery jaipur authentic quartz ceramics handcrafted vases tiles kripal kumbh crafts"},
+      {id:132,n:"तारापोरवाला ब्लू पॉटरी लेन",n_en:"Jaipur Blue Pottery Artisan Row",i:"क्वार्ट्ज, कांच व मुल्तानी मिट्टी से बनी प्रामाणिक जयपुरी ब्लू पॉटरी, क्रॉकरी व होम डेकोर",i_en:"Authentic Turquoise Blue Pottery Handcrafted from Quartz & Multani Mitti, Planters, Decor",a:"कोटा-आमेर रोड / सांगानेर",a_en:"Amer Road & Sanganer",s:"नीरज ब्लू पॉटरी, हेरिटेज पॉटर्स",s_en:"Neeraj Blue Pottery, Kripal Kumbh",q:"Blue+Pottery+Jaipur",cats:["crafts"],en:"blue pottery jaipur authentic quartz ceramics handcrafted vases tiles kripal kumbh crafts"},
       {id:133,n:"किशनपोल बाजार फर्नीचर व क्राफ्ट",n_en:"Kishanpole Artisan Furniture Row",i:"सागवान, शीशम की नक्काशीदार विंटेज कुर्सियां, डाइनिंग टेबल्स, झरोखा आईने व ब्रास क्राफ्ट",i_en:"Carved Solid Sheesham & Teak Furniture, Brass Metal Artifacts, Heritage Mirrors",a:"किशनपोल बाजार",a_en:"Kishanpole Bazar",s:"किशनपोल फर्नीचर एम्पोरियम",s_en:"Kishanpole Furniture Emporiums",q:"Kishanpole+Bazar+Furniture+Jaipur",cats:["crafts","general"],en:"kishanpole bazar furniture wood carving sheesham teak dining table mirror vintage"},
       {id:134,n:"गुलाब जी दूधिया व जलेबी कॉर्नर",n_en:"Gulab Ji Dudhiya & Rabdi Lane",i:"कड़ाही में घंटों खौलता गाढ़ा मलाईदार केसरिया दूध, इमरती व गरम जलेबी",i_en:"Slow-simmered Saffron Milk with Clotted Cream, Hot Imarti & Jalebi",a:"त्रिपोलिया मुहाना",a_en:"Tripolia Bazar",s:"गुलाब जी दूध भंडार",s_en:"Gulab Ji Doodh Bhandar",q:"Tripolia+Bazar+Jaipur",cats:["streetfood","food"],en:"gulab ji doodh milk rabdi jalebi imarti kesar malai street food dessert sweet"},
       {id:135,n:"सामोद पैलेस व सामोद बाग",n_en:"Samode Palace & Bagh Garden",i:"400 वर्ष पुराना शीश महल, भित्ति चित्र (Fresco Art), फव्वारों से सजे मुगल बाग व लक्जरी डे ट्रिप",i_en:"400-yr-old Sheesh Mahal, Mirror Inlay Frescoes, Fountained Mughal Gardens",a:"सामोद",a_en:"Samode Village (~42 km)",s:"सामोद हेरिटेज पैलेस",s_en:"Samode Palace Reception",q:"Samode+Palace+Rajasthan",cats:["outskirts","sightseeing"],en:"samode palace bagh sheesh mahal fresco art heritage hotel luxury garden day trip"},
-      {id:136,n:"हाथी बाबू का बाग व मिलेट्स कैफ़े",n_en:"Hathi Babu Ka Bagh & Organic Hub",i:"प्राकृतिक हरियाली, बच्चों के लिए शांत सिटिंग लॉन व ऑर्गेनिक राजस्थानी मोटा अनाज व्यंजन",i_en:"Green Botanical Garden with Relaxed Seating, Organic Millets (Bajra/Jowar) Cafe",a:"बनीपार्क",a_en:"Bani Park",s:"ऑर्गेनिक मिलेट्स कैफ़े",s_en:"Bani Park Garden Cafe",q:"Hathi+Babu+Ka+Bagh+Bani+Park+Jaipur",cats:["parks","toddler","cafe"],en:"hathi babu bagh bani park organic cafe greenery kids play peaceful garden"},
+      {id:136,n:"हाथी बाबू का बाग व मिलेट्स कैफ़े",n_en:"Hathi Babu Ka Bagh & Organic Hub",i:"प्राकृतिक हरियाली, बच्चों के लिए शांत सिटिंग लॉन व Organic राजस्थानी मोटा अनाज व्यंजन",i_en:"Green Botanical Garden with Relaxed Seating, Organic Millets (Bajra/Jowar) Cafe",a:"बनीपार्क",a_en:"Bani Park",s:"ऑर्गेनिक मिलेट्स कैफ़े",s_en:"Bani Park Garden Cafe",q:"Hathi+Babu+Ka+Bagh+Bani+Park+Jaipur",cats:["parks","toddler","cafe"],en:"hathi babu bagh bani park organic cafe greenery kids play peaceful garden"},
       {id:137,n:"विद्याधर बाग हेरिटेज गार्डन",n_en:"Vidyadhar Garden",i:"जयपुर के वास्तुकार विद्याधर भट्टाचार्य को समर्पित सुंदर सीढ़ीदार मुगल-राजपूत गार्डन, फव्वारे व मोर",i_en:"Terraced Garden Dedicated to City Architect Vidyadhar, Peacock Habitats, Fountains",a:"घाट की गुणी",a_en:"Ghat Ki Guni (Agra Road)",s:"विद्याधर गार्डन हेरिटेज कॉम्प्लेक्स",s_en:"Vidyadhar Bagh Entry",q:"Vidyadhar+Garden+Jaipur",cats:["parks","sightseeing","toddler"],en:"vidyadhar garden bagh ghat ki guni agra road fountains peacocks heritage architecture picnic"},
       {id:138,n:"सिसोदिया रानी का बाग",n_en:"Sisodia Rani Palace & Garden",i:"1728 ई. में निर्मित बहुस्तरीय सीढ़ीदार हेरिटेज गार्डन, राधा-कृष्ण भित्ति चित्र व प्राकृतिक झरने",i_en:"Tiered 1728 Heritage Water Palace, Radha-Krishna Fresco Wall Murals, Cascades",a:"आगरा रोड",a_en:"Agra Road",s:"सिसोदिया रानी पैलेस एंट्री",s_en:"Sisodia Rani Bagh Complex",q:"Sisodia+Rani+Ka+Bagh+Jaipur",cats:["parks","sightseeing","toddler"],en:"sisodia rani bagh garden water palace cascades murals heritage family walk agra road"},
-      {id:139,n:"रामगढ़ झील व एडवेंचर ट्रेल",n_en:"Ramgarh Lake & Nature Valley",i:"प्राचीन प्राकृतिक झील घाटी, अरावली ट्रेकिंग, पक्षी दर्शन, शांत पिकनिक व वीकेंड ड्राइव",i_en:"Historic Scenic Lake Basin Surrounded by Aravalli Hills, Birding & Driving Trails",a:"जामवा रामगढ़",a_en:"Jamwa Ramgarh (~35 km)",s:"रामgarh लेक व्यू पॉइंट",s_en:"Ramgarh Lake Promenade",q:"Ramgarh+Lake+Jaipur",cats:["outskirts","parks","sightseeing"],en:"ramgarh lake jamwa ramgarh nature aravalli hills picnic birding drive weekend spot"},
+      {id:139,n:"रामगढ़ झील व एडवेंचर ट्रेल",n_en:"Ramgarh Lake & Nature Valley",i:"प्राचीन प्राकृतिक झील घाटी, अरावली ट्रेकिंग, पक्षी दर्शन, शांत पिकनिक व वीकेंड ड्राइव",i_en:"Historic Scenic Lake Basin Surrounded by Aravalli Hills, Birding & Driving Trails",a:"जामवा रामगढ़",a_en:"Jamwa Ramgarh (~35 km)",s:"रामगढ़ लेक व्यू पॉइंट",s_en:"Ramgarh Lake Promenade",q:"Ramgarh+Lake+Jaipur",cats:["outskirts","parks","sightseeing"],en:"ramgarh lake jamwa ramgarh nature aravalli hills picnic birding drive weekend spot"},
       {id:140,n:"चांदपोल नमकीन व भुजिया गली",n_en:"Chandpole Namkeen & Snack Lane",i:"ताजा तली लौंग सेव, मारवाड़ी भुजिया, रतलामी सेव, खट्टा-मीठा चिवड़ा व हींग दालमोठ",i_en:"Freshly Fried Laung Sev, Spiced Marwari Bhujia, Ratlami Sev, Hing Dalmoth",a:"चांदपोल बाजार",a_en:"Chandpole Bazar",s:"जोधपुर मिष्ठान व नमकीन भंडार",s_en:"Marwari Namkeen Stores",q:"Chandpole+Bazar+Namkeen+Jaipur",cats:["streetfood","food"],en:"chandpole namkeen bhujia sev laung sev dalmoth marwari snacks food kitchen"},
-
-      /* 141 to 145: Famous Gurudwaras */
       {id:141,n:"गुरुद्वारा राजा पार्क (श्री गुरु नानक सत्संग सभा)",n_en:"Gurudwara Raja Park",i:"जयपुर का सबसे प्रमुख व विशाल गुरुद्वारा, भव्य दरबार सा हॉल, विशाल लंगर हॉल व सर्वधर्म सेवा",i_en:"Largest Gurudwara in Jaipur, Grand Darbar Hall, Daily Community Langar",a:"राजा पार्क",a_en:"Raja Park",s:"श्री गुरु नानक सत्संग सभा ट्रस्ट",s_en:"Raja Park Gurudwara Management",q:"Gurudwara+Raja+Park+Jaipur",cats:["temple","food"],en:"gurudwara raja park shri guru nanak satsang sabha langar darbar hall sikh shrine jaipur"},
       {id:142,n:"गुरुद्वारा मानसरोवर",n_en:"Gurudwara Mansarovar",i:"मानसरोवर सेक्टर 3 में स्थित शांतिपूर्ण गुरुद्वारा, गुरबानी कीर्तन, बच्चों के लिए संस्कार शिविर व लंगर सेवा",i_en:"Peaceful Community Gurudwara in Mansarovar, Gurbani Kirtan, Weekly Langar",a:"मानसरोवर (सेक्टर 3)",a_en:"Mansarovar (Sector 3)",s:"गुरुद्वारा प्रबंधक कमेटी मानसरोवर",s_en:"Mansarovar Gurudwara Sahib",q:"Gurudwara+Mansarovar+Jaipur",cats:["temple"],en:"gurudwara mansarovar sector 3 sikh temple kirtan langar community prayer"},
       {id:143,n:"गुरुद्वारा सिंधी कैंप (स्टेशन रोड)",n_en:"Gurudwara Sindhi Camp",i:"रेलवे स्टेशन व बस स्टैंड के पास स्थित ऐतिहासिक गुरुद्वारा, यात्रियों व शहरवासियों के लिए निरंतर सेवा व लंगर",i_en:"Historic Railway Station Gurudwara, Convenient Pilgrim Rest & Community Kitchen",a:"स्टेशन रोड (सिंधी कैंप)",a_en:"Station Road (Near Sindhi Camp)",s:"गुरुद्वारा सिंह सभा सिंधी कैंप",s_en:"Sindhi Camp Gurudwara Sabha",q:"Gurudwara+Sindhi+Camp+Jaipur",cats:["temple"],en:"gurudwara sindhi camp railway station jaipur sikh shrine langar rest house"},
@@ -1679,7 +1831,7 @@
     var currentLang = "hi";
     var selectedCategory = "all";
 
-    /* String Normalizer for Search */
+    /* Normalizer for Phonetic Search matching */
     function norm(s) {
       if (!s) return "";
       return s.toLowerCase()
@@ -1700,7 +1852,7 @@
         .trim();
     }
 
-    /* Index Search Tokens */
+    /* Index Tokens */
     for (var i = 0; i < D.length; i++) {
       var item = D[i];
       var rawText = (item.id + " " + item.n + " " + item.n_en + " " + item.i + " " + item.i_en + " " + item.a + " " + item.a_en + " " + item.s + " " + item.s_en + " " + item.en).toLowerCase();
@@ -1708,7 +1860,6 @@
       item._norm = norm(rawText);
     }
 
-    /* Render Category Pills */
     function renderCategoryPills() {
       var catBar = document.getElementById("catBar");
       if (!catBar) return;
@@ -1723,7 +1874,6 @@
       catBar.innerHTML = html;
     }
 
-    /* Render Cards in Active Language */
     function render(data) {
       var list = document.getElementById("list");
       var st = document.getElementById("st");
@@ -1762,7 +1912,6 @@
       if (noResult) noResult.style.display = (data.length === 0) ? "block" : "none";
     }
 
-    /* Filter Engine */
     function applyFilters() {
       var sb = document.getElementById("sb");
       var cb = document.getElementById("cb");
@@ -1801,7 +1950,6 @@
       render(matched);
     }
 
-    /* Category Filter Click */
     function filterCat(cat, btnElem) {
       selectedCategory = cat;
       var buttons = document.querySelectorAll("#catBar .cat-pill");
@@ -1816,7 +1964,6 @@
       applyFilters();
     }
 
-    /* Reset Search */
     function resetSearch() {
       var sb = document.getElementById("sb");
       if (!sb) return;
@@ -1825,19 +1972,17 @@
       applyFilters();
     }
 
-    /* FAQ Toggle Accordion */
     function toggleFaq(btn) {
       var item = btn.parentElement;
-      item.classList.toggle("active");
+      var isExpanded = item.classList.toggle("active");
+      btn.setAttribute("aria-expanded", isExpanded);
     }
 
-    /* Language Switch Function */
     function setLanguage(lang) {
       if (lang !== "hi" && lang !== "en") return;
       currentLang = lang;
       document.documentElement.lang = lang;
 
-      // Update switcher button states
       var btnHi = document.getElementById("btnLangHi");
       var btnEn = document.getElementById("btnLangEn");
       if (btnHi && btnEn) {
@@ -1850,7 +1995,6 @@
         }
       }
 
-      // Update static UI translations
       var dict = I18N[lang];
       var translatableElements = document.querySelectorAll("[data-i18n]");
       for (var i = 0; i < translatableElements.length; i++) {
@@ -1861,18 +2005,15 @@
         }
       }
 
-      // Update input placeholder
       var sb = document.getElementById("sb");
       if (sb) {
         sb.placeholder = dict.searchPlaceholder;
       }
 
-      // Re-render categories & directory cards in selected language
       renderCategoryPills();
       applyFilters();
     }
 
-    /* Mobile Nav Toggle */
     function toggleMobileNav() {
       var navLinks = document.querySelector('.nav-links');
       if (!navLinks) return;
@@ -1892,7 +2033,6 @@
       }
     }
 
-    // Input Events
     var searchInput = document.getElementById("sb");
     if (searchInput) {
       searchInput.addEventListener("input", applyFilters);
@@ -1900,7 +2040,7 @@
       searchInput.addEventListener("paste", function() { setTimeout(applyFilters, 10); });
     }
 
-    // Initial Initialization
+    // Initialize
     renderCategoryPills();
     setLanguage('hi');
   </script>
