@@ -1,5 +1,10 @@
-const CACHE_NAME = "jaipur-explorer-v1";
-const APP_SHELL = ["/", "/manifest.webmanifest", "/icons/icon-192.png"];
+const CACHE_NAME = "jaipur-explorer-v2";
+const APP_SHELL = [
+  "/",
+  "/directory-index.json",
+  "/manifest.webmanifest",
+  "/icons/icon-192.png"
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

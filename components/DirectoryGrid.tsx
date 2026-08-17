@@ -33,6 +33,9 @@ import type { DirectoryListing } from "@/lib/directory";
 type Language = "hi" | "en";
 type DirectoryView = "cards" | "map";
 type CategoryCounts = Record<string, number>;
+type DirectoryIndexResponse = {
+  listings: DirectoryListing[];
+};
 
 const categoryIcons: Record<string, LucideIcon> = {
   all: Grid3X3,
@@ -85,29 +88,29 @@ function normalize(value: string) {
 }
 
 export function DirectoryGrid({
-  listings,
-  categories
+  initialListings,
+  categories,
+  categoryCounts,
+  totalCount,
+  initialPageSize
 }: {
-  listings: DirectoryListing[];
+  initialListings: DirectoryListing[];
   categories: DirectoryCategory[];
+  categoryCounts: CategoryCounts;
+  totalCount: number;
+  initialPageSize: number;
 }) {
+  const [listings, setListings] = useState(initialListings);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [language, setLanguage] = useState<Language>("en");
   const [view, setView] = useState<DirectoryView>("cards");
   const [urlStateReady, setUrlStateReady] = useState(false);
+  const [displayLimit, setDisplayLimit] = useState(initialPageSize);
+  const [fullIndexLoaded, setFullIndexLoaded] = useState(
+    initialListings.length >= totalCount
+  );
   const deferredQuery = useDeferredValue(query);
-
-  const categoryCounts = useMemo<CategoryCounts>(() => {
-    return categories.reduce<CategoryCounts>((counts, item) => {
-      counts[item.id] =
-        item.id === "all"
-          ? listings.length
-          : listings.filter((listing) => listing.cats.includes(item.id)).length;
-
-      return counts;
-    }, {});
-  }, [categories, listings]);
 
   const activeCategory =
     categories.find((item) => item.id === category) ?? categories[0];
@@ -136,6 +139,43 @@ export function DirectoryGrid({
     [listings]
   );
 
+  useEffect(() => {
+    if (fullIndexLoaded) {
+      return;
+    }
+
+    const controller = new AbortController();
+
+    fetch("/directory-index.json", {
+      signal: controller.signal,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Directory index request failed");
+        }
+
+        return response.json() as Promise<DirectoryIndexResponse>;
+      })
+      .then((payload) => {
+        if (!Array.isArray(payload.listings) || !payload.listings.length) {
+          throw new Error("Directory index is empty");
+        }
+
+        setListings(payload.listings);
+        setFullIndexLoaded(true);
+      })
+      .catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          return;
+        }
+      });
+
+    return () => controller.abort();
+  }, [fullIndexLoaded]);
+
   const visible = useMemo(() => {
     const rawTokens = deferredQuery
       .toLowerCase()
@@ -158,6 +198,14 @@ export function DirectoryGrid({
       });
     });
   }, [category, deferredQuery, indexed]);
+
+  const visibleTotal =
+    fullIndexLoaded || deferredQuery.trim()
+      ? visible.length
+      : (categoryCounts[category] ?? visible.length);
+  const visibleCards = view === "cards" ? visible.slice(0, displayLimit) : [];
+  const canShowMoreCards =
+    view === "cards" && fullIndexLoaded && visibleCards.length < visible.length;
 
   const areaGroups = useMemo(() => {
     const groups = new Map<string, DirectoryListing[]>();
@@ -185,9 +233,10 @@ export function DirectoryGrid({
       setCategory(categoryIds.has(nextCategory) ? nextCategory : "all");
       setLanguage(nextLanguage === "hi" ? "hi" : "en");
       setView(nextView === "map" ? "map" : "cards");
+      setDisplayLimit(initialPageSize);
       setUrlStateReady(true);
     });
-  }, [categories]);
+  }, [categories, initialPageSize]);
 
   useEffect(() => {
     if (!urlStateReady) {
@@ -237,6 +286,7 @@ export function DirectoryGrid({
     setCategory("all");
     setLanguage("en");
     setView("cards");
+    setDisplayLimit(initialPageSize);
   }
 
   return (
@@ -263,7 +313,7 @@ export function DirectoryGrid({
               Results
             </p>
             <p className="mt-2 text-2xl font-semibold text-white">
-              {visible.length}
+              {visibleTotal}
             </p>
           </div>
           <div>
@@ -271,7 +321,7 @@ export function DirectoryGrid({
               Total
             </p>
             <p className="mt-2 text-2xl font-semibold text-white">
-              {listings.length}
+              {totalCount}
             </p>
           </div>
           <div>
@@ -295,7 +345,10 @@ export function DirectoryGrid({
             />
             <input
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                setDisplayLimit(initialPageSize);
+              }}
               type="search"
               placeholder="Search places, areas, food, temples, malls..."
               className="min-h-12 w-full rounded-lg border border-white/[0.1] bg-white/[0.045] py-3 pl-10 pr-11 text-sm text-white placeholder:text-zinc-600 transition focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none"
@@ -305,7 +358,10 @@ export function DirectoryGrid({
               <button
                 type="button"
                 className="absolute right-1 top-1/2 grid min-h-10 min-w-10 -translate-y-1/2 place-items-center rounded-md text-zinc-500 transition hover:bg-white/[0.08] hover:text-white"
-                onClick={() => setQuery("")}
+                onClick={() => {
+                  setQuery("");
+                  setDisplayLimit(initialPageSize);
+                }}
                 aria-label="Clear search"
               >
                 <X size={16} aria-hidden="true" />
@@ -325,7 +381,10 @@ export function DirectoryGrid({
             <select
               id="category-filter"
               value={category}
-              onChange={(event) => setCategory(event.target.value)}
+              onChange={(event) => {
+                setCategory(event.target.value);
+                setDisplayLimit(initialPageSize);
+              }}
               className="min-h-12 w-full appearance-none rounded-lg border border-white/[0.1] bg-white/[0.045] py-3 pl-10 pr-10 text-sm text-white transition focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none"
             >
               {categories.map((item) => (
@@ -383,7 +442,10 @@ export function DirectoryGrid({
               <button
                 key={item}
                 type="button"
-                onClick={() => setView(item)}
+                onClick={() => {
+                  setView(item);
+                  setDisplayLimit(initialPageSize);
+                }}
                 aria-pressed={view === item}
                 className={`inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-md px-3 text-sm transition lg:flex-none ${
                   view === item
@@ -407,11 +469,11 @@ export function DirectoryGrid({
               {categoryLabel(activeCategory, language)}
             </span>
             <span className="shrink-0 text-zinc-600">
-              {categoryCounts[activeCategory.id] ?? visible.length} indexed
+              {categoryCounts[activeCategory.id] ?? visibleTotal} indexed
             </span>
           </div>
           <p className="hidden text-sm text-zinc-500 sm:block">
-            {visible.length} matching places
+            {visibleTotal} matching places
           </p>
         </div>
 
@@ -424,7 +486,10 @@ export function DirectoryGrid({
               <button
                 key={item.id}
                 type="button"
-                onClick={() => setCategory(item.id)}
+                onClick={() => {
+                  setCategory(item.id);
+                  setDisplayLimit(initialPageSize);
+                }}
                 aria-pressed={selected}
                 className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg border px-3 py-2 text-sm transition ${
                   selected
@@ -449,20 +514,34 @@ export function DirectoryGrid({
         </div>
       </div>
 
-      {visible.length && view === "cards" ? (
-        <div className="directory-bento grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {visible.map((listing, index) => (
-            <ListingCard
-              key={listing.id}
-              listing={listing}
-              language={language}
-              priority={index < 3}
-            />
-          ))}
-        </div>
+      {visible.length > 0 && view === "cards" ? (
+        <>
+          <div className="directory-bento grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {visibleCards.map((listing) => (
+              <ListingCard
+                key={listing.id}
+                listing={listing}
+                language={language}
+              />
+            ))}
+          </div>
+          {canShowMoreCards ? (
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={() =>
+                  setDisplayLimit((current) => current + initialPageSize)
+                }
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.12] hover:text-white"
+              >
+                Show more places
+              </button>
+            </div>
+          ) : null}
+        </>
       ) : null}
 
-      {visible.length && view === "map" ? (
+      {visible.length > 0 && view === "map" ? (
         <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
           <section className="rounded-lg border border-white/[0.1] bg-white/[0.035] p-5">
             <p className="font-mono text-xs tracking-[0.24em] text-gold uppercase">

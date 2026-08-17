@@ -19,6 +19,8 @@ export type DirectoryListing = DirectorySpot & {
   primaryCategory: DirectoryCategory;
 };
 
+export const initialDirectoryLimit = 24;
+
 const layoutCycle: Array<DirectoryListing["layout"]> = [
   "tall",
   "compact",
@@ -51,6 +53,17 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
 export async function getFeaturedListings() {
   const listings = await getDirectoryListings();
   return listings.slice(0, 6);
+}
+
+export function getCategoryCounts(listings: DirectoryListing[]) {
+  return categories.reduce<Record<string, number>>((counts, category) => {
+    counts[category.id] =
+      category.id === "all"
+        ? listings.length
+        : listings.filter((listing) => listing.cats.includes(category.id)).length;
+
+    return counts;
+  }, {});
 }
 
 export async function getDirectoryCategories() {

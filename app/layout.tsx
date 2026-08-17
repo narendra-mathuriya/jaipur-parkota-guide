@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { metadata } from "@/lib/seo";
-import { AndroidBackButton } from "@/components/AndroidBackButton";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -41,7 +40,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="noise-mask" aria-hidden="true" />
           <SiteHeader />
           {children}
-          <AndroidBackButton />
           <ServiceWorkerRegistration />
         </SmoothScrollProvider>
       </body>

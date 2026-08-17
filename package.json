@@ -5,11 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/export-directory-index.mjs",
     "build": "next build",
-    "android:sync": "npm run build && cap sync android",
-    "android:open": "cap open android",
-    "android:build": "npm run android:sync && cd android && ./gradlew assembleDebug",
     "start": "next start",
+    "directory:export": "node scripts/export-directory-index.mjs",
     "images:listings": "node scripts/generate-listing-images.mjs",
     "images:verify": "node scripts/verify-listing-images.mjs",
     "data:validate": "node scripts/validate-directory.mjs",
@@ -19,8 +18,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@capacitor/app": "^8.1.1",
-    "@capacitor/core": "^8.5.0",
     "lenis": "^1.3.26",
     "lucide-react": "latest",
     "motion": "^13.1.0",
@@ -29,8 +26,6 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "@capacitor/android": "^8.5.0",
-    "@capacitor/cli": "^8.5.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "latest",
     "@types/react": "latest",

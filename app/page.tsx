@@ -3,8 +3,10 @@ import { DirectoryGrid } from "@/components/DirectoryGrid";
 import { ScrollHero } from "@/components/ScrollHero";
 import {
   getDirectoryCategories,
+  getCategoryCounts,
   getDirectoryListings,
-  getFeaturedListings
+  getFeaturedListings,
+  initialDirectoryLimit
 } from "@/lib/directory";
 import { buildStructuredData } from "@/lib/seo";
 
@@ -45,7 +47,15 @@ async function DirectoryEngine() {
     getDirectoryCategories()
   ]);
 
-  return <DirectoryGrid listings={listings} categories={directoryCategories} />;
+  return (
+    <DirectoryGrid
+      initialListings={listings.slice(0, initialDirectoryLimit)}
+      categories={directoryCategories}
+      categoryCounts={getCategoryCounts(listings)}
+      totalCount={listings.length}
+      initialPageSize={initialDirectoryLimit}
+    />
+  );
 }
 
 function HeroFallback() {
