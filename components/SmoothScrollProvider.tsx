@@ -18,6 +18,9 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     }
 
     const lenis = new Lenis({
+      anchors: {
+        offset: -96
+      },
       duration: 1.12,
       easing: (time: number) => Math.min(1, 1.001 - Math.pow(2, -10 * time)),
       orientation: "vertical",
