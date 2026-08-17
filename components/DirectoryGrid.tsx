@@ -90,8 +90,26 @@ export function DirectoryGrid({
       className="relative mx-auto max-w-7xl px-4 pb-24 pt-8 sm:px-6 lg:px-8"
       aria-labelledby="directory-heading"
     >
-      <div className="sticky top-20 z-30 -mx-1 mb-8 rounded-[2rem] p-1">
-        <div className="glass-panel grid gap-3 rounded-[1.75rem] p-3 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p className="font-mono text-xs tracking-[0.34em] text-gold uppercase">
+            Curated index
+          </p>
+          <h2
+            id="directory-heading"
+            className="mt-4 max-w-3xl text-4xl font-semibold text-white sm:text-6xl"
+          >
+            {visible.length} places, arranged for slower discovery.
+          </h2>
+        </div>
+        <p className="max-w-sm text-sm leading-6 text-zinc-400">
+          Heritage streets, contemporary retail, pilgrim routes, and food
+          institutions held in one quiet index.
+        </p>
+      </div>
+
+      <div className="sticky top-[5.75rem] z-40 -mx-1 mb-8 rounded-[2rem] bg-obsidian/92 p-1 shadow-[0_20px_70px_rgba(0,0,0,0.72)] backdrop-blur-2xl sm:top-24">
+        <div className="glass-panel-strong grid gap-3 rounded-[1.75rem] bg-[#0b0b0c]/92 p-3 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="relative">
             <Search
               className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
@@ -136,24 +154,6 @@ export function DirectoryGrid({
             ))}
           </div>
         </div>
-      </div>
-
-      <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <p className="font-mono text-xs tracking-[0.34em] text-gold uppercase">
-            Curated index
-          </p>
-          <h2
-            id="directory-heading"
-            className="mt-4 max-w-3xl text-4xl font-semibold text-white sm:text-6xl"
-          >
-            {visible.length} places, arranged for slower discovery.
-          </h2>
-        </div>
-        <p className="max-w-sm text-sm leading-6 text-zinc-400">
-          Heritage streets, contemporary retail, pilgrim routes, and food
-          institutions held in one quiet index.
-        </p>
       </div>
 
       <div className="mb-10 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
