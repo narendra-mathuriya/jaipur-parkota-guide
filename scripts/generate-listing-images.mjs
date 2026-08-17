@@ -3,39 +3,12 @@ import path from "node:path";
 import sharp from "sharp";
 import { directorySpots } from "../src/data/directory.ts";
 import { buildSpotSlug } from "../lib/slugs.ts";
+import {
+  pickListingImageTheme,
+  sourceByTheme
+} from "./listing-image-theme.mjs";
 
 const sourceDir = path.resolve("scripts/listing-image-sources");
-
-const sourceByTheme = {
-  jewelry: "jewelry.png",
-  textiles: "textiles.png",
-  food: "food.png",
-  temple: "temple.png",
-  parks: "parks.png",
-  mall: "mall.png",
-  heritage: "heritage.png",
-  crafts: "crafts.png",
-  cafe: "cafe.png",
-  general: "general.png"
-};
-
-const themePriority = [
-  ["jewelry", "jewelry"],
-  ["textiles", "textiles"],
-  ["wedding", "textiles"],
-  ["streetfood", "food"],
-  ["food", "food"],
-  ["temple", "temple"],
-  ["parks", "parks"],
-  ["toddler", "parks"],
-  ["cafe", "cafe"],
-  ["mall", "mall"],
-  ["upcoming", "mall"],
-  ["crafts", "crafts"],
-  ["sightseeing", "heritage"],
-  ["outskirts", "heritage"],
-  ["general", "general"]
-];
 
 const outDir = path.resolve("public/images/listings");
 
@@ -46,16 +19,6 @@ function hashString(value) {
     hash = Math.imul(hash, 16777619);
   }
   return hash >>> 0;
-}
-
-function pickTheme(spot) {
-  for (const [category, theme] of themePriority) {
-    if (spot.cats.includes(category)) {
-      return theme;
-    }
-  }
-
-  return "general";
 }
 
 function bits(seed, places) {
@@ -110,7 +73,7 @@ async function main() {
 
   for (const spot of directorySpots) {
     const slug = buildSpotSlug(spot);
-    const theme = pickTheme(spot);
+    const theme = pickListingImageTheme(spot);
     const seed = hashString(`${slug}:${spot.cats.join(",")}:${spot.a_en}`);
     const source = path.join(sourceDir, sourceByTheme[theme]);
     const output = path.join(outDir, `${slug}.avif`);
