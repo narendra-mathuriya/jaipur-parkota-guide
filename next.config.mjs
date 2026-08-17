@@ -5,7 +5,8 @@ const nextConfig = {
     unoptimized: true
   },
   poweredByHeader: false,
-  trailingSlash: true
+  trailingSlash: true,
+  agentRules: false
 };
 
 export default nextConfig;
