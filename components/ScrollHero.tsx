@@ -1,9 +1,4 @@
-"use client";
-
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowDown, MapPin } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import { heroImage } from "@/lib/seo";
 import type { DirectoryListing } from "@/lib/directory";
 
@@ -14,56 +9,39 @@ export function ScrollHero({
   totalCount: number;
   featured: DirectoryListing[];
 }) {
-  const trackRef = useRef<HTMLElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 767px)");
-    const sync = () => setIsMobile(media.matches);
-
-    sync();
-    media.addEventListener("change", sync);
-
-    return () => media.removeEventListener("change", sync);
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: trackRef,
-    offset: ["start start", "end start"]
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 0.72], [1, isMobile ? 0.9 : 0.78]);
-  const opacity = useTransform(scrollYProgress, [0, 0.62], [1, isMobile ? 0.42 : 0.2]);
-  const y = useTransform(scrollYProgress, [0, 0.72], [0, isMobile ? -32 : -96]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.8], [isMobile ? 1.03 : 1.08, 1]);
-
   return (
     <section
-      ref={trackRef}
       id="top"
       className="hero-track relative"
       aria-labelledby="hero-heading"
     >
       <div className="sticky top-0 flex min-h-dvh items-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
-        <motion.div
-          className="hero-image absolute inset-0"
-          style={{ scale: imageScale }}
-        >
-          <Image
-            src={heroImage}
-            alt="Jaipur walled city heritage bazaar viewed through pink sandstone arches"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-56"
-          />
-        </motion.div>
+        <div className="hero-image absolute inset-0">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/jaipur-explorer-hero-mobile.avif"
+            />
+            <source
+              srcSet="/images/jaipur-explorer-hero-960.avif 960w, /images/jaipur-explorer-hero-1440.avif 1440w"
+              sizes="100vw"
+            />
+            <img
+              src={heroImage}
+              alt="Jaipur walled city heritage bazaar viewed through pink sandstone arches"
+              width={1440}
+              height={810}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover opacity-56"
+            />
+          </picture>
+        </div>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,6,0.38)_0%,rgba(5,5,6,0.72)_58%,#050506_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050506_0%,rgba(5,5,6,0.76)_36%,rgba(5,5,6,0.2)_100%)]" />
 
-        <motion.div
+        <div
           className="relative z-10 mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end"
-          style={{ scale, opacity, y }}
         >
           <div>
             <p className="font-mono text-xs tracking-[0.34em] text-gold uppercase">
@@ -133,7 +111,7 @@ export function ScrollHero({
               ))}
             </div>
           </aside>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

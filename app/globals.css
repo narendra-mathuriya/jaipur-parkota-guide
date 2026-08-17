@@ -15,8 +15,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --color-obsidian: var(--obsidian);
   --color-graphite: var(--graphite);
   --color-silver: var(--silver);
@@ -42,7 +42,7 @@ body {
   min-height: 100vh;
   background: linear-gradient(180deg, #080809 0%, #050506 54%, #030304 100%);
   color: var(--silver);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body::selection {
@@ -106,7 +106,7 @@ input:focus-visible {
 }
 
 .hero-track {
-  height: min(175vh, 1480px);
+  height: 112vh;
 }
 
 @media (max-width: 767px) {
@@ -156,15 +156,17 @@ input:focus-visible {
 }
 
 .cursor-halo {
-  --x: 50%;
-  --y: 50%;
   background:
     radial-gradient(
-      460px circle at var(--x) var(--y),
+      460px circle at 50% 50%,
       rgba(255, 255, 255, 0.18),
       rgba(216, 197, 159, 0.08) 22%,
       transparent 54%
     );
+}
+
+.mobile-nav summary::-webkit-details-marker {
+  display: none;
 }
 
 @media (pointer: coarse) {

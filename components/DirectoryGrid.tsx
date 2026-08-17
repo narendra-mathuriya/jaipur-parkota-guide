@@ -25,7 +25,14 @@ import {
   X,
   type LucideIcon
 } from "lucide-react";
-import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import {
+  useCallback,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import { ListingCard } from "@/components/ListingCard";
 import type { DirectoryCategory } from "@/src/data/directory";
 import type { DirectoryListing } from "@/lib/directory";
@@ -110,6 +117,7 @@ export function DirectoryGrid({
   const [fullIndexLoaded, setFullIndexLoaded] = useState(
     initialListings.length >= totalCount
   );
+  const fullIndexRequest = useRef<Promise<void> | null>(null);
   const deferredQuery = useDeferredValue(query);
 
   const activeCategory =
@@ -139,15 +147,16 @@ export function DirectoryGrid({
     [listings]
   );
 
-  useEffect(() => {
+  const loadFullIndex = useCallback(() => {
     if (fullIndexLoaded) {
-      return;
+      return Promise.resolve();
     }
 
-    const controller = new AbortController();
+    if (fullIndexRequest.current) {
+      return fullIndexRequest.current;
+    }
 
-    fetch("/directory-index.json", {
-      signal: controller.signal,
+    fullIndexRequest.current = fetch("/directory-index.json", {
       headers: {
         Accept: "application/json"
       }
@@ -168,12 +177,15 @@ export function DirectoryGrid({
         setFullIndexLoaded(true);
       })
       .catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === "AbortError") {
-          return;
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          console.error(error);
         }
+      })
+      .finally(() => {
+        fullIndexRequest.current = null;
       });
 
-    return () => controller.abort();
+    return fullIndexRequest.current;
   }, [fullIndexLoaded]);
 
   const visible = useMemo(() => {
@@ -205,7 +217,10 @@ export function DirectoryGrid({
       : (categoryCounts[category] ?? visible.length);
   const visibleCards = view === "cards" ? visible.slice(0, displayLimit) : [];
   const canShowMoreCards =
-    view === "cards" && fullIndexLoaded && visibleCards.length < visible.length;
+    view === "cards" &&
+    (fullIndexLoaded
+      ? visibleCards.length < visible.length
+      : visibleCards.length < visibleTotal);
 
   const areaGroups = useMemo(() => {
     const groups = new Map<string, DirectoryListing[]>();
@@ -269,6 +284,16 @@ export function DirectoryGrid({
     window.history.replaceState(null, "", nextUrl);
   }, [category, language, query, urlStateReady, view]);
 
+  useEffect(() => {
+    if (!urlStateReady) {
+      return;
+    }
+
+    if (query.trim() || category !== "all" || view === "map") {
+      void loadFullIndex();
+    }
+  }, [category, loadFullIndex, query, urlStateReady, view]);
+
   const hasFilters =
     query.trim().length > 0 ||
     category !== "all" ||
@@ -292,27 +317,27 @@ export function DirectoryGrid({
   return (
     <section
       id="explore"
-      className="relative mx-auto max-w-7xl px-4 pb-24 pt-10 sm:px-6 lg:px-8"
+      className="relative mx-auto max-w-7xl px-3 pb-16 pt-8 sm:px-6 sm:pb-24 sm:pt-10 lg:px-8"
       aria-labelledby="directory-heading"
     >
-      <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-end">
+      <div className="mb-5 grid gap-4 sm:mb-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-end">
         <div>
           <p className="font-mono text-xs tracking-[0.28em] text-gold uppercase">
             Search the index
           </p>
           <h2
             id="directory-heading"
-            className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-6xl"
+            className="mt-3 max-w-3xl text-3xl font-semibold leading-tight text-white sm:mt-4 sm:text-6xl"
           >
             Find the right lane fast.
           </h2>
         </div>
-        <div className="grid gap-3 rounded-lg border border-white/[0.08] bg-white/[0.035] p-4 sm:grid-cols-3">
+        <div className="grid grid-cols-3 gap-2 rounded-lg border border-white/[0.08] bg-white/[0.035] p-3 sm:gap-3 sm:p-4">
           <div>
             <p className="font-mono text-[0.65rem] tracking-[0.18em] text-zinc-500 uppercase">
               Results
             </p>
-            <p className="mt-2 text-2xl font-semibold text-white">
+            <p className="mt-1 text-xl font-semibold text-white sm:mt-2 sm:text-2xl">
               {visibleTotal}
             </p>
           </div>
@@ -320,7 +345,7 @@ export function DirectoryGrid({
             <p className="font-mono text-[0.65rem] tracking-[0.18em] text-zinc-500 uppercase">
               Total
             </p>
-            <p className="mt-2 text-2xl font-semibold text-white">
+            <p className="mt-1 text-xl font-semibold text-white sm:mt-2 sm:text-2xl">
               {totalCount}
             </p>
           </div>
@@ -328,15 +353,15 @@ export function DirectoryGrid({
             <p className="font-mono text-[0.65rem] tracking-[0.18em] text-zinc-500 uppercase">
               View
             </p>
-            <p className="mt-2 truncate text-sm font-medium text-zinc-200">
+            <p className="mt-1 truncate text-xs font-medium text-zinc-200 sm:mt-2 sm:text-sm">
               {view === "cards" ? "Cards" : "Map"}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="sticky top-[4.75rem] z-40 -mx-4 mb-6 border-y border-white/[0.08] bg-[#050506]/88 px-4 py-3 shadow-[0_22px_70px_rgba(0,0,0,0.48)] backdrop-blur-2xl sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_18rem_auto_auto] lg:items-center">
+      <div className="z-40 -mx-3 mb-4 border-y border-white/[0.08] bg-[#050506]/88 px-3 py-2 shadow-[0_22px_70px_rgba(0,0,0,0.48)] backdrop-blur-2xl sm:sticky sm:top-[4.75rem] sm:-mx-6 sm:mb-6 sm:px-6 sm:py-3 lg:-mx-8 lg:px-8">
+        <div className="grid gap-2 sm:gap-3 lg:grid-cols-[minmax(0,1fr)_18rem_auto_auto] lg:items-center">
           <div className="relative">
             <Search
               className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
@@ -345,13 +370,15 @@ export function DirectoryGrid({
             />
             <input
               value={query}
+              onFocus={() => void loadFullIndex()}
               onChange={(event) => {
+                void loadFullIndex();
                 setQuery(event.target.value);
                 setDisplayLimit(initialPageSize);
               }}
               type="search"
               placeholder="Search places, areas, food, temples, malls..."
-              className="min-h-12 w-full rounded-lg border border-white/[0.1] bg-white/[0.045] py-3 pl-10 pr-11 text-sm text-white placeholder:text-zinc-600 transition focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none"
+              className="min-h-11 w-full rounded-lg border border-white/[0.1] bg-white/[0.045] py-2.5 pl-10 pr-11 text-sm text-white placeholder:text-zinc-600 transition focus:border-white/[0.26] focus:bg-white/[0.075] focus:outline-none sm:min-h-12 sm:py-3"
               aria-label="Search Jaipur directory"
             />
             {query ? (
@@ -381,7 +408,10 @@ export function DirectoryGrid({
             <select
               id="category-filter"
               value={category}
+              onFocus={() => void loadFullIndex()}
+              onPointerDown={() => void loadFullIndex()}
               onChange={(event) => {
+                void loadFullIndex();
                 setCategory(event.target.value);
                 setDisplayLimit(initialPageSize);
               }}
@@ -401,7 +431,7 @@ export function DirectoryGrid({
           </div>
 
           <div className="grid grid-cols-[1fr_auto] gap-2 lg:flex lg:items-center">
-            <div className="flex min-h-12 items-center rounded-lg border border-white/[0.1] bg-white/[0.045] p-1">
+            <div className="flex min-h-11 items-center rounded-lg border border-white/[0.1] bg-white/[0.045] p-1 sm:min-h-12">
               <Languages
                 className="mx-2 hidden text-zinc-500 sm:block"
                 size={16}
@@ -434,7 +464,7 @@ export function DirectoryGrid({
             </button>
           </div>
 
-          <div className="flex min-h-12 items-center rounded-lg border border-white/[0.1] bg-white/[0.045] p-1">
+          <div className="flex min-h-11 items-center rounded-lg border border-white/[0.1] bg-white/[0.045] p-1 sm:min-h-12">
             {([
               ["cards", List, "Cards"],
               ["map", MapIcon, "Map"]
@@ -443,6 +473,7 @@ export function DirectoryGrid({
                 key={item}
                 type="button"
                 onClick={() => {
+                  void loadFullIndex();
                   setView(item);
                   setDisplayLimit(initialPageSize);
                 }}
@@ -461,7 +492,7 @@ export function DirectoryGrid({
         </div>
       </div>
 
-      <div className="mb-8">
+      <div className="mb-4 sm:mb-8">
         <div className="mb-3 flex items-center justify-between gap-4">
           <div className="inline-flex min-w-0 items-center gap-2 text-sm text-zinc-400">
             <ActiveIcon size={16} aria-hidden="true" />
@@ -477,7 +508,7 @@ export function DirectoryGrid({
           </p>
         </div>
 
-        <div className="directory-scrollbar flex gap-2 overflow-x-auto pb-2">
+        <div className="directory-scrollbar flex gap-1.5 overflow-x-auto pb-2 sm:gap-2">
           {categories.map((item) => {
             const Icon = categoryIcons[item.id] ?? Grid3X3;
             const selected = category === item.id;
@@ -487,11 +518,12 @@ export function DirectoryGrid({
                 key={item.id}
                 type="button"
                 onClick={() => {
+                  void loadFullIndex();
                   setCategory(item.id);
                   setDisplayLimit(initialPageSize);
                 }}
                 aria-pressed={selected}
-                className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg border px-3 py-2 text-sm transition ${
+                className={`inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs transition sm:min-h-11 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm ${
                   selected
                     ? "border-white bg-white !text-[#050506]"
                     : "border-white/[0.1] bg-white/[0.035] text-zinc-400 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
@@ -516,7 +548,7 @@ export function DirectoryGrid({
 
       {visible.length > 0 && view === "cards" ? (
         <>
-          <div className="directory-bento grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="directory-bento grid grid-cols-1 gap-2 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
             {visibleCards.map((listing) => (
               <ListingCard
                 key={listing.id}
@@ -526,11 +558,13 @@ export function DirectoryGrid({
             ))}
           </div>
           {canShowMoreCards ? (
-            <div className="mt-8 flex justify-center">
+            <div className="mt-5 flex justify-center sm:mt-8">
               <button
                 type="button"
                 onClick={() =>
-                  setDisplayLimit((current) => current + initialPageSize)
+                  void loadFullIndex().then(() => {
+                    setDisplayLimit((current) => current + initialPageSize);
+                  })
                 }
                 className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.12] hover:text-white"
               >

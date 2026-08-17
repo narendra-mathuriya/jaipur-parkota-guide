@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
@@ -81,6 +80,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
   const structuredData = buildPlaceStructuredData(listing);
   const relatedListings = getRelatedListings(listing, listings);
   const absoluteUrl = `${siteUrl}${listing.href}`;
+  const imageBase = responsiveListingBase(listing.image);
 
   return (
     <>
@@ -98,40 +98,49 @@ export default async function PlacePage({ params }: PlacePageProps) {
           >
             <Link
               href="/"
+              prefetch={false}
               className="transition hover:text-white"
             >
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <Link
+            <a
               href={`/#${listing.slug}`}
               className="transition hover:text-white"
             >
               Directory
-            </Link>
+            </a>
             <span aria-hidden="true">/</span>
             <span className="text-zinc-300">{listing.n_en}</span>
           </nav>
 
-          <Link
+          <a
             href={`/#${listing.slug}`}
             className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-zinc-300 transition hover:bg-white/[0.12] hover:text-white"
           >
             <ArrowLeft size={16} aria-hidden="true" />
             Back to directory
-          </Link>
+          </a>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <section className="glass-panel-strong overflow-hidden rounded-lg">
               <div className="relative aspect-[4/5] min-h-[24rem] lg:sticky lg:top-28">
-                <Image
-                  src={listing.image}
-                  alt={listing.imageAlt}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                  className="object-cover opacity-80"
-                />
+                <picture>
+                  <source
+                    srcSet={`${imageBase}-480.avif 480w, ${imageBase}-portrait.avif 720w`}
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                  />
+                  <img
+                    src={`${imageBase}-portrait.avif`}
+                    alt={listing.imageAlt}
+                    width={720}
+                    height={900}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover opacity-80"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_0%,rgba(0,0,0,0.76)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   <p className="font-mono text-xs tracking-[0.28em] text-gold uppercase">
@@ -161,13 +170,13 @@ export default async function PlacePage({ params }: PlacePageProps) {
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {listing.cats.map((categoryId) => (
-                    <Link
+                    <a
                       key={categoryId}
                       href={`/?tag=${categoryId}#explore`}
                       className="rounded-lg border border-white/[0.1] bg-white/[0.04] px-3 py-2 text-sm text-zinc-300 transition hover:bg-white/[0.1] hover:text-white"
                     >
                       {categoryId}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </section>
@@ -215,13 +224,13 @@ export default async function PlacePage({ params }: PlacePageProps) {
                   Open Google Maps
                   <ArrowUpRight size={17} aria-hidden="true" />
                 </a>
-                <Link
+                <a
                   href={`/#${listing.slug}`}
                   className="inline-flex min-h-12 items-center justify-between rounded-lg border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/[0.12] hover:text-white"
                 >
                   Back to directory card
                   <ArrowUpRight size={17} aria-hidden="true" />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -240,16 +249,16 @@ export default async function PlacePage({ params }: PlacePageProps) {
                     Continue from here.
                   </h2>
                 </div>
-                <Link
+                <a
                   href={`/?tag=${listing.primaryCategory.id}#explore`}
                   className="hidden text-sm text-zinc-400 transition hover:text-white sm:block"
                 >
                   View tag
-                </Link>
+                </a>
               </div>
               <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                 {relatedListings.map((related) => (
-                  <Link
+                  <a
                     key={related.id}
                     href={related.href}
                     className="rounded-lg border border-white/[0.1] bg-white/[0.035] p-4 transition hover:border-white/20 hover:bg-white/[0.06]"
@@ -261,7 +270,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
                       <MapPin size={14} aria-hidden="true" />
                       {related.a_en}
                     </p>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </section>
@@ -274,6 +283,12 @@ export default async function PlacePage({ params }: PlacePageProps) {
 
 function cleanCategoryLabel(value: string) {
   return value.replace(/^[^\p{L}\p{N}]+/u, "").trim();
+}
+
+function responsiveListingBase(image: string) {
+  return image
+    .replace("/images/listings/", "/images/listings/responsive/")
+    .replace(/\.avif$/, "");
 }
 
 function getRelatedListings(

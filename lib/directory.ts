@@ -19,7 +19,7 @@ export type DirectoryListing = DirectorySpot & {
   primaryCategory: DirectoryCategory;
 };
 
-export const initialDirectoryLimit = 24;
+export const initialDirectoryLimit = 12;
 
 const layoutCycle: Array<DirectoryListing["layout"]> = [
   "tall",
