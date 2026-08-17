@@ -407,6 +407,7 @@ export function DirectoryGrid({
             </div>
             <button
               type="button"
+              aria-label="Clear filters"
               onClick={clearFilters}
               disabled={!hasFilters}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-white/[0.1] bg-white/[0.045] px-3 text-sm font-medium text-zinc-300 hover:border-white/20 hover:bg-white/[0.08] hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
