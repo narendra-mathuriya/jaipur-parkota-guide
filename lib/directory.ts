@@ -4,8 +4,11 @@ import {
   type DirectoryCategory,
   type DirectorySpot
 } from "@/src/data/directory";
-import { heroImage, socialImage } from "@/lib/seo";
-import { buildSpotSlug, buildSpotUrl } from "@/lib/slugs";
+import {
+  buildListingImagePath,
+  buildSpotSlug,
+  buildSpotUrl
+} from "@/lib/slugs";
 
 export type DirectoryListing = DirectorySpot & {
   slug: string;
@@ -37,7 +40,7 @@ export async function getDirectoryListings(): Promise<DirectoryListing[]> {
       ...spot,
       slug,
       href: buildSpotUrl(slug),
-      image: index % 3 === 0 ? heroImage : socialImage,
+      image: buildListingImagePath(slug),
       imageAlt: `${spot.n_en}, ${spot.a_en}, Jaipur`,
       layout: layoutCycle[index % layoutCycle.length],
       primaryCategory,

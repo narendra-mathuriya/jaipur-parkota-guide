@@ -19,3 +19,7 @@ export function buildSpotSlug(spot: DirectorySpot) {
 export function buildSpotUrl(slug: string) {
   return `/places/${slug}/`;
 }
+
+export function buildListingImagePath(slug: string) {
+  return `/images/listings/${slug}.avif`;
+}

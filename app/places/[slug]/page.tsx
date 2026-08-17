@@ -8,7 +8,7 @@ import {
   getDirectoryListings,
   type DirectoryListing
 } from "@/lib/directory";
-import { siteName, siteUrl, socialImage } from "@/lib/seo";
+import { siteName, siteUrl } from "@/lib/seo";
 
 type PlacePageProps = {
   params: Promise<{
@@ -36,6 +36,7 @@ export async function generateMetadata({
   const title = `${listing.n_en}, ${listing.a_en} | Jaipur Explorer`;
   const description = `${listing.n_en} in ${listing.a_en}, Jaipur: ${listing.i_en}. Notable references: ${listing.s_en}.`;
   const url = `${siteUrl}${listing.href}`;
+  const image = `${siteUrl}${listing.image}`;
 
   return {
     title,
@@ -51,9 +52,9 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: socialImage,
+          url: image,
           width: 1200,
-          height: 675,
+          height: 900,
           alt: listing.imageAlt
         }
       ]
@@ -62,7 +63,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [socialImage]
+      images: [image]
     }
   };
 }
@@ -205,7 +206,7 @@ function buildPlaceStructuredData(listing: DirectoryListing) {
         name: listing.n_en,
         alternateName: listing.n,
         description: listing.i_en,
-        image: `${siteUrl}${socialImage}`,
+        image: `${siteUrl}${listing.image}`,
         address: {
           "@type": "PostalAddress",
           streetAddress: listing.a_en,

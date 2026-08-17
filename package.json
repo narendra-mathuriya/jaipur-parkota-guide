@@ -2,10 +2,12 @@
   "name": "jaipur-parkota-guide",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "images:listings": "node scripts/generate-listing-images.mjs",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
@@ -24,6 +26,7 @@
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.3",
     "typescript": "latest"
   }

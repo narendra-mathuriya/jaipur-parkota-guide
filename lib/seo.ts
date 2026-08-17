@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { directorySpots, i18n, totalSpotCount } from "@/src/data/directory";
-import { buildSpotSlug, buildSpotUrl } from "@/lib/slugs";
+import {
+  buildListingImagePath,
+  buildSpotSlug,
+  buildSpotUrl
+} from "@/lib/slugs";
 
 export const siteUrl = "https://jaipur-explorer.netlify.app";
 export const siteName = "Jaipur Explorer";
@@ -148,6 +152,7 @@ export function buildStructuredData() {
         itemListElement: directorySpots.map((spot, index) => {
           const slug = buildSpotSlug(spot);
           const url = `${siteUrl}${buildSpotUrl(slug)}`;
+          const image = `${siteUrl}${buildListingImagePath(slug)}`;
 
           return {
             "@type": "ListItem",
@@ -160,6 +165,7 @@ export function buildStructuredData() {
               name: spot.n_en,
               alternateName: spot.n,
               description: spot.i_en,
+              image,
               address: {
                 "@type": "PostalAddress",
                 streetAddress: spot.a_en,
